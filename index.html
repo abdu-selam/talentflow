@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/main.css" />
     <script type="module" src="./scripts/main.js"></script>
     <title>Document</title>
   </head>
@@ -11,28 +11,88 @@
     <header class="header">
       <div class="header__wrapper">
         <figure class="header__figure">
-          <img src="./images/logo.jpg" alt="logo of joab bord" class="header__logo"  width="200"/>
+          <img
+            src="./images/logo.jpg"
+            alt="logo of joab bord"
+            class="header__logo"
+            width="200"
+          />
           <figcaption class="header__caption">Job Board</figcaption>
         </figure>
         <div class="menu">
-            <div class="menu-icon"></div>
-            <div class="menu-icon"></div>
-            <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
         </div>
         <nav class="header__nav">
-            <ul class="header__list">
-                <li class="header__item"><a href="/" class="header__link active">Home</a></li>
-                <li class="header__item"><a href="#" class="header__link">Find Jobs</a></li>
-                <li class="header__item"><a href="#" class="header__link">Post Job</a></li>
-                <li class="header__item"><a href="#" class="header__link">About</a></li>
-            </ul>
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="/" class="header__link active">Home</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">Find Jobs</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">Post Job</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">About</a>
+            </li>
+          </ul>
         </nav>
         <div class="header__auth">
-            <button class="header__btn signup">
-                <a href="#">Get Started</a>
-            </button>
+          <button class="header__btn signup">
+            <a href="#">Get Started</a>
+          </button>
         </div>
       </div>
     </header>
+    <main class="main">
+      <section class="hero">
+        <div class="hero__wrapper">
+          <div class="hero__back">
+            <img
+              class="active"
+              src="./images/hero-bg-1.webp"
+              width="200"
+              alt="Hero background image one"
+            />
+            <img
+              src="./images/hero-bg-2.jpeg"
+              width="200"
+              alt="Hero background image two"
+            />
+            <img
+              src="./images/hero-bg-3.jpg"
+              width="200"
+              alt="Hero background image three"
+            />
+            <img
+              src="./images/hero-bg-4.png"
+              width="200"
+              alt="Hero background image four"
+            />
+            <img
+              src="./images/hero-bg-5.avif"
+              width="200"
+              alt="Hero background image five"
+            />
+          </div>
+          <h1 class="hero__title">Lorem ipsum dolor sit.</h1>
+          <p class="hero__desc">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel fugiat
+            ex at. Vero, veniam autem?
+          </p>
+          <div class="hero__btns">
+            <button class="hero__btn">
+              <a href="#" class="hero__link">Post Job</a>
+            </button>
+            <button class="hero__btn">
+              <a href="#" class="hero__link">Get Hired</a>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
