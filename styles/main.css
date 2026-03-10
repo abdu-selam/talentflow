@@ -54,6 +54,8 @@ input:focus {
   --accent: #de3163;
   --cta-back: linear-gradient(to left, #de3163, #97001e);
   --back-linear: linear-gradient(to right, #fdfdff, #cdc5b9);
+  --back-linear-2: linear-gradient(to top, #fdfdff, #fff);
+  --back-linear-3: linear-gradient(to bottom, #fdfdff, #fff);
 }
 
 /* HEADER STYLES */
@@ -556,6 +558,102 @@ input:focus {
   .features__title,
   .features__title-2,
   .features__desc {
+    text-align: start;
+  }
+}
+
+/* CATEGIRY STYLES */
+.categories {
+  padding: 0.8rem;
+  background: var(--back-linear-3);
+}
+
+.categories__wrapper {
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+.categories__title {
+  font-size: clamp(2rem, 8vw, 3rem);
+  padding-block: 0.8rem;
+}
+
+.categories__desc {
+  padding-bottom: 1.5rem;
+  opacity: 0.8;
+  max-width: 30rem;
+}
+
+.categories__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  padding-bottom: 0.5rem;
+  gap: 0.8rem;
+}
+
+@media (min-width: 36rem) {
+  .categories__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.categories__list::-webkit-scrollbar {
+  display: none;
+}
+
+.categories__item {
+  width: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  align-items: center;
+}
+
+.categories__icon {
+  box-shadow: 0 0 0.2rem color-mix(in srgb, var(--primary) 40%, rgba(0, 0, 0, 0) 60%);
+  width: 100%;
+  aspect-ratio: 1/1;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  font-size: 2.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.categories__name {
+  text-align: center;
+  font-weight: 600;
+  color: #000;
+}
+
+
+@media (min-width: 57rem) {
+  .categories__list {
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    overflow-x: auto;
+  }
+
+  .categories__item {
+    box-shadow: 0 0 0.2rem color-mix(in srgb, var(--primary) 40%, rgba(0, 0, 0, 0) 60%);
+    padding: 0.8rem;
+    width: 100%;
+    min-width: 8rem;
+    border-radius: 0.4rem;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .categories__icon {
+    box-shadow: none;
+    width: max-content;
+    padding: 0;
+    font-size: 1.8rem;
+  }
+
+  .categories__name {
     text-align: start;
   }
 }
