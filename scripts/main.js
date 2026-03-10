@@ -18,6 +18,11 @@ window.addEventListener("click", (e) => {
   }
 });
 
+window.addEventListener("scroll", () => {
+  menu.classList.remove("active");
+  navBar.classList.remove("active");
+});
+
 let curr = 0;
 
 setInterval(() => {
