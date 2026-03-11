@@ -5,6 +5,13 @@ const navItems = navBar.querySelectorAll("ul, li,a");
 
 const heroImages = document.querySelectorAll(".hero__back img");
 
+const faqs_item = document.querySelectorAll(".faqs__item");
+const faqs_close = document.querySelectorAll(".faqs__icon");
+
+const containers = document.querySelectorAll(".faqs__container");
+const faqsBtns = document.querySelectorAll(".faqs__btn");
+const faqsBtnsWrapper = document.querySelector(".faqs__btns");
+
 menu.addEventListener("click", (e) => {
   menu.classList.toggle("active");
   navBar.classList.toggle("active");
@@ -40,3 +47,18 @@ setInterval(() => {
     curr++;
   }
 }, 3000);
+
+faqs_close.forEach((faq, i) => {
+  faq.addEventListener("click", (e) => {
+    faqs_item[i].classList.toggle("open");
+  });
+});
+
+faqsBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (btn.classList.contains("active")) return;
+    faqsBtns.forEach((b) => b.classList.toggle("active"));
+    faqsBtnsWrapper.classList.toggle("active");
+    containers.forEach((contain) => contain.classList.toggle("active"));
+  });
+});
