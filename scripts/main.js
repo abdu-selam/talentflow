@@ -1,15 +1,15 @@
 window.addEventListener("load", () => {
-  const loading = document.querySelector('.loading')
-  loading.classList.add('close')
+  const loading = document.querySelector(".loading");
 
+  loading.classList.add("close");
   setTimeout(() => {
-    loading.style.display = 'none'
-    init()
+    loading.style.display = "none";
+    init();
   }, 500);
 });
 
 const init = () => {
-  document.getElementById('app').style.display = 'block'
+  document.getElementById("app").style.display = "block";
 
   const navBar = document.querySelector(".header__nav");
   const menu = document.querySelector(".menu");
@@ -17,16 +17,14 @@ const init = () => {
   const navItems = navBar.querySelectorAll("ul, li,a");
 
   const heroImages = document.querySelectorAll(".hero__back img");
-
+  
   const faqs_item = document.querySelectorAll(".faqs__item");
   const faqs_close = document.querySelectorAll(".faqs__icon");
-
   const containers = document.querySelectorAll(".faqs__container");
   const faqsBtns = document.querySelectorAll(".faqs__btn");
   const faqsBtnsWrapper = document.querySelector(".faqs__btns");
 
-  document.querySelector(".footer__year").textContent =
-    new Date().getFullYear();
+  document.querySelector(".footer__year").textContent = new Date().getFullYear();
 
   menu.addEventListener("click", (e) => {
     menu.classList.toggle("active");
@@ -47,7 +45,6 @@ const init = () => {
   });
 
   let curr = 0;
-
   setInterval(() => {
     heroImages.forEach((img, i) => {
       if (i == curr) {
@@ -56,7 +53,6 @@ const init = () => {
         img.classList.remove("active");
       }
     });
-
     if (curr == 4) {
       curr = 0;
     } else {
@@ -69,7 +65,7 @@ const init = () => {
       faqs_item[i].classList.toggle("open");
     });
   });
-
+  
   faqsBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       if (btn.classList.contains("active")) return;
