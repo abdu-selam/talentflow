@@ -12,6 +12,8 @@ const containers = document.querySelectorAll(".faqs__container");
 const faqsBtns = document.querySelectorAll(".faqs__btn");
 const faqsBtnsWrapper = document.querySelector(".faqs__btns");
 
+document.querySelector(".footer__year").textContent = new Date().getFullYear();
+
 menu.addEventListener("click", (e) => {
   menu.classList.toggle("active");
   navBar.classList.toggle("active");

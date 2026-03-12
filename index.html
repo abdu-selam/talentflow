@@ -4,839 +4,944 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
     <script type="module" src="./scripts/all.min.js"></script>
     <script type="module" src="./scripts/main.js"></script>
-    <title>Document</title>
+    <title>TalentFlow | Talents Garden</title>
   </head>
   <body>
-    <header class="header">
-      <div class="header__wrapper">
-        <figure class="header__figure">
-          <img
-            src="./images/logo.webp"
-            alt="logo of joab bord"
-            class="header__logo"
-            width="200"
-          />
-          <figcaption class="header__caption">Job Board</figcaption>
-        </figure>
-        <div class="menu">
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
-        </div>
-        <nav class="header__nav">
-          <ul class="header__list">
-            <li class="header__item">
-              <a href="/" class="header__link active">Home</a>
-            </li>
-            <li class="header__item">
-              <a href="#" class="header__link">Find Jobs</a>
-            </li>
-            <li class="header__item">
-              <a href="#" class="header__link">Post Job</a>
-            </li>
-            <li class="header__item">
-              <a href="#" class="header__link">About</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="header__auth">
-          <button class="header__btn signup">
-            <a href="#">Get Started</a>
-          </button>
-        </div>
-      </div>
-    </header>
-    <main class="main">
-      <section class="hero">
-        <div class="hero__wrapper">
-          <div class="hero__back">
+    <div id="app">
+      <header class="header">
+        <div class="header__wrapper">
+          <figure class="header__figure">
             <img
-              class="active"
-              src="./images/hero-bg-1.webp"
+              src="./images/logo.webp"
+              alt="logo of joab bord"
+              class="header__logo"
               width="200"
-              alt="Hero background image one"
             />
-            <img
-              src="./images/hero-bg-2.webp"
-              width="200"
-              alt="Hero background image two"
-            />
-            <img
-              src="./images/hero-bg-3.webp"
-              width="200"
-              alt="Hero background image three"
-            />
-            <img
-              src="./images/hero-bg-4.webp"
-              width="200"
-              alt="Hero background image four"
-            />
-            <img
-              src="./images/hero-bg-5.webp"
-              width="200"
-              alt="Hero background image five"
-            />
+            <figcaption class="header__caption">TalentFlow</figcaption>
+          </figure>
+          <div class="menu">
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
           </div>
-          <h1 class="hero__title">Lorem ipsum dolor sit.</h1>
-          <p class="hero__desc">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel fugiat
-            ex at. Vero, veniam autem?
-          </p>
-          <div class="hero__btns">
-            <button class="hero__btn">
-              <a href="#" class="hero__link">Hire Worker</a>
-            </button>
-            <button class="hero__btn freelancer">
-              <a href="#" class="hero__link">Get Hired</a>
+          <nav class="header__nav">
+            <ul class="header__list">
+              <li class="header__item">
+                <a href="/" class="header__link active">Home</a>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link">Find Jobs</a>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link">Post Job</a>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link">About</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__auth">
+            <button class="header__btn signup">
+              <a href="#">Get Started</a>
             </button>
           </div>
         </div>
-      </section>
-      <article class="features">
-        <h2 class="features__title">Lorem, ipsum dolor.</h2>
-        <h3 class="features__title-2">Lorem, ipsum dolor.</h3>
-        <div class="features__wrapper">
-          <section class="features__sec">
-            <p class="features__desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem,
-              illum nostrum. Numquam necessitatibus beatae qui.
+      </header>
+      <main class="main">
+        <section class="hero">
+          <div class="hero__wrapper">
+            <div class="hero__back">
+              <img
+                class="active"
+                src="./images/hero-bg-1.webp"
+                width="200"
+                alt="Hero background image one"
+              />
+              <img
+                src="./images/hero-bg-2.webp"
+                width="200"
+                alt="Hero background image two"
+              />
+              <img
+                src="./images/hero-bg-3.webp"
+                width="200"
+                alt="Hero background image three"
+              />
+              <img
+                src="./images/hero-bg-4.webp"
+                width="200"
+                alt="Hero background image four"
+              />
+              <img
+                src="./images/hero-bg-5.webp"
+                width="200"
+                alt="Hero background image five"
+              />
+            </div>
+            <h1 class="hero__title">Talent Meets Opportunity</h1>
+            <p class="hero__desc">
+              Discover the right jobs and connect with companies that value your
+              skills. TalentFlow makes it simple to find opportunities.
             </p>
-            <ul class="features__list">
-              <li class="features__item">
-                <span class="feature__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <div class="features__div">
-                  <h4 class="feature__title">Lorem, ipsum.</h4>
-                  <p class="feature__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                    porro dolores omnis?
-                  </p>
-                </div>
-              </li>
-              <li class="features__item">
-                <span class="feature__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <div class="features__div">
-                  <h4 class="feature__title">Lorem, ipsum.</h4>
-                  <p class="feature__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                    porro dolores omnis?
-                  </p>
-                </div>
-              </li>
-              <li class="features__item">
-                <span class="feature__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <div class="features__div">
-                  <h4 class="feature__title">Lorem, ipsum.</h4>
-                  <p class="feature__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                    porro dolores omnis?
-                  </p>
-                </div>
-              </li>
-              <li class="features__item">
-                <span class="feature__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <div class="features__div">
-                  <h4 class="feature__title">Lorem, ipsum.</h4>
-                  <p class="feature__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                    porro dolores omnis?
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
-          <section class="statistics">
-            <ul class="statistics__list">
-              <li class="statistics__item">
-                <span class="statistics__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <p class="statistics__num">15000</p>
-                <h4 class="statistics__name">Lorem, ipsum.</h4>
-              </li>
-              <li class="statistics__item">
-                <span class="statistics__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <p class="statistics__num">15000</p>
-                <h4 class="statistics__name">Lorem, ipsum.</h4>
-              </li>
-              <li class="statistics__item">
-                <span class="statistics__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <p class="statistics__num">15000</p>
-                <h4 class="statistics__name">Lorem, ipsum.</h4>
-              </li>
-              <li class="statistics__item">
-                <span class="statistics__icon">
-                  <i class="fa-solid fa-medal"></i>
-                </span>
-                <p class="statistics__num">15000</p>
-                <h4 class="statistics__name">Lorem, ipsum.</h4>
-              </li>
-            </ul>
-            <div class="statistics__cta">
-              <figure class="statistics__fig">
-                <img
-                  src="./images/logo.webp"
-                  alt="logo of the website in the statistics section"
-                  width="200"
-                  class="statistics__img"
-                />
-                <figcaption class="statistics__caption">Job Board</figcaption>
-              </figure>
-              <p class="statistics__ctap">Lorem ipsum dolor sit amet.</p>
-              <button class="statistics__ctab">
-                <a href="#" class="statistics__link"> Start Your Journey </a>
+            <div class="hero__btns">
+              <button class="hero__btn">
+                <a href="#" class="hero__link">Hire Worker</a>
+              </button>
+              <button class="hero__btn freelancer">
+                <a href="#" class="hero__link">Get Hired</a>
               </button>
             </div>
-          </section>
-        </div>
-      </article>
-      <section class="categories">
-        <div class="categories__wrapper">
-          <h2 class="categories__title">Lorem ipsum dolor sit.</h2>
-          <p class="categories__desc">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt
-            repellendus voluptatibus et.
-          </p>
-          <ul class="categories__list">
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-            <li class="categories__item">
-              <span class="categories__icon">
-                <i class="fa-solid fa-medal"></i>
-              </span>
-              <p class="categories__name">Lorem, ipsum dolor.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="how">
-        <div class="how__wrapper">
-          <h2 class="how__title">How It Works</h2>
-          <p class="how__desc">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque aut
-            dolores voluptatem alias magnam fugiat.
-          </p>
-          <section class="how__lists">
-            <section id="how-freelance" class="how__single">
-              <h3 class="how__section__title">Lorem, ipsum dolor.</h3>
-              <ul class="how__list">
-                <li class="how__item" style="--i: &quot;1&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-                <li class="how__item" style="--i: &quot;2&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-                <li class="how__item" style="--i: &quot;3&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-                <li class="how__item" style="--i: &quot;4&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <button class="how__cta">
-                <a href="#">Get Started</a>
-              </button>
-            </section>
-            <section id="how-employee" class="how__single">
-              <h3 class="how__section__title">Lorem, ipsum dolor.</h3>
-              <ul class="how__list">
-                <li class="how__item" style="--i: &quot;1&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-                <li class="how__item" style="--i: &quot;2&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-                <li class="how__item" style="--i: &quot;3&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-                <li class="how__item" style="--i: &quot;4&quot;">
-                  <span class="how__icon">
-                    <i class="fa-solid fa-medal"></i>
-                  </span>
-                  <div class="how__div">
-                    <h4 class="how__name">Lorem, ipsum dolor.</h4>
-                    <p class="how__one">
-                      Lorem ipsum dolor sit amet consectetur
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <button class="how__cta">
-                <a href="#">Get Started</a>
-              </button>
-            </section>
-          </section>
-        </div>
-      </section>
-      <section class="testimonials">
-        <div class="testimonials__wrapper">
-          <h2 class="testimonials__title">Lorem, ipsum dolor.</h2>
-          <ul class="testimonials__list">
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-            <li class="testimonials__item">
-              <figure class="testimonial__fig">
-                <img
-                  src="./images/logo.webp"
-                  width="100"
-                  alt="testimonial alt "
-                  class="testimonial__img"
-                />
-                <figcaption class="testimonial__caption">
-                  Lorem, ipsum.
-                </figcaption>
-              </figure>
-              <div class="testimonial__stars">
-                <div style="--i: 90%" class="stars__wrapper back">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="stars__wrapper">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-              <p class="testimonial__text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                vitae similique, molestiae iusto magnam deserunt.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="faqs">
-        <div class="faqs__wrapper">
-          <h2 class="faqs__title">Lorem, ipsum dolor.</h2>
-          <p class="faqs__desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-            esse amet rem voluptate, error ab?
-          </p>
-          <div class="faqs__btns active">
-            <button class="faqs__btn active">For Freelancers</button>
-            <button class="faqs__btn">For Employers</button>
           </div>
-          <section class="faqs__container active">
-            <ul class="faqs__list">
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet hhhskjejrhfk.
+        </section>
+        <article class="features">
+          <h2 class="features__title">Powerful Hiring Tools</h2>
+          <h3 class="features__title-2">Smarter Career Connections</h3>
+          <div class="features__wrapper">
+            <section class="features__sec">
+              <p class="features__desc">
+                TalentFlow provides modern tools that help professionals
+                discover new opportunities while enabling companies to find and
+                hire the right talent faster.
+              </p>
+              <ul class="features__list">
+                <li class="features__item">
+                  <span class="feature__icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                   </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
+                  <div class="features__div">
+                    <h4 class="feature__title">Smart Job Search</h4>
+                    <p class="feature__desc">
+                      Our advanced search tools help you filter opportunities by
+                      role, location, and experience level.
+                    </p>
+                  </div>
+                </li>
+                <li class="features__item">
+                  <span class="feature__icon">
+                    <i class="fa-solid fa-paper-plane"></i>
                   </span>
+                  <div class="features__div">
+                    <h4 class="feature__title">Easy Applications</h4>
+                    <p class="feature__desc">
+                      TalentFlow makes the application process simple and fast
+                      so you can focus on landing your next opportunity.
+                    </p>
+                  </div>
+                </li>
+                <li class="features__item">
+                  <span class="feature__icon">
+                    <i class="fa-solid fa-building"></i>
+                  </span>
+                  <div class="features__div">
+                    <h4 class="feature__title">Company Profiles</h4>
+                    <p class="feature__desc">
+                      Explore detailed company profiles to learn about
+                      workplaces, culture, and open positions before applying.
+                    </p>
+                  </div>
+                </li>
+                <li class="features__item">
+                  <span class="feature__icon">
+                    <i class="fa-solid fa-bolt"></i>
+                  </span>
+                  <div class="features__div">
+                    <h4 class="feature__title">Fast Job Posting</h4>
+                    <p class="feature__desc">
+                      Employers can create and publish job listings quickly,
+                      reaching qualified candidates and streamlining the hiring
+                      process.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <section class="statistics">
+              <ul class="statistics__list">
+                <li class="statistics__item">
+                  <span class="statistics__icon">
+                    <i class="fa-solid fa-users"></i>
+                  </span>
+                  <p class="statistics__num">2000+</p>
+                  <h4 class="statistics__name">Active Clients</h4>
+                </li>
+                <li class="statistics__item">
+                  <span class="statistics__icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                  </span>
+                  <p class="statistics__num">5000+</p>
+                  <h4 class="statistics__name">Skilled Freelancers</h4>
+                </li>
+                <li class="statistics__item">
+                  <span class="statistics__icon">
+                    <i class="fa-solid fa-building"></i>
+                  </span>
+                  <p class="statistics__num">800+</p>
+                  <h4 class="statistics__name">Partner Companies</h4>
+                </li>
+                <li class="statistics__item">
+                  <span class="statistics__icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                  </span>
+                  <p class="statistics__num">10000+</p>
+                  <h4 class="statistics__name">Jobs Posted</h4>
+                </li>
+              </ul>
+              <div class="statistics__cta">
+                <figure class="statistics__fig">
+                  <img
+                    src="./images/logo.webp"
+                    alt="logo of the website in the statistics section"
+                    width="200"
+                    class="statistics__img"
+                  />
+                  <figcaption class="statistics__caption">
+                    TalentFlow
+                  </figcaption>
+                </figure>
+                <p class="statistics__ctap">Find Your Next Opportunity Today</p>
+                <button class="statistics__ctab">
+                  <a href="#" class="statistics__link"> Start Your Journey </a>
+                </button>
+              </div>
+            </section>
+          </div>
+        </article>
+        <section class="categories">
+          <div class="categories__wrapper">
+            <h2 class="categories__title">Explore By Category</h2>
+            <p class="categories__desc">
+              Browse jobs across different industries and find opportunities
+              that match your skills.
+            </p>
+            <ul class="categories__list">
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-laptop-code"></i>
+                </span>
+                <p class="categories__name">Technology</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-bullhorn"></i>
+                </span>
+                <p class="categories__name">Marketing</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-palette"></i>
+                </span>
+                <p class="categories__name">Design</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </span>
+                <p class="categories__name">Finance</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-stethoscope"></i>
+                </span>
+                <p class="categories__name">Healthcare</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </span>
+                <p class="categories__name">Education</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-headset"></i>
+                </span>
+                <p class="categories__name">Customer Support</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-gears"></i>
+                </span>
+                <p class="categories__name">Engineering</p>
+              </li>
+              <li class="categories__item">
+                <span class="categories__icon">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </span>
+                <p class="categories__name">Sales</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="how">
+          <div class="how__wrapper">
+            <h2 class="how__title">How It Works</h2>
+            <p class="how__desc">
+              TalentFlow connects job seekers and employers quickly. Explore
+              jobs, apply easily, and find the right opportunities or candidates
+              in just a few steps.
+            </p>
+            <section class="how__lists">
+              <section id="how-freelance" class="how__single">
+                <h3 class="how__section__title">
+                  For Freelancers / Job Seekers
                 </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
+                <ul class="how__list">
+                  <li class="how__item" style="--i: &quot;1&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-user"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Create Profile</h4>
+                      <p class="how__one">
+                        Build your profile with skills and experience.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="how__item" style="--i: &quot;2&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-search"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Find Jobs</h4>
+                      <p class="how__one">
+                        Search for opportunities that match your skills.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="how__item" style="--i: &quot;3&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-paper-plane"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Apply Easily</h4>
+                      <p class="how__one">
+                        Submit applications in just a few clicks.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="how__item" style="--i: &quot;4&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-star"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Get Hired</h4>
+                      <p class="how__one">Land the job and grow your career.</p>
+                    </div>
+                  </li>
+                </ul>
+                <button class="how__cta">
+                  <a href="#">Get Hired</a>
+                </button>
+              </section>
+              <section id="how-employee" class="how__single">
+                <h3 class="how__section__title">For Clients / Employers</h3>
+                <ul class="how__list">
+                  <li class="how__item" style="--i: &quot;1&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-building"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Create Company Profile</h4>
+                      <p class="how__one">
+                        Set up your company and showcase your brand.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="how__item" style="--i: &quot;2&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-briefcase"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Post Jobs</h4>
+                      <p class="how__one">
+                        Publish job openings quickly and easily.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="how__item" style="--i: &quot;3&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Review Applicants</h4>
+                      <p class="how__one">
+                        Browse candidate profiles and shortlist talent.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="how__item" style="--i: &quot;4&quot;">
+                    <span class="how__icon">
+                      <i class="fa-solid fa-handshake"></i>
+                    </span>
+                    <div class="how__div">
+                      <h4 class="how__name">Hire Talent</h4>
+                      <p class="how__one">
+                        Connect and hire the best candidates fast.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+                <button class="how__cta">
+                  <a href="#">Start Posting</a>
+                </button>
+              </section>
+            </section>
+          </div>
+        </section>
+        <section class="testimonials">
+          <div class="testimonials__wrapper">
+            <h2 class="testimonials__title">What People Say</h2>
+            <ul class="testimonials__list">
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Abebe Kebede
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 90%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    TalentFlow helped me land my dream job in just two weeks.
+                    The platform is fast and easy to use!
+                  </q>
                 </p>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Temam Siraj
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 80%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    As an employer, posting jobs and finding qualified
+                    candidates has never been simpler. TalentFlow saves us so
+                    much time.
+                  </q>
                 </p>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Hikma Alewi
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 70%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    I found amazing freelance opportunities that match my skills
+                    perfectly. Highly recommend TalentFlow!
+                  </q>
                 </p>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Dereje Grma
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 55%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    The application process is seamless, and I love how easy it
+                    is to track my progress on TalentFlow.
+                  </q>
                 </p>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Tigist Gebeyew
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 60%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    TalentFlow is my go-to platform for hiring. The quality of
+                    candidates is excellent.
+                  </q>
+                </p>
+              </li>
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Abbass Khan
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 65%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    I was able to connect with top companies quickly. TalentFlow
+                    really makes job searching stress-free.
+                  </q>
+                </p>
+              </li>
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Sofia Yimer
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 75%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    Posting jobs takes minutes, and the platform helps me reach
+                    the right talent every time.
+                  </q>
+                </p>
+              </li>
+              <li class="testimonials__item">
+                <figure class="testimonial__fig">
+                  <img
+                    src="./images/logo.webp"
+                    width="100"
+                    alt="testimonial alt "
+                    class="testimonial__img"
+                  />
+                  <figcaption class="testimonial__caption">
+                    Iyad Ayub
+                  </figcaption>
+                </figure>
+                <div class="testimonial__stars">
+                  <div style="--i: 80%" class="stars__wrapper back">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="stars__wrapper">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p class="testimonial__text">
+                  <q>
+                    I love TalentFlow’s user-friendly interface and how it
+                    brings opportunities straight to me.
+                  </q>
                 </p>
               </li>
             </ul>
+          </div>
+        </section>
+        <section class="faqs">
+          <div class="faqs__wrapper">
+            <h2 class="faqs__title">FAQs.</h2>
+            <p class="faqs__desc">
+              Find answers to the most common questions about TalentFlow.
+              Whether you’re a job seeker or an employer, we make it easy to
+              understand how our platform works.
+            </p>
+            <div class="faqs__btns active">
+              <button class="faqs__btn active">For Freelancers</button>
+              <button class="faqs__btn">For Employers</button>
+            </div>
+            <section class="faqs__container active">
+              <ul class="faqs__list">
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text"> How do I create a profile? </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Sign up and fill in your skills, experience, and portfolio
+                    to complete your profile.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      Can I apply to multiple jobs?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Yes! TalentFlow lets you apply to as many jobs as you
+                    qualify for.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      Is TalentFlow free for job seekers?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Yes, creating a profile and applying to jobs is completely
+                    free.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      How do I track my applications?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Go to your dashboard to see the status of all applications
+                    in one place.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      Can I update my profile later?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Absolutely! You can edit your skills, experience, and
+                    portfolio anytime.
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <section class="faqs__container">
+              <ul class="faqs__list">
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text"> How do I post a job? </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Sign up as an employer, create a company profile, and fill
+                    out the job posting form.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      Can I edit a job after posting?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Yes, you can update job details, requirements, or deadlines
+                    anytime from your dashboard.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      How do I find suitable candidates?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Use TalentFlow’s search and filtering tools to browse
+                    candidate profiles efficiently.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      Is there a limit on job postings?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    No, you can post as many jobs as needed to find the right
+                    talent.
+                  </p>
+                </li>
+                <li class="faqs__item">
+                  <h3 class="faqs__ques">
+                    <span class="faqs__text">
+                      Can I communicate with candidates directly?
+                    </span>
+                    <span class="faqs__icon">
+                      <i class="fa-solid fa-plus"></i>
+                    </span>
+                  </h3>
+                  <p class="faqs__ans">
+                    Yes, you can message applicants through TalentFlow to
+                    schedule interviews or ask questions.
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </section>
+        <section class="cta">
+          <h2 class="cta__title">Start Your Journey Today</h2>
+          <p class="cta__desc">
+            Whether you’re looking for your next career opportunity or searching
+            for top talent, TalentFlow makes it simple, fast, and effective.
+          </p>
+          <div class="cta__btns">
+            <button class="cta__section__btn">
+              <a href="#">Join Us For Free</a>
+            </button>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__wrapper">
+          <section class="footer__workers">
+            <h2 class="worker__title">For Workers</h2>
+            <ul class="worker__list">
+              <li class="worker__item">
+                <a href="#">Brows Jobs</a>
+              </li>
+              <li class="worker__item">
+                <a href="#">Build Profile</a>
+              </li>
+              <li class="worker__item">
+                <a href="#">create account</a>
+              </li>
+            </ul>
           </section>
-          <section class="faqs__container">
-            <ul class="faqs__list">
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
-                </p>
+          <section class="footer__workers">
+            <h2 class="worker__title">For Employers</h2>
+            <ul class="worker__list">
+              <li class="worker__item">
+                <a href="#">Post jobs</a>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
-                </p>
+              <li class="worker__item">
+                <a href="#">Check Workers</a>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
-                </p>
+              <li class="worker__item">
+                <a href="#">Get Started</a>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
-                </p>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <h2 class="worker__title">Our company</h2>
+            <ul class="worker__list">
+              <li class="worker__item">
+                <a href="#">About Us</a>
               </li>
-              <li class="faqs__item">
-                <h3 class="faqs__ques">
-                  <span class="faqs__text">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </span>
-                  <span class="faqs__icon">
-                    <i class="fa-solid fa-plus"></i>
-                  </span>
-                </h3>
-                <p class="faqs__ans">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorum, ab. Provident facere maiores facilis. Dolorem maxime
-                  sapiente ab.
-                </p>
+              <li class="worker__item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="worker__item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <ul class="worker__list">
+              <li class="worker__item">
+                <a href="#">Contact Us</a>
+              </li>
+              <li class="worker__item">
+                <a href="#">example@gmail.com</a>
+              </li>
+              <li class="worker__item">
+                <a href="#">Tel: 0900000000</a>
+              </li>
+              <li class="worker__item">
+                <a href="#">join us</a>
               </li>
             </ul>
           </section>
         </div>
-      </section>
-      <section class="cta">
-        <h2 class="cta__title">Lorem, ipsum dolor.</h2>
-        <p class="cta__desc">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
-          doloremque aperiam ab possimus qui officiis.
-        </p>
-        <div class="cta__btns">
-          <button class="cta__section__btn">
-            <a href="#">Join Us For Free</a>
-          </button>
-        </div>
-      </section>
-    </main>
+        <ul class="socials__list">
+          <li class="socials__item">
+            <a href="#">
+              <i class="fa-brands footer__icon fa-facebook"></i>
+            </a>
+          </li>
+          <li class="socials__item">
+            <a href="#">
+              <i class="fa-brands footer__icon fa-linkedin"></i>
+            </a>
+          </li>
+          <li class="socials__item">
+            <a href="#">
+              <i class="fa-brands footer__icon fa-telegram"></i>
+            </a>
+          </li>
+          <li class="socials__item">
+            <a href="#">
+              <i class="fa-brands footer__icon fa-tiktok"></i>
+            </a>
+          </li>
+        </ul>
+        <section class="footer__copy">
+          <h2 class="footer__name">TalentFlow</h2>
+          <p class="footer__copy__text">
+            &copy; <span class="footer__year">2026</span> TalentFlow. All rights
+            reserved. TalentFlow connects professionals with companies to create
+            better career opportunities.
+          </p>
+        </section>
+      </footer>
+    </div>
   </body>
 </html>
