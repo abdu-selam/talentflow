@@ -1,3 +1,4 @@
+/* CSS RESETS */
 * {
   margin: 0;
   padding: 0;
@@ -57,6 +58,7 @@ input:focus {
   --back-linear-3: linear-gradient(to bottom, #fdfdff, #fff);
 }
 
+/*  HEADER STYLES */
 .header {
   padding: 0.8rem;
   position: sticky;
@@ -205,6 +207,7 @@ input:focus {
   }
 }
 
+/* HERO SECTION STYLE */
 .hero {
   padding: 0.8rem;
   position: relative;
@@ -233,6 +236,7 @@ input:focus {
   opacity: 0.8;
 }
 
+/* STORY SECTION STYLES */
 .story {
   padding: 0.8rem;
 }
@@ -269,6 +273,7 @@ input:focus {
   }
 }
 
+/* MISSION AND VISSION STYLES */
 .mission {
   padding: 0.8rem;
 }
@@ -302,6 +307,7 @@ input:focus {
   border-radius: 0.8rem;
 }
 
+/* OFFER SECTION STYLES */
 .offers {
   padding: 3rem 0.8rem;
   position: relative;
@@ -396,6 +402,7 @@ input:focus {
   opacity: 0.6;
 }
 
+/* TEAM SECTION STYLES */
 .team {
   padding: 0.8rem;
 }
@@ -472,6 +479,7 @@ input:focus {
   font-size: 1.2rem;
 }
 
+/* CTA SECTION STYLES */
 .cta {
   padding: 2.5rem 0.8rem;
 }
@@ -514,6 +522,7 @@ input:focus {
   font-size: 1rem;
 }
 
+/* FOOTER SECTION STYLES */
 .footer {
   background: var(--primary);
   padding: 2rem 0.8rem;
