@@ -48,3 +48,20 @@ const emailReg = (email) => {
   return re.test(inEmail);
 };
 
+const passwordReg = (password) => {
+  const reUpper = /^(?=.*[A-Z])/;
+  const reLower = /^(?=.*[a-z])/;
+  const reNumber = /^(?=.*\d)/;
+  const reSpecial = /^(?=.*[\W_])/;
+  const reAmount = password.length >= 8;
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}/;
+  return {
+    upper: reUpper.test(password),
+    lower: reLower.test(password),
+    num: reNumber.test(password),
+    special: reSpecial.test(password),
+    amount: reAmount,
+    re: re.test(password),
+  };
+};
+
