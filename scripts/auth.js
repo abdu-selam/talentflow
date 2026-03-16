@@ -65,3 +65,94 @@ const passwordReg = (password) => {
   };
 };
 
+const inputValidator = () => {
+  const inputElements = document.querySelectorAll(".form__input");
+  const btn = document.querySelector(".form__btn");
+  const isValid = {
+    fname: false,
+    lname: false,
+    email: false,
+    password: false,
+  };
+
+  inputElements.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      const elem = e.target;
+      if (elem.matches(".name")) {
+        if (nameReg(elem.value)) {
+          elem.classList.add("success");
+          if (elem.matches('[name="fname"]')) isValid.fname = true;
+          else isValid.lname = true;
+        } else {
+          elem.classList.remove("success");
+          if (elem.matches('[name="fname"]')) isValid.fname = false;
+          else isValid.lname = false;
+        }
+      } else if (elem.matches(".email")) {
+        if (emailReg(elem.value)) {
+          elem.classList.add("success");
+          isValid.email = true;
+        } else {
+          elem.classList.remove("success");
+          isValid.email = false;
+        }
+      } else {
+        const validates = passwordReg(elem.value);
+        passwordValidator(validates);
+        if (validates.re) {
+          elem.classList.add("success");
+          isValid.password = true;
+        } else {
+          elem.classList.remove("success");
+          isValid.password = false;
+        }
+      }
+
+      const allvalid =
+        isValid.fname && isValid.lname && isValid.email && isValid.password;
+      if (allvalid) {
+        btn.removeAttribute("disabled");
+      } else {
+        btn.setAttribute("disabled", "");
+      }
+    });
+  });
+};
+
+const passwordValidator = (validates) => {
+  const validItems = document.querySelectorAll(".valid__item");
+  validItems.forEach((item) => {
+    if (item.matches(".upper")) {
+      if (validates.upper) {
+        item.classList.add("success");
+      } else {
+        item.classList.remove("success");
+      }
+    } else if (item.matches(".lower")) {
+      if (validates.lower) {
+        item.classList.add("success");
+      } else {
+        item.classList.remove("success");
+      }
+    } else if (item.matches(".num")) {
+      if (validates.num) {
+        item.classList.add("success");
+      } else {
+        item.classList.remove("success");
+      }
+    } else if (item.matches(".special")) {
+      if (validates.special) {
+        item.classList.add("success");
+      } else {
+        item.classList.remove("success");
+      }
+    } else if (item.matches(".amount")) {
+      if (validates.amount) {
+        item.classList.add("success");
+      } else {
+        item.classList.remove("success");
+      }
+    }
+  });
+};
+
