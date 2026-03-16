@@ -35,3 +35,16 @@ const backAnimation = () => {
   }, 3000);
 };
 
+
+const nameReg = (name) => {
+  const inName = name.trim();
+  const re = /^[A-Za-z]{3,}$/;
+  return re.test(inName);
+};
+
+const emailReg = (email) => {
+  const inEmail = email.trim();
+  const re = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+  return re.test(inEmail);
+};
+
