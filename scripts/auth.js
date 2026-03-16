@@ -12,12 +12,14 @@ const init = () => {
   document.querySelector("#app").classList.add("loaded");
 
   backAnimation();
+  inputValidator()
 };
 
 const backAnimation = () => {
   const flows = document.querySelectorAll(".flows");
 
   flows.forEach((flow) => {
+    // random position for the flow elements
     const randomX = Math.floor(Math.random() * window.innerWidth);
     const randomY = Math.floor(Math.random() * window.innerHeight);
 
@@ -25,6 +27,7 @@ const backAnimation = () => {
     flow.style.top = `${randomY}px`;
   });
   setInterval(() => {
+    // repeating the animation in every 3 seconds
     flows.forEach((flow) => {
       const randomX = Math.floor(Math.random() * window.innerWidth);
       const randomY = Math.floor(Math.random() * window.innerHeight);
@@ -37,22 +40,30 @@ const backAnimation = () => {
 
 
 const nameReg = (name) => {
+  // name should be only alphabet character and minimum 3 length
   const inName = name.trim();
   const re = /^[A-Za-z]{3,}$/;
   return re.test(inName);
 };
 
 const emailReg = (email) => {
+  // validating email in world standared
   const inEmail = email.trim();
   const re = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
   return re.test(inEmail);
 };
 
 const passwordReg = (password) => {
+  // validating password 
+  // atleast one upper case
   const reUpper = /^(?=.*[A-Z])/;
+  // atleast one lower case
   const reLower = /^(?=.*[a-z])/;
+  // atleast one number
   const reNumber = /^(?=.*\d)/;
+  // atleast one special character
   const reSpecial = /^(?=.*[\W_])/;
+  // atleast 8 length
   const reAmount = password.length >= 8;
   const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}/;
   return {
@@ -73,11 +84,12 @@ const inputValidator = () => {
     lname: false,
     email: false,
     password: false,
-  };
+  }; // object to to check if all inputs are valid or not
 
   inputElements.forEach((input) => {
     input.addEventListener("input", (e) => {
       const elem = e.target;
+      // handling each input if it is valid or not
       if (elem.matches(".name")) {
         if (nameReg(elem.value)) {
           elem.classList.add("success");
@@ -120,6 +132,7 @@ const inputValidator = () => {
 };
 
 const passwordValidator = (validates) => {
+  // checking all type of password conditions for the indicators below it
   const validItems = document.querySelectorAll(".valid__item");
   validItems.forEach((item) => {
     if (item.matches(".upper")) {
