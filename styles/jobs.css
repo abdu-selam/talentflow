@@ -234,3 +234,110 @@ input:focus {
     display: none;
   }
 }
+
+/* MAIN CONTENT STYLES */
+.main {
+    padding: 0.8rem;
+}
+
+.title {
+    max-width: 90rem;
+    padding-bottom: 2rem;
+}
+
+.main__wrapper {
+    max-width: 90rem;
+    display: flex;
+    gap: 0.8rem;
+}
+
+/* FILTER SECTION STYLES */
+.filters {
+    position: fixed;
+    background: var(--back);
+    width: min(70%, 18rem);
+    height: 100dvh;
+    z-index: 91;
+    left: -100%;
+    top: 0;
+    box-shadow: 0 0 0.5rem color-mix(in srgb, var(--primary) 30%, transparent 70%);
+    padding: 2rem 0.8rem 0.8rem;
+    overflow-y: auto;
+    transition: 0.5s;
+}
+
+@media (min-width: 40rem) {
+    .filters {
+        position: sticky;
+        padding: 0.8rem;
+        background: none;
+        min-width: 18rem;
+        top: 5rem;
+        height: calc(100dvh - 6.5rem);
+        border-radius: 0.8rem;
+    }
+}
+
+.filters.open {
+    left: 0;
+}
+
+.filter__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.8rem;
+}
+
+@media (min-width: 40rem) {
+    .filter-x-icon,
+    .filter-toggle {
+        display: none;
+    }
+}
+
+/* FILTER SELECT SYILES */
+.filter__select {
+    width: 100%;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent 70%);
+    border-radius: 0.5rem;
+    color: var(--primary);
+    transition: 0.5s;
+}
+
+.filter__select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* OTHER FILTERS */
+.filters__list {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filters__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.filter__list {
+    padding-left: 0.8rem;
+}
+
+.filter__check {
+    accent-color: var(--accent);
+}
+
+.filter__name {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.filter__check:checked + .filter__name {
+    color: var(--accent);
+}
