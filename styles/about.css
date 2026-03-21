@@ -32,6 +32,10 @@ li {
   color: var(--primary);
 }
 
+section {
+  scroll-margin-top: 3rem;
+}
+
 body {
   background: var(--back);
 }

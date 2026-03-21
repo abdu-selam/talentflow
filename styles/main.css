@@ -1157,7 +1157,6 @@ input:focus {
   margin-inline: auto;
   display: grid;
   place-content: center;
-  place-items: center;
   gap: 1rem;
 }
 

@@ -15,8 +15,73 @@
     <link rel="stylesheet" href="/styles/about.css" />
     <script type="module" src="/scripts/about.js"></script>
     <title>TalentFlow | About Us</title>
+    <style>
+      .loading {
+        width: 100vw;
+        height: 100dvh;
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        z-index: 2000;
+        background: #393d3f;
+        transition: 0.5s;
+      }
+      .loading.close {
+        opacity: 0;
+      }
+      .loader {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: inline-block;
+        border-top: 4px solid #de3163;
+        border-right: 4px solid transparent;
+        box-sizing: border-box;
+        position: relative;
+        animation: rotation 1s linear infinite;
+      }
+      .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: -4px;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border-bottom: 4px solid #fdfdff;
+        border-left: 4px solid transparent;
+      }
+      .loading__img {
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 2px solid #de3163;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: 990;
+      }
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="loading">
+      <div class="loader"></div>
+      <img
+        class="loading__img"
+        src="/images/loading.webp"
+        alt="page logo for loading animation"
+      />
+    </div>
     <div id="app">
       <header class="header">
         <div class="header__wrapper">
@@ -49,7 +114,9 @@
                 <a href="#mission" class="header__link">Vission</a>
               </li>
               <li class="header__item">
-                <a href="#team" class="header__link">Team</a>
+                <a href="#team" class="header__link">
+                  Team
+                </a>
               </li>
             </ul>
           </nav>
