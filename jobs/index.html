@@ -123,10 +123,10 @@
       <main class="main">
         <h1 class="title">Find Jobs</h1>
         <div class="main__wrapper">
-          <section class="filters open">
+          <section class="filters">
             <div class="filter__top">
-                <h2 class="filters__title">Filter Jobs</h2>
-                <i class="fas fa-x filter-x-icon"></i>
+              <h2 class="filters__title">Filter Jobs</h2>
+              <i class="fas fa-x filter-x-icon"></i>
             </div>
             <select name="" id="" class="filter__select">
               <option value="">Select Category</option>
@@ -287,35 +287,424 @@
           </section>
           <section class="jobs">
             <div class="jobs__search">
-                <div class="search__wrapper">
-                    <input type="search" name="search" id="search" />
-                    <i class="fas fa-search"></i>
-                </div>
-                <i class="fas fa-filter filter-toggle"></i>
+              <div class="search__wrapper">
+                <input
+                  type="text"
+                  placeholder="search jobs"
+                  name="search"
+                  id="search"
+                />
+                <i class="fas fa-search"></i>
+              </div>
+              <i class="fas fa-filter filter-toggle"></i>
             </div>
             <ul class="jobs__list">
               <li class="jobs__item">
                 <h2 class="job__title">Lorem, ipsum.</h2>
                 <ul class="job__dates">
-                  <li class="post__date">
+                  <li class="job__date">
                     <p class="date__name">Posted</p>
                     <p class="date__date">20-10-2016</p>
                   </li>
-                  <li class="post__date">
+                  <li class="job__date">
                     <p class="date__name">Deadline</p>
                     <p class="date__date">20-10-2016</p>
                   </li>
                 </ul>
                 <div class="job__item job__adress">
-                  <p class="adress__name item__name">Adress</p>
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
                   <p class="item__value adress__location">Adama</p>
                 </div>
                 <div class="job__item job__salary">
-                  <p class="salary__name item__name">Salary</p>
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
                   <p class="item__value salary__amount">40000</p>
                 </div>
                 <div class="job__item job__type">
-                  <p class="type__name item__name">Job type</p>
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
+                  <p class="item__value type__amount">Full time</p>
+                </div>
+                <div class="job__item job__description">
+                  <p class="desc__name item__name">Description</p>
+                  <p class="item__value desc__amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    cum facere magni fuga maxime, officiis aliquid
+                    necessitatibus doloremque quibusdam eum!
+                  </p>
+                </div>
+                <button class="jobs__detail">
+                  <a href="#" class="jobs__detail--link"> View Detail </a>
+                </button>
+              </li>
+              <li class="jobs__item">
+                <h2 class="job__title">Lorem, ipsum.</h2>
+                <ul class="job__dates">
+                  <li class="job__date">
+                    <p class="date__name">Posted</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                  <li class="job__date">
+                    <p class="date__name">Deadline</p>
+                    <p class="date__date">20-10-2016</p>
+                  </li>
+                </ul>
+                <div class="job__item job__adress">
+                  <p class="adress__name item__name">
+                    <i class="fas fa-location"></i> Adress
+                  </p>
+                  <p class="item__value adress__location">Adama</p>
+                </div>
+                <div class="job__item job__salary">
+                  <p class="salary__name item__name">
+                    <i class="fas fa-coins"></i> Salary
+                  </p>
+                  <p class="item__value salary__amount">40000</p>
+                </div>
+                <div class="job__item job__type">
+                  <p class="type__name item__name">
+                    <i class="fas fa-briefcase"></i> Job type
+                  </p>
                   <p class="item__value type__amount">Full time</p>
                 </div>
                 <div class="job__item job__description">
@@ -334,6 +723,68 @@
           </section>
         </div>
       </main>
+      <footer class="footer">
+        <div class="footer__wrapper">
+          <section class="footer__workers">
+            <h2 class="worker__title">For Workers</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="/jobs">Brows Jobs</a></li>
+              <li class="worker__item"><a href="#">Build Profile</a></li>
+              <li class="worker__item">
+                <a href="/auth/register/">create account</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <h2 class="worker__title">For Employers</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="#">Post jobs</a></li>
+              <li class="worker__item"><a href="#">Check Workers</a></li>
+              <li class="worker__item">
+                <a href="/auth/register/">Get Started</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <h2 class="worker__title">Our company</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="/about">About Us</a></li>
+              <li class="worker__item"><a href="#">Privacy Policy</a></li>
+              <li class="worker__item"><a href="#">Terms of Use</a></li>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <h2 class="worker__title">Contact Us</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="#">example@gmail.com</a></li>
+              <li class="worker__item"><a href="#">Tel: 0900000000</a></li>
+              <li class="worker__item"><a href="#">join us</a></li>
+            </ul>
+          </section>
+        </div>
+        <ul class="socials__list">
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-facebook"></i></a>
+          </li>
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-linkedin"></i></a>
+          </li>
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-telegram"></i></a>
+          </li>
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-tiktok"></i></a>
+          </li>
+        </ul>
+        <section class="footer__copy">
+          <h2 class="footer__name">TalentFlow</h2>
+          <p class="footer__copy__text">
+            &copy; <span class="footer__year">2026</span> TalentFlow. All rights
+            reserved. TalentFlow connects professionals with companies to create
+            better career opportunities.
+          </p>
+        </section>
+      </footer>
     </div>
   </body>
 </html>
