@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/auth.css" />
+    <link rel="stylesheet" href="/styles/resets.css" />
+    <link rel="stylesheet" href="/styles/register.css" />
     <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -16,6 +17,7 @@
     <title>TalentFlow | Register</title>
 
     <script src="/scripts/auth.js" defer></script>
+    <script src="/scripts/register.js" defer></script>
 
     <style>
       .loading {
@@ -91,82 +93,92 @@
         <div class="flows"></div>
         <div class="flows"></div>
       </section>
-      <section class="form__wrapper">
-        <figure class="form__fig">
-          <img
-            src="/images/logo.webp"
-            alt="logo of TalentFlow in register "
-            class="form__logo"
-            width="100"
-          />
-          <figcaption class="form__caption">
-            <h1 class="form__title">TalentFlow</h1>
-            <p class="form__desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <div class="wrapper">
+        <section class="form__side">
+          <figure class="form__fig">
+            <img
+              src="/images/logo.webp"
+              alt="logo of TalentFlow in register "
+              class="form__logo"
+              width="100"
+            />
+            <figcaption class="form__caption">
+              <h1 class="form__title">TalentFlow</h1>
+              <p class="form__desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+            </figcaption>
+          </figure>
+        </section>
+        <section class="form__wrapper">
+          <form class="form">
+            <div class="input__wrapper">
+              <label for="fname" class="form__label"> First Name </label>
+              <input
+                type="text"
+                name="fname"
+                id="fname"
+                class="form__input name"
+                placeholder="Your first name here..."
+              />
+            </div>
+            <div class="input__wrapper">
+              <label for="lname" class="form__label"> Last Name </label>
+              <input
+                type="text"
+                name="lname"
+                id="lname"
+                class="form__input name"
+                placeholder="Your last name here..."
+              />
+            </div>
+            <div class="input__wrapper">
+              <label for="email" class="form__label"> Email </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form__input email"
+                placeholder="Your last name here..."
+              />
+            </div>
+            <div class="input__wrapper">
+              <p class="form__label">Chooce your roll</p>
+              <div class="input__choice">
+                <button class="choice__btn active">Freelancer</button>
+                <button class="choice__btn">Client</button>
+              </div>
+            </div>
+            <div class="input__wrapper">
+              <label for="password" class="form__label"> Password </label>
+              <input
+                autocomplete="off"
+                type="password"
+                name="password"
+                id="password"
+                class="form__input password"
+                placeholder="Your last name here..."
+              />
+              <ul class="password__valid">
+                <li class="valid__item upper">At least one capital letter.</li>
+                <li class="valid__item lower">At least one small letter.</li>
+                <li class="valid__item num">At least one number.</li>
+                <li class="valid__item special">
+                  At least one special character.
+                </li>
+                <li class="valid__item amount">At least eight in length.</li>
+              </ul>
+            </div>
+            <button class="form__btn" disabled>Register</button>
+            <p class="form__choice">
+              Alrady have an account ?
+              <span class="form__span">
+                <a href="/auth/login/" class="form__link">login</a>
+              </span>
             </p>
-          </figcaption>
-        </figure>
-
-        <form action="" class="form">
-          <div class="input__wrapper">
-            <label for="fname" class="form__label"> First Name </label>
-            <input
-              type="text"
-              name="fname"
-              id="fname"
-              class="form__input name"
-              placeholder="Your first name here..."
-            />
-          </div>
-          <div class="input__wrapper">
-            <label for="lname" class="form__label"> Last Name </label>
-            <input
-              type="text"
-              name="lname"
-              id="lname"
-              class="form__input name"
-              placeholder="Your last name here..."
-            />
-          </div>
-          <div class="input__wrapper">
-            <label for="email" class="form__label"> Email </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="form__input email"
-              placeholder="Your last name here..."
-            />
-          </div>
-          <div class="input__wrapper">
-            <label for="password" class="form__label"> Password </label>
-            <input
-              autocomplete="off"
-              type="password"
-              name="password"
-              id="password"
-              class="form__input password"
-              placeholder="Your last name here..."
-            />
-            <ul class="password__valid">
-              <li class="valid__item upper">At least one capital letter.</li>
-              <li class="valid__item lower">At least one small letter.</li>
-              <li class="valid__item num">At least one number.</li>
-              <li class="valid__item special">
-                At least one special character.
-              </li>
-              <li class="valid__item amount">At least eight in length.</li>
-            </ul>
-          </div>
-          <button class="form__btn" disabled>Register</button>
-          <p class="form__choice">
-            Alrady have an account ?
-            <span class="form__span">
-              <a href="/auth/login/" class="form__link">login</a>
-            </span>
-          </p>
-        </form>
-      </section>
+          </form>
+        </section>
+      </div>
     </div>
   </body>
 </html>
