@@ -1,0 +1,187 @@
+/* THE TOP CTA SECTION STYLE */
+.main__wrapper {
+  padding: 1.5rem 0.8rem;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.main__head {
+  background: var(--back-linear);
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--back-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.main__p--head {
+  text-align: center;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.main__btn--head {
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
+.main__btn--head a {
+  color: var(--back);
+  padding: 0.4rem 1.5rem;
+  display: inline-block;
+  font-weight: 700;
+}
+
+/* JOB SECTION STYLES */
+
+.main__job {
+  border: 0.5px solid var(--back-2);
+  margin-block: 1rem;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.job__poster {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border: 1px solid color-mix(in srgb, var(--back-2) 40%, transparent 60%);
+  border-left: 3px solid var(--accent);
+  padding-left: 0.8rem;
+  background: var(--back-linear-4);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.job__poster .txt__wrapper {
+  font-weight: 600;
+}
+
+.job__poster .post__amount {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.job__title {
+  font-size: clamp(1.4rem, 6vw, 1.8rem);
+}
+
+.job__category,
+.job__location,
+.job__type,
+.job__salary,
+.job__apply {
+  display: flex;
+  gap: 0.5rem;
+  width: max-content;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.3rem;
+  max-width: min(100%, 30rem);
+  background: var(--back-2);
+  font-size: 0.8rem;
+}
+
+.job__category .txt,
+.job__location .txt,
+.job__type .txt,
+.job__salary .txt,
+.job__apply .txt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.job__category .result,
+.job__location .address,
+.job__type .result,
+.job__salary .result,
+.job__apply .result {
+  border-left: 2px solid var(--accent);
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+.job__times {
+  columns: 2;
+  column-rule: 2px solid var(--accent);
+  width: max-content;
+  column-gap: 2rem;
+}
+
+.job__time {
+  border: 1px solid color-mix(in srgb, var(--back-2) 60%, transparent 40%);
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+}
+
+.job__time .txt {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.job__time time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.job__desc .txt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.job__desc .result {
+    padding: 0.3rem 0.8rem;
+    font-weight: 500;
+    opacity: 0.9;
+    text-align: justify;
+}
+
+.job__resp,
+.job__req {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+:is(.job__req, .job__resp) .txt {
+    color: var(--accent);
+  font-weight: 700;
+}
+
+:is(.job__req, .job__resp) .list {
+    padding-inline: 0.8rem;
+    font-weight: 500;
+    opacity: 0.9;
+    text-align: justify;
+}
+
+:is(.job__req, .job__resp) .item {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.job__btn {
+    border-radius: 1.5rem;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.job__btn:hover {
+    scale: 1.02;
+}
+
+.job__btn a {
+    color: var(--back);
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+

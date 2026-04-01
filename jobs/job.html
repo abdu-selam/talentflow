@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TalentFlow | Job</title>
+    <link rel="stylesheet" href="../styles/resets.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/job.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <script src="../scripts/job.js" defer></script>
+    <style>
+      .loading {
+        width: 100vw;
+        height: 100dvh;
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        z-index: 2000;
+        background: #393d3f;
+        transition: 0.5s;
+      }
+      .loading.close {
+        opacity: 0;
+      }
+      .loader {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: inline-block;
+        border-top: 4px solid #de3163;
+        border-right: 4px solid transparent;
+        box-sizing: border-box;
+        position: relative;
+        animation: rotation 1s linear infinite;
+      }
+      .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: -4px;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border-bottom: 4px solid #fdfdff;
+        border-left: 4px solid transparent;
+      }
+      .loading__img {
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 2px solid #de3163;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: 990;
+      }
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loader"></div>
+      <img
+        class="loading__img"
+        src="/images/loading.webp"
+        alt="page logo for loading animation"
+      />
+    </div>
+    <div id="app">
+      <header class="header">
+        <div class="header__wrapper">
+          <figure class="header__figure">
+            <img
+              src="/images/logo.webp"
+              alt="logo of joab bord"
+              class="header__logo"
+              width="200"
+            />
+            <figcaption class="header__caption">TalentFlow</figcaption>
+          </figure>
+          <div class="menu">
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+          </div>
+          <nav class="header__nav">
+            <ul class="header__list">
+              <li class="header__item">
+                <a href="/" class="header__link">Home</a>
+              </li>
+              <li class="header__item">
+                <a href="/jobs" class="header__link active">Find Jobs</a>
+              </li>
+              <li class="header__item">
+                <a href="/about" class="header__link">About</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__auth">
+            <button class="header__btn signup">
+              <a href="/auth/register">Get Started</a>
+            </button>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="main__wrapper">
+          <section class="main__head">
+            <p class="main__p--head">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Explicabo maxime magni hic aliquid cumque distinctio!
+            </p>
+            <button class="main__btn--head">
+              <a href="../auth/register/"> Register </a>
+            </button>
+          </section>
+          <div class="job__wrapper">
+            <section class="main__job">
+              <div class="job__poster">
+                <p class="txt__wrapper">
+                  <a href="#">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a
+                  >
+                </p>
+                <p class="post__amount">4 Jobs posted</p>
+              </div>
+              <h1 class="job__title">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatibus, odit.
+              </h1>
+              <div class="job__category">
+                <span class="txt"> Category </span>
+                <span class="result"> Lorem ipsum dolor sit </span>
+              </div>
+              <div class="job__times">
+                <div class="post__time job__time">
+                  <p class="txt">Posted</p>
+                  <time datetime="">March 24, 2026</time>
+                </div>
+                <div class="dead__time job__time">
+                  <p class="txt">Deadline</p>
+                  <time datetime="">March 24, 2026</time>
+                </div>
+              </div>
+              <address class="job__location">
+                <p class="txt">Location</p>
+                <p class="address">Adama 04 street, Ethiopea</p>
+              </address>
+              <div class="job__type">
+                <p class="txt">Job Type</p>
+                <p class="result">Lorem, ipsum dolor.</p>
+              </div>
+              <div class="job__salary">
+                <p class="txt">Salary</p>
+                <p class="result">$100</p>
+              </div>
+              <div class="job__apply">
+                <p class="txt">Applyers</p>
+                <p class="result">30</p>
+              </div>
+              <div class="job__desc">
+                <p class="txt">Description:</p>
+                <p class="result">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+                  distinctio unde, voluptatem ipsum eum ut odio dignissimos
+                  blanditiis excepturi odit quo expedita provident deserunt
+                  voluptatibus earum hic at dolor nihil? Provident doloribus
+                  consectetur fugit officiis iure ipsa facere dolore asperiores?
+                  Sint placeat harum, corporis blanditiis nostrum nisi fugiat
+                  accusamus voluptatibus nesciunt autem ullam, possimus deserunt
+                  natus ratione quasi adipisci. Eos nemo nihil sint, fuga
+                  voluptas dolore incidunt amet perspiciatis voluptatem
+                  voluptatum, aut mollitia recusandae libero aperiam sequi, esse
+                  facilis culpa magni enim labore quasi delectus cumque cum? Nam
+                  ad possimus magnam, eveniet error ex. Dolores repudiandae
+                  velit rem molestias maxime.
+                </p>
+              </div>
+              <div class="job__resp">
+                <p class="txt">Responsibilities</p>
+                <ul class="list">
+                  <li class="item">Lorem, ipsum dolor.</li>
+                  <li class="item">Cum, ducimus qui.</li>
+                  <li class="item">Aliquid, vel quam!</li>
+                  <li class="item">Distinctio, quibusdam id.</li>
+                  <li class="item">Corporis, minima nam?</li>
+                  <li class="item">Ipsum, at corrupti!</li>
+                  <li class="item">Dignissimos, quaerat sit?</li>
+                </ul>
+              </div>
+              <div class="job__req">
+                <p class="txt">Requirements</p>
+                <ul class="list">
+                  <li class="item">Lorem, ipsum dolor.</li>
+                  <li class="item">Cum, ducimus qui.</li>
+                  <li class="item">Aliquid, vel quam!</li>
+                  <li class="item">Distinctio, quibusdam id.</li>
+                  <li class="item">Corporis, minima nam?</li>
+                  <li class="item">Ipsum, at corrupti!</li>
+                  <li class="item">Dignissimos, quaerat sit?</li>
+                </ul>
+              </div>
+              <div class="job__btns">
+                <button class="job__btn">
+                  <a href="#"> Apply </a>
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__wrapper">
+          <section class="footer__workers">
+            <h2 class="worker__title">For Workers</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="/jobs">Brows Jobs</a></li>
+              <li class="worker__item"><a href="#">Build Profile</a></li>
+              <li class="worker__item">
+                <a href="/auth/register/">create account</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <h2 class="worker__title">For Employers</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="#">Post jobs</a></li>
+              <li class="worker__item"><a href="#">Check Workers</a></li>
+              <li class="worker__item">
+                <a href="/auth/register/">Get Started</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <h2 class="worker__title">Our company</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="/about">About Us</a></li>
+              <li class="worker__item"><a href="#">Privacy Policy</a></li>
+              <li class="worker__item"><a href="#">Terms of Use</a></li>
+            </ul>
+          </section>
+          <section class="footer__workers">
+            <h2 class="worker__title">Contact Us</h2>
+            <ul class="worker__list">
+              <li class="worker__item"><a href="#">example@gmail.com</a></li>
+              <li class="worker__item"><a href="#">Tel: 0900000000</a></li>
+              <li class="worker__item"><a href="#">join us</a></li>
+            </ul>
+          </section>
+        </div>
+        <ul class="socials__list">
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-facebook"></i></a>
+          </li>
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-linkedin"></i></a>
+          </li>
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-telegram"></i></a>
+          </li>
+          <li class="socials__item">
+            <a href="#"><i class="fab footer__icon fa-tiktok"></i></a>
+          </li>
+        </ul>
+        <section class="footer__copy">
+          <h2 class="footer__name">TalentFlow</h2>
+          <p class="footer__copy__text">
+            &copy; <span class="footer__year">2026</span> TalentFlow. All rights
+            reserved. TalentFlow connects professionals with companies to create
+            better career opportunities.
+          </p>
+        </section>
+      </footer>
+    </div>
+  </body>
+</html>

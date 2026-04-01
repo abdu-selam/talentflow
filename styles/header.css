@@ -131,10 +131,6 @@
   transition: 0.5s;
 }
 
-.header__btn:hover {
-  box-shadow: 0 0 0.2rem 0.1rem color-mix(in srgb, var(--accent) 50%, #fff0 50%);
-}
-
 .header__btn a {
   display: inline-block;
   padding: 0.5rem;

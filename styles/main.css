@@ -75,11 +75,6 @@
   border: 2px solid var(--back);
 }
 
-.hero__btn:hover {
-  box-shadow: 0 0 0.5rem 0.3rem color-mix(in srgb, var(--accent) 70%, #fff0 30%);
-  scale: 1.05;
-}
-
 .hero__btn.freelancer:hover {
   box-shadow: 0 0 0.5rem 0.3rem color-mix(in srgb, var(--back) 70%, #fff0 30%);
   scale: 1.05;
@@ -317,11 +312,6 @@
   place-content: center;
   border-radius: 1.5rem;
   transition: 0.5s;
-}
-
-.statistics__ctab:hover {
-  box-shadow: 0 0 0.5rem 0.3rem color-mix(in srgb, var(--accent) 70%, #fff0 30%);
-  scale: 1.05;
 }
 
 .statistics__link {
@@ -590,11 +580,6 @@
   transition: 0.5s;
 }
 
-.how__cta:hover {
-  box-shadow: 0 0 0.4rem color-mix(in srgb, var(--accent) 90%, #fff0 10%);
-  scale: 1.05;
-}
-
 .how__cta a {
   padding: 0.3rem 0.8rem;
   font-size: 1rem;
@@ -785,6 +770,10 @@
   transition: 0.5s;
 }
 
+.faqs__btn:hover {
+  box-shadow: none;
+}
+
 .faqs__btn.active {
   color: var(--back);
 }
@@ -894,11 +883,6 @@
   display: grid;
   place-content: center;
   transition: 0.5s;
-}
-
-.cta__section__btn:hover {
-  box-shadow: 0 0 0.5rem 0.1rem var(--accent);
-  scale: 1.05;
 }
 
 .cta__section__btn a {

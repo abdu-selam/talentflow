@@ -304,11 +304,6 @@
   transition: 0.5s;
 }
 
-.cta__section__btn:hover {
-  box-shadow: 0 0 0.5rem 0.1rem var(--accent);
-  scale: 1.05;
-}
-
 .cta__section__btn a {
   display: inline-block;
   padding: 0.35rem 2rem;

@@ -238,11 +238,6 @@
   transition: 0.5s;
 }
 
-.jobs__detail:hover {
-  box-shadow: 0 0 0.5rem color-mix(in srgb, var(--accent) 70%, transparent 30%);
-  scale: 1.05;
-}
-
 .jobs__detail--link {
   padding: 0.5rem 2rem;
   display: inline-block;

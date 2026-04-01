@@ -42,6 +42,11 @@ button {
   border: none;
 }
 
+button:hover {
+  box-shadow: 0 0 0.3rem 0.1rem color-mix(in srgb, var(--accent) 70%, #fff0 30%);
+  scale: 1.05;
+}
+
 button:focus,
 input:focus {
   outline: none;
@@ -54,12 +59,14 @@ input:focus {
   --accent: #de3163;
   --cta-back: linear-gradient(to left, #de3163, #97001e);
   --back-linear: linear-gradient(to right, #fdfdff, #cdc5b9);
-  --back-linear-2: linear-gradient(to top, #fdfdff, #fff);
-  --back-linear-3: linear-gradient(to bottom, #fdfdff, #fff);
+  --back-linear-2: linear-gradient(to top, #fdfdff, #cdc5b9);
+  --back-linear-3: linear-gradient(to bottom, #fdfdff, #cdc5b9);
+  --back-linear-4: linear-gradient(to left, #fdfdff, #cdc5b9);
   --success: rgb(32, 255, 69);
   --error: rgb(255, 32, 69);
 }
 
-#app { /* TO MAKE THE LOADING ANIMATION UNTILL THE CONTENT LOAD */
+#app {
+  /* TO MAKE THE LOADING ANIMATION UNTILL THE CONTENT LOAD */
   display: none;
 }
