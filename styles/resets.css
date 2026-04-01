@@ -70,3 +70,14 @@ input:focus {
   /* TO MAKE THE LOADING ANIMATION UNTILL THE CONTENT LOAD */
   display: none;
 }
+
+::-webkit-scrollbar {
+  width: 0.9rem;
+  background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 0.8rem;
+  border: 3px solid var(--primary);
+}
