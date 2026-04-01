@@ -1,7 +1,7 @@
 const inputElements = document.querySelectorAll(".form__input");
 const btn = document.querySelector(".form__btn");
 const choiceBtn = document.querySelectorAll(".choice__btn");
-const form = document.querySelector(".form")
+const form = document.querySelector(".form");
 
 const nameReg = (name) => {
   // name should be only alphabet character and minimum 3 length
@@ -40,14 +40,14 @@ const passwordReg = (password) => {
   };
 };
 
-const inputValidator = () => {
-  const isValid = {
-    fname: false,
-    lname: false,
-    email: false,
-    password: false,
-  }; // object to to check if all inputs are valid or not
+const isValid = {
+  fname: false,
+  lname: false,
+  email: false,
+  password: false,
+}; // object to to check if all inputs are valid or not
 
+const inputValidator = () => {
   inputElements.forEach((input) => {
     input.addEventListener("input", (e) => {
       const elem = e.target;
@@ -93,6 +93,16 @@ const inputValidator = () => {
   });
 };
 
+// to make focus on the next input when the user click enters
+inputElements.forEach((input, i) => {
+  input.addEventListener("change", (e) => {
+    const nextElem = [...inputElements][i + 1];
+    if (nextElem) {
+      nextElem.focus();
+    }
+  });
+});
+
 const passwordValidator = (validates) => {
   // checking all type of password conditions for the indicators below it
   const validItems = document.querySelectorAll(".valid__item");
@@ -105,24 +115,28 @@ const passwordValidator = (validates) => {
         item.classList.remove("success");
       }
     } else if (item.matches(".lower")) {
+      // give green color for the text that tells to add one lower case
       if (validates.lower) {
         item.classList.add("success");
       } else {
         item.classList.remove("success");
       }
     } else if (item.matches(".num")) {
+      // give green color for the text that tells to add one number
       if (validates.num) {
         item.classList.add("success");
       } else {
         item.classList.remove("success");
       }
     } else if (item.matches(".special")) {
+      // give green color for the text that tells to add one special character
       if (validates.special) {
         item.classList.add("success");
       } else {
         item.classList.remove("success");
       }
     } else if (item.matches(".amount")) {
+      // give green color for the text that tells to make the length at least 8 character
       if (validates.amount) {
         item.classList.add("success");
       } else {
@@ -141,9 +155,27 @@ const rollChoice = () => {
   });
 };
 
-form.addEventListener("submit",(e)=>{
-  e.preventDefault()
-})
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const allvalid =
+    isValid.fname && isValid.lname && isValid.email && isValid.password;
+  if (!allvalid) return;
+
+  const rollBtn = [...choiceBtn].filter((btn) =>
+    btn.classList.contains("active"),
+  )[0];
+
+  const reqObj = {
+    fname: form.fname.value,
+    lname: form.lname.value,
+    email: form.email.value,
+    password: form.password.value,
+    roll: rollBtn.textContent.trim().toLowerCase(),
+  };
+
+  // TODO -> making fetch api call for backend
+});
 
 rollChoice();
 inputValidator();

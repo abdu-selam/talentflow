@@ -145,12 +145,13 @@
             <div class="input__wrapper">
               <p class="form__label">Chooce your roll</p>
               <div class="input__choice">
-                <button class="choice__btn active">Freelancer</button>
-                <button class="choice__btn">Client</button>
+                <button type="button" class="choice__btn active">Freelancer</button>
+                <button type="button" class="choice__btn">Client</button>
               </div>
             </div>
             <div class="input__wrapper">
               <label for="password" class="form__label"> Password </label>
+              <div class="password__wrapper">
               <input
                 autocomplete="off"
                 type="password"
@@ -159,6 +160,15 @@
                 class="form__input password"
                 placeholder="Your last name here..."
               />
+              <div class="input__eye">
+                <span class="active">
+                  a
+                </span>
+                <span>
+                  b
+                </span>
+              </div>
+            </div>
               <ul class="password__valid">
                 <li class="valid__item upper">At least one capital letter.</li>
                 <li class="valid__item lower">At least one small letter.</li>

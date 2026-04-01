@@ -144,6 +144,14 @@
   font-weight: 600;
 }
 
+.password__wrapper {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  padding-inline: 0.5rem;
+  border-bottom: 3px solid var(--primary);
+}
+
 .form__input {
   padding: 0.3rem 0.5rem;
   border: none;
@@ -151,8 +159,19 @@
   background: none;
 }
 
-.form__input:focus {
+.input__eye span:not(.active) {
+  display: none;
+}
+
+.form__input:focus,
+.password__wrapper:has(.form__input:focus) {
   border-color: var(--success);
+}
+
+.password__wrapper .form__input {
+  width: 100%;
+  border: none;
+  padding-inline: 0;
 }
 
 .form__btn {
