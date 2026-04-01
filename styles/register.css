@@ -183,7 +183,7 @@
 
 .form__input.success,
 .form__input.success:focus,
-.password__wrapper:has(.form__input.success:focus) {
+.password__wrapper:has(.form__input.success:focus, .form__input.success) {
   border-color: var(--success);
 }
 
@@ -199,6 +199,11 @@
   width: 100%;
   font-size: 1rem;
   font-weight: 700;
+  transition: 0.5s;
+}
+
+.choice__btn:hover {
+  scale: 1;
 }
 
 .choice__btn:not(.active) {
@@ -254,7 +259,11 @@
   display: none;
 }
 
-.password__wrapper:has(.form__input[type="password"]:focus) + .password__valid {
+.input__eye img {
+  width: 1.2rem;
+}
+
+.password__wrapper:has(.form__input:focus) + .password__valid {
   display: block;
 }
 

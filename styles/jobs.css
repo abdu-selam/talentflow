@@ -55,7 +55,7 @@
   display: none;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 56rem) {
   .filters {
     position: sticky;
     padding: 0.8rem;
@@ -78,7 +78,7 @@
   padding-bottom: 0.8rem;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 56rem) {
   .filter-x-icon,
   .filter-toggle {
     display: none;
