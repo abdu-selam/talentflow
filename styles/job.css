@@ -166,22 +166,61 @@
     list-style-position: inside;
 }
 
+.job__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: min(100%,30rem);
+}
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.job__form.unsigned {
+  opacity: 0.6;
+}
+
+.input__wrapper .label {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.input__wrapper .input {
+  border-radius: 0.8rem;
+  height: calc(100vw/1.5);
+  max-height: 15rem;
+  resize: none;
+  background: none;
+  color: var(--primary);
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-left: 0.8rem;
+  transition: 0.5s;
+  border: 1px solid var(--primary);
+  text-align: justify;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
 .job__btn {
     border-radius: 1.5rem;
     width: 100%;
     transition: 0.3s;
-}
-
-.job__btn:hover {
-    scale: 1.02;
-}
-
-.job__btn a {
     color: var(--back);
     padding: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
     display: inline-block;
+}
+
+.job__btn:hover {
+    scale: 1.02;
 }
 
 
