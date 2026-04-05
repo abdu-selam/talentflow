@@ -9,11 +9,14 @@ window.addEventListener("load", () => {
 });
 
 const init = () => {
-  document.querySelector("#app").style.display = "block";
+  document.getElementById("app").style.display = "flex";
 
-  const navBar = document.querySelector(".header__nav");
+  const navBar = document.querySelector(".aside__nav");
   const menu = document.querySelector(".menu");
   const menuIcons = document.querySelectorAll(".menu-icon");
+  const navItems = navBar.querySelectorAll("ul, li,a");
+
+//   document.querySelector(".footer__year").textContent = new Date().getFullYear();
 
   menu.addEventListener("click", (e) => {
     menu.classList.toggle("active");
@@ -22,7 +25,7 @@ const init = () => {
 
   window.addEventListener("click", (e) => {
     const elem = e.target;
-    if (![...menuIcons, menu, navBar].includes(elem)) {
+    if (![...navItems, ...menuIcons, menu, navBar].includes(elem)) {
       menu.classList.remove("active");
       navBar.classList.remove("active");
     }
@@ -33,19 +36,4 @@ const init = () => {
     navBar.classList.remove("active");
   });
 
-  document.querySelector(".footer__year").textContent =
-    new Date().getFullYear();
-
-    fetcher()
-};
-
-const fetcher = async () => {
-  const params = new URLSearchParams(location.search);
-  const jobId = params.get("job");
-
-  if (!jobId) {
-    location.replace("./")
-  }
-
-  // fetch requiest for single  
 };

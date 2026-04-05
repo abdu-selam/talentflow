@@ -1,0 +1,428 @@
+/* RESET FOR THE NAV BAR FOR RESEY.CSS FILE */
+.other {
+  width: 100%;
+}
+
+#app {
+  padding: 0.8rem 0.8rem 0 0.8rem;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.header {
+  padding: 0;
+  top: 0.8rem;
+}
+
+.footer {
+  margin-top: 0.8rem;
+}
+
+.aside__nav {
+  width: 15.625rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 0 0.2rem color-mix(in srgb, var(--primary) 30%, transparent 70%);
+}
+
+@media (min-width: 40rem) {
+  .menu {
+    display: flex;
+  }
+}
+
+@media (min-width: 50rem) {
+  .menu {
+    display: none;
+  }
+
+  .aside__nav {
+    position: sticky;
+    top: 0.8rem;
+    border-radius: 0.8rem;
+    height: calc(100dvh - 2rem);
+  }
+
+  #app {
+    display: flex;
+    gap: 0.8rem;
+  }
+}
+
+/* THE TOP PROFILE SECTION OF THE ASIDE  */
+.aside__profile {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.aside__pp {
+  width: 2.2rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.1rem 0.1rem
+    color-mix(in srgb, var(--accent) 30%, transparent 70%);
+}
+
+.aside__acc {
+  line-height: 1rem;
+}
+
+.aside__uname {
+  font-size: 0.9rem;
+}
+
+.aside__email {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  font-weight: 500;
+  width: 100%;
+  max-width: calc(15.625rem - 4.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* RESET FOR LIST OF LINKS */
+.aside__list {
+  gap: 0.8rem;
+  padding-left: 1.5rem;
+  height: 100%;
+}
+
+.aside__link {
+  display: inline-block;
+  background: color-mix(in srgb, var(--accent) 3%, transparent 70%);
+  padding: 0.3rem;
+  width: 100%;
+}
+
+.aside__link::before {
+  width: 0.125rem;
+  height: 100%;
+  bottom: 0;
+  left: -0.125rem;
+  transform: scaleY(0);
+}
+
+/* STATISTIC SECTIONS STYLES */
+.main__stat {
+  padding-top: 1.5rem;
+}
+
+.stat__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.stat__list {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem;
+}
+
+.stat__item {
+  background: color-mix(in srgb, var(--primary) 5%, transparent 70%);
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+}
+
+@media (min-width: 30rem) {
+  .stat__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 50rem) {
+  .stat__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat__txt {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.stat__result {
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+/* ACTIVE JOBS SECTION STYLES */
+.jobs__title,
+.pendings__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.jobs__list,
+.pendings__list {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem;
+}
+
+@media (min-width: 30rem) {
+  .jobs__list,
+  .pendings__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.jobs__item,
+.pendings__item {
+  background: color-mix(in srgb, var(--primary) 10%, transparent 70%);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.job__title,
+.pending__title {
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.job__client,
+.pending__client {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.job__description,
+.pending__description {
+  padding: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.pending__description {
+  margin: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent 70%);
+  border-radius: 0.8rem;
+  height: 8rem;
+  background: color-mix(in srgb, var(--back) 30%, transparent 70%);
+  resize: none;
+}
+
+.pending__description:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.pending__description::-webkit-scrollbar {
+  display: none;
+}
+
+.job__btn,
+.pending__btn {
+  width: max-content;
+  border-radius: 0.8rem;
+  align-self: end;
+  transition: 0.5s;
+}
+
+.job__link,
+.pending__link {
+  padding: 0.3rem 0.8rem;
+  display: inline-block;
+  color: var(--back);
+}
+
+/* REVIEW SECTION STYLES */
+.review__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0.8rem;
+}
+
+.review__item {
+  box-shadow: 0 0 0.1rem var(--primary);
+  border-radius: 0.8rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 15.5rem;
+  backdrop-filter: blur(0.8rem);
+}
+
+.review__fig {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.review__pp {
+  width: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+}
+
+.review__client {
+  font-weight: 700;
+  font-size: 1rem;
+  width: 12rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review__txt {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.icon__star {
+  color: var(--accent);
+}
+
+.review__btn {
+  border-radius: 1.5rem;
+  transition: 0.5s;
+  margin-left: 0.8rem;
+}
+
+.review__link {
+  color: var(--back);
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* STATISTICS SECTION STYLES */
+.static__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+@media (min-width: 35rem) {
+  .static__list {
+    flex-direction: row;
+  }
+}
+
+.static__item {
+  padding: 1.5rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent 90%);
+  border-radius: 0.8rem;
+  gap: 0.8rem;
+  background: color-mix(in srgb, var(--primary) 10%, transparent 90%);
+}
+
+.item__prog {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: var(--back);
+  display: grid;
+  place-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  position: relative;
+}
+
+.item__prog::before {
+  content: "";
+  width: 108%;
+  height: 108%;
+  background: conic-gradient(var(--accent) var(--per), transparent var(--per));
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  translate: -4% -4%;
+}
+
+.item__name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.static__btn {
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
+.static__link {
+  color: var(--back);
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+}
+
+/* PORTIFOLIOS SECTION STYLES */
+.portfolios__titile {
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding-block: 0.8rem;
+}
+
+.portfolio__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.portfolio__item {
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent 70%);
+  width: min(100%, 18rem);
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.portfolio__img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 0.8rem;
+}
+
+.portfolio__caption {
+  font-weight: 700;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.portfolio__description {
+  font-size: 0.9rem;
+}
+
+.portfolio__btn {
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
+.portfolio__link {
+  color: var(--back);
+  padding: 0.5rem;
+  display: inline-block;
+  font-weight: 700;
+  width: 100%;
+}
