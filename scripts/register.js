@@ -175,6 +175,10 @@ form.addEventListener("submit", (e) => {
   };
 
   // TODO -> making fetch api call for backend
+  // now for front end cheking
+  const objJson = JSON.stringify(reqObj)
+  sessionStorage.setItem("user",objJson)
+  location.replace("/")
 });
 
 rollChoice();

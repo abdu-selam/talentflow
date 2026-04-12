@@ -38,6 +38,12 @@ form.addEventListener("submit", (e) => {
   };
 
   //   TODO -> making api call to the backend
+  // now for frontend checking
+  const userData = JSON.parse(sessionStorage.getItem("user"))
+  if (!userData) {
+    return
+  }
+
 });
 
 inputValidator();

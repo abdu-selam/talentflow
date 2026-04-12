@@ -1,6 +1,7 @@
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
+  await checkUser();
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -17,14 +18,15 @@ const init = () => {
   const navItems = navBar.querySelectorAll("ul, li,a");
 
   const heroImages = document.querySelectorAll(".hero__back img");
-  
+
   const faqs_item = document.querySelectorAll(".faqs__item");
   const faqs_close = document.querySelectorAll(".faqs__icon");
   const containers = document.querySelectorAll(".faqs__container");
   const faqsBtns = document.querySelectorAll(".faqs__btn");
   const faqsBtnsWrapper = document.querySelector(".faqs__btns");
 
-  document.querySelector(".footer__year").textContent = new Date().getFullYear();
+  document.querySelector(".footer__year").textContent =
+    new Date().getFullYear();
 
   menu.addEventListener("click", (e) => {
     menu.classList.toggle("active");
@@ -65,7 +67,7 @@ const init = () => {
       faqs_item[i].classList.toggle("open");
     });
   });
-  
+
   faqsBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       if (btn.classList.contains("active")) return;
@@ -74,4 +76,19 @@ const init = () => {
       containers.forEach((contain) => contain.classList.toggle("active"));
     });
   });
+};
+
+const checkUser = async () => {
+  // TO-Do fetch user data using the cookie
+  // now for frontend check
+  const userData = JSON.parse(sessionStorage.getItem("user"));
+  if (!userData) {
+    return;
+  }
+
+  if (userData.roll == "freelancer") {
+    location.replace("/freelancer");
+  } else {
+    location.replace("/client");
+  }
 };
