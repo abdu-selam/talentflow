@@ -49,6 +49,10 @@
     display: flex;
     gap: 0.8rem;
   }
+
+  .other {
+    width: calc(100% - 16.425rem);
+  }
 }
 
 /* THE TOP PROFILE SECTION OF THE ASIDE  */
