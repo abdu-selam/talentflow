@@ -1,0 +1,64 @@
+/* ACTIVE JOBS SECTION STYLES */
+.main__jobs {
+    padding-block: 0.8rem;
+}
+
+.jobs__title{
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.jobs__list {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem;
+}
+
+@media (min-width: 30rem) {
+  .jobs__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.jobs__item {
+  background: color-mix(in srgb, var(--primary) 10%, transparent 70%);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.job__title {
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.job__client {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.job__description {
+  padding: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.job__btn {
+  width: max-content;
+  border-radius: 0.8rem;
+  align-self: end;
+  transition: 0.5s;
+}
+
+.job__link {
+  padding: 0.3rem 0.8rem;
+  display: inline-block;
+  color: var(--back);
+}
