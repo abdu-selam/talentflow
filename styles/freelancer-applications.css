@@ -45,24 +45,24 @@
 
 /* FILTERS SECTION STYLES */
 .pendings__filter {
-    display: flex;
-    gap: 0.5rem;
-    padding-block: 0.8rem 0.4rem;
+  display: flex;
+  gap: 0.5rem;
+  padding-block: 0.8rem 0.4rem;
 }
 
 .filter__item {
-    background: color-mix(in srgb, var(--back-2) 50%, transparent 50%);
-    width: max-content;
-    padding: 0.3rem 0.8rem;
-    border-radius: 0.8rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    transition: 0.5s;
+  background: color-mix(in srgb, var(--back-2) 50%, transparent 50%);
+  width: max-content;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.5s;
 }
 
 .filter__item.active {
-    background: var(--accent);
-    color: var(--back);
+  background: var(--accent);
+  color: var(--back);
 }
 
 /* ACTIVE JOBS SECTION STYLES */
