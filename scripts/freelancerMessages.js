@@ -18,6 +18,7 @@ const init = () => {
   const filterItems = document.querySelectorAll(".type__items");
   const textArea = document.querySelector("#message");
   const sendBtn = document.querySelector(".message__send");
+  const messageDown = document.querySelector(".message__down");
 
   // Auto Focus
   textArea.focus();
@@ -36,6 +37,11 @@ const init = () => {
   messageHandler();
 
   clickMessageItemHandler();
+
+  // scroll to down
+  messageDown.addEventListener("click",(e)=>{
+    autoScroll()
+  })
 
   filterItems.forEach((item) => {
     item.addEventListener("click", (e) => {
