@@ -1,0 +1,97 @@
+.main__title {
+    font-size: 1.5rem;
+}
+
+.main__profile,
+.main__privacy {
+    padding: 0.8rem;
+}
+
+.profile__form,
+.privacy__form {
+    width: min(100%, 25rem);
+}
+
+.profile__settings,
+.privacy__settings {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: color-mix(in srgb, var(--accent) 10%, transparent 90%);
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+}
+
+.profile__setting,
+.privacy__setting {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting__title {
+    font-weight: 600;
+}
+
+.setting__type {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.setting__input {
+    padding: 0.3rem 0.5rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid;
+    font-size: 0.9rem;
+}
+
+.setting__input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.setting__submit {
+    padding: 0.3rem;
+    border-radius: 0.8rem;
+    font-weight: 600;
+    transition: 0.5s;
+    font-size: 0.9rem;
+}
+
+.setting__submit:hover {
+    scale: 1.01;
+}
+
+.setting__submit:disabled {
+    opacity: 0.7;
+}
+
+.password__wrapper {
+  width: 100%;
+  display: flex;
+  gap: 0.3rem;
+  padding-inline: 0.3rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.form__input {
+  padding: 0.3rem 0;
+  border: none;
+  background: none;
+  width: 100%;
+}
+
+.input__eye span:not(.active) {
+  display: none;
+}
+
+.input__eye img {
+  width: 1.2rem;
+}
+
+.logout__btn {
+    padding: 0.3rem 1.5rem;
+    border-radius: 1.5rem;
+    transition: 0.5s;
+    background: var(--error);
+}

@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../styles/resets.css" />
+    <link rel="stylesheet" href="../../styles/header.css" />
+    <link rel="stylesheet" href="../../styles/freelancer-nav.css" />
+    <link rel="stylesheet" href="../../styles/footer.css" />
+    <link rel="stylesheet" href="../../styles/freelancer-settings.css" />
+    <script src="../../scripts/freelancerSettings.js"></script>
+    <style>
+      .loading {
+        width: 100vw;
+        height: 100dvh;
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        z-index: 2000;
+        background: #393d3f;
+        transition: 0.5s;
+      }
+      .loading.close {
+        opacity: 0;
+      }
+      .loader {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: inline-block;
+        border-top: 4px solid #de3163;
+        border-right: 4px solid transparent;
+        box-sizing: border-box;
+        position: relative;
+        animation: rotation 1s linear infinite;
+      }
+      .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: -4px;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border-bottom: 4px solid #fdfdff;
+        border-left: 4px solid transparent;
+      }
+      .loading__img {
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 2px solid #de3163;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: 990;
+      }
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <title>TalentFlow | Settings</title>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loader"></div>
+      <img
+        class="loading__img"
+        src="../../images/loading.webp"
+        alt="page logo for loading animation"
+      />
+    </div>
+    <div id="app">
+      <aside class="aside">
+        <nav class="aside__nav">
+          <figure class="aside__profile">
+            <img
+              src="../../images/logo.webp"
+              alt="logo of joab bord"
+              class="aside__pp"
+              width="200"
+            />
+            <figcaption class="aside__acc">
+              <h1 class="aside__uname">User Name</h1>
+              <p class="aside__email">user_unknown1234@email.com</p>
+            </figcaption>
+          </figure>
+          <ul class="aside__list">
+            <li class="aside__item">
+              <a href="../" class="aside__link">
+                <i class="fas fa-home"></i>
+                Home
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../profile/" class="aside__link">
+                <i class="fas fa-user-tie"></i>
+                Profile
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../portfolio/" class="aside__link">
+                <i class="fas fa-bolt"></i>
+                Portifolio
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../../jobs/" class="aside__link">
+                <i class="fas fa-briefcase"></i>
+                Find Jobs
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../active-jobs/" class="aside__link">
+                <i class="fas fa-briefcase"></i>
+                Active Jobs
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../applications" class="aside__link">
+                <i class="fas fa-paper-plane"></i>
+                Applications
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../messages" class="aside__link">
+                <i class="fas fa-message"></i>
+                messages
+              </a>
+            </li>
+            <li class="aside__item setting">
+              <a href="#" class="aside__link active">
+                <i class="fas fa-gears"></i>
+                settings
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="other">
+        <header class="header">
+          <div class="header__wrapper">
+            <figure class="header__figure">
+              <img
+                src="../../images/logo.webp"
+                alt="logo of joab bord"
+                class="header__logo"
+                width="200"
+              />
+              <figcaption class="header__caption">TalentFlow</figcaption>
+            </figure>
+            <div class="menu">
+              <div class="menu-icon"></div>
+              <div class="menu-icon"></div>
+              <div class="menu-icon"></div>
+            </div>
+          </div>
+        </header>
+        <main class="main">
+          <h1 class="main__title">Settings</h1>
+          <section class="main__profile">
+            <form class="profile__form">
+              <ul class="profile__settings">
+                <li class="profile__setting">
+                  <p class="setting__type">First Name</p>
+                  <input
+                    value="Lorem, ipsum dolor."
+                    type="text"
+                    name="fname"
+                    class="setting__input"
+                  />
+                </li>
+                <li class="profile__setting">
+                  <p class="setting__type">Last Name</p>
+                  <input
+                    value="Lorem, ipsum dolor."
+                    type="text"
+                    name="lname"
+                    class="setting__input"
+                  />
+                </li>
+                <li class="profile__setting">
+                  <p class="setting__type">Location</p>
+                  <input
+                    value="Lorem, ipsum dolor."
+                    type="text"
+                    name="address"
+                    class="setting__input"
+                  />
+                </li>
+                <li class="profile__setting">
+                  <p class="setting__type">Headline</p>
+                  <input
+                    value="Lorem, ipsum dolor."
+                    type="text"
+                    name="headline"
+                    class="setting__input"
+                  />
+                </li>
+                <li class="profile__setting">
+                  <button class="setting__submit">Update</button>
+                </li>
+              </ul>
+            </form>
+          </section>
+          <section class="main__privacy">
+            <form class="privacy__form">
+              <ul class="privacy__settings">
+                <li class="privacy__setting">
+                  <p class="setting__title">Password Reset</p>
+                </li>
+                <li class="privacy__setting">
+                  <p class="setting__type">Old Password</p>
+                  <div class="password__wrapper">
+                    <input
+                      autocomplete="off"
+                      type="password"
+                      name="old"
+                      class="form__input password"
+                      placeholder="Your old password here..."
+                    />
+                    <div class="input__eye">
+                      <span class="active">
+                        <img
+                          src="../../images/eye-open.webp"
+                          alt="eye open icon"
+                          width="25"
+                        />
+                      </span>
+                      <span>
+                        <img
+                          src="../../images/eye-close.webp"
+                          alt="eye open icon"
+                          width="25"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="privacy__setting">
+                  <p class="setting__type">New Password</p>
+                  <div class="password__wrapper">
+                    <input
+                      autocomplete="off"
+                      type="password"
+                      name="new"
+                      class="form__input password"
+                      placeholder="Your new password here..."
+                    />
+                    <div class="input__eye">
+                      <span class="active">
+                        <img
+                          src="../../images/eye-open.webp"
+                          alt="eye open icon"
+                          width="25"
+                        />
+                      </span>
+                      <span>
+                        <img
+                          src="../../images/eye-close.webp"
+                          alt="eye open icon"
+                          width="25"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="privacy__setting">
+                  <p class="setting__type">Confirm Password</p>
+                  <div class="password__wrapper">
+                    <input
+                      autocomplete="off"
+                      type="password"
+                      name="confirm"
+                      class="form__input password"
+                      placeholder="confirm new password here..."
+                    />
+                    <div class="input__eye">
+                      <span class="active">
+                        <img
+                          src="../../images/eye-open.webp"
+                          alt="eye open icon"
+                          width="25"
+                        />
+                      </span>
+                      <span>
+                        <img
+                          src="../../images/eye-close.webp"
+                          alt="eye open icon"
+                          width="25"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="privacy__setting">
+                  <button class="setting__submit privacy">Update</button>
+                </li>
+              </ul>
+            </form>
+          </section>
+          <button class="logout__btn">Log Out</button>
+        </main>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <section class="footer__workers">
+          <ul class="worker__list">
+            <li class="worker__item"><a href="../../jobs/">Brows Jobs</a></li>
+            <li class="worker__item">
+              <a href="../profile/">Your Profile</a>
+            </li>
+            <li class="worker__item">
+              <a href="../active-jobs">Active Jobs</a>
+            </li>
+          </ul>
+        </section>
+        <section class="footer__workers">
+          <ul class="worker__list">
+            <li class="worker__item">
+              <a href="../portfolio/">portfolios</a>
+            </li>
+            <li class="worker__item">
+              <a href="../messages">Check Messages</a>
+            </li>
+            <li class="worker__item">
+              <a href="../applications">Applications</a>
+            </li>
+          </ul>
+        </section>
+        <section class="footer__workers">
+          <ul class="worker__list">
+            <li class="worker__item"><a href="../../about/">About Us</a></li>
+            <li class="worker__item"><a href="#">Privacy Policy</a></li>
+            <li class="worker__item"><a href="#">Terms of Use</a></li>
+          </ul>
+        </section>
+        <section class="footer__workers">
+          <ul class="worker__list">
+            <li class="worker__item">
+              <a href="mailto:abdselam676@gmail.com">example@gmail.com</a>
+            </li>
+            <li class="worker__item">
+              <a href="tel:0901010101">Tel: 0901010101</a>
+            </li>
+            <li class="worker__item">
+              <a href="../../feedbacks">Feedback</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <ul class="socials__list">
+        <li class="socials__item">
+          <a href="https://youtube.com/@abdu_dev_yt" target="_blank"
+            ><i class="fab footer__icon fa-youtube"></i
+          ></a>
+        </li>
+        <li class="socials__item">
+          <a
+            href="https://linkedin.com/in/abduselam-awel-b74083385"
+            target="_blank"
+          >
+            <i class="fab footer__icon fa-linkedin"></i>
+          </a>
+        </li>
+        <li class="socials__item">
+          <a href="https://t.me/abdu_dev_tg" target="_blank"
+            ><i class="fab footer__icon fa-telegram"></i
+          ></a>
+        </li>
+        <li class="socials__item">
+          <a href="https://tiktok.com/@abdu.dev" target="_blank"
+            ><i class="fab footer__icon fa-tiktok"></i
+          ></a>
+        </li>
+      </ul>
+      <section class="footer__copy">
+        <h2 class="footer__name">TalentFlow</h2>
+        <p class="footer__copy__text">
+          &copy; <span class="footer__year">2026</span> TalentFlow. All rights
+          reserved. TalentFlow connects professionals with companies to create
+          better career opportunities.
+        </p>
+      </section>
+    </footer>
+  </body>
+</html>
