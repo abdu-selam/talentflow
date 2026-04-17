@@ -14,7 +14,9 @@ const init = () => {
   updateProfileHandler();
   profileTextsUpdate();
   aboutmeTextHandler();
-  skillDeleter()
+  skillDeleter();
+  addSkill();
+  uploadResume();
 
   const navBar = document.querySelector(".aside__nav");
   const menu = document.querySelector(".menu");
@@ -79,7 +81,14 @@ const updateProfileHandler = () => {
         return;
       }
 
-      profileSubmitHandler(file);
+      const result = profileSubmitHandler(file);
+      if (result) {
+        input.file = [];
+        profilePreview.classList.remove("active");
+        profilePreviewImg.src = "";
+      }
+    } else {
+      input.click();
     }
   });
 
@@ -109,6 +118,7 @@ const profileSubmitHandler = (file) => {
   console.log(file);
 
   // TODO -> upload profile
+  return true;
 };
 
 const profileTextsUpdate = () => {
@@ -140,28 +150,92 @@ const profileTextsUpdate = () => {
 
 const aboutmeTextHandler = () => {
   const form = document.querySelector(".about__form");
-  const txt = form.about.value
+  const txt = form.about.value;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const inputTxt = form.about.value
+    const inputTxt = form.about.value;
 
-    if(txt === inputTxt) return
+    if (txt === inputTxt) return;
 
-    const paragraphs = inputTxt.split("\n")
+    const paragraphs = inputTxt.split("\n");
     // TODO -> fetch to submit
   });
 };
 
-const skillDeleter = ()=>{
-  const btns = document.querySelectorAll(".skill__btn.delete")
-  btns.forEach(btn=>{
-    btn.addEventListener("click",(e)=>{
-      const id = btn.dataset.id
-      const item = document.querySelector(`[data-id="${id}"]`)
+const skillDeleter = () => {
+  const btns = document.querySelectorAll(".skill__btn.delete");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const id = btn.dataset.id;
+      const item = document.querySelector(`[data-id="${id}"]`);
 
       // TODO -> fetch
-      item.remove()
-    })
-  })
-}
+      item.remove();
+    });
+  });
+};
+
+const addSkill = () => {
+  const btns = document.querySelectorAll(".add__btn");
+  progressInputHandler();
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const addType = btn.classList.contains("hard") ? "hard" : "soft";
+
+      const name = document.querySelector(`input[name="${addType}name"]`).value;
+      const progress = document.querySelector(
+        `input[name="${addType}progress"]`,
+      ).value;
+    });
+  });
+};
+
+const progressInputHandler = () => {
+  const inputs = document.querySelectorAll(".skill__input.progress");
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      const number = Number(input.value);
+
+      if (!number) {
+        input.value = input.value.slice(0, number.length - 1);
+      } else {
+        if (number > 100) {
+          input.value = 100;
+        }
+      }
+    });
+  });
+};
+
+const uploadResume = () => {
+  const btn = document.querySelector(".upload__resume--btn");
+  const input = document.querySelector("#resume-upload");
+  const preview = document.querySelector(".uploaded__file");
+
+  btn.addEventListener("click", (e) => {
+    const file = input.files[0];
+
+    if (file) {
+      const form = new FormData()
+      form.append("resume", file)
+      // TODO -> fetch 
+    } else {
+      input.click();
+    }
+  });
+
+  input.addEventListener("change", (e) => {
+    const file = input.files[0];
+
+    if (file) {
+      if (file.type !== "application/pdf") {
+        return;
+      }
+      preview.classList.add("active");
+      preview.querySelector(".name").textContent = file.name;
+    }
+  });
+};

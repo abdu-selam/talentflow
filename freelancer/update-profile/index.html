@@ -179,7 +179,7 @@
                 alt="logo of he freelancer"
                 width="50"
               />
-              <input type="file" name="profile" id="profile-update" hidden />
+              <input type="file" name="profile" id="profile-update" accept="image/*" hidden />
               <figcaption>
                 <button class="update__profile--btn">Upload Profile</button>
                 <p class="mainpp__caution">
@@ -280,7 +280,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,adipisci ad ips
                     <div style="--i: 80%" class="prog__div"></div>
                   </div>
                   <div class="skill__btns">
-                    <button data-id="id-3455" class="skill__btn delete">Delete</button>
+                    <button data-id="id-3455" class="skill__btn delete">
+                      Delete
+                    </button>
                   </div>
                 </li>
                 <li class="skill__item">
@@ -375,10 +377,24 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,adipisci ad ips
                   </div>
                 </li>
               </ul>
-              <button class="add__btn hard">
-                <i class="fas fa-plus"></i>
-                Add Hard Skill
-              </button>
+              <div class="skill__add">
+                <div class="input__wrapper--skill">
+                  <p class="input__label">Skill Name</p>
+                  <input class="skill__input" type="text" name="hardname" />
+                </div>
+                <div class="input__wrapper--skill">
+                  <p class="input__label">Skill Level (From 0 to 100)</p>
+                  <input
+                    class="skill__input progress"
+                    type="text"
+                    name="hardprogress"
+                  />
+                </div>
+                <button class="add__btn hard">
+                  <i class="fas fa-plus"></i>
+                  Add Hard Skill
+                </button>
+              </div>
             </section>
             <section class="hard__skills">
               <h3 class="skill__title">Soft Skills</h3>
@@ -475,10 +491,24 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,adipisci ad ips
                   </div>
                 </li>
               </ul>
-              <button class="add__btn soft">
-                <i class="fas fa-plus"></i>
-                Add Soft Skill
-              </button>
+              <div class="skill__add">
+                <div class="input__wrapper--skill">
+                  <p class="input__label">Skill Name</p>
+                  <input class="skill__input" type="text" name="softname" />
+                </div>
+                <div class="input__wrapper--skill">
+                  <p class="input__label">Skill Level (From 0 to 100)</p>
+                  <input
+                    class="skill__input progress"
+                    type="text"
+                    name="softprogress"
+                  />
+                </div>
+                <button class="add__btn soft">
+                  <i class="fas fa-plus"></i>
+                  Add Soft Skill
+                </button>
+              </div>
             </section>
           </section>
           <section class="main__portfolio">
@@ -487,7 +517,13 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,adipisci ad ips
                 <a href="../portfolio">Update Portifolios</a>
               </p>
               <input type="file" name="resume" id="resume-upload" hidden />
-              <button class="itempp__btn">
+              <div class="uploaded__file">
+                <i class="fas fa-file-lines"></i>
+                <p class="name">
+                  Lorem, ipsum.
+                </p>
+              </div>
+              <button class="itempp__btn upload__resume--btn">
                 <i class="fas fa-file-lines"></i>
                 Upload Rusume
               </button>
