@@ -4,7 +4,20 @@
 
 .main__title {
   font-size: 1.5rem;
-  padding: 1.5rem 0.8rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.main__btn {
+  transition: 0.5s;
+  border-radius: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.main__btn a {
+  color: var(--back);
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  font-weight: 600;
 }
 
 .portfolio__list {
