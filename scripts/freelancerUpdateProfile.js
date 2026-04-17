@@ -13,6 +13,7 @@ const init = () => {
 
   updateProfileHandler();
   profileTextsUpdate();
+  aboutmeTextHandler();
 
   const navBar = document.querySelector(".aside__nav");
   const menu = document.querySelector(".menu");
@@ -133,5 +134,20 @@ const profileTextsUpdate = () => {
 
     if (isSame) return;
     // TODO -> fetch to submit the form
+  });
+};
+
+const aboutmeTextHandler = () => {
+  const form = document.querySelector(".about__form");
+  const txt = form.about.value
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const inputTxt = form.about.value
+
+    if(txt === inputTxt) return
+
+    const paragraphs = inputTxt.split("\n")
+    // TODO -> fetch to submit
   });
 };
