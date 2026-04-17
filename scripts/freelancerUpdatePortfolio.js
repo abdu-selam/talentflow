@@ -19,12 +19,7 @@ const init = () => {
   dateInputsHandler();
   deletePortfolioImg();
   addPortfolioImg();
-
-  document
-    .querySelector(".main__portfolios")
-    .addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
+  formHadler();
 
   menu.addEventListener("click", (e) => {
     menu.classList.toggle("active");
@@ -114,7 +109,7 @@ const addPortfolioImg = () => {
         const readFile = new FileReader();
 
         readFile.onload = (e) => {
-          imgItemCreater(e.target.result, `pending-${i}`)
+          imgItemCreater(e.target.result, `pending-${i}`);
         };
 
         readFile.readAsDataURL(file);
@@ -140,4 +135,46 @@ const imgItemCreater = (img, id) => {
     `;
 
   ul.insertAdjacentHTML("beforeend", li);
+};
+
+const formHadler = () => {
+  const form = document.querySelector(".main__portfolios");
+  const btn = document.querySelector(".update__portfolio");
+  const imgInputElem = document.querySelector("#img-to-add");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+
+  btn.addEventListener("click", (e) => {
+    const formData = new FormData();
+
+    const title = form.title.value;
+    const startDate = `${form.startday.value}-${form.startmonth.value + 1}-${form.startyear.value}`;
+    const endDate = `${form.endday.value}-${form.endmonth.value + 1}-${form.endyear.value}`;
+    const descriptions = form.description.value.split("\n");
+
+    formData.append("title", title);
+    formData.append("startDate", startDate);
+    formData.append("endDate", endDate);
+    formData.append("description", JSON.stringify(descriptions));
+
+    const files = imgInputElem.files;
+
+    if (files.length) {
+      const filteredFiles = [...files].filter((file) =>
+        file.type.startsWith("image/"),
+      );
+
+      filteredFiles.forEach((file, i) => {
+        formData.append("images[]", file);
+      });
+    }
+
+    uploader(formData);
+  });
+};
+
+const uploader = (formData) => {
+  // fetch requiest
 };
