@@ -47,8 +47,7 @@
 }
 
 .portfolio__img {
-  width: 17rem;
-  min-width: 17rem;
+  width: min(100%, 17rem);
   background: color-mix(in srgb, var(--back-2) 40%, transparent 60%);
   box-shadow: 0 0 0.2rem 0.1rem
     color-mix(in srgb, var(--primary) 40%, transparent 60%);

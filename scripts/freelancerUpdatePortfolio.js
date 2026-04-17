@@ -148,6 +148,7 @@ const formHadler = () => {
 
   btn.addEventListener("click", (e) => {
     const formData = new FormData();
+    const eachImgElemUpdate = document.querySelectorAll(".portfolio__img");
 
     const title = form.title.value;
     const startDate = `${form.startday.value}-${form.startmonth.value + 1}-${form.startyear.value}`;

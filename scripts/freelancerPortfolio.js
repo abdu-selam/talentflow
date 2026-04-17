@@ -16,6 +16,8 @@ const init = () => {
   const menuIcons = document.querySelectorAll(".menu-icon");
   const navItems = navBar.querySelectorAll("ul, li,a");
 
+  deleteProfile();
+
   menu.addEventListener("click", (e) => {
     menu.classList.toggle("active");
     navBar.classList.toggle("active");
@@ -32,5 +34,19 @@ const init = () => {
   window.addEventListener("scroll", () => {
     menu.classList.remove("active");
     navBar.classList.remove("active");
+  });
+};
+
+const deleteProfile = () => {
+  const btns = document.querySelectorAll(".delete__portfolio");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const item = document.querySelector(
+        `li.portfolio__item[data-id="${btn.dataset.id}"]`,
+      );
+
+      // fetch request
+      item.remove();
+    });
   });
 };
