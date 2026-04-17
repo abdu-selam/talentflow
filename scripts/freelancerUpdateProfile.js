@@ -14,6 +14,7 @@ const init = () => {
   updateProfileHandler();
   profileTextsUpdate();
   aboutmeTextHandler();
+  skillDeleter()
 
   const navBar = document.querySelector(".aside__nav");
   const menu = document.querySelector(".menu");
@@ -151,3 +152,16 @@ const aboutmeTextHandler = () => {
     // TODO -> fetch to submit
   });
 };
+
+const skillDeleter = ()=>{
+  const btns = document.querySelectorAll(".skill__btn.delete")
+  btns.forEach(btn=>{
+    btn.addEventListener("click",(e)=>{
+      const id = btn.dataset.id
+      const item = document.querySelector(`[data-id="${id}"]`)
+
+      // TODO -> fetch
+      item.remove()
+    })
+  })
+}
