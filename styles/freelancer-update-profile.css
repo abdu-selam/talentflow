@@ -4,25 +4,86 @@
 }
 
 .mainpp__fig {
-  width: min(100%, 10rem);
   padding-block: 0.3rem 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: center;
 }
 
 .mainpp__img {
-  width: 100%;
+  width: min(100%, 10rem);
   border-radius: 1.8rem;
   border: 1px solid var(--accent);
 }
 
+.mainpp__caution {
+  font-size: 0.9rem;
+  padding-bottom: 0.5rem;
+}
+
 .update__profile--btn {
+  width: min(100%, 10rem);
   padding: 0.5rem 1.5rem;
   font-weight: 700;
   border-radius: 1.5rem;
   transition: 0.5s;
+}
+
+.profile__preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100dvh;
+  display: none;
+  place-items: center;
+  background: color-mix(in srgb, var(--primary) 20%, transparent 80%);
+  backdrop-filter: blur(5px);
+}
+
+.profile__preview.active {
+  display: grid;
+}
+
+.preview__window {
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent 80%);
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--back);
+  width: min(80%, 20rem);
+}
+
+.preview__window img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent 80%);
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+}
+
+.btn__wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.preview__btn {
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
+.upload__canceler {
+  background: none;
+  color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  font-weight: 600;
 }
 
 /* PROFILE TEXTS UPDATER SECTION STYLES */
