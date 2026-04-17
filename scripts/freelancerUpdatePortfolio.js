@@ -17,6 +17,13 @@ const init = () => {
   const navItems = navBar.querySelectorAll("ul, li,a");
 
   dateInputsHandler();
+  deletePortfolioImg();
+
+  document
+    .querySelector(".main__portfolios")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
 
   menu.addEventListener("click", (e) => {
     menu.classList.toggle("active");
@@ -49,9 +56,9 @@ const dateInputsHandler = () => {
         item.value = item.value.slice(0, item.value.length - 1);
       } else {
         if (number < 1) {
-            item.value = 0
+          item.value = 0;
         } else if (number > 31) {
-            item.value = 31
+          item.value = 31;
         }
       }
     });
@@ -60,15 +67,28 @@ const dateInputsHandler = () => {
   yearInputs.forEach((item) => {
     item.addEventListener("input", (e) => {
       const number = Number(item.value);
-      const year = new Date().getFullYear()
+      const year = new Date().getFullYear();
 
       if (!number) {
         item.value = item.value.slice(0, item.value.length - 1);
       } else {
         if (number > year) {
-            item.value = year
+          item.value = year;
         }
       }
+    });
+  });
+};
+
+const deletePortfolioImg = () => {
+  const btns = document.querySelectorAll(".img__delete");
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const img = document.querySelector(`li[data-id="${btn.dataset.id}"]`);
+
+      //   TODO -> make api call
+      img.remove();
     });
   });
 };
