@@ -18,6 +18,7 @@ const init = () => {
 
   dateInputsHandler();
   deletePortfolioImg();
+  addPortfolioImg();
 
   document
     .querySelector(".main__portfolios")
@@ -91,4 +92,52 @@ const deletePortfolioImg = () => {
       img.remove();
     });
   });
+};
+
+const addPortfolioImg = () => {
+  const btn = document.querySelector(".add__img");
+  const imgInputElem = document.querySelector("#img-to-add");
+
+  btn.addEventListener("click", (e) => {
+    imgInputElem.click();
+  });
+
+  imgInputElem.addEventListener("change", (e) => {
+    const files = imgInputElem.files;
+
+    if (files.length) {
+      const filteredFiles = [...files].filter((file) =>
+        file.type.startsWith("image/"),
+      );
+
+      filteredFiles.forEach((file, i) => {
+        const readFile = new FileReader();
+
+        readFile.onload = (e) => {
+          imgItemCreater(e.target.result, `pending-${i}`)
+        };
+
+        readFile.readAsDataURL(file);
+      });
+    }
+  });
+};
+
+const imgItemCreater = (img, id) => {
+  const ul = document.querySelector(".portfolio__imgs");
+  const li = `
+    <li data-id="${id}" class="portfolio__img">
+        <img
+        src="${img}"
+        alt=""
+        class="img"
+        width="200"
+        />
+        <button data-id="${id}" class="img__delete">
+        Delete
+        </button>
+    </li>
+    `;
+
+  ul.insertAdjacentHTML("beforeend", li);
 };
