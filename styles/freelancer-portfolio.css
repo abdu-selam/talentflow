@@ -121,3 +121,22 @@
   text-align: justify;
   text-indent: 1.5rem;
 }
+
+.item__btns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
+  padding-block: 0.8rem 0.3rem;
+}
+
+.item__btn {
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
+.item__btn:last-child,
+.item__btn a {
+  padding: 0.5rem 1.5rem;
+  color: var(--back);
+  font-weight: 600;
+}

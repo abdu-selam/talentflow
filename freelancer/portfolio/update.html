@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/freelancer-nav.css" />
-    <link rel="stylesheet" href="../../styles/freelancer-portfolio.css" />
+    <link
+      rel="stylesheet"
+      href="../../styles/freelancer-update-portfolio.css"
+    />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <script src="../../scripts/freelancerPortfolio.js"></script>
+    <script src="../../scripts/freelancerUpdatePortfolio.js"></script>
     <style>
       .loading {
         width: 100vw;
@@ -171,89 +174,129 @@
           </div>
         </header>
         <main class="main">
-          <h1 class="main__title">Portifolios</h1>
-          <section class="main__portfolios">
-            <ul class="portfolio__list">
-              <li class="portfolio__item">
-                <h2 class="portfolio__title">Lorem ipsum dolor sit.</h2>
-                <div class="portfolio__date">
-                  <div class="date">
-                    <p class="txt">From:</p>
-                    <time datetime="" class="time"> 2025, jun 25 </time>
-                  </div>
-                  <div class="date">
-                    <p class="txt">To:</p>
-                    <time datetime="" class="time"> 2025, jun 25 </time>
-                  </div>
-                </div>
-                <div class="img__wrapper">
-                  <ul class="portfolio__imgs">
-                    <li class="portfolio__img">
-                      <img
-                        src="../../images/bg-smooth-1.webp"
-                        alt=""
-                        class="img"
-                        width="200"
-                      />
-                    </li>
-                    <li class="portfolio__img">
-                      <img
-                        src="../../images/bg-smooth-1.webp"
-                        alt=""
-                        class="img"
-                        width="200"
-                      />
-                    </li>
-                    <li class="portfolio__img">
-                      <img
-                        src="../../images/bg-smooth-1.webp"
-                        alt=""
-                        class="img"
-                        width="200"
-                      />
-                    </li>
-                    <li class="portfolio__img">
-                      <img
-                        src="../../images/bg-smooth-1.webp"
-                        alt=""
-                        class="img"
-                        width="200"
-                      />
-                    </li>
-                  </ul>
-                </div>
-                <div class="portfolio__desc">
-                  <p class="txt">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Vitae libero eligendi recusandae? Lorem ipsum dolor sit,
-                    amet consectetur adipisicing elit. Modi suscipit voluptate
-                    accusamus!
-                  </p>
-                  <p class="txt">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Vitae libero eligendi recusandae? Lorem ipsum dolor, sit
-                    amet consectetur adipisicing elit. Inventore, temporibus.
-                  </p>
-                  <p class="txt">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Vitae libero eligendi recusandae? Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Officia, illum modi eligendi
-                    eos quasi dolor error quo atque.
-                  </p>
-                </div>
-                <div class="item__btns">
-                  <button class="item__btn">
-                    <a href="./update.html?portfolio-id=id-736673">
-                      Update Portfolio
-                    </a>
-                  </button>
-                  <button class="item__btn">
-                    Delete Portfolio
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </section>
+          <h1 class="main__title">Portifolio update</h1>
+          <form class="main__portfolios">
+            <div class="input__wrapper">
+              <label for="title">Title</label>
+              <input type="text" name="title" class="item__input" id="title" />
+            </div>
+            <div class="input__wrapper">
+              <label>Starting Date</label>
+              <div class="date__inputs">
+                <input
+                  type="text"
+                  name="startday"
+                  class="item__input day"
+                  id="start_day"
+                />
+                <select class="item__input" name="startmonth" id="start_month">
+                    <option value="">Month</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="Desenber">Desenber</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="may">may</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="Augest">Augest</option>
+                </select>
+                <input
+                  type="text"
+                  name="startyear"
+                  class="item__input year"
+                  id="start_year"
+                />
+              </div>
+            </div>
+            <div class="input__wrapper">
+              <label>Ending Date</label>
+              <div class="date__inputs">
+                <input
+                  type="text"
+                  name="startday"
+                  class="item__input day"
+                  id="end_day"
+                />
+                <select class="item__input" name="endmonth" id="end_month">
+                    <option value="">Month</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="Desenber">Desenber</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="may">may</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="Augest">Augest</option>
+                </select>
+                <input
+                  type="text"
+                  name="endyear"
+                  class="item__input year"
+                  id="end_year"
+                />
+              </div>
+            </div>
+            <div class="img__wrapper">
+              <ul class="portfolio__imgs">
+                <li class="portfolio__img">
+                  <img
+                    src="../../images/bg-smooth-1.webp"
+                    alt=""
+                    class="img"
+                    width="200"
+                  />
+                  <button class="img__delete">Delete</button>
+                </li>
+                <li class="portfolio__img">
+                  <img
+                    src="../../images/bg-smooth-1.webp"
+                    alt=""
+                    class="img"
+                    width="200"
+                  />
+                  <button class="img__delete">Delete</button>
+                </li>
+                <li class="portfolio__img">
+                  <img
+                    src="../../images/bg-smooth-1.webp"
+                    alt=""
+                    class="img"
+                    width="200"
+                  />
+                  <button class="img__delete">Delete</button>
+                </li>
+                <li class="portfolio__img">
+                  <img
+                    src="../../images/bg-smooth-1.webp"
+                    alt=""
+                    class="img"
+                    width="200"
+                  />
+                  <button class="img__delete">Delete</button>
+                </li>
+              </ul>
+              <button class="add__img">Add Image</button>
+            </div>
+            <div class="portfolio__desc">
+                <h2 class="desc__title">
+                    Description
+                </h2>
+              <p class="caution">Make new line to start new paragraph</p>
+              <textarea name="description" class="input__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia atque nostrum ducimus reprehenderit delectus sapiente?</textarea
+              >
+            </div>
+            <div class="item__btns">
+              <button class="item__btn">Update Portfolio</button>
+            </div>
+          </form>
         </main>
       </div>
     </div>

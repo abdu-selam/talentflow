@@ -298,6 +298,11 @@
   padding-top: 0.8rem;
 }
 
+.item__portifolio .txt {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .portfolios__link a {
   color: var(--accent);
   font-weight: 600;
