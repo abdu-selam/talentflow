@@ -4,51 +4,60 @@
 }
 
 .mainpp__fig {
+  width: min(100%, 10rem);
+  padding-block: 0.3rem 0.8rem;
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
-  align-items: end;
-  padding-block: 0.5rem;
+  align-items: center;
 }
 
 .mainpp__img {
-  width: 2.5rem;
-  border-radius: 50%;
+  width: 100%;
+  border-radius: 1.8rem;
   border: 1px solid var(--accent);
 }
 
-.mainpp__name {
-  font-size: 1rem;
-  line-height: 0.8rem;
-}
-
-.mainpp__location {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  font-weight: 600;
-}
-
-.mainpp__email {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.mainpp__headline {
-  font-size: 1rem;
-  font-weight: 500;
-  opacity: 0.8;
-}
-
-.update__btn {
+.update__profile--btn {
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
   border-radius: 1.5rem;
   transition: 0.5s;
- margin-block: 0.5rem;
 }
 
-.update__btn a {
-  display: inline-block;
-  padding: 0.5rem 1.5rem;
-  color: var(--back);
+/* PROFILE TEXTS UPDATER SECTION STYLES */
+.profile__form {
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent 80%);
+  width: min(100%, 30rem);
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input__wrapper label {
+  font-size: 0.8rem;
   font-weight: 600;
+}
+
+.mainpp__input {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  border-bottom: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--primary) 10%, transparent 80%);
+}
+
+.submit__btn {
+  padding: 0.5rem;
+  font-weight: 600;
+  border-radius: 1.5rem;
+  transition: 0.5s;
 }
 
 /* ABOUT SECTION STYLES */
@@ -68,6 +77,37 @@
   font-weight: 500;
   line-height: 1.2rem;
   width: min(100%, 40rem);
+}
+
+.about__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: min(100%, 40rem);
+  padding-block: 0.8rem;
+}
+
+.about__input {
+  resize: none;
+  height: 15rem;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent 80%);
+  transition: 0.5s;
+}
+
+.about__input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.about__submit {
+  padding: 0.5rem 3rem;
+  align-self: center;
+  font-weight: 700;
+  border-radius: 1.5rem;
+  width: max-content;
+  transition: 0.5s;
 }
 
 /* SKILLS SECTION STYLES */
@@ -131,61 +171,23 @@
   left: 0;
 }
 
-/* PORTFOLIO SECTION STYLES */
-/* PORTIFOLIOS SECTION STYLES */
-.portfolios__titile {
-  font-weight: 700;
-  font-size: 1.2rem;
-  padding-block: 0.8rem;
-}
-
-.portfolio__list {
+.skill__btns {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem;
+  justify-content: end;
 }
 
-.portfolio__item {
-  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent 70%);
-  width: min(100%, 18rem);
-  padding: 0.8rem;
-  border-radius: 0.8rem;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.portfolio__img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 0.8rem;
-}
-
-.portfolio__caption {
-  font-weight: 700;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.portfolio__description {
-  font-size: 0.9rem;
-}
-
-.portfolio__btn {
+.skill__btn {
+  padding: 0.3rem 0.8rem;
   border-radius: 1.5rem;
   transition: 0.5s;
 }
 
-.portfolio__link {
-  color: var(--back);
-  padding: 0.5rem;
-  display: inline-block;
-  font-weight: 700;
-  width: 100%;
+.add__btn {
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  border-radius: 1.5rem;
+  transition: 0.5s;
+  margin-top: 0.5rem;
 }
 
 .item__portifolio {
@@ -199,6 +201,7 @@
 .portfolios__link a {
   color: var(--accent);
   font-weight: 600;
+  padding-bottom: 0.2rem;
   border-bottom: 2px solid var(--accent);
   transition: 0.5s;
   display: inline-block;
@@ -210,12 +213,6 @@
 
 .itempp__btn {
   border-radius: 1.5rem;
-  transition: 0.5s;
-}
-
-.itempp__btn a {
   padding: 0.5rem 1.5rem;
-  display: inline-block;
-  color: var(--back);
-  font-weight: 700;
+  transition: 0.5s;
 }

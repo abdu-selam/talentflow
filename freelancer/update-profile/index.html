@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/freelancer-nav.css" />
-    <link rel="stylesheet" href="../../styles/freelancer-profile.css" />
+    <link rel="stylesheet" href="../../styles/freelancer-update-profile.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
     <script src="../../scripts/fleelancerProfile.js" defer></script>
     <style>
@@ -179,26 +179,60 @@
                 alt="logo of he freelancer"
                 width="50"
               />
-              <figcaption class="mainpp__caption">
-                <h1 class="mainpp__name">Lorem ipsum dolor sit.</h1>
-                <p class="mainpp__location">
-                  <i class="fas fa-location-dot"></i>
-                  Lorem, ipsum dolor.
-                </p>
+              <input type="file" name="profile" id="profile-update" hidden />
+              <figcaption>
+                <button class="update__profile--btn">Update Profile</button>
               </figcaption>
             </figure>
-            <p class="mainpp__headline">
-              Lorem ipsum dolor | sit amet consectetur | adipisicing elit.
-            </p>
-            <p class="mainpp__email">
-              <i class="fas fa-envelope"></i>
-              user_1625hgshv@email.com
-            </p>
-            <button class="update__btn">
-              <a href="../update-profile/">
-                 Update Profile
-              </a>
-            </button>
+          </section>
+          <section class="main__profile">
+            <form class="profile__form">
+              <div class="input__wrapper">
+                <label for="first-name">First Name</label>
+                <input
+                  value="Lorem ipsum"
+                  class="mainpp__input"
+                  id="first-name"
+                  type="text"
+                  name="fname"
+                />
+              </div>
+              <div class="input__wrapper">
+                <label for="last-name">Last Name</label>
+                <input
+                  value="dolor sit."
+                  class="mainpp__input"
+                  type="text"
+                  id="last-name"
+                  name="lname"
+                />
+              </div>
+              <div class="input__wrapper">
+                <label for="address">Address</label>
+                <input
+                  value="dolor sit."
+                  class="mainpp__input"
+                  type="text"
+                  id="address"
+                  name="address"
+                />
+              </div>
+              <div class="input__wrapper">
+                <label for="address">Headline</label>
+                <input
+                  value="Lorem ipsum dolor | sit amet consectetur | adipisicing elit."
+                  class="mainpp__input"
+                  type="text"
+                  id="headline"
+                  name="headline"
+                />
+              </div>
+              <div class="input__wrapper">
+                <button class="submit__btn">
+                    Update
+                </button>
+              </div>
+            </form>
           </section>
           <section class="main__about">
             <h2 class="about__title">
@@ -206,19 +240,14 @@
               About Me
             </h2>
             <p class="about__txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,
-              adipisci ad ipsa fuga libero ipsam quia dolor sint, dicta eum
-              laboriosam molestiae facilis, quod tenetur voluptatem at quaerat
-              ab? Ratione nisi quibusdam sapiente, cumque quae reiciendis
-              excepturi
+                To create multiple paragraph make new line
             </p>
-            <p class="about__txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,
-              adipisci ad ipsa fuga libero ipsam quia dolor sint, dicta eum
-              laboriosam molestiae facilis, quod tenetur voluptatem at quaerat
-              ab? Ratione nisi quibusdam sapiente, cumque quae reiciendis
-              excepturi
-            </p>
+            <form class="about__form">
+                <textarea class="about__input">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,adipisci ad ipsa fuga libero ipsam quia dolor sint, dicta eumlaboriosam molestiae facilis, quod tenetur voluptatem at quaeratab? Ratione nisi quibusdam sapiente, cumque quae reiciendisexcepturi</textarea>
+                <button class="about__submit">
+                    Submit
+                </button>
+            </form>
           </section>
           <section class="main__skills">
             <h2 class="skills__title">
@@ -237,15 +266,8 @@
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
                   </div>
-                </li>
-                <li class="skill__item">
-                  <p class="skill__name">Lorem, ipsum.</p>
-                  <div class="progress__wrapper">
-                    <p class="skill__prog">
-                      <span> Level </span>
-                      <span> 80% </span>
-                    </p>
-                    <div style="--i: 80%" class="prog__div"></div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
                   </div>
                 </li>
                 <li class="skill__item">
@@ -257,15 +279,8 @@
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
                   </div>
-                </li>
-                <li class="skill__item">
-                  <p class="skill__name">Lorem, ipsum.</p>
-                  <div class="progress__wrapper">
-                    <p class="skill__prog">
-                      <span> Level </span>
-                      <span> 80% </span>
-                    </p>
-                    <div style="--i: 80%" class="prog__div"></div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
                   </div>
                 </li>
                 <li class="skill__item">
@@ -277,6 +292,9 @@
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
                   </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
                 </li>
                 <li class="skill__item">
                   <p class="skill__name">Lorem, ipsum.</p>
@@ -286,9 +304,68 @@
                       <span> 80% </span>
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
+                </li>
+                <li class="skill__item">
+                  <p class="skill__name">Lorem, ipsum.</p>
+                  <div class="progress__wrapper">
+                    <p class="skill__prog">
+                      <span> Level </span>
+                      <span> 80% </span>
+                    </p>
+                    <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
+                </li>
+                <li class="skill__item">
+                  <p class="skill__name">Lorem, ipsum.</p>
+                  <div class="progress__wrapper">
+                    <p class="skill__prog">
+                      <span> Level </span>
+                      <span> 80% </span>
+                    </p>
+                    <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
+                </li>
+                <li class="skill__item">
+                  <p class="skill__name">Lorem, ipsum.</p>
+                  <div class="progress__wrapper">
+                    <p class="skill__prog">
+                      <span> Level </span>
+                      <span> 80% </span>
+                    </p>
+                    <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
+                </li>
+                <li class="skill__item">
+                  <p class="skill__name">Lorem, ipsum.</p>
+                  <div class="progress__wrapper">
+                    <p class="skill__prog">
+                      <span> Level </span>
+                      <span> 80% </span>
+                    </p>
+                    <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
                   </div>
                 </li>
               </ul>
+              <button class="add__btn hard">
+                <i class="fas fa-plus"></i>
+                Add Hard Skill
+              </button>
             </section>
             <section class="hard__skills">
               <h3 class="skill__title">Soft Skills</h3>
@@ -302,15 +379,8 @@
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
                   </div>
-                </li>
-                <li class="skill__item">
-                  <p class="skill__name">Lorem, ipsum.</p>
-                  <div class="progress__wrapper">
-                    <p class="skill__prog">
-                      <span> Level </span>
-                      <span> 80% </span>
-                    </p>
-                    <div style="--i: 80%" class="prog__div"></div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
                   </div>
                 </li>
                 <li class="skill__item">
@@ -322,15 +392,8 @@
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
                   </div>
-                </li>
-                <li class="skill__item">
-                  <p class="skill__name">Lorem, ipsum.</p>
-                  <div class="progress__wrapper">
-                    <p class="skill__prog">
-                      <span> Level </span>
-                      <span> 80% </span>
-                    </p>
-                    <div style="--i: 80%" class="prog__div"></div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
                   </div>
                 </li>
                 <li class="skill__item">
@@ -342,6 +405,9 @@
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
                   </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
                 </li>
                 <li class="skill__item">
                   <p class="skill__name">Lorem, ipsum.</p>
@@ -351,115 +417,66 @@
                       <span> 80% </span>
                     </p>
                     <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
+                </li>
+                <li class="skill__item">
+                  <p class="skill__name">Lorem, ipsum.</p>
+                  <div class="progress__wrapper">
+                    <p class="skill__prog">
+                      <span> Level </span>
+                      <span> 80% </span>
+                    </p>
+                    <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
+                </li>
+                <li class="skill__item">
+                  <p class="skill__name">Lorem, ipsum.</p>
+                  <div class="progress__wrapper">
+                    <p class="skill__prog">
+                      <span> Level </span>
+                      <span> 80% </span>
+                    </p>
+                    <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
+                  </div>
+                </li>
+                <li class="skill__item">
+                  <p class="skill__name">Lorem, ipsum.</p>
+                  <div class="progress__wrapper">
+                    <p class="skill__prog">
+                      <span> Level </span>
+                      <span> 80% </span>
+                    </p>
+                    <div style="--i: 80%" class="prog__div"></div>
+                  </div>
+                  <div class="skill__btns">
+                    <button class="skill__btn delete">Delete</button>
                   </div>
                 </li>
               </ul>
+              <button class="add__btn soft">
+                <i class="fas fa-plus"></i>
+                Add Soft Skill
+              </button>
             </section>
           </section>
           <section class="main__portfolio">
-            <h2 class="portfolios__titile">
-              <i class="fas fa-briefcase"></i>
-              My portfolios
-            </h2>
-            <ul class="portfolio__list">
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-            </ul>
             <div class="item__portifolio">
               <p class="portfolios__link">
-                <a href="../portfolio">See All Portfolios</a>
+                <a href="../portfolio">Update Portifolios</a>
               </p>
+              <input type="file" name="resume" id="resume-upload" hidden />
               <button class="itempp__btn">
-                <a href="#" download="true">
-                  <i class="fas fa-file-lines"></i>
-                  Download Rusume
-                </a>
+                <i class="fas fa-file-lines"></i>
+                Upload Rusume
               </button>
             </div>
           </section>
