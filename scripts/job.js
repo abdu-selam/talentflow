@@ -15,6 +15,8 @@ const init = () => {
   const menu = document.querySelector(".menu");
   const menuIcons = document.querySelectorAll(".menu-icon");
 
+  isLoged();
+
   menu.addEventListener("click", (e) => {
     menu.classList.toggle("active");
     navBar.classList.toggle("active");
@@ -36,7 +38,7 @@ const init = () => {
   document.querySelector(".footer__year").textContent =
     new Date().getFullYear();
 
-    fetcher()
+  fetcher();
 };
 
 const fetcher = async () => {
@@ -44,8 +46,32 @@ const fetcher = async () => {
   const jobId = params.get("job");
 
   if (!jobId) {
-    location.replace("./")
+    location.replace("./");
   }
 
-  // fetch requiest for single  
+  // fetch requiest for single
+};
+
+const isLoged = () => {
+  // fetch request
+  const form = document.querySelector(".job__form");
+  const textarea = document.querySelector("#apply-txt");
+  const btn = document.querySelector(".job__btn");
+  const mainHead = document.querySelector(".main__head");
+
+  const userType = "freelancer";
+  form.style.display = "none";
+  if (userType == "client" || userType == "freelancer") {
+    mainHead.style.display = "none";
+  }
+
+  if (["freelancer", "applyer"].includes(userType)) {
+    form.style.display = "flex";
+
+    if (userType == "freelancer") {
+      textarea.removeAttribute("disabled");
+      btn.removeAttribute("disabled");
+      form.classList.remove("unsigned");
+    }
+  }
 };

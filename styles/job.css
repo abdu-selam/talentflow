@@ -136,41 +136,41 @@
 }
 
 .job__desc .result {
-    padding: 0.3rem 0.8rem;
-    font-weight: 500;
-    opacity: 0.9;
-    text-align: justify;
+  padding: 0.3rem 0.8rem;
+  font-weight: 500;
+  opacity: 0.9;
+  text-align: justify;
 }
 
 .job__resp,
 .job__req {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 :is(.job__req, .job__resp) .txt {
-    color: var(--accent);
+  color: var(--accent);
   font-weight: 700;
 }
 
 :is(.job__req, .job__resp) .list {
-    padding-inline: 0.8rem;
-    font-weight: 500;
-    opacity: 0.9;
-    text-align: justify;
+  padding-inline: 0.8rem;
+  font-weight: 500;
+  opacity: 0.9;
+  text-align: justify;
 }
 
 :is(.job__req, .job__resp) .item {
-    list-style-type: disc;
-    list-style-position: inside;
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 .job__form {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  width: min(100%,30rem);
+  width: min(100%, 30rem);
 }
 
 .input__wrapper {
@@ -190,7 +190,7 @@
 
 .input__wrapper .input {
   border-radius: 0.8rem;
-  height: calc(100vw/1.5);
+  height: calc(100vw / 1.5);
   max-height: 15rem;
   resize: none;
   background: none;
@@ -209,18 +209,16 @@
 }
 
 .job__btn {
-    border-radius: 1.5rem;
-    width: 100%;
-    transition: 0.3s;
-    color: var(--back);
-    padding: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    display: inline-block;
+  border-radius: 1.5rem;
+  width: 100%;
+  transition: 0.3s;
+  color: var(--back);
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
 }
 
 .job__btn:hover {
-    scale: 1.02;
+  scale: 1.02;
 }
-
-
