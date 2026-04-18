@@ -1,0 +1,132 @@
+/* STATISTIC SECTIONS STYLES */
+.main__stat {
+  padding-top: 1.5rem;
+}
+
+.stat__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.stat__list {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem;
+}
+
+.stat__item {
+  background: color-mix(in srgb, var(--primary) 5%, transparent 70%);
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+}
+
+@media (min-width: 30rem) {
+  .stat__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 50rem) {
+  .stat__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat__txt {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.stat__result {
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+/* ACTIVE JOBS SECTION STYLES */
+.jobs__title,
+.pendings__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.jobs__list,
+.pendings__list {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem;
+}
+
+@media (min-width: 30rem) {
+  .jobs__list,
+  .pendings__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.jobs__item,
+.pendings__item {
+  background: color-mix(in srgb, var(--primary) 10%, transparent 70%);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.job__title,
+.pending__title {
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.job__client,
+.pending__client {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.job__description,
+.pending__description {
+  padding: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.pending__description {
+  margin: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent 70%);
+  border-radius: 0.8rem;
+  height: 8rem;
+  background: color-mix(in srgb, var(--back) 30%, transparent 70%);
+  resize: none;
+}
+
+.pending__description:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.pending__description::-webkit-scrollbar {
+  display: none;
+}
+
+.job__btn,
+.pending__btn {
+  width: max-content;
+  border-radius: 0.8rem;
+  align-self: end;
+  transition: 0.5s;
+}
+
+.job__link,
+.pending__link {
+  padding: 0.3rem 0.8rem;
+  display: inline-block;
+  color: var(--back);
+}
