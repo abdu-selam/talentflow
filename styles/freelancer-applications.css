@@ -144,6 +144,12 @@
   font-weight: 500;
 }
 
+.pending__btns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
+}
+
 .pending__btn {
   width: max-content;
   border-radius: 0.8rem;
