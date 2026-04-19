@@ -131,6 +131,28 @@
   color: var(--accent);
 }
 
+.client__filter {
+  display: flex;
+  padding: 0.2rem;
+  border-radius: 1.5rem;
+  background: var(--back-2);
+  width: max-content;
+}
+
+.client__item {
+  border-radius: 1.5rem;
+  padding: 0.3rem 1.5rem;
+  width: max-content;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.client__item.active {
+  background: var(--accent);
+  color: var(--back);
+}
+
 /* JOB LIST SECTION STYLES */
 .jobs__search {
   display: flex;
