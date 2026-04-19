@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/nav.css" />
-    <link rel="stylesheet" href="../../styles/client-profile.css" />
+    <link rel="stylesheet" href="../../styles/freelancer-update-profile.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <script src="../../scripts/clientProfile.js" defer></script>
+    <script src="../../scripts/clientUpdateProfile.js" defer></script>
     <script src="../../scripts/nav.js" defer></script>
     <style>
       .loading {
@@ -174,134 +174,93 @@
                 alt="logo of he freelancer"
                 width="50"
               />
-              <figcaption class="mainpp__caption">
-                <h1 class="mainpp__name">Lorem ipsum dolor sit.</h1>
-                <p class="mainpp__location">
-                  <i class="fas fa-location-dot"></i>
-                  Lorem, ipsum dolor.
+              <input type="file" name="profile" id="profile-update" accept="image/*" hidden />
+              <figcaption>
+                <button class="update__profile--btn">Upload Profile</button>
+                <p class="mainpp__caution">
+                  Only JPEG, JPG, PNG or WEBP format are allowed. Maximum
+                  allowed file size is 5MB!
                 </p>
               </figcaption>
             </figure>
-            <p class="mainpp__headline">
-              Lorem ipsum dolor | sit amet consectetur | adipisicing elit.
-            </p>
-            <p class="mainpp__email">
-              <i class="fas fa-envelope"></i>
-              user_1625hgshv@email.com
-            </p>
-            <button class="update__btn">
-              <a href="../update-profile/"> Update Profile </a>
-            </button>
+            <div class="profile__preview">
+              <div class="preview__window">
+                <img src="../../images/bg-smooth-1.webp" width="200" alt="" />
+                <div class="btn__wrapper">
+                  <button class="preview__btn upload__trigger">
+                    Upload Now
+                  </button>
+                  <button class="preview__btn upload__canceler">
+                    Cancel Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="main__profile">
+            <form class="profile__form">
+              <div class="input__wrapper">
+                <label for="first-name">First Name</label>
+                <input
+                  value="Lorem ipsum"
+                  class="mainpp__input"
+                  id="first-name"
+                  type="text"
+                  name="fname"
+                />
+              </div>
+              <div class="input__wrapper">
+                <label for="last-name">Last Name</label>
+                <input
+                  value="dolor sit."
+                  class="mainpp__input"
+                  type="text"
+                  id="last-name"
+                  name="lname"
+                />
+              </div>
+              <div class="input__wrapper">
+                <label for="address">Address</label>
+                <input
+                  value="dolor sit."
+                  class="mainpp__input"
+                  type="text"
+                  id="address"
+                  name="address"
+                />
+              </div>
+              <div class="input__wrapper">
+                <label for="address">Headline</label>
+                <input
+                  value="Lorem ipsum dolor | sit amet consectetur | adipisicing elit."
+                  class="mainpp__input"
+                  type="text"
+                  id="headline"
+                  name="headline"
+                />
+              </div>
+              <div class="input__wrapper">
+                <button class="submit__btn">Update</button>
+              </div>
+            </form>
           </section>
           <section class="main__about">
             <h2 class="about__title">
               <i class="fas fa-user"></i>
               About Me
             </h2>
-            <p class="about__txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,
-              adipisci ad ipsa fuga libero ipsam quia dolor sint, dicta eum
-              laboriosam molestiae facilis, quod tenetur voluptatem at quaerat
-              ab? Ratione nisi quibusdam sapiente, cumque quae reiciendis
-              excepturi
-            </p>
-            <p class="about__txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,
-              adipisci ad ipsa fuga libero ipsam quia dolor sint, dicta eum
-              laboriosam molestiae facilis, quod tenetur voluptatem at quaerat
-              ab? Ratione nisi quibusdam sapiente, cumque quae reiciendis
-              excepturi
-            </p>
-          </section>
-          <section class="main__portfolio">
-            <h2 class="portfolios__titile">
-              <i class="fas fa-briefcase"></i>
-              Previous Posts
-            </h2>
-            <ul class="portfolio__list">
-              <li class="portfolio__item">
-                <h3 class="portfolio__title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </h3>
-                <p class="portfolio__category">
-                    <span class="txt">Category</span>
-                    <span class="result">Lorem, ipsum dolor.</span>
-                </p>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae....
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <h3 class="portfolio__title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </h3>
-                <p class="portfolio__category">
-                    <span class="txt">Category</span>
-                    <span class="result">Lorem, ipsum dolor.</span>
-                </p>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae....
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <h3 class="portfolio__title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </h3>
-                <p class="portfolio__category">
-                    <span class="txt">Category</span>
-                    <span class="result">Lorem, ipsum dolor.</span>
-                </p>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae....
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <h3 class="portfolio__title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </h3>
-                <p class="portfolio__category">
-                    <span class="txt">Category</span>
-                    <span class="result">Lorem, ipsum dolor.</span>
-                </p>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae....
-                </p>
-                <button class="portfolio__btn">
-                  <a href="../portfolio" class="portfolio__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-            </ul>
-            <div class="item__portifolio">
-              <p class="portfolios__link">
-                <a href="../active-jobs">See All Posts</a>
-              </p>
-            </div>
+            <p class="about__txt">To create multiple paragraph make new line</p>
+            <form class="about__form">
+              <textarea name="about" class="about__input">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est,adipisci ad ipsa fuga libero ipsam quia dolor sint, dicta eumlaboriosam molestiae facilis, quod tenetur voluptatem at quaeratab? Ratione nisi quibusdam sapiente, cumque quae reiciendisexcepturi</textarea
+              >
+              <button class="about__submit">Submit</button>
+            </form>
           </section>
         </main>
       </div>
     </div>
-    <footer class="footer">
+   <footer class="footer">
       <div class="footer__wrapper">
         <section class="footer__workers">
           <ul class="worker__list">
