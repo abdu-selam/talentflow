@@ -1,0 +1,156 @@
+.main__wrapper {
+  padding: 0.8rem;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.main__job {
+  border: 0.5px solid var(--back-2);
+  margin-block: 1rem;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 25rem);
+}
+
+.input__wrapper.job__desc {
+  width: min(100%, 35rem);
+}
+
+.input__wrapper label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.mainpp__input {
+  width: 100%;
+  padding: 0.3rem 0.5rem 0.1rem;
+  border: none;
+  background: color-mix(in srgb, var(--primary) 10%, transparent 90%);
+  border-bottom: 2px solid var(--primary);
+}
+
+.date__inputs {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.input__wrapper .list {
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.input__wrapper .item {
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  background: color-mix(in srgb, var(--primary) 5%, transparent 95%);
+  font-size: 0.9rem;
+  transition: 0.5s;
+}
+
+.input__wrapper .item.active {
+  background: var(--accent);
+  color: var(--back);
+}
+
+.job__desc .result {
+  height: 15rem;
+  padding: 0.5rem;
+  resize: none;
+  border-radius: 0.8rem;
+  border: none;
+  box-shadow: 0 0 0.3rem color-mix(in srgb, var(--primary) 50%, transparent 50%);
+  color: var(--primary);
+  transition: 0.5s;
+}
+
+.job__desc .result:focus {
+  box-shadow: 0 0 0.3rem var(--primary);
+  outline: none;
+}
+
+.job__desc .result::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+.job__desc .result::-webkit-scrollbar-thumb {
+  border: none;
+}
+
+.job__resp,
+.job__req {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+:is(.job__req, .job__resp) .title {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+:is(.job__req, .job__resp) .list {
+  padding-inline: 0.8rem;
+  font-weight: 500;
+  opacity: 0.9;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+:is(.job__req, .job__resp) .item::before {
+  content: "";
+  width: 0.3rem;
+  height: 0.3rem;
+  background: var(--accent);
+  border-radius: 50%;
+  display: block;
+}
+
+:is(.job__req, .job__resp) .item {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+:is(.job__req, .job__resp) .icon {
+  font-size: 0.9rem;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+  background: var(--accent);
+  color: var(--back);
+}
+
+:is(.job__req, .job__resp) .resp__input {
+  display: flex;
+  gap: 0.3rem;
+}
+
+:is(.job__req, .job__resp) button {
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.resp__input--in {
+  padding: 0.3rem 0.5rem 0.1rem;
+  border: none;
+  background: color-mix(in srgb, var(--primary) 10%, transparent 90%);
+  border-bottom: 2px solid var(--primary);
+}
+
+.job__btn {
+  padding: 0.5rem;
+  width: 100%;
+  font-weight: 600;
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}

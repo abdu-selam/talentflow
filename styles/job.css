@@ -219,6 +219,12 @@
   display: inline-block;
 }
 
+.job__btn a {
+  color: var(--back);
+  width: 100%;
+  display: inline-block;
+}
+
 .job__btn:hover {
   scale: 1.02;
 }
