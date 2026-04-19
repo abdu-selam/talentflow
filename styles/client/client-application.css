@@ -1,0 +1,100 @@
+.main {
+  padding-block: 0.5rem;
+}
+
+.main__title {
+  font-size: 1.3rem;
+  padding-block: 0.3rem 0.8rem;
+}
+
+.main__filters {
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  background: var(--back-2);
+  border-radius: 1.5rem;
+  width: max-content;
+}
+
+.filter__item {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.2rem 0.8rem;
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
+.filter__item.active {
+  background: var(--accent);
+  color: var(--back);
+}
+
+.application__item {
+  box-shadow: 0 0 0.3rem color-mix(in srgb, var(--primary) 40%, transparent 60%);
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  margin-block: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item__title {
+  font-size: 1rem;
+}
+
+.item__status {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--back);
+  padding: 0.3rem 0.8rem;
+  width: max-content;
+  border-radius: 0.8rem;
+}
+
+.item__profile {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: var(--back-linear);
+  border: 1px solid var(--back-2);
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+}
+
+.item__profile .img {
+  width: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+}
+
+.item__profile .name {
+  font-size: 0.8rem;
+}
+
+.item__profile .headline {
+  font-size: 0.8rem;
+}
+
+.item__applicant {
+  font-size: 0.9rem;
+}
+
+.item__btn {
+  padding: 0.5rem 0.8rem;
+  border-radius: 1.5rem;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.item__btn:first-child {
+  padding: 0;
+}
+
+.item__btn a {
+  padding: 0.5rem 0.8rem;
+  display: inline-block;
+  color: var(--back);
+}
