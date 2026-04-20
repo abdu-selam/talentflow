@@ -25,9 +25,24 @@
 
 .title {
   max-width: 80rem;
-  padding-bottom: 2rem;
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
   margin-inline: auto;
 }
+
+.add__post {
+  transition: 0.5s;
+  border-radius: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.add__post a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--back);
+  font-weight: 600;
+}
+
 
 .main__wrapper {
   max-width: 80rem;

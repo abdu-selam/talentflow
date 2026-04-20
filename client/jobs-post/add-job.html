@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/nav.css" />
-    <link rel="stylesheet" href="../../styles/jobs.css" />
+    <link rel="stylesheet" href="../../styles/client/client-job-update.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <script src="../../scripts/client/clientJobPosts.js" defer></script>
+    <script src="../../scripts/client/clientJobAdd.js" defer></script>
     <script src="../../scripts/nav.js" defer></script>
     <style>
       .loading {
@@ -108,13 +108,13 @@
               </a>
             </li>
             <li class="aside__item">
-              <a href="../profile/" class="aside__link">
+              <a href="#" class="aside__link">
                 <i class="fas fa-user-tie"></i>
                 Profile
               </a>
             </li>
             <li class="aside__item">
-              <a href="#" class="aside__link active">
+              <a href="../jobs-post/" class="aside__link active">
                 <i class="fas fa-briefcase"></i>
                 Post Jobs
               </a>
@@ -166,76 +166,136 @@
           </div>
         </header>
         <main class="main">
-          <h1 class="title">All Jobs</h1>
-          <button class="add__post">
-            <a href="./add-job.html">
-              Add New Job
-            </a>
-          </button>
-          <div class="main__wrapper">
-            <section class="jobs">
-              <ul class="client__filter">
-                <li class="client__item all active">All</li>
-                <li class="client__item closed">Closed</li>
-                <li class="client__item pending">Active</li>
-              </ul>
-              <ul class="jobs__list">
-                <li class="jobs__item">
-                  <h2 class="job__title">Lorem, ipsum.</h2>
-                  <ul class="job__dates">
-                    <li class="job__date">
-                      <p class="date__name">Posted</p>
-                      <p class="date__date">20-10-2016</p>
-                    </li>
-                    <li class="job__date">
-                      <p class="date__name">Deadline</p>
-                      <p class="date__date">20-10-2016</p>
-                    </li>
-                  </ul>
-                  <div class="job__item job__adress">
-                    <p class="adress__name item__name">
-                      <i class="fas fa-location"></i> Adress
-                    </p>
-                    <p class="item__value adress__location">Adama</p>
-                  </div>
-                  <div class="job__item job__salary">
-                    <p class="salary__name item__name">
-                      <i class="fas fa-coins"></i> Salary
-                    </p>
-                    <p class="item__value salary__amount">40000</p>
-                  </div>
-                  <div class="job__item job__type">
-                    <p class="type__name item__name">
-                      <i class="fas fa-briefcase"></i> Job type
-                    </p>
-                    <p class="item__value type__amount">Full time</p>
-                  </div>
-                  <div class="job__item job__type">
-                    <p class="type__name item__name">
-                      <i class="fas fa-briefcase"></i> Status
-                    </p>
-                    <p class="item__value type__amount">Closed</p>
-                  </div>
-                  <div class="job__item job__description">
-                    <p class="desc__name item__name">Description</p>
-                    <p class="item__value desc__amount">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui cum facere magni fuga maxime, officiis aliquid
-                      necessitatibus doloremque quibusdam eum!
-                    </p>
-                  </div>
-                  <button class="jobs__detail">
-                    <a
-                      href="./job.html?job=job-id-here"
-                      class="jobs__detail--link"
+          <form class="main__wrapper">
+            <div class="job__wrapper">
+              <section class="main__job">
+                <div class="input__wrapper">
+                  <label for="title">Job Title</label>
+                  <input
+                    class="mainpp__input"
+                    id="title"
+                    type="text"
+                    name="title"
+                  />
+                </div>
+                <div class="input__wrapper">
+                  <label for="category">Category</label>
+                  <select
+                      class="mainpp__input"
+                      name="category"
+                      id="category"
                     >
-                      View Detail
-                    </a>
-                  </button>
-                </li>
-              </ul>
-            </section>
-          </div>
+                      <option value="">Category</option>
+                      <option value="0">January</option>
+                      <option value="1">February</option>
+                      <option value="2">March</option>
+                      <option value="3">April</option>
+                      <option value="4">May</option>
+                      <option value="5">June</option>
+                      <option value="6">July</option>
+                      <option value="7">Augest</option>
+                      <option value="8">September</option>
+                      <option value="9">October</option>
+                      <option value="10">November</option>
+                      <option value="11">Desember</option>
+                    </select>
+                </div>
+                <div class="input__wrapper">
+                  <label for="address">Location</label>
+                  <input
+                    class="mainpp__input"
+                    type="text"
+                    id="address"
+                    name="address"
+                  />
+                </div>
+                <div class="input__wrapper job-type">
+                  <label>Job Type</label>
+                  <ul class="list">
+                    <li data-value="full" class="item">Full time</li>
+                    <li data-value="full" class="item">Part time</li>
+                    <li data-value="full" class="item active">Part time</li>
+                  </ul>
+                </div>
+                <div class="input__wrapper">
+                  <label for="salary">Salary (Birr)</label>
+                  <input
+                    class="mainpp__input"
+                    type="text"
+                    id="salary"
+                    name="salary"
+                  />
+                </div>
+                <div class="input__wrapper">
+                  <label>Deadline Date</label>
+                  <div class="date__inputs">
+                    <input
+                      type="text"
+                      name="deadday"
+                      class="mainpp__input day"
+                      id="start_day"
+                    />
+                    <select
+                      class="mainpp__input"
+                      name="deadmonth"
+                      id="start_month"
+                    >
+                      <option value="">Month</option>
+                      <option value="0">January</option>
+                      <option value="1">February</option>
+                      <option value="2">March</option>
+                      <option value="3">April</option>
+                      <option value="4">May</option>
+                      <option value="5">June</option>
+                      <option value="6">July</option>
+                      <option value="7">Augest</option>
+                      <option value="8">September</option>
+                      <option value="9">October</option>
+                      <option value="10">November</option>
+                      <option value="11">Desember</option>
+                    </select>
+                    <input
+                      type="text"
+                      name="deadyear"
+                      class="mainpp__input year"
+                      id="start_year"
+                    />
+                  </div>
+                </div>
+                <div class="job__desc input__wrapper">
+                  <label for="description" class="txt">Description: </label>
+                  <textarea name="description" id="description" class="result"></textarea>
+                </div>
+                <div class="job__resp">
+                  <p class="title">Responsibilities</p>
+                  <ul class="list">
+                    
+                  </ul>
+                  <div class="resp__input">
+                    <input type="text" class="resp__input--in" />
+                    <button class="resp">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="job__req">
+                  <p class="title">Requirements</p>
+                  <ul class="list">
+                    
+                  </ul>
+                  <div class="resp__input">
+                    <input type="text" class="resp__input--in" />
+                    <button>
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </section>
+              <div class="job__btns">
+                <button class="job__btn">Create Job</button>
+              </div>
+            </div>
+          </form>
         </main>
       </div>
     </div>
