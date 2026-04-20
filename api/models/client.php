@@ -1,24 +1,24 @@
 <?php
-class Freelancers
+class Clients
 {
     private $con;
-    private $table = "freelancers";
+    private $table = "clients";
 
     public function __construct($con)
     {
         $this->con = $con;
     }
 
-    public function create($id, $user_id, $headline, $address, $about, $resume)
+    public function create($id, $user_id, $headline, $address, $about)
     {
-        $sql = "INSERT INTO " . $this->table . " (id, user_id, headline, address, about, resume) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, user_id, headline, address, about) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssssss", $id, $user_id, $headline, $address, $about, $resume);
+        $stmt->bind_param("sssss", $id, $user_id, $headline, $address, $about);
 
         return $stmt->execute();
     }
 
-    public function get_freelancer_by_id($id)
+    public function get_client_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
         $stmt = $this->con->prepare($sql);
@@ -28,7 +28,7 @@ class Freelancers
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function get_freelancer_by_userid($user_id)
+    public function get_client_by_userid($user_id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE user_id = ?";
         $stmt = $this->con->prepare($sql);
@@ -38,7 +38,7 @@ class Freelancers
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function get_freelancers()
+    public function get_clients()
     {
 
         $sql = "SELECT * FROM " . $this->table;
