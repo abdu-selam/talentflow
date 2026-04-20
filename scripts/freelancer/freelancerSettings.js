@@ -36,6 +36,7 @@ const profileSettings = () => {
       lname: form.fname.value,
       location: form.address.value,
       headline: form.headline.value,
+      uname: form.uname.value,
     };
 
     // TODO -> update fetche
