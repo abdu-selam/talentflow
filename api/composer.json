@@ -1,0 +1,17 @@
+{
+    "name": "amu/api",
+    "autoload": {
+        "psr-4": {
+            "Amu\\Api\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abduselam Awel",
+            "email": "abdselam676@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
