@@ -55,7 +55,7 @@ CREATE TABLE messages (
     reciever_id VARCHAR(30) NOT NULL,
     message JSON,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status ENUM("read","unread"),
+    status ENUM("read","unread") DEFAULT "unread",
     FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (reciever_id) REFERENCES users(id) ON DELETE CASCADE
 );
