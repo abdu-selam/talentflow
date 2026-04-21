@@ -54,7 +54,7 @@ class Applications
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE status = ?";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ss", $status);
+        $stmt->bind_param("s", $status);
 
         $stmt->execute();
         $result = $stmt->get_result();

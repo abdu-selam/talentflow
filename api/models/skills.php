@@ -1,24 +1,24 @@
 <?php
-class Portfolios
+class Skills
 {
     private $con;
-    private $table = "portfolios";
+    private $table = "skills";
 
     public function __construct($con)
     {
         $this->con = $con;
     }
 
-    public function create($id, $freelancer_id, $title, $descriptions, $images, $start_date, $end_date)
+    public function create($id, $freelancer_id, $name, $level, $skill_type)
     {
-        $sql = "INSERT INTO " . $this->table . " (id, freelancer_id, title, descriptions, images, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, freelancer_id, name, level, skill_type) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("sssssss", $id, $freelancer_id, $title, $descriptions, $images, $start_date, $end_date);
+        $stmt->bind_param("sssds", $id, $freelancer_id, $name, $level, $skill_type);
 
         return $stmt->execute();
     }
 
-    public function get_portfolio_by_id($id)
+    public function get_skill_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
         $stmt = $this->con->prepare($sql);
@@ -28,7 +28,7 @@ class Portfolios
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function get_portfolios_by_freelancer_id($freelancer_id)
+    public function get_skills_by_freelancer_id($freelancer_id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE freelancer_id = ?";
         $stmt = $this->con->prepare($sql);
@@ -39,7 +39,18 @@ class Portfolios
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function get_portfolios()
+    public function get_skills_by_skill_type_and_freelancer_id($skill_type, $freelancer_id)
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE skill_type = ? AND freelancer_id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $skill_type, $freelancer_id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_skills()
     {
 
         $sql = "SELECT * FROM " . $this->table;
