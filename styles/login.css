@@ -186,6 +186,27 @@
   transition: 0.5s;
 }
 
+.form__btn span {
+  display: none;
+  color: var(--back);
+}
+
+.form__btn .icon {
+  rotate: 0deg;
+  animation: rotate 1s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.form__btn .active {
+  display: inline-block;
+}
+
 .form__btn:disabled {
   opacity: 0.7;
 }
@@ -216,4 +237,3 @@
 .form__link:hover {
   color: var(--accent);
 }
-
