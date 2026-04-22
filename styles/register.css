@@ -232,6 +232,27 @@
   scale: 1;
 }
 
+.form__btn span {
+  display: none;
+  color: var(--back);
+}
+
+.form__btn .icon {
+  rotate: 0deg;
+  animation: rotate 1s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.form__btn .active {
+  display: inline-block;
+}
+
 .form__choice {
   text-align: center;
   font-size: 0.8rem;

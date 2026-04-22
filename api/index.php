@@ -1,14 +1,14 @@
 <?php
-require_once "./db/db.php";
-require_once "./models/applications.php";
-require_once "./models/client.php";
-require_once "./models/freelancers.php";
-require_once "./models/jobs.php";
-require_once "./models/messages.php";
-require_once "./models/portfolios.php";
-require_once "./models/ratings.php";
-require_once "./models/skills.php";
-require_once "./models/users.php";
+require_once __DIR__ . "/db/db.php";
+require_once __DIR__ . "/models/applications.php";
+require_once __DIR__ . "/models/client.php";
+require_once __DIR__ . "/models/freelancers.php";
+require_once __DIR__ . "/models/jobs.php";
+require_once __DIR__ . "/models/messages.php";
+require_once __DIR__ . "/models/portfolios.php";
+require_once __DIR__ . "/models/ratings.php";
+require_once __DIR__ . "/models/skills.php";
+require_once __DIR__ . "/models/users.php";
 
 $db = new Database();
 $con = $db->connect();

@@ -61,6 +61,17 @@ class Ratings
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function get_ratings_by_amount($amount)
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE amount >= ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $amount);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function get_ratings()
     {
 

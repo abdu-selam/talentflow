@@ -3,6 +3,8 @@ const btn = document.querySelector(".form__btn");
 const choiceBtn = document.querySelectorAll(".choice__btn");
 const form = document.querySelector(".form");
 
+let reqStatus = "none";
+
 const nameReg = (name) => {
   // name should be only alphabet character and minimum 3 length
   const inName = name.trim();
@@ -155,31 +157,81 @@ const rollChoice = () => {
   });
 };
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+const submitHandle = () => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
 
-  const allvalid =
-    isValid.fname && isValid.lname && isValid.email && isValid.password;
-  if (!allvalid) return;
+  btn.addEventListener("click", async () => {
+    if (reqStatus === "pending") {
+      return;
+    }
 
-  const rollBtn = [...choiceBtn].filter((btn) =>
-    btn.classList.contains("active"),
-  )[0];
+    reqStatus = "pending";
+    btn.querySelector(".txt").classList.remove("active");
+    btn.querySelector(".icon").classList.add("active");
 
-  const reqObj = {
-    fname: form.fname.value,
-    lname: form.lname.value,
-    email: form.email.value,
-    password: form.password.value,
-    roll: rollBtn.textContent.trim().toLowerCase(),
-  };
+    const allvalid =
+      isValid.fname && isValid.lname && isValid.email && isValid.password;
+    if (!allvalid) {
+      return;
+    }
 
-  // TODO -> making fetch api call for backend
-  // now for front end cheking
-  const objJson = JSON.stringify(reqObj)
-  sessionStorage.setItem("user",objJson)
-  location.replace("/")
-});
+    const rollBtn = [...choiceBtn].filter((btn) =>
+      btn.classList.contains("active"),
+    )[0];
+
+    const reqObj = {
+      fname: form.fname.value,
+      lname: form.lname.value,
+      email: form.email.value,
+      password: form.password.value,
+      roll: rollBtn.textContent.trim().toLowerCase(),
+    };
+
+    const [res, status] = await fetchRequest(reqObj);
+
+    reqStatus = "none";
+    btn.querySelector(".txt").classList.add("active");
+    btn.querySelector(".icon").classList.remove("active");
+
+    if (status === 400) {
+      // Invalid Input Confirm
+    } else if (status === 409) {
+      // User exist confirm
+    } else if (status === 500) {
+      // internal server error confirm
+    } else {
+      const roll = res?.message?.roll;
+      if (roll === "freelancer") {
+        location.replace("../../freelancer");
+      } else if (roll === "client") {
+        location.replace("../../client");
+      }
+    }
+  });
+};
+
+const fetchRequest = async (req) => {
+  try {
+    const res = await fetch(
+      "http://localhost/talentflow/api/auth/register.php",
+      {
+        method: "POST",
+        body: JSON.stringify(req),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    const data = await res.json();
+    return [data, res.status];
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 rollChoice();
 inputValidator();
+submitHandle();

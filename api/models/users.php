@@ -9,11 +9,11 @@ class Users
         $this->con = $con;
     }
 
-    public function create($id, $fname, $lname, $email, $password, $roll)
+    public function create($id, $fname, $lname, $uname, $email, $password, $roll)
     {
-        $sql = "INSERT INTO " . $this->table . " (id, first_name, last_name, email, password, roll) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, first_name, last_name, user_name, email, password, roll) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssssss", $id, $fname, $lname, $email, $password, $roll);
+        $stmt->bind_param("sssssss", $id, $fname, $lname, $uname, $email, $password, $roll);
 
         return $stmt->execute();
     }
