@@ -1,3 +1,5 @@
+import { baseUrl } from "../api_base.js";
+
 window.addEventListener("load", () => {
   const loading = document.querySelector(".loading");
 
@@ -11,7 +13,7 @@ window.addEventListener("load", () => {
 const init = () => {
   document.querySelector("#app").style.display = "flex";
 
-  document.querySelectorAll(".input__eye").forEach((item,i) => {
+  document.querySelectorAll(".input__eye").forEach((item, i) => {
     item.addEventListener("click", (e) => {
       const password = document.querySelectorAll(".form__input.password")[i];
       const icons = e.currentTarget.querySelectorAll("span");
@@ -25,6 +27,7 @@ const init = () => {
 
   profileSettings();
   privacySettings();
+  logout();
 };
 
 const profileSettings = () => {
@@ -61,5 +64,15 @@ const privacySettings = () => {
     console.log(data);
 
     // TODO -> update fetche
+  });
+};
+
+const logout = () => {
+  const btn = document.querySelector(".logout__btn");
+  btn.addEventListener("click", async (e) => {
+    const res = await fetch(`${baseUrl}/auth/logout.php`);
+    if (res.status === 200) {
+      location.replace("../../");
+    }
   });
 };

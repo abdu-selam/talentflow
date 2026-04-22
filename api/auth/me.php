@@ -5,8 +5,7 @@ require_once "../index.php";
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "GET") {
 
-    $user_name = $_SESSION["user"];
-    if (!isset($user_name)) {
+    if (!isset($_SESSION["user"])) {
         $data = [
             "status" => "error",
             "message" => "Un Authenticated"
@@ -16,6 +15,7 @@ if ($method === "GET") {
         exit;
     }
 
+    $user_name = $_SESSION["user"];
     $user = $users->get_user_by_username($user_name);
     if (!$user) {
         $data = [
