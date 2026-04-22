@@ -1,7 +1,10 @@
-window.addEventListener("load", () => {
+import { baseUrl } from "./api_base.js";
+
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
   loading.classList.add("close");
+  await checkAuth();
   setTimeout(() => {
     loading.style.display = "none";
     init();
@@ -14,10 +17,10 @@ const init = () => {
   backAnimation();
   document.querySelector(".input__eye").addEventListener("click", (e) => {
     const password = document.querySelector(".form__input.password");
-    const icons = e.currentTarget.querySelectorAll("span")
-    icons.forEach(ico=>{
-      ico.classList.toggle("active")
-    })
+    const icons = e.currentTarget.querySelectorAll("span");
+    icons.forEach((ico) => {
+      ico.classList.toggle("active");
+    });
 
     password.type = password.type == "text" ? "password" : "text";
   });
@@ -44,4 +47,17 @@ const backAnimation = () => {
       flow.style.top = `${randomY}px`;
     });
   }, 3000);
+};
+
+const checkAuth = async () => {
+  const res = await fetch(`${baseUrl}/auth/me.php`);
+  const data = await res.json();
+
+  if (res.status === 200) {
+    if (data?.message?.roll === "freelancer") {
+      location.replace("../../freelancer");
+    } else {
+      location.replace("../../client");
+    }
+  }
 };

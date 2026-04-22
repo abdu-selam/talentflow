@@ -4,8 +4,6 @@ require_once "../index.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "GET") {
-    $json = file_get_contents("php://input");
-    $data = json_decode($json, true);
 
     $user_name = $_SESSION["user"];
     if (!isset($user_name)) {

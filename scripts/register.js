@@ -1,3 +1,5 @@
+import { baseUrl } from "./api_base.js";
+
 const inputElements = document.querySelectorAll(".form__input");
 const btn = document.querySelector(".form__btn");
 const choiceBtn = document.querySelectorAll(".choice__btn");
@@ -214,16 +216,13 @@ const submitHandle = () => {
 
 const fetchRequest = async (req) => {
   try {
-    const res = await fetch(
-      "http://localhost/talentflow/api/auth/register.php",
-      {
-        method: "POST",
-        body: JSON.stringify(req),
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const res = await fetch(`${baseUrl}/auth/register.php`, {
+      method: "POST",
+      body: JSON.stringify(req),
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+    });
 
     const data = await res.json();
     return [data, res.status];
