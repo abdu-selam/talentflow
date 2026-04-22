@@ -44,10 +44,12 @@ if ($method === "POST") {
         exit;
     }
 
+    $_SESSION["user"] = $user["user_name"];
+
     $data = [
         "status" => "success",
         "message" => [
-            "roll" => $user["roll"],
+            "roll" => $user["roll"]
         ]
     ];
 

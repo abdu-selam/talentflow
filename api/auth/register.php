@@ -48,6 +48,18 @@ if ($method === "POST") {
         $user = $users->get_user_by_id($id);
     } while ($user);
 
+    $prefix = $roll === "freelancer" ? "free" : "clie";
+
+    do {
+        $fid = idGenerator($prefix);
+        $user_data = "";
+        if ($roll === "freelancer") {
+            $user_data = $freelancers->get_freelancer_by_id($fid);
+        } else {
+            $user_data = $clients->get_client_by_id($fid);
+        }
+    } while ($user_data);
+
     do {
         $uname = unameGenerator();
         $user = $users->get_user_by_username($uname);
@@ -56,6 +68,13 @@ if ($method === "POST") {
     $isCreated = $users->create($id, $fname, $lname, $uname, $email, $pass_hash, $roll);
 
     if ($isCreated) {
+        if ($roll === "freelancer") {
+            $freelancers->create($fid, $id);
+        } else {
+            $clients->create($fid, $id);
+        }
+
+        $_SESSION["user"] = $uname;
 
         $data = [
             "status" => "success",

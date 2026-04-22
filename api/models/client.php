@@ -9,11 +9,11 @@ class Clients
         $this->con = $con;
     }
 
-    public function create($id, $user_id, $headline, $address, $about)
+    public function create($id, $user_id)
     {
-        $sql = "INSERT INTO " . $this->table . " (id, user_id, headline, address, about) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, user_id) VALUES (?, ?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("sssss", $id, $user_id, $headline, $address, $about);
+        $stmt->bind_param("ss", $id, $user_id);
 
         return $stmt->execute();
     }

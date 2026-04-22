@@ -9,11 +9,11 @@ class Freelancers
         $this->con = $con;
     }
 
-    public function create($id, $user_id, $headline, $address, $about, $resume)
+    public function create($id, $user_id)
     {
-        $sql = "INSERT INTO " . $this->table . " (id, user_id, headline, address, about, resume) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, user_id) VALUES (?, ?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssssss", $id, $user_id, $headline, $address, $about, $resume);
+        $stmt->bind_param("ss", $id, $user_id);
 
         return $stmt->execute();
     }

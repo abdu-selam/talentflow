@@ -10,6 +10,8 @@ require_once __DIR__ . "/models/ratings.php";
 require_once __DIR__ . "/models/skills.php";
 require_once __DIR__ . "/models/users.php";
 
+session_start();
+
 $db = new Database();
 $con = $db->connect();
 
