@@ -1,4 +1,5 @@
 import { baseUrl } from "./api_base.js";
+import { alert } from "./alert.js";
 
 const inputElements = document.querySelectorAll(".form__input");
 const btn = document.querySelector(".form__btn");
@@ -166,6 +167,7 @@ const submitHandle = () => {
 
   btn.addEventListener("click", async () => {
     if (reqStatus === "pending") {
+      alert("Wait a moment your request is being processed");
       return;
     }
 
@@ -176,6 +178,7 @@ const submitHandle = () => {
     const allvalid =
       isValid.fname && isValid.lname && isValid.email && isValid.password;
     if (!allvalid) {
+      alert("Please fill all fields correctly");
       return;
     }
 
@@ -198,11 +201,13 @@ const submitHandle = () => {
     btn.querySelector(".icon").classList.remove("active");
 
     if (status === 400) {
-      // Invalid Input Confirm
+      alert("Please fill all fields correctly");
     } else if (status === 409) {
-      // User exist confirm
+      alert(
+        "User exists in this account please use another email or try to log in",
+      );
     } else if (status === 500) {
-      // internal server error confirm
+      alert("The server is in trouble try after a while");
     } else {
       const roll = res?.message?.roll;
       if (roll === "freelancer") {
