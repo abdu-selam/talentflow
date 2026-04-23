@@ -1,3 +1,5 @@
+import {baseUrl} from "./api_base.js"
+
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
@@ -79,16 +81,15 @@ const init = () => {
 };
 
 const checkUser = async () => {
-  // TO-Do fetch user data using the cookie
-  // now for frontend check
-  const userData = JSON.parse(sessionStorage.getItem("user"));
-  if (!userData) {
-    return;
-  }
+  
+  const res = await fetch(`${baseUrl}/auth/me.php`)
+  const data = await res.json()
 
-  if (userData.roll == "freelancer") {
-    location.replace("/freelancer");
-  } else {
-    location.replace("/client");
+  if (res.status === 200) {
+    if (data.message.roll == "freelancer") {
+      location.replace("./freelancer");
+    } else {
+      location.replace("./client");
+    }
   }
 };
