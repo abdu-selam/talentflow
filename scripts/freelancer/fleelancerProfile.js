@@ -1,10 +1,10 @@
 import { baseUrl } from "../api_base.js";
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
+  await fetcher();
   loading.classList.add("close");
-  fetcher();
   init();
   setTimeout(() => {
     loading.style.display = "none";
@@ -49,7 +49,7 @@ const profileBldr = (data) => {
     : "../../images/profile.webp";
 
   profilePic.src = path;
-  profileName.textContent = data.name;
+  profileName.textContent = `${data.fname} ${data.lname ?? ""}`;
   address.textContent = data.address ?? "unknown location";
   headline.textContent = data.headline ?? "No Headline Provided";
   email.textContent = data.email ?? "";

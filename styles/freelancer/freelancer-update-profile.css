@@ -21,6 +21,18 @@
   padding-bottom: 0.5rem;
 }
 
+.no__item {
+  width: 100%;
+  height: 8rem;
+  background: color-mix(in srgb, var(--primary) 10%, transparent 70%);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  display: grid;
+  place-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .update__profile--btn {
   width: min(100%, 10rem);
   padding: 0.5rem 1.5rem;

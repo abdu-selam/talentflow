@@ -27,7 +27,8 @@ function profileDataConstructor($user)
     $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
 
     $data = [
-        "name" => $user["first_name"] . " " . $user["last_name"],
+        "fname" => $user["first_name"],
+        "lname" => $user["last_name"],
         "address" => $freelancer["address"],
         "headline" => $freelancer["headline"],
         "resume" => $freelancer["resume"],

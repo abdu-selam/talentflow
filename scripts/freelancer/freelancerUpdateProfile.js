@@ -1,6 +1,9 @@
-window.addEventListener("load", () => {
+import { baseUrl } from "../api_base.js";
+
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
+  await fetcher();
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -17,6 +20,92 @@ const init = () => {
   skillDeleter();
   addSkill();
   uploadResume();
+};
+
+const fetcher = async () => {
+  const params = new URLSearchParams(location.search);
+  const uname = params.get("freelancer");
+
+  const res = await fetch(`${baseUrl}/freelancer/profile.php?uname=${uname}`);
+  const res_data = await res.json();
+  const data = res_data.message;
+
+  profileBldr(data);
+  aboutBldr(data);
+  skillBldr(data);
+};
+
+const profileBldr = (data) => {
+  const profilePic = document.querySelector(".mainpp__img");
+  const profileForm = document.querySelector(".profile__form");
+
+  const path = data.profile
+    ? `../../uploads/profiles/${data.profile}`
+    : "../../images/profile.webp";
+
+  profilePic.src = path;
+  profileForm.fname.value = data.fname;
+  profileForm.lname.value = data.lname ?? "";
+  profileForm.address.value = data.address ?? "";
+  profileForm.headline.value = data.headline ?? "";
+};
+
+const aboutBldr = (data) => {
+  const aboutSection = document.querySelector(".about__input");
+  const text = !data.about ? data.about?.join("\n") : "";
+
+  aboutSection.value = text ?? "";
+};
+
+const skillBldr = (data) => {
+  const hardSkillsList = document.querySelector(".hard__skills .skills__list");
+  const softSkillsList = document.querySelector(".soft__skills .skills__list");
+
+  const li = (item) => `
+  <li data-id="${item.id}" class="skill__item">
+    <p class="skill__name">${item.name}</p>
+    <div class="progress__wrapper">
+      <p class="skill__prog">
+        <span> Level </span>
+        <span> ${item.level}% </span>
+      </p>
+      <div style="--i: ${item.level}%" class="prog__div"></div>
+    </div>
+    <div class="skill__btns">
+      <button data-id="${item.id}" class="skill__btn delete">
+        Delete
+      </button>
+    </div>
+  </li>
+  `;
+
+  if (data.hard_skills.length == 0) {
+    const p = `
+    <p class="no__item">
+      There Is No Hard Skill Added!
+    </p>
+    `;
+
+    hardSkillsList.insertAdjacentHTML("beforeend", p);
+  } else {
+    data.hard_skills.forEach((item) => {
+      hardSkillsList.insertAdjacentHTML("beforeend", li(item));
+    });
+  }
+
+  if (data.hard_skills.length == 0) {
+    const p = `
+    <p class="no__item">
+      There Is No Soft Skill Added!
+    </p>
+    `;
+
+    softSkillsList.insertAdjacentHTML("beforeend", p);
+  } else {
+    data.soft_skills.forEach((item) => {
+      softSkillsList.insertAdjacentHTML("beforeend", li(item));
+    });
+  }
 };
 
 const updateProfileHandler = () => {
@@ -196,9 +285,9 @@ const uploadResume = () => {
     const file = input.files[0];
 
     if (file) {
-      const form = new FormData()
-      form.append("resume", file)
-      // TODO -> fetch 
+      const form = new FormData();
+      form.append("resume", file);
+      // TODO -> fetch
     } else {
       input.click();
     }
