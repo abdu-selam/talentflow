@@ -193,6 +193,10 @@
   gap: 0.3rem;
 }
 
+.form__input:checked {
+  accent-color: var(--accent);
+}
+
 .choice__btn {
   padding: 0.5rem;
   border-radius: 0.5rem;

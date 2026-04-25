@@ -192,6 +192,7 @@ const submitHandle = () => {
       email: form.email.value,
       password: form.password.value,
       roll: rollBtn.textContent.trim().toLowerCase(),
+      remember: form.remember.checked,
     };
 
     const [res, status] = await fetchRequest(reqObj);

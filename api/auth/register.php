@@ -2,6 +2,7 @@
 require_once "../utils/validation.php";
 require_once "../utils/responce.php";
 require_once "../index.php";
+require_once "../utils/cookie.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "POST") {
@@ -75,6 +76,9 @@ if ($method === "POST") {
         }
 
         $_SESSION["user"] = $uname;
+        if ($data["remember"]) {
+            cookie_setter($uname);
+        }
 
         $data = [
             "status" => "success",

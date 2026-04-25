@@ -6,16 +6,20 @@ $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "GET") {
 
     if (!isset($_SESSION["user"])) {
-        $data = [
-            "status" => "error",
-            "message" => "Un Authenticated"
-        ];
+        if (!isset($_COOKIE["user"])) {
 
-        response($data, 401);
-        exit;
+
+            $data = [
+                "status" => "error",
+                "message" => "Un Authenticated"
+            ];
+
+            response($data, 401);
+            exit;
+        }
     }
 
-    $user_name = $_SESSION["user"];
+    $user_name = isset($_SESSION["user"]) ? $_SESSION["user"] : $_COOKIE["user"];
     $user = $users->get_user_by_username($user_name);
     if (!$user) {
         $data = [
@@ -26,6 +30,8 @@ if ($method === "GET") {
         response($data, 401);
         exit;
     }
+
+    $_SESSION["user"] = $user_name;
 
     $data = [
         "status" => "success",

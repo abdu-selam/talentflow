@@ -14,12 +14,6 @@ const inputValidator = () => {
       const filledINputs = [...inputElements].filter(
         (input) => input.value != "",
       );
-
-      if (filledINputs.length === 2) {
-        btn.removeAttribute("disabled");
-      } else {
-        btn.setAttribute("disabled", "");
-      }
     });
   });
 };
@@ -55,6 +49,7 @@ const submitHandle = () => {
     const reqObj = {
       email: form.email.value,
       password: form.password.value,
+      remember: form.remember.checked
     };
 
     const [res, status] = await fetchRequest(reqObj);

@@ -161,6 +161,10 @@
   background: none;
 }
 
+.form__input:checked {
+  accent-color: var(--accent);
+}
+
 .input__eye span:not(.active) {
   display: none;
 }
