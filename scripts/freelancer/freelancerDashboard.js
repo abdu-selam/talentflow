@@ -214,7 +214,7 @@ const portfolioBrdr = (data) => {
         <figure class="portfolio__fig">
           <img
             class="portfolio__img"
-            src="${item.image ?? "../images/bg-smooth-1.webp"}"
+            src="${"../uploads/portfolio/" + item.image ?? "../images/bg-smooth-1.webp"}"
             alt="${item.title}portfolio image"
             width="100r"
           />
