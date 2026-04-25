@@ -61,6 +61,41 @@ class Applications
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function get_application_by_freelancer_id_and_status($freelancer_id, $status)
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE status = ? AND freelancer_id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $status, $freelancer_id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_active_proposals($freelancer_id)
+    {
+        $sql = "SELECT u.id AS user_id, u.first_name AS fname, u.last_name AS lname, j.title AS title, a.message AS message, a.status AS status FROM applications a JOIN jobs j ON a.job_id = j.id JOIN clients c ON j.client_id = c.id JOIN users u ON c.user_id = u.id WHERE a.freelancer_id = ? AND a.status = 'pending'";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $freelancer_id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_active_jobs($freelancer_id)
+    {
+        $sql = "SELECT u.id AS user_id, u.first_name AS fname, u.last_name AS lname, j.title AS title, j.description AS message, j.status AS status FROM applications a JOIN jobs j ON a.job_id = j.id JOIN clients c ON j.client_id = c.id JOIN users u ON c.user_id = u.id WHERE a.freelancer_id = ? AND a.status = 'approve'";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $freelancer_id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function get_applications()
     {
 

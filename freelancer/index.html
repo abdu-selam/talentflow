@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TalentFlow | Freelancers</title>
-    <script src="../scripts/freelancer/freelancerDashboard.js" defer></script>
+    <script
+      src="../scripts/freelancer/freelancerDashboard.js"
+      type="module"
+    ></script>
     <script type="module" src="../scripts/freelancer/freelancer.js"></script>
     <script src="../scripts/nav.js" defer></script>
     <link
@@ -14,8 +17,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon.png" type="image/png">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../favicon.png" type="image/png" />
     <link rel="stylesheet" href="../styles/resets.css" />
     <link rel="stylesheet" href="../styles/header.css" />
     <link
@@ -186,89 +189,32 @@
         <main class="main">
           <section class="main__stat">
             <p class="stat__title">Proposals</p>
-            <ul class="stat__list">
+            <ul class="stat__list proposal">
               <li class="stat__item">
                 <p class="stat__txt">Total</p>
-                <p class="stat__result">1000</p>
+                <p class="stat__result"></p>
               </li>
               <li class="stat__item">
                 <p class="stat__txt">Accepted</p>
-                <p class="stat__result">456</p>
+                <p class="stat__result"></p>
               </li>
               <li class="stat__item">
                 <p class="stat__txt">Pending</p>
-                <p class="stat__result">978</p>
+                <p class="stat__result"></p>
               </li>
               <li class="stat__item">
                 <p class="stat__txt">Rejected</p>
-                <p class="stat__result">786</p>
+                <p class="stat__result"></p>
               </li>
             </ul>
           </section>
           <section class="main__pending">
             <p class="pendings__title">Active Proposals</p>
-            <ul class="pendings__list">
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <button class="pending__btn">
-                  <a href="./applications/" class="pending__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <button class="pending__btn">
-                  <a href="./applications/" class="pending__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <button class="pending__btn">
-                  <a href="./applications/" class="pending__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <button class="pending__btn">
-                  <a href="./applications/" class="pending__link">
-                    See Detail
-                  </a>
-                </button>
-              </li>
-            </ul>
+            <ul class="pendings__list proposal"></ul>
           </section>
           <section class="main__stat">
             <p class="stat__title">Jobs</p>
-            <ul class="stat__list">
+            <ul class="stat__list jobs">
               <li class="stat__item">
                 <p class="stat__txt">Total</p>
                 <p class="stat__result">1000</p>
@@ -278,172 +224,18 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo
                 <p class="stat__result">456</p>
               </li>
               <li class="stat__item">
-                <p class="stat__txt">Pending</p>
+                <p class="stat__txt">On Going</p>
                 <p class="stat__result">978</p>
-              </li>
-              <li class="stat__item">
-                <p class="stat__txt">Rejected</p>
-                <p class="stat__result">786</p>
               </li>
             </ul>
           </section>
           <section class="main__jobs">
             <p class="jobs__title">Active Jobs</p>
-            <ul class="jobs__list">
-              <li class="jobs__item">
-                <h2 class="job__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="job__client">Lorem ipsum dolor sit.</p>
-                <p class="job__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Numquam recusandae....
-                </p>
-                <button class="job__btn">
-                  <a href="./active-jobs/" class="job__link"> See Detail </a>
-                </button>
-              </li>
-              <li class="jobs__item">
-                <h2 class="job__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="job__client">Lorem ipsum dolor sit.</p>
-                <p class="job__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Numquam recusandae....
-                </p>
-                <button class="job__btn">
-                  <a href="./active-jobs/" class="job__link"> See Detail </a>
-                </button>
-              </li>
-              <li class="jobs__item">
-                <h2 class="job__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="job__client">Lorem ipsum dolor sit.</p>
-                <p class="job__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Numquam recusandae....
-                </p>
-                <button class="job__btn">
-                  <a href="./active-jobs/" class="job__link"> See Detail </a>
-                </button>
-              </li>
-              <li class="jobs__item">
-                <h2 class="job__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="job__client">Lorem ipsum dolor sit.</p>
-                <p class="job__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Numquam recusandae....
-                </p>
-                <button class="job__btn">
-                  <a href="./active-jobs/" class="job__link"> See Detail </a>
-                </button>
-              </li>
-            </ul>
+            <ul class="jobs__list jobs"></ul>
           </section>
           <section class="main__reviews">
             <h2 class="review__titile">What clients say</h2>
-            <ul class="review__list">
-              <li class="review__item">
-                <figure class="review__fig">
-                  <img
-                    src="../images/logo.webp"
-                    alt="client profile picture"
-                    class="review__pp"
-                    width="50"
-                  />
-                  <figcaption class="review__client">
-                    Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="review__txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita ipsum at impedit reprehenderit soluta libero culpa
-                  pariatur quia eaque vitae!
-                </p>
-                <div class="review__icons">
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                </div>
-              </li>
-              <li class="review__item">
-                <figure class="review__fig">
-                  <img
-                    src="../images/logo.webp"
-                    alt="client profile picture"
-                    class="review__pp"
-                    width="50"
-                  />
-                  <figcaption class="review__client">
-                    Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="review__txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita ipsum at impedit reprehenderit soluta libero culpa
-                  pariatur quia eaque vitae!
-                </p>
-                <div class="review__icons">
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                </div>
-              </li>
-              <li class="review__item">
-                <figure class="review__fig">
-                  <img
-                    src="../images/logo.webp"
-                    alt="client profile picture"
-                    class="review__pp"
-                    width="50"
-                  />
-                  <figcaption class="review__client">
-                    Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="review__txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita ipsum at impedit reprehenderit soluta libero culpa
-                  pariatur quia eaque vitae!
-                </p>
-                <div class="review__icons">
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                </div>
-              </li>
-              <li class="review__item">
-                <figure class="review__fig">
-                  <img
-                    src="../images/logo.webp"
-                    alt="client profile picture"
-                    class="review__pp"
-                    width="50"
-                  />
-                  <figcaption class="review__client">
-                    Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="review__txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita ipsum at impedit reprehenderit soluta libero culpa
-                  pariatur quia eaque vitae!
-                </p>
-                <div class="review__icons">
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                  <i class="icon__star fas fa-star"></i>
-                </div>
-              </li>
-            </ul>
+            <ul class="review__list"></ul>
             <button class="review__btn">
               <a href="./ratings/" class="review__link"> See More </a>
             </button>
@@ -473,88 +265,12 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo
           </section>
           <section class="main__portfolio">
             <h2 class="portfolios__titile">My portfolios</h2>
-            <ul class="portfolio__list">
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="./portfolio" class="portfolio__link"> See Detail </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="./portfolio" class="portfolio__link"> See Detail </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="./portfolio" class="portfolio__link"> See Detail </a>
-                </button>
-              </li>
-              <li class="portfolio__item">
-                <figure class="portfolio__fig">
-                  <img
-                    class="portfolio__img"
-                    src="../images/bg-smooth-1.webp"
-                    alt="portfolio image"
-                    width="100r"
-                  />
-                  <figcaption class="portfolio__caption">
-                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.
-                  </figcaption>
-                </figure>
-                <p class="portfolio__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  earum facilis ipsa laudantium quae repudiandae.
-                </p>
-                <button class="portfolio__btn">
-                  <a href="./portfolio" class="portfolio__link"> See Detail </a>
-                </button>
-              </li>
-            </ul>
+            <ul class="portfolio__list"></ul>
+            <button class="portfolio__btn out_list">
+              <a href="./portfolio/create.html" class="static__link">
+                Add Portfolio
+              </a>
+            </button>
           </section>
         </main>
       </div>

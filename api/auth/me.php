@@ -11,7 +11,7 @@ if ($method === "GET") {
             "message" => "Un Authenticated"
         ];
 
-        response($data, 409);
+        response($data, 401);
         exit;
     }
 
@@ -20,10 +20,10 @@ if ($method === "GET") {
     if (!$user) {
         $data = [
             "status" => "error",
-            "message" => "Un Authenticated"
+            "message" => "User not found"
         ];
 
-        response($data, 409);
+        response($data, 401);
         exit;
     }
 
