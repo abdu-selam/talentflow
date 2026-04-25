@@ -1,5 +1,6 @@
 <?php
 require_once "../utils/responce.php";
+require_once "../utils/cookie.php";
 require_once "../index.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -32,11 +33,15 @@ if ($method === "GET") {
     }
 
     $_SESSION["user"] = $user_name;
+    if (isset($_COOKIE["user"])) {
+        cookie_setter($user_name);
+    }
 
     $data = [
         "status" => "success",
         "message" => [
-            "roll" => $user["roll"]
+            "roll" => $user["roll"],
+            "profile" => $user["profile"]
         ]
     ];
 

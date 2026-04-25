@@ -11,6 +11,14 @@ const checkUser = async () => {
   } else {
     location.replace("/talentflow");
   }
+
+  const profileImg = document.querySelector(".aside__pp");
+  const base = location.pathname == "/talentflow/client/" ? ".." : "../..";
+  if (data.message.profile) {
+    profileImg.src = `${base}/uploads/profiles/${data.message.profile}`;
+  } else {
+    profileImg.src = `${base}/images/profile.webp`;
+  }
 };
 
 checkUser();
