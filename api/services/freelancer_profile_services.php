@@ -73,4 +73,26 @@ function ppValidator($file) {
     ];
 }
 
+function resumeValidator($file) {
+    if ($file["error"] !== 0) {
+        return [
+            "status" => false,
+            "message" => "FIle Upload Error"
+        ];
+    }
+
+    $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
+    if ($ext != "pdf") {
+        return [
+            "status" => false,
+            "message" => "Invalid Format"
+        ];
+    }
+
+    return [
+        "status" => true,
+        "ext" => $ext
+    ];
+}
+
 ?>

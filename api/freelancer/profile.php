@@ -94,15 +94,15 @@ if ($method == "GET") {
 
             response($data, 200);
             exit;
-        } else {
-            $data = [
-                "status" => "error",
-                "message" => "Internal Server Error"
-            ];
-
-            response($data, 500);
-            exit;
         }
+        $data = [
+            "status" => "error",
+            "message" => "Internal Server Error"
+        ];
+
+        response($data, 500);
+        exit;
+
     } else {
         $json = file_get_contents("php://input");
         $data = json_decode($json, true);
@@ -166,6 +166,50 @@ if ($method == "GET") {
             exit;
 
         } else if ($type == "resume") {
+            if (!isset($_FILES["resume"])) {
+                $data = [
+                    "status" => "error",
+                    "message" => "No file provided"
+                ];
+
+                response($data, 403);
+                exit;
+            }
+
+            $file = $_FILES["resume"];
+            $result = resumeValidator($file);
+            if (!$result["status"]) {
+                response($result["message"], 403);
+                exit;
+            }
+
+            $newName = $user["id"] . "-resume-" . time() . "." . $result['ext'];
+
+            $uploadDir = "../../uploads/resumes";
+            $destination = $uploadDir . "/" . $newName;
+
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+
+            if (move_uploaded_file($file["tmp_name"], $destination)) {
+
+                $freelancers->update_resume($user["id"], $newName);
+                $data = [
+                    "status" => "success",
+                    "message" => $newName
+                ];
+
+                response($data, 200);
+                exit;
+            }
+            $data = [
+                "status" => "error",
+                "message" => "Internal Server Error"
+            ];
+
+            response($data, 500);
+            exit;
 
         }
     }

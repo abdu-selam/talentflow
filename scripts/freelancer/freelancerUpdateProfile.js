@@ -389,13 +389,25 @@ const uploadResume = () => {
   const input = document.querySelector("#resume-upload");
   const preview = document.querySelector(".uploaded__file");
 
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener("click", async (e) => {
     const file = input.files[0];
 
     if (file) {
       const form = new FormData();
       form.append("resume", file);
-      // TODO -> fetch
+      const res = await fetch(`${baseUrl}/freelancer/profile.php?type=resume`, {
+        method: "POST",
+        body: form,
+      });
+      
+      if (res.status == 200) {
+        alert("resume uploaded successfully!", "success");
+      } else {
+        alert("Error occured when uploading resume try again!");
+      }
+
+      input.file = [];
+      preview.classList.remove("active");
     } else {
       input.click();
     }
@@ -406,6 +418,7 @@ const uploadResume = () => {
 
     if (file) {
       if (file.type !== "application/pdf") {
+        alert("Only pdf format is allowed!");
         return;
       }
       preview.classList.add("active");

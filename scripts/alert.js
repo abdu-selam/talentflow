@@ -5,9 +5,6 @@ export const alert = (txt, type) => {
         <p class="txt">
             ${txt}
         </p>
-        <button class="btn">
-            Ok
-        </button>
     </div>
     `;
 
