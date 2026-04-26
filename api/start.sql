@@ -10,7 +10,7 @@ CREATE TABLE users (
     email VARCHAR(40) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     roll ENUM("freelancer","client","admin") DEFAULT "freelancer",
-    profile VARCHAR(50)
+    profile VARCHAR(80)
 );
 
 CREATE TABLE freelancers (
@@ -19,7 +19,7 @@ CREATE TABLE freelancers (
     headline TEXT,
     address TEXT,
     about JSON,
-    resume VARCHAR(30),
+    resume VARCHAR(80),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
