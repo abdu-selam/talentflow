@@ -273,12 +273,28 @@ const aboutmeTextHandler = () => {
 const skillDeleter = () => {
   const btns = document.querySelectorAll(".skill__btn.delete");
   btns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", async (e) => {
       const id = btn.dataset.id;
       const item = document.querySelector(`[data-id="${id}"]`);
+      const parent = item.parentElement;
 
-      // TODO -> fetch
-      item.remove();
+      const res = await fetch(
+        `${baseUrl}/freelancer/profile.php?type=skill&id=${id}`,
+        {
+          method: "DELETE",
+        },
+      );
+      if (res.status == 204) {
+        item.remove();
+        const p = `<p class="no__item">There Is No Soft Skill Added!</p>`;
+        if ([...parent.children].length === 0) {
+          parent.insertAdjacentHTML("beforeend", p);
+        }
+
+        alert("Skill removed successfully!", "success");
+        return;
+      }
+      alert("Skill didn't removed!");
     });
   });
 };
@@ -342,6 +358,7 @@ const addSkill = () => {
         }
 
         alert("Skill has been added successfully!", "success");
+        skillDeleter();
         return;
       }
       alert("Skill has not added successfully!");

@@ -169,6 +169,27 @@ if ($method == "GET") {
 
         }
     }
+} else if ($method == "DELETE") {
+    $type = isset($_GET["type"]) ? $_GET["type"] : null;
+    if ($type == "skill") {
+        $id = isset($_GET["id"]) ? $_GET["id"] : null;
+        if ($id) {
+            $res = $skills->delete($id);
+            if ($res) {
+
+                response([], 204);
+                exit;
+            }
+
+        }
+        $data = [
+            "status" => "error",
+            "message" => "Internal Server Error"
+        ];
+
+        response($data, 500);
+        exit;
+    }
 }
 
 ?>

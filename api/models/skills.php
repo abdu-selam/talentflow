@@ -18,6 +18,15 @@ class Skills
         return $stmt->execute();
     }
 
+    public function delete($id)
+    {
+        $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
+
+        return $stmt->execute();
+    }
+
     public function get_skill_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
