@@ -13,6 +13,12 @@ const checkUser = async () => {
   }
 
   const profileImg = document.querySelector(".aside__pp");
+  const username = document.querySelector(".aside__uname");
+  const email = document.querySelector(".aside__email");
+
+  username.textContent = data.message.user_name;
+  email.textContent = data.message.email;
+
   const base = location.pathname == "/talentflow/freelancer/" ? ".." : "../..";
   if (data.message.profile) {
     profileImg.src = `${base}/uploads/profiles/${data.message.profile}`;

@@ -38,7 +38,7 @@ function unameGenerator()
     $chars = "abcdefghijklmnopqrstuvwxyz1234567890";
     $len = strlen($chars);
 
-    $uname = "-";
+    $uname = "";
     for ($i=0; $i < 8; $i++) {
         $uname .= $chars[random_int(0, $len-1)];
     }

@@ -41,7 +41,9 @@ if ($method === "GET") {
         "status" => "success",
         "message" => [
             "roll" => $user["roll"],
-            "profile" => $user["profile"]
+            "profile" => $user["profile"],
+            "user_name" => $user["user_name"],
+            "email" => $user["email"],
         ]
     ];
 
