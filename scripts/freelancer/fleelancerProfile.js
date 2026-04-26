@@ -32,6 +32,7 @@ const fetcher = async () => {
   if (data.resume) {
     const a = linkBtn.querySelector("a");
     a.href = `../../uploads/resumes/${data.resume}`;
+    a.download = "resume-" + Date.now() + ".pdf";
   } else {
     linkBtn.remove();
   }
@@ -105,7 +106,7 @@ const skillBldr = (data) => {
     });
   }
 
-  if (data.hard_skills.length == 0) {
+  if (data.soft_skills.length == 0) {
     const p = `
     <p class="no__item">
       There Is No Soft Skill Added!

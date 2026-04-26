@@ -14,6 +14,8 @@
   width: 2.5rem;
   border-radius: 50%;
   border: 1px solid var(--accent);
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 
 .mainpp__name {

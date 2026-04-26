@@ -75,6 +75,7 @@ const inputValidator = () => {
           elem.classList.remove("success");
           isValid.email = false;
         }
+      } else if (elem.matches(".remember")) {
       } else {
         const validates = passwordReg(elem.value);
         passwordValidator(validates);
@@ -85,14 +86,6 @@ const inputValidator = () => {
           elem.classList.remove("success");
           isValid.password = false;
         }
-      }
-
-      const allvalid =
-        isValid.fname && isValid.lname && isValid.email && isValid.password;
-      if (allvalid) {
-        btn.removeAttribute("disabled");
-      } else {
-        btn.setAttribute("disabled", "");
       }
     });
   });
