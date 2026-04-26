@@ -2,6 +2,7 @@
 require_once "../index.php";
 require_once "../utils/responce.php";
 require_once "../services/freelancer_profile_services.php";
+require_once "../utils/validation.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 if (!isset($_SESSION["user"])) {
@@ -130,7 +131,39 @@ if ($method == "GET") {
                 exit;
             }
 
+            $data = [
+                "status" => "error",
+                "message" => "Internal Server Error"
+            ];
+
+            response($data, 500);
+            exit;
+
         } else if ($type == "skill") {
+            do {
+                $id = idGenerator("user");
+                $skill = $skills->get_skill_by_id($id);
+            } while ($skill);
+            $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+
+            $res = $skills->create($id, $freelancer["id"], $data["name"], $data["level"], $data["type"]);
+            if ($res) {
+                $data = [
+                    "status" => "success",
+                    "message" => $skills->get_skill_by_id($id)
+                ];
+
+                response($data, 200);
+                exit;
+            }
+
+            $data = [
+                "status" => "error",
+                "message" => "Internal Server Error"
+            ];
+
+            response($data, 500);
+            exit;
 
         } else if ($type == "resume") {
 

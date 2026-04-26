@@ -80,7 +80,7 @@ const skillBldr = (data) => {
   </li>
   `;
 
-  if (data.hard_skills.length == 0) {
+  if (data?.hard_skills?.length === 0) {
     const p = `
     <p class="no__item">
       There Is No Hard Skill Added!
@@ -89,12 +89,12 @@ const skillBldr = (data) => {
 
     hardSkillsList.insertAdjacentHTML("beforeend", p);
   } else {
-    data.hard_skills.forEach((item) => {
+    data?.hard_skills?.forEach((item) => {
       hardSkillsList.insertAdjacentHTML("beforeend", li(item));
     });
   }
 
-  if (data.hard_skills.length == 0) {
+  if (data?.soft_skills?.length === 0) {
     const p = `
     <p class="no__item">
       There Is No Soft Skill Added!
@@ -103,7 +103,7 @@ const skillBldr = (data) => {
 
     softSkillsList.insertAdjacentHTML("beforeend", p);
   } else {
-    data.soft_skills.forEach((item) => {
+    data?.soft_skills?.forEach((item) => {
       softSkillsList.insertAdjacentHTML("beforeend", li(item));
     });
   }
@@ -265,7 +265,7 @@ const aboutmeTextHandler = () => {
     if (res.status == 200) {
       form.about.value = data.join("\n");
       txt = data.join("\n");
-      alert("About me text has been updated successfully!","success")
+      alert("About me text has been updated successfully!", "success");
     }
   });
 };
@@ -288,13 +288,63 @@ const addSkill = () => {
   progressInputHandler();
 
   btns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", async (e) => {
       const addType = btn.classList.contains("hard") ? "hard" : "soft";
 
-      const name = document.querySelector(`input[name="${addType}name"]`).value;
-      const progress = document.querySelector(
+      const nameInput = document.querySelector(`input[name="${addType}name"]`);
+      const progressInput = document.querySelector(
         `input[name="${addType}progress"]`,
-      ).value;
+      );
+
+      const name = nameInput.value;
+      const progress = progressInput.value;
+
+      if (name == "") {
+        alert("Please add name for your skill!");
+        return;
+      }
+
+      const progressReq = Number(progress) ? Number(progress) : 0;
+      const req = {
+        name,
+        level: progressReq,
+        type: addType,
+      };
+
+      const res = await fetch(`${baseUrl}/freelancer/profile.php?type=skill`, {
+        method: "POST",
+        body: JSON.stringify(req),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const res_data = await res.json();
+      const data = res_data.message;
+
+      if (res.status == 200) {
+        const no__item_hard = document.querySelector(
+          ".hard__skills .skills__list .no__item",
+        );
+        const no__item_soft = document.querySelector(
+          ".soft__skills .skills__list .no__item",
+        );
+        const bldr = {};
+        bldr[`${addType}_skills`] = [data];
+        skillBldr(bldr);
+
+        nameInput.value = "";
+        progressInput.value = "";
+
+        if (addType == "hard") {
+          no__item_hard?.remove();
+        } else {
+          no__item_soft?.remove();
+        }
+
+        alert("Skill has been added successfully!", "success");
+        return;
+      }
+      alert("Skill has not added successfully!");
     });
   });
 };
