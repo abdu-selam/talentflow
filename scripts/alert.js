@@ -11,15 +11,10 @@ export const alert = (txt, type) => {
   document.querySelector("#app").insertAdjacentHTML("beforebegin", el);
 
   const elem = document.querySelector(".alert");
-  const btn = document.querySelector(".alert .btn");
 
   setTimeout(() => {
     elem.classList.add("active");
-  }, 100);
-
-  btn.addEventListener("click", (e) => {
-    elem.classList.remove("active");
-  });
+  }, 50);
 
   setTimeout(() => {
     elem.classList.remove("active");

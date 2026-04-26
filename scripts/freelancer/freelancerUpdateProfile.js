@@ -214,16 +214,28 @@ const profileSubmitHandler = async (file) => {
 
 const profileTextsUpdate = () => {
   const form = document.querySelector(".profile__form");
+  const btn = document.querySelector(".submit__btn");
   const oldData = {
     firstName: form.fname.value,
     lastName: form.lname.value,
     address: form.address.value,
     headline: form.headline.value,
   };
+  const inputs = document.querySelectorAll(".mainpp__input");
+
+  inputs.forEach((input, i) => {
+    input.addEventListener("keydown", (e) => {
+      if (e.key != "Enter" || i === 3) return;
+      inputs[i + 1].focus();
+    });
+  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const data = {
+  });
+
+  btn.addEventListener("click", async (e) => {
+    const req = {
       firstName: form.fname.value,
       lastName: form.lname.value,
       address: form.address.value,
@@ -231,11 +243,30 @@ const profileTextsUpdate = () => {
     };
 
     const isSame = [...Object.values(oldData)].every((item) =>
-      [...Object.values(data)].includes(item),
+      [...Object.values(req)].includes(item),
     );
 
-    if (isSame) return;
-    // TODO -> fetch to submit the form
+    if (isSame) {
+      alert("Nothing to change!");
+      return;
+    }
+
+    const res = await fetch(`${baseUrl}/freelancer/profile.php`, {
+      method: "POST",
+      body: JSON.stringify(req),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res_data = await res.json();
+    const data = res_data.message;
+
+    form.fname.value = data.fname;
+    form.lname.value = data.lname;
+    form.address.value = data.address;
+    form.headline.value = data.headline;
+
+    alert("Profile texts has been updated successfully!", "success");
   });
 };
 
@@ -399,7 +430,7 @@ const uploadResume = () => {
         method: "POST",
         body: form,
       });
-      
+
       if (res.status == 200) {
         alert("resume uploaded successfully!", "success");
       } else {

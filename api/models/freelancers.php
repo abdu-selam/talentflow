@@ -38,6 +38,16 @@ class Freelancers
         return $stmt->execute();
     }
 
+    public function update_address_headline($uid, $address, $headline)
+    {
+        $sql = "UPDATE " . $this->table . " SET address = ?, headline = ? WHERE user_id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("sss", $address, $headline, $uid);
+
+        return $stmt->execute();
+    }
+
     public function get_freelancer_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";

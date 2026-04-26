@@ -56,7 +56,7 @@ if ($method == "GET") {
         exit;
     }
 
-    $type = isset($_GET["type"]) ? $_GET["type"] : "pp";
+    $type = isset($_GET["type"]) ? $_GET["type"] : "";
     if ($type == "pp") {
         if (!isset($_FILES["profile"])) {
             $data = [
@@ -211,6 +211,28 @@ if ($method == "GET") {
             response($data, 500);
             exit;
 
+        } else {
+            $fname = nameValidator($data["firstName"]) ? $data["firstName"] : $user["first_name"];
+            $lname = nameValidator($data["lastName"]) ? $data["lastName"] : $user["last_name"];
+
+            $users->update_names($user["id"], $fname, $lname);
+            $freelancers->update_address_headline($user["id"], $data["address"], $data["headline"]);
+
+            $user = $users->get_user_by_username($_SESSION["user"]);
+            $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+
+            $data = [
+                "status" => "success",
+                "message" => [
+                    "fname" => $user["first_name"],
+                    "lname" => $user["last_name"],
+                    "address" => $freelancer["address"],
+                    "headline" => $freelancer["headline"]
+                ]
+            ];
+
+            response($data, 200);
+            exit;
         }
     }
 } else if ($method == "DELETE") {
