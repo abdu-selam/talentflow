@@ -18,6 +18,16 @@ class Freelancers
         return $stmt->execute();
     }
 
+    public function update_about($uid, $about)
+    {
+        $sql = "UPDATE " . $this->table . " SET about = ? WHERE user_id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $about, $uid);
+
+        return $stmt->execute();
+    }
+
     public function get_freelancer_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";

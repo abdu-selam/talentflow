@@ -53,7 +53,7 @@ const profileBldr = (data) => {
 
 const aboutBldr = (data) => {
   const aboutSection = document.querySelector(".about__input");
-  const text = !data.about ? data.about?.join("\n") : "";
+  const text = data.about ? data.about?.join("\n") : "";
 
   aboutSection.value = text ?? "";
 };
@@ -155,7 +155,7 @@ const updateProfileHandler = () => {
         alert("You have tryed to upload more than 5MB file!");
         return;
       }
-      
+
       const result = await profileSubmitHandler(file);
       if (result.status) {
         input.file = [];
@@ -163,12 +163,15 @@ const updateProfileHandler = () => {
         profilePreviewImg.src = "";
         const profilePic = document.querySelector(".mainpp__img");
         const profileImg = document.querySelector(".aside__pp");
-        
+
         const path = `../../uploads/profiles/${result.pp}`;
-        
+
         profilePic.src = path;
         profileImg.src = path;
-        alert("Congratulation You Have been updated profile picture!", "success");
+        alert(
+          "Congratulation You Have been updated profile picture!",
+          "success",
+        );
       }
     } else {
       input.click();
@@ -198,7 +201,7 @@ const profileSubmitHandler = async (file) => {
   const formData = new FormData();
   formData.append("profile", file);
 
-  const res = await fetch(`${baseUrl}/freelancer/profile.php`, {
+  const res = await fetch(`${baseUrl}/freelancer/profile.php?type=pp`, {
     method: "POST",
     body: formData,
   });
@@ -238,16 +241,32 @@ const profileTextsUpdate = () => {
 
 const aboutmeTextHandler = () => {
   const form = document.querySelector(".about__form");
-  const txt = form.about.value;
+  let txt = form.about.value;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const inputTxt = form.about.value;
 
     if (txt === inputTxt) return;
 
     const paragraphs = inputTxt.split("\n");
-    // TODO -> fetch to submit
+    const res = await fetch(`${baseUrl}/freelancer/profile.php?type=about`, {
+      method: "POST",
+      body: JSON.stringify({
+        texts: paragraphs,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res_data = await res.json();
+    const data = res_data.message;
+
+    if (res.status == 200) {
+      form.about.value = data.join("\n");
+      txt = data.join("\n");
+      alert("About me text has been updated successfully!","success")
+    }
   });
 };
 

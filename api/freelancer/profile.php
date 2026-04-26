@@ -55,8 +55,7 @@ if ($method == "GET") {
         exit;
     }
 
-    // $type = isset($_GET["type"]) ? $_GET["type"] : "pp";
-    $type = "pp";
+    $type = isset($_GET["type"]) ? $_GET["type"] : "pp";
     if ($type == "pp") {
         if (!isset($_FILES["profile"])) {
             $data = [
@@ -103,12 +102,39 @@ if ($method == "GET") {
             response($data, 500);
             exit;
         }
-    } else if ($type == "about") {
+    } else {
+        $json = file_get_contents("php://input");
+        $data = json_decode($json, true);
+        if ($type == "about") {
+            $texts = $data["texts"];
+            if (count($texts) == 0) {
+                $data = [
+                    "status" => "success",
+                    "message" => "No data provided"
+                ];
 
-    } else if ($type == "skill") {
+                response($data, 100);
+                exit;
+            }
 
-    } else if ($type == "resume") {
+            $text_to_db = json_encode($texts, JSON_UNESCAPED_UNICODE);
+            $res = $freelancers->update_about($user["id"], $text_to_db);
+            if ($res) {
+                $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+                $data = [
+                    "status" => "success",
+                    "message" => json_decode($freelancer["about"], true)
+                ];
 
+                response($data, 200);
+                exit;
+            }
+
+        } else if ($type == "skill") {
+
+        } else if ($type == "resume") {
+
+        }
     }
 }
 
