@@ -43,4 +43,34 @@ function profileDataConstructor($user)
     return $data;
 }
 
+function ppValidator($file) {
+    if ($file["error"] !== 0) {
+        return [
+            "status" => false,
+            "message" => "FIle Upload Error"
+        ];
+    }
+
+    $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
+    $allowed = ["jpeg", "jpg", "png", "webp"];
+    if (!in_array($ext, $allowed)) {
+        return [
+            "status" => false,
+            "message" => "Invalid Format"
+        ];
+    }
+
+    if ($file["size"] > 5 * 1024 * 1024) {
+        return [
+            "status" => false,
+            "message" => "FIle Size Error"
+        ];
+    }
+
+    return [
+        "status" => true,
+        "ext" => $ext
+    ];
+}
+
 ?>

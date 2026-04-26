@@ -18,6 +18,16 @@ class Users
         return $stmt->execute();
     }
 
+    public function update_profile($uid, $pname)
+    {
+        $sql = "UPDATE " . $this->table . " SET profile = ? WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $pname, $uid);
+
+        return $stmt->execute();
+    }
+
     public function get_user_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
