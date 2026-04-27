@@ -1,9 +1,10 @@
 import { baseUrl } from "../api_base.js";
 import { alert } from "../alert.js";
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
+  await fetcher();
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -18,6 +19,49 @@ const init = () => {
   deletePortfolioImg();
   addPortfolioImg();
   formHadler();
+};
+
+const fetcher = async () => {
+  const path = location.pathname.split("/");
+  if (path[path.length - 1] != "update.html") return;
+
+  const params = new URLSearchParams(location.search);
+  const id = params.get("portfolio-id");
+
+  const res = await fetch(
+    `${baseUrl}/freelancer/portfolio.php?portfolio-id=${id}`,
+  );
+
+  const res_data = await res.json();
+  const data = res_data.message;
+
+  console.log(data);
+  portfolioBldr(data);
+  deletePortfolioImg();
+};
+
+const portfolioBldr = (data) => {
+  const form = document.querySelector(".main__portfolios");
+  form.title.value = data.title;
+
+  const [syear, smonth, sday] = data.start_date.elem.split("-");
+  form.startday.value = sday[0] == "0" ? sday[1] : sday;
+  form.startmonth.value = smonth[0] == "0" ? smonth[1] : smonth;
+  form.startyear.value = syear;
+
+  const [eyear, emonth, eday] = data.end_date.elem.split("-");
+  form.endday.value = eday[0] == "0" ? eday[1] : eday;
+  form.endmonth.value = emonth[0] == "0" ? emonth[1] : emonth;
+  form.endyear.value = eyear;
+
+  form.description.value = data.descriptions.join("\n");
+
+  let count = 0;
+  for (const img of data.images) {
+    const src = "../../uploads/portfolio/" + img;
+    imgItemCreater(src, img);
+    count++;
+  }
 };
 
 const dateInputsHandler = () => {
@@ -60,11 +104,28 @@ const deletePortfolioImg = () => {
   const btns = document.querySelectorAll(".img__delete");
 
   btns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", async (e) => {
       const img = document.querySelector(`li[data-id="${btn.dataset.id}"]`);
+      const params = new URLSearchParams(location.search);
+      const id = params.get("portfolio-id");
 
-      //   TODO -> make api call
-      img?.remove();
+      if (btn.dataset.id.split("-")[0] == "pending") {
+        img?.remove();
+        return;
+      }
+      const res = await fetch(
+        `${baseUrl}/freelancer/portfolio.php?name=${btn.dataset.id}&id=${id}`,
+        {
+          method: "DELETE",
+        },
+      );
+
+      if (res.status == 204) {
+        img?.remove();
+        alert("Image has been deleted successfully", "success");
+        return;
+      }
+      alert("Image is not deleted! something went wrong!");
     });
   });
 };
@@ -119,11 +180,8 @@ const imgItemCreater = (img, id) => {
 };
 
 const dateChecker = (startDate, endDate) => {
-  const [start_day, start_month, start_year] = startDate.split("-");
-  const [end_day, end_month, end_year] = endDate.split("-");
-
-  const start_date = new Date(start_year, start_month - 1, start_day);
-  const end_date = new Date(end_year, end_month - 1, end_day);
+  const start_date = new Date(startDate);
+  const end_date = new Date(endDate);
 
   const start = start_date.getTime();
   const end = end_date.getTime();
@@ -143,16 +201,16 @@ const formHadler = () => {
   btn.addEventListener("click", (e) => {
     const formData = new FormData();
     const eachImgElemUpdate = document.querySelectorAll(".portfolio__img");
-    const dataSet = [...eachImgElemUpdate].map(
-      (item) => item.dataset.id.split("-")[1],
-    );
+    const dataSet = [...eachImgElemUpdate]
+      .filter((item) => item.dataset.id.split("-")[0] == "pending")
+      .map((item) => item.dataset.id.split("-")[1]);
 
     const title = form.title.value;
-    const startDate = `${form.startday.value}-${form.startmonth.value + 1}-${form.startyear.value}`;
-    const endDate = `${form.endday.value}-${form.endmonth.value + 1}-${form.endyear.value}`;
+    const startDate = `${form.startyear.value}-${String(Number(form.startmonth.value) + 1).padStart(2, "0")}-${String(form.startday.value).padStart(2, "0")}`;
+    const endDate = `${form.endyear.value}-${String(Number(form.endmonth.value) + 1).padStart(2, "0")}-${String(form.endday.value).padStart(2, "0")}`;
 
     if (!dateChecker(startDate, endDate)) {
-      alert("Start date should less than end date");
+      alert("Start date should be less than end date");
       return;
     }
 
@@ -183,17 +241,33 @@ const formHadler = () => {
 };
 
 const uploader = async (formData) => {
-  const res = await fetch(`${baseUrl}/freelancer/portfolio.php`, {
+  const path = location.pathname.split("/");
+  if (path[path.length - 1] != "update.html") {
+    const res = await fetch(`${baseUrl}/freelancer/portfolio.php`, {
+      method: "POST",
+      body: formData,
+    });
+    if (res.status === 200) {
+      alert("Portfolio created successfully", "success");
+      location.assign("./");
+    } else {
+      alert("Error has been occured! portfolio is not created");
+    }
+
+    return;
+  }
+
+  const params = new URLSearchParams(location.search);
+  const id = params.get("portfolio-id");
+
+  const res = await fetch(`${baseUrl}/freelancer/portfolio.php?id=${id}`, {
     method: "POST",
     body: formData,
   });
-
-  const data = await res.json();
-
   if (res.status === 200) {
-    alert("Portfolio created successfully", "success");
+    alert("Portfolio Updated successfully", "success");
     location.assign("./");
   } else {
-    alert("Error has been occured! portfolio is not created");
+    alert("Error has been occured! portfolio is not updated");
   }
 };

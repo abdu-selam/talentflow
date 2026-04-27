@@ -42,8 +42,6 @@ if ($method == "GET") {
     $portfolio = $portfolios->get_portfolios_by_freelancer_id($freelancer["id"]);
 
     $portfolio_data = array_map(function ($item) {
-        $start_date = new DateTime($item["start_date"]);
-        $end_date = new DateTime($item["end_date"]);
 
         return [
             "id" => $item["id"],
@@ -51,15 +49,46 @@ if ($method == "GET") {
             "descriptions" => json_decode($item["descriptions"], true),
             "images" => json_decode($item["images"], true),
             "start_date" => [
-                "content" => $start_date->format("Y, M d"),
-                "elem" => $start_date->format("Y-m-d"),
+                "content" => date("Y, M d", strtotime($item['start_date'])),
+                "elem" => date("Y-m-d", strtotime($item['start_date'])),
             ],
             "end_date" => [
-                "content" => $end_date->format("Y, M d"),
-                "elem" => $end_date->format("Y-m-d"),
+                "content" => date("Y, M d", strtotime($item['end_date'])),
+                "elem" => date("Y-m-d", strtotime($item['end_date'])),
             ],
         ];
     }, $portfolio);
+
+    if (isset($_GET["portfolio-id"])) {
+        $id = $_GET["portfolio-id"];
+        $needed = null;
+
+        foreach ($portfolio_data as $item) {
+            if ($item["id"] == $id) {
+                $needed = $item;
+                break;
+            }
+        }
+
+
+        if (!$needed) {
+            $data = [
+                "status" => "error",
+                "message" => "Invalid portfolio Id provided"
+            ];
+
+            response($data, 400);
+            exit;
+        }
+
+        $data = [
+            "status" => "success",
+            "message" => $needed
+        ];
+
+        response($data, 200);
+        exit;
+    }
 
     $data = [
         "status" => "success",
@@ -71,22 +100,24 @@ if ($method == "GET") {
 } elseif ($method == "POST") {
     $user_data = $users->get_user_by_username($_SESSION["user"]);
     $freelancer = $freelancers->get_freelancer_by_userid($user_data["id"]);
-    $date_pattern = "/^\d{1,2}-\d{1,2}-\d{4}$/";
+    $date_pattern = "/^\d{4}-\d{2}-\d{2}$/";
 
     $title = $_POST["title"];
 
     $start_date = isset($_POST["startDate"]) ? $_POST["startDate"] : "";
     if (preg_match($date_pattern, $start_date)) {
-        $date = DateTime::createFromFormat("d-m-Y", $_POST["startDate"]);
-        $start_date = $date->getTimestamp();
+        $date = new DateTime($_POST["startDate"]);
+        $start_date = $date->format("Y-m-d H:i:s");
+        ;
     } else {
         $start_date = null;
     }
 
-    $end_date = isset($_POST["startDate"]) ? $_POST["startDate"] : "";
+    $end_date = isset($_POST["endDate"]) ? $_POST["endDate"] : "";
+
     if (preg_match($date_pattern, $end_date)) {
-        $date = DateTime::createFromFormat("d-m-Y", $_POST["startDate"]);
-        $end_date = $date->getTimestamp();
+        $date = new DateTime($_POST["endDate"]);
+        $end_date = $date->format("Y-m-d H:i:s");
     } else {
         $end_date = null;
     }
@@ -98,6 +129,54 @@ if ($method == "GET") {
 
     $description = json_encode(json_decode($_POST["description"], true), JSON_UNESCAPED_UNICODE);
 
+    if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+
+        $portfolio = $portfolios->get_portfolio_by_id($id);
+
+        if (!$portfolio) {
+            $data = [
+                "status" => "error",
+                "message" => "Invalid Id"
+            ];
+
+            response($data, 409);
+            exit;
+        }
+
+        $images = [];
+        if (isset($_FILES["images"])) {
+            $files = $_FILES["images"];
+            $images = portfolio_images_uploader($files, $user_data["id"]);
+        }
+
+        $imgs = json_decode($portfolio["images"], true);
+        foreach ($images as $item) {
+            array_push($imgs, $item);
+        }
+
+        $images = json_encode($imgs, JSON_UNESCAPED_UNICODE);
+        $res = $portfolios->update($portfolio["id"], $title, $description, $images, $start_date, $end_date);
+
+        if ($res) {
+            $data = [
+                "status" => "success",
+                "message" => "Portfolio updated successfully"
+            ];
+
+            response($data, 200);
+            exit;
+        }
+
+        $data = [
+            "status" => "error",
+            "message" => "Internal server error"
+        ];
+
+        response($data, 500);
+        exit;
+    }
+
     $images = json_encode([], JSON_UNESCAPED_UNICODE);
     if (isset($_FILES["images"])) {
         $files = $_FILES["images"];
@@ -105,7 +184,7 @@ if ($method == "GET") {
     }
 
     do {
-        $id = idGenerator("user");
+        $id = idGenerator("port");
         $portfolio = $portfolios->get_portfolio_by_id($id);
     } while ($portfolio);
 
@@ -129,6 +208,54 @@ if ($method == "GET") {
     response($data, 500);
     exit;
 
+} elseif ($method == "DELETE") {
+    if (!isset($_GET["name"]) || !isset($_GET["id"])) {
+        $data = [
+            "status" => "error",
+            "message" => "Id required"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+    $name = $_GET["name"];
+    $id = $_GET["id"];
+
+    $portfolio = $portfolios->get_portfolio_by_id($id);
+
+    if (!$portfolio) {
+        $data = [
+            "status" => "error",
+            "message" => "Invalid Id"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $imgs = json_decode($portfolio["images"], true);
+    $filtered = [];
+    foreach ($imgs as $item) {
+        if ($item != $name) {
+            array_push($filtered, $item);
+        }
+    }
+
+    $imgs = json_encode($filtered, JSON_UNESCAPED_UNICODE);
+
+    $res = $portfolios->update_portfolio_images($id, $imgs);
+    if ($res) {
+        response([], 204);
+        exit;
+    }
+
+    $data = [
+        "status" => "error",
+        "message" => "Internal server error"
+    ];
+
+    response($data, 500);
+    exit;
 }
 
 ?>
