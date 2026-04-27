@@ -43,7 +43,8 @@ function profileDataConstructor($user)
     return $data;
 }
 
-function ppValidator($file) {
+function ppValidator($file)
+{
     if ($file["error"] !== 0) {
         return [
             "status" => false,
@@ -73,7 +74,39 @@ function ppValidator($file) {
     ];
 }
 
-function resumeValidator($file) {
+function portfoliValidator($files, $key)
+{
+    if ($files["error"][$key] !== 0) {
+        return [
+            "status" => false,
+            "message" => "FIle Upload Error"
+        ];
+    }
+
+    $ext = pathinfo($files["name"][$key], PATHINFO_EXTENSION);
+    $allowed = ["jpeg", "jpg", "png", "webp"];
+    if (!in_array($ext, $allowed)) {
+        return [
+            "status" => false,
+            "message" => "Invalid Format"
+        ];
+    }
+
+    if ($files["size"][$key] > 5 * 1024 * 1024) {
+        return [
+            "status" => false,
+            "message" => "FIle Size Error"
+        ];
+    }
+
+    return [
+        "status" => true,
+        "ext" => $ext
+    ];
+}
+
+function resumeValidator($file)
+{
     if ($file["error"] !== 0) {
         return [
             "status" => false,
@@ -95,4 +128,31 @@ function resumeValidator($file) {
     ];
 }
 
+function portfolio_images_uploader($files, $user_id)
+{
+    $uploaded = [];
+    foreach ($files["tmp_name"] as $key => $temp) {
+        $result = portfoliValidator($files, $key);
+        if (!$result["status"])
+            continue;
+
+        $newName = $user_id . "-portfolio-" . time() .count($uploaded). "." . $result['ext'];
+
+        $uploadDir = "../../uploads/portfolio";
+        $destination = $uploadDir . "/" . $newName;
+
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+
+        if (move_uploaded_file($temp, $destination)) {
+            array_push($uploaded, $newName);
+        }
+    }
+
+    return $uploaded;
+}
+
 ?>
+
+

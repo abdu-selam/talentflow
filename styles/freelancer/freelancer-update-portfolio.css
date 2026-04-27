@@ -87,7 +87,8 @@
   font-size: 1.2rem;
 }
 
-.portfolio__desc .caution {
+.portfolio__desc .caution,
+.img__wrapper .caution {
   font-size: 0.9rem;
   font-weight: 500;
   padding-bottom: 0.8rem;

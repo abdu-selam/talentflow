@@ -62,7 +62,7 @@ const portfolioItemBldr = (data) => {
     const img = `
       <li class="portfolio__img">
         <img
-          src="${item}"
+          src="../../uploads/portfolio/${item}"
           alt="image of portfolio ${item}"
           class="img"
           width="200"

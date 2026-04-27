@@ -18,10 +18,13 @@
       href="../../styles/freelancer/freelancer-update-portfolio.css"
     />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../../favicon.png" type="image/png">
-    <script src="../../scripts/freelancer/freelancerUpdatePortfolio.js" defer></script>
-    <script src="../../scripts/nav.js" defer></script>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <script
+      src="../../scripts/freelancer/freelancerUpdatePortfolio.js"
+      type="module"
+    ></script>
+    <script src="../../scripts/nav.js" type="module"></script>
     <script type="module" src="../../scripts/freelancer/freelancer.js"></script>
     <style>
       .loading {
@@ -120,7 +123,7 @@
               </a>
             </li>
             <li class="aside__item">
-              <a href="#" class="aside__link active">
+              <a href="./" class="aside__link active">
                 <i class="fas fa-bolt"></i>
                 Portifolio
               </a>
@@ -244,7 +247,7 @@
                   <option value="8">September</option>
                   <option value="9">October</option>
                   <option value="10">November</option>
-                  <option value="11">Desember</option>
+                  <option value="11">December</option>
                 </select>
                 <input
                   type="text"
@@ -255,9 +258,8 @@
               </div>
             </div>
             <div class="img__wrapper">
-              <ul class="portfolio__imgs">
-                
-              </ul>
+              <p class="caution">Allowed images (.jpeg, .jpg, .png, .webp)</p>
+              <ul class="portfolio__imgs"></ul>
               <input
                 type="file"
                 accept="image/*"
@@ -271,11 +273,12 @@
             <div class="portfolio__desc">
               <h2 class="desc__title">Description</h2>
               <p class="caution">Make new line to start new paragraph</p>
-              <textarea name="description" class="input__desc"></textarea
-              >
+              <textarea name="description" class="input__desc"></textarea>
             </div>
             <div class="item__btns">
-              <button class="item__btn update__portfolio">Create Portfolio</button>
+              <button type="button" class="item__btn update__portfolio">
+                Create Portfolio
+              </button>
             </div>
           </form>
         </main>
