@@ -35,7 +35,6 @@ const fetcher = async () => {
   const res_data = await res.json();
   const data = res_data.message;
 
-  console.log(data);
   portfolioBldr(data);
   deletePortfolioImg();
 };
@@ -114,7 +113,7 @@ const deletePortfolioImg = () => {
         return;
       }
       const res = await fetch(
-        `${baseUrl}/freelancer/portfolio.php?name=${btn.dataset.id}&id=${id}`,
+        `${baseUrl}/freelancer/portfolio.php?name=${btn.dataset.id}&id=${id}&type=img`,
         {
           method: "DELETE",
         },

@@ -27,6 +27,15 @@ class Portfolios
         return $stmt->execute();
     }
 
+    public function delete($id)
+    {
+        $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
+
+        return $stmt->execute();
+    }
+
     public function update_portfolio_images($id, $imgs)
     {
         $sql = "UPDATE " . $this->table . " SET images = ? WHERE id = ?";

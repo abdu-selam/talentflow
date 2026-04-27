@@ -209,6 +209,35 @@ if ($method == "GET") {
     exit;
 
 } elseif ($method == "DELETE") {
+
+    $type = isset($_GET["type"]) ? $_GET["type"] : "full";
+
+    if ($type != "img") {
+        if (!isset($_GET["id"])) {
+            $data = [
+                "status" => "error",
+                "message" => "Id required"
+            ];
+
+            response($data, 409);
+            exit;
+        }
+
+        $res = $portfolios->delete($_GET["id"]);
+        if ($res) {
+            response([], 204);
+            exit;
+        }
+
+        $data = [
+            "status" => "error",
+            "message" => "Internal server error"
+        ];
+
+        response($data, 500);
+        exit;
+    }
+
     if (!isset($_GET["name"]) || !isset($_GET["id"])) {
         $data = [
             "status" => "error",

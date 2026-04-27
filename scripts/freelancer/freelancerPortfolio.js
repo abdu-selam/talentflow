@@ -1,4 +1,5 @@
 import { baseUrl } from "../api_base.js";
+import { alert } from "../alert.js";
 
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
@@ -45,13 +46,24 @@ const deleteProfile = () => {
   const btns = document.querySelectorAll(".delete__portfolio");
 
   btns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", async (e) => {
       const item = document.querySelector(
         `li.portfolio__item[data-id="${btn.dataset.id}"]`,
       );
 
-      // fetch request
-      item.remove();
+      const res = await fetch(
+        `${baseUrl}/freelancer/portfolio.php?id=${btn.dataset.id}`,
+        {
+          method: "DELETE",
+        },
+      );
+
+      if (res.status == 204) {
+        item.remove();
+        alert("Portfolio has been deleted successfully", "success");
+        return;
+      }
+      alert("Portfolio is not deleted! something went wrong!");
     });
   });
 };
