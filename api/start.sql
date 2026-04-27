@@ -37,6 +37,7 @@ CREATE TABLE jobs (
     client_id VARCHAR(30),
     title TEXT NOT NULL,
     description TEXT NOT NULL,
+    address TEXT NOT NULL,
     status ENUM("active", "closed"),
     requirements JSON,
     responsibilities JSON,

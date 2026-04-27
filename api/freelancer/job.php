@@ -2,6 +2,7 @@
 require_once "../services/freelancer_service.php";
 require_once "../index.php";
 require_once "../utils/responce.php";
+require_once "../services/job_service.php";
 
 if (isset($_GET["type"])) {
     if (!isset($_SESSION["user"])) {
@@ -48,4 +49,20 @@ if (isset($_GET["type"])) {
     response($data, 200);
     exit;
 }
+
+if (isset($_GET["job"])) {
+
+}
+
+$job_list = $jobs->get_jobs();
+$constructed_jobs = job_list_constructor($job_list);
+
+$data = [
+    "status" => "success",
+    "message" => $constructed_jobs
+];
+
+response($data, 200);
+exit;
+
 ?>

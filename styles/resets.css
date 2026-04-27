@@ -136,4 +136,5 @@ input:focus {
   place-content: center;
   font-size: 0.9rem;
   font-weight: 600;
+  backdrop-filter: blur(10px);
 }
