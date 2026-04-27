@@ -130,162 +130,121 @@
               <h2 class="filters__title">Filter Jobs</h2>
               <i class="fas fa-x filter-x-icon"></i>
             </div>
-            <select name="" id="" class="filter__select">
-              <option value="">Select Category</option>
-              <option value="web design">web design</option>
-              <option value="video eding">video eding</option>
-              <option value="graphic design">graphic design</option>
-              <option value="digital marcketing">digital marcketing</option>
-              <option value="mern stack">mern stack</option>
-            </select>
-            <ul class="filters__list">
-              <li class="filters__item">
-                <h3 class="filter__title">Job Type</h3>
-                <ul class="filter__list">
-                  <li class="filter__item">
-                    <input
-                      type="checkbox"
-                      name="type[]"
-                      class="filter__check"
-                      id="job-type-full"
-                    />
-                    <label for="job-type-full" class="filter__name"
-                      >Full Time</label
-                    >
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="checkbox"
-                      name="type[]"
-                      class="filter__check"
-                      id="job-type-part"
-                    />
-                    <label for="job-type-part" class="filter__name"
-                      >Part Time</label
-                    >
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="checkbox"
-                      name="type[]"
-                      class="filter__check"
-                      id="job-type-intern"
-                    />
-                    <label for="job-type-intern" class="filter__name"
-                      >Intern</label
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="filters__item">
-                <h3 class="filter__title">Experience Level</h3>
-                <ul class="filter__list">
-                  <li class="filter__item">
-                    <input
-                      type="checkbox"
-                      name="experience[]"
-                      class="filter__check"
-                      id="job-exp-exp"
-                    />
-                    <label for="job-exp-exp" class="filter__name">Expert</label>
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="checkbox"
-                      name="experience[]"
-                      class="filter__check"
-                      id="job-exp-sen"
-                    />
-                    <label for="job-exp-sen" class="filter__name">Senior</label>
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="checkbox"
-                      name="experience[]"
-                      class="filter__check"
-                      id="job-exp-jun"
-                    />
-                    <label for="job-exp-jun" class="filter__name">Junier</label>
-                  </li>
-                </ul>
-              </li>
-              <li class="filters__item">
-                <h3 class="filter__title">Sorted By</h3>
-                <ul class="filter__list">
-                  <li class="filter__item">
-                    <input
-                      type="radio"
-                      name="sort"
-                      class="filter__check"
-                      id="job-sort-date"
-                      checked
-                    />
-                    <label for="job-sort-date" class="filter__name">Date</label>
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="radio"
-                      name="sort"
-                      class="filter__check"
-                      id="job-sort-alpha"
-                    />
-                    <label for="job-sort-alpha" class="filter__name"
-                      >Job Name</label
-                    >
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="radio"
-                      name="sort"
-                      class="filter__check"
-                      id="job-sort-sal"
-                    />
-                    <label for="job-sort-sal" class="filter__name"
-                      >Salary</label
-                    >
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="radio"
-                      name="sort"
-                      class="filter__check"
-                      id="job-sort-exp"
-                    />
-                    <label for="job-sort-exp" class="filter__name"
-                      >Experience Level</label
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="filters__item">
-                <h3 class="filter__title">Order</h3>
-                <ul class="filter__list">
-                  <li class="filter__item">
-                    <input
-                      type="radio"
-                      name="order"
-                      class="filter__check"
-                      id="job-order-acc"
-                      checked
-                    />
-                    <label for="job-order-acc" class="filter__name"
-                      >Accending</label
-                    >
-                  </li>
-                  <li class="filter__item">
-                    <input
-                      type="radio"
-                      name="order"
-                      class="filter__check"
-                      id="job-order-dec"
-                    />
-                    <label for="job-order-dec" class="filter__name"
-                      >Deccending</label
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <form class="filter__form">
+              <select name="category" id="category" class="filter__select">
+                <option value="">Select Category</option>
+                <option value="web design">web design</option>
+                <option value="video eding">video eding</option>
+                <option value="graphic design">graphic design</option>
+                <option value="digital marcketing">digital marcketing</option>
+                <option value="mern stack">mern stack</option>
+              </select>
+              <ul class="filters__list">
+                <li class="filters__item">
+                  <h3 class="filter__title">Job Type</h3>
+                  <ul class="filter__list">
+                    <li class="filter__item">
+                      <input
+                        type="checkbox"
+                        name="type[]"
+                        class="filter__check"
+                        id="job-type-full"
+                      />
+                      <label for="job-type-full" class="filter__name"
+                        >Full Time</label
+                      >
+                    </li>
+                    <li class="filter__item">
+                      <input
+                        type="checkbox"
+                        name="type[]"
+                        class="filter__check"
+                        id="job-type-part"
+                      />
+                      <label for="job-type-part" class="filter__name"
+                        >Part Time</label
+                      >
+                    </li>
+                    <li class="filter__item">
+                      <input
+                        type="checkbox"
+                        name="type[]"
+                        class="filter__check"
+                        id="job-type-intern"
+                      />
+                      <label for="job-type-intern" class="filter__name"
+                        >Intern</label
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="filters__item">
+                  <h3 class="filter__title">Sorted By</h3>
+                  <ul class="filter__list">
+                    <li class="filter__item">
+                      <input
+                        type="radio"
+                        name="sort"
+                        class="filter__check"
+                        id="job-sort-date"
+                        checked
+                      />
+                      <label for="job-sort-date" class="filter__name">Date</label>
+                    </li>
+                    <li class="filter__item">
+                      <input
+                        type="radio"
+                        name="sort"
+                        class="filter__check"
+                        id="job-sort-alpha"
+                      />
+                      <label for="job-sort-alpha" class="filter__name"
+                        >Job Name</label
+                      >
+                    </li>
+                    <li class="filter__item">
+                      <input
+                        type="radio"
+                        name="sort"
+                        class="filter__check"
+                        id="job-sort-sal"
+                      />
+                      <label for="job-sort-sal" class="filter__name"
+                        >Salary</label
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="filters__item">
+                  <h3 class="filter__title">Order</h3>
+                  <ul class="filter__list">
+                    <li class="filter__item">
+                      <input
+                        type="radio"
+                        name="order"
+                        class="filter__check"
+                        id="job-order-acc"
+                        checked
+                      />
+                      <label for="job-order-acc" class="filter__name"
+                        >Accending</label
+                      >
+                    </li>
+                    <li class="filter__item">
+                      <input
+                        type="radio"
+                        name="order"
+                        class="filter__check"
+                        id="job-order-dec"
+                      />
+                      <label for="job-order-dec" class="filter__name"
+                        >Deccending</label
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </form>
             <button class="filter__btn">
               Fetch Filtered 
             </button>

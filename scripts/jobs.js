@@ -13,7 +13,11 @@ window.addEventListener("load", () => {
 
 const init = () => {
   document.querySelector("#app").style.display = "block";
+  navOpener();
+  formHandler();
+};
 
+const navOpener = () => {
   const filterXIcon = document.querySelector(".filter-x-icon");
   const filterOpenIcon = document.querySelector(".filter-toggle");
   const filters = document.querySelector(".filters");
@@ -122,4 +126,72 @@ const job_constructor = (data) => {
   </li>`;
 
   ul.insertAdjacentHTML("beforeend", li);
+};
+
+const formHandler = () => {
+  const form = document.querySelector(".filter__form");
+  const btn = document.querySelector(".filter__btn");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+
+  btn.addEventListener("click", (e) => {
+    const jobTypes = ["full", "part", "intern"];
+    const types = [...form["type[]"]]
+      .map((item, i) => ({ check: item.checked, type: jobTypes[i] }))
+      .filter((item) => item.check)
+      .map((item) => item.type);
+
+    const category = form.category.value;
+
+    const sortType = ["date", "name", "salary"];
+    const sortBy = [...form["sort"]]
+      .map((item, i) => ({ check: item.checked, type: sortType[i] }))
+      .filter((item) => item.check)
+      .map((item) => item.type)[0];
+
+    const sortOrder = ["acc", "dcc"];
+    const order = [...form["order"]]
+      .map((item, i) => ({ check: item.checked, type: sortOrder[i] }))
+      .filter((item) => item.check)
+      .map((item) => item.type)[0];
+
+    const data = {
+      types,
+      category,
+      sortBy,
+      order,
+    };
+
+    filterFetch(data);
+  });
+};
+
+const filterFetch = async (req) => {
+  const res = await fetch(`${baseUrl}/freelancer/filtered_jobs.php`, {
+    method: "POST",
+    body: JSON.stringify(req),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const res_data = await res.json();
+
+  const data = res_data.message;
+
+  if (res.status == 200) {
+    const ul = document.querySelector(".jobs__list");
+    [...ul.children].forEach((item) => item?.remove());
+    if (data.length == 0) {
+      const p = '<p class="no__item">There Is No Job has been posted!</p>';
+
+      ul.insertAdjacentHTML("beforeend", p);
+      return;
+    }
+
+    data.forEach((item) => {
+      job_constructor(item);
+    });
+  }
 };
