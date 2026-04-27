@@ -113,7 +113,7 @@ const activeJobsBldr = (data) => {
         </h2>
         <p class="job__client">${item.fname} ${item.lname}</p>
         <p class="job__description">
-          ${item.message}....
+          ${item.message.slice(0,80)}....
         </p>
         <button class="job__btn">
           <a href="./active-jobs/" class="job__link"> See Detail </a>
