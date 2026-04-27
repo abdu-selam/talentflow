@@ -44,7 +44,7 @@ CREATE TABLE jobs (
     post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deadline TIMESTAMP NOT NULL,
     salary DOUBLE NOT NULL,
-    job_type ENUM("permanent","freelance"),
+    job_type ENUM("full","part","intern"),
     category TEXT NOT NULL,
     FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
 );
