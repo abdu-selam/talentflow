@@ -1,9 +1,10 @@
 import { baseUrl } from "./api_base.js";
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
-  fetcher();
+  await authChecker();
+  await fetcher();
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -15,6 +16,21 @@ const init = () => {
   document.querySelector("#app").style.display = "block";
   navOpener();
   formHandler();
+};
+
+const authChecker = async () => {
+  const btn = document.querySelector(".header__btn a");
+
+  try {
+    const res = await fetch(`${baseUrl}/auth/me.php`);
+
+    if (res.status === 200) {
+      btn.href = "../";
+      btn.textContent = "Dashboard";
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const navOpener = () => {
@@ -169,6 +185,7 @@ const formHandler = () => {
 };
 
 const filterFetch = async (req) => {
+  console.log(req);
   const res = await fetch(`${baseUrl}/freelancer/filtered_jobs.php`, {
     method: "POST",
     body: JSON.stringify(req),
@@ -190,8 +207,39 @@ const filterFetch = async (req) => {
       return;
     }
 
-    data.forEach((item) => {
+    const jobs = sortFilter(data, req.sortBy, req.order);
+
+    jobs.forEach((item) => {
       job_constructor(item);
     });
   }
+};
+
+const sortFilter = (jobs, sortType, order) => {
+  const types = {
+    date: "post_date",
+    name: "title",
+    salary: "salary",
+  };
+
+  const type = types[sortType];
+
+  return [...jobs].sort((a, b) => {
+    let valA = sortType == "date" ? new Date(a[type]).getTime() : a[type];
+    let valB = sortType == "date" ? new Date(b[type]).getTime() : b[type];
+
+    // Handle string comparison (like title)
+    if (typeof valA === "string" && typeof valB === "string") {
+      return order === "acc"
+        ? valA.localeCompare(valB)
+        : valB.localeCompare(valA);
+    }
+
+    // Handle numbers or dates
+    if (order === "acc") {
+      return valA > valB ? 1 : valA < valB ? -1 : 0;
+    } else {
+      return valB > valA ? 1 : valB < valA ? -1 : 0;
+    }
+  });
 };

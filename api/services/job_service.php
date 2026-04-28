@@ -25,9 +25,8 @@ function filtered_jobs($jobs, $filters)
 {
     $type_filtered = type_filter($jobs, $filters["types"]);
     $category_filtered = category_filter($type_filtered, $filters["category"]);
-    $sorted_jobs = sort_filter($category_filtered, $filters["sortBy"], $filters["order"]);
 
-    return job_list_constructor($sorted_jobs);
+    return job_list_constructor($category_filtered);
 }
 
 function type_filter($jobs, $types)
@@ -62,25 +61,5 @@ function category_filter($jobs, $category)
     return $fitered;
 }
 
-function sort_filter($jobs, $sort_type, $order)
-{
-    $types = ["date" => "post_date", "name" => "title", "salary" => "salary"];
-
-    if ($order == "acc") {
-        usort($jobs, function ($a, $b) {
-            global $types;
-            global $sort_type;
-            return $a[$types[$sort_type]] <=> $b[$types[$sort_type]];
-        });
-    } else {
-        usort($users, function ($a, $b) {
-            global $types;
-            global $sort_type;
-            return $b[$types[$sort_type]] <=> $a[$types[$sort_type]];
-        });
-    }
-
-    return $jobs;
-}
 
 ?>
