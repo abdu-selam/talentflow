@@ -2,6 +2,7 @@
 require_once "../index.php";
 require_once "../utils/responce.php";
 require_once "../utils/validation.php";
+require_once "../services/freelancer_service.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method == "POST") {
@@ -95,6 +96,45 @@ if ($method == "POST") {
     exit;
 
 
+} else if ($method == "GET") {
+    if (!isset($_SESSION["user"])) {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $uname = $_SESSION["user"];
+    $user = $users->get_user_by_username($uname);
+
+    if (!$user) {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    if ($user["roll"] == "freelancer") {
+        $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+        $application_list = $applications->get_all_proposals($freelancer["id"]);
+
+        $data = [
+            "status" => "success",
+            "message" => [
+                "statistic" => proposalStat($freelancer["id"]),
+                "applications" => $application_list
+            ]
+        ];
+
+        response($data, 200);
+        exit;
+    }
 }
 
 ?>

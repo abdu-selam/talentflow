@@ -153,7 +153,7 @@ const portfolioBrdr = (data) => {
           ${item.descriptions.slice(0, 80)}
         </p>
         <button class="portfolio__btn">
-          <a href="./portfolio" class="portfolio__link"> See Detail </a>
+          <a href="../portfolio" class="portfolio__link"> See Detail </a>
         </button>
       </li>
     `;

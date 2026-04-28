@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="../../styles/all.min.css" />
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/nav.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <link rel="stylesheet" href="../../styles/freelancer/freelancer-applications.css">
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../../favicon.png" type="image/png">
-    <script src="../../scripts/freelancer/freelancerApplication.js" defer></script>
-    <script src="../../scripts/nav.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="../../styles/freelancer/freelancer-applications.css"
+    />
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <script
+      src="../../scripts/freelancer/freelancerApplication.js"
+      type="module"
+    ></script>
+    <script src="../../scripts/nav.js" type="module"></script>
     <script type="module" src="../../scripts/freelancer/freelancer.js"></script>
     <style>
       .loading {
@@ -181,7 +181,7 @@
           </div>
         </header>
         <main class="main">
-            <section class="main__stat">
+          <section class="main__stat">
             <p class="stat__title">Proposals Statistic</p>
             <ul class="stat__list">
               <li class="stat__item">
@@ -205,170 +205,13 @@
           <section class="main__pending">
             <p class="pendings__title">Proposals</p>
             <ul class="pendings__filter">
-                <li class="filter__item">
-                    All
-                </li>
-                <li class="filter__item active">
-                    Pending
-                </li>
-                <li class="filter__item">
-                    Accepted
-                </li>
-                <li class="filter__item">
-                    Rejected
-                </li>
+              <li data-value="all" class="filter__item">All</li>
+              <li data-value="pending" class="filter__item active">Pending</li>
+              <li data-value="approve" class="filter__item">Accepted</li>
+              <li data-value="reject" class="filter__item">Rejected</li>
             </ul>
             <ul class="pendings__list">
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <p class="pending__status">
-                    <span class="txt">
-                        Status:
-                    </span>
-                    <span class="result">
-                        Pending
-                    </span>
-                </p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <div class="pending__btns">
-                  <button class="pending__btn">
-                  <a href="../messages/index.html?id=kdkn" class="pending__link"> Message</a>
-                </button>
-                <button class="pending__btn">
-                  <a href="../../jobs/job.html?job=983fh405-5jj" class="pending__link"> See Detail </a>
-                </button>
-                </div>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <p class="pending__status">
-                    <span class="txt">
-                        Status:
-                    </span>
-                    <span class="result">
-                        Pending
-                    </span>
-                </p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <div class="pending__btns">
-                  <button class="pending__btn">
-                  <a href="../messages/index.html?id=kdkn" class="pending__link"> Message</a>
-                </button>
-                <button class="pending__btn">
-                  <a href="../../jobs/job.html?job=983fh405-5jj" class="pending__link"> See Detail </a>
-                </button>
-                </div>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <p class="pending__status">
-                    <span class="txt">
-                        Status:
-                    </span>
-                    <span class="result">
-                        Pending
-                    </span>
-                </p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <div class="pending__btns">
-                  <button class="pending__btn">
-                  <a href="../messages/index.html?id=kdkn" class="pending__link"> Message</a>
-                </button>
-                <button class="pending__btn">
-                  <a href="../../jobs/job.html?job=983fh405-5jj" class="pending__link"> See Detail </a>
-                </button>
-                </div>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <p class="pending__status">
-                    <span class="txt">
-                        Status:
-                    </span>
-                    <span class="result">
-                        Pending
-                    </span>
-                </p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <div class="pending__btns">
-                  <button class="pending__btn">
-                  <a href="../messages/index.html?id=kdkn" class="pending__link"> Message</a>
-                </button>
-                <button class="pending__btn">
-                  <a href="../../jobs/job.html?job=983fh405-5jj" class="pending__link"> See Detail </a>
-                </button>
-                </div>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <p class="pending__status">
-                    <span class="txt">
-                        Status:
-                    </span>
-                    <span class="result">
-                        Pending
-                    </span>
-                </p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <div class="pending__btns">
-                  <button class="pending__btn">
-                  <a href="../messages/index.html?id=kdkn" class="pending__link"> Message</a>
-                </button>
-                <button class="pending__btn">
-                  <a href="../../jobs/job.html?job=983fh405-5jj" class="pending__link"> See Detail </a>
-                </button>
-                </div>
-              </li>
-              <li class="pendings__item">
-                <h2 class="pending__title">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h2>
-                <p class="pending__client">Lorem ipsum dolor sit.</p>
-                <p class="pending__status">
-                    <span class="txt">
-                        Status:
-                    </span>
-                    <span class="result">
-                        Pending
-                    </span>
-                </p>
-                <textarea class="pending__description" readonly>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam illo odio pariatur! Itaque, dolorum....</textarea
-                >
-                <div class="pending__btns">
-                  <button class="pending__btn">
-                  <a href="../messages/index.html?id=kdkn" class="pending__link"> Message</a>
-                </button>
-                <button class="pending__btn">
-                  <a href="../../jobs/job.html?job=983fh405-5jj" class="pending__link"> See Detail </a>
-                </button>
-                </div>
-              </li>
+              
             </ul>
           </section>
         </main>
