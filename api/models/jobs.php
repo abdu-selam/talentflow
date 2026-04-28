@@ -51,6 +51,16 @@ class Jobs
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
+    
+    public function update_apply_count($id, $count)
+    {
+        $sql = "UPDATE " . $this->table . " SET apply_count = ? WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $count, $id);
+
+        return $stmt->execute();
+    }
 
     public function get_jobs_by_clientid($client_id)
     {

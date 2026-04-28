@@ -72,6 +72,19 @@ if (isset($_GET["job"])) {
     $job["client"] = $user["first_name"] . " " . $user["last_name"];
     $job["count"] = $job_count;
 
+    $uname = isset($_SESSION["user"]) ? $_SESSION["user"] : "";
+    $user = $users->get_user_by_username($uname);
+
+    if ($user["roll"] == "freelancer") {
+        $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+        $application = $applications->get_application_by_freelancer_id_and_job_id($freelancer["id"], $job["id"]);
+        if (!$application) {
+            $job["apllication"] = null;
+        } else {
+            $job["apllication"] = $application["message"];
+        }
+    }
+
     $data = [
         "status" => "success",
         "message" => $job

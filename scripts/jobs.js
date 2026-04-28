@@ -20,13 +20,21 @@ const init = () => {
 
 const authChecker = async () => {
   const btn = document.querySelector(".header__btn a");
+  const jobPostBtn = document.querySelector(".header__link.post");
 
   try {
     const res = await fetch(`${baseUrl}/auth/me.php`);
+    const data = await res.json();
 
     if (res.status === 200) {
       btn.href = "../";
       btn.textContent = "Dashboard";
+
+      if (data.message.roll == "freelancer") {
+        jobPostBtn?.parentElement?.remove();
+      } else if (data.message.roll == "client") {
+        jobPostBtn.href = "../client/jobs-post/add-job.html";
+      }
     }
   } catch (error) {
     // console.log(error);

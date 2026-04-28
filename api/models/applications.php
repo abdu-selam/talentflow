@@ -50,6 +50,16 @@ class Applications
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function get_application_by_freelancer_id_and_job_id($freelancer_id, $job_id)
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE freelancer_id = ? AND job_id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $freelancer_id, $job_id);
+
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
     public function get_application_by_status($status)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE status = ?";

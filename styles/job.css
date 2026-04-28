@@ -182,8 +182,8 @@
   gap: 0.5rem;
 }
 
-.job__form.unsigned {
-  opacity: 0.6;
+.job__form.unsigned .job__btn {
+  display: none;
 }
 
 .input__wrapper .label {

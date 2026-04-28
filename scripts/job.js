@@ -1,4 +1,5 @@
 import { baseUrl } from "./api_base.js";
+import { alert } from "./alert.js";
 
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
@@ -13,8 +14,8 @@ window.addEventListener("load", async () => {
 
 const init = () => {
   document.querySelector("#app").style.display = "block";
-  isLoged();
   navBar();
+  applyForm();
 };
 
 const navBar = () => {
@@ -59,6 +60,7 @@ const fetcher = async () => {
 
     const data = res_data.message;
     itemBldr(data);
+    isLoged(data);
     return;
   }
 
@@ -134,26 +136,26 @@ const dateFormatter = (dateStr) => {
   return formatted;
 };
 
-const isLoged = async () => {
+const isLoged = async (data) => {
   const form = document.querySelector(".job__form");
   const textarea = document.querySelector("#apply-txt");
-  const btn = document.querySelector(".job__btn");
   const mainHead = document.querySelector(".main__head");
 
-  const data = await authChecker();
-  const userType = data.roll;
+  const auth = await authChecker();
+  const userType = auth?.roll;
   form.style.display = "none";
   if (userType == "client" || userType == "freelancer") {
     mainHead.style.display = "none";
   }
 
-  if (["freelancer", "applyer"].includes(userType)) {
+  if (userType == "freelancer") {
     form.style.display = "flex";
-
-    if (userType == "freelancer") {
+    if (!data.apllication) {
       textarea.removeAttribute("disabled");
-      btn.removeAttribute("disabled");
       form.classList.remove("unsigned");
+    } else {
+      textarea.value = data.apllication;
+      console.log(data.apllication);
     }
   }
 };
@@ -173,4 +175,47 @@ const authChecker = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const applyForm = () => {
+  const form = document.querySelector(".job__form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams(location.search);
+    const jobId = params.get("job");
+
+    const message = form.message.value;
+    if (message == "") {
+      alert("Please type some message for the application!");
+      return;
+    }
+
+    const res = await fetch(
+      `${baseUrl}/freelancer/application.php?job=${jobId}`,
+      {
+        method: "POST",
+        body: JSON.stringify({ message }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    if (res.status == 200) {
+      const res_data = await res.json();
+      const apply = document.querySelector(".job__apply .result");
+      apply.textContent = res_data.message;
+
+      alert("Your apply has been accepted successfully!", "success");
+      form.message.setAttribute("disabled", "true");
+      form.classList.add("unsigned");
+      return;
+    } else if (res.status == 401) {
+      alert("Please type some message for the application!");
+      return;
+    }
+
+    alert("Error occured in the apply please try again!");
+  });
 };
