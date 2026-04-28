@@ -72,6 +72,7 @@
 }
 
 .job__category,
+.job__status,
 .job__location,
 .job__type,
 .job__salary,
@@ -87,6 +88,7 @@
 }
 
 .job__category .txt,
+.job__status .txt,
 .job__location .txt,
 .job__type .txt,
 .job__salary .txt,
@@ -96,6 +98,7 @@
 }
 
 .job__category .result,
+.job__status .result,
 .job__location .address,
 .job__type .result,
 .job__salary .result,

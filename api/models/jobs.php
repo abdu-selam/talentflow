@@ -17,16 +17,15 @@ class Jobs
         $status,
         $requirements,
         $responsibilities,
-        $apply_count,
         $deadline,
         $salary,
         $job_type,
         $category
     ) {
-        $sql = "INSERT INTO " . $this->table . " (id, client_id, title, description, status, requirements, responsibilities, apply_count, deadline, salary, job_type, category) VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, client_id, title, description, status, requirements, responsibilities, deadline, salary, job_type, category) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param(
-            "sssssssisdss",
+            "ssssssssdss",
             $id,
             $client_id,
             $title,
@@ -34,7 +33,6 @@ class Jobs
             $status,
             $requirements,
             $responsibilities,
-            $apply_count,
             $deadline,
             $salary,
             $job_type,

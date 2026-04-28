@@ -29,7 +29,7 @@ const authChecker = async () => {
       btn.textContent = "Dashboard";
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -185,7 +185,6 @@ const formHandler = () => {
 };
 
 const filterFetch = async (req) => {
-  console.log(req);
   const res = await fetch(`${baseUrl}/freelancer/filtered_jobs.php`, {
     method: "POST",
     body: JSON.stringify(req),

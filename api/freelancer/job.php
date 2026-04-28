@@ -51,7 +51,34 @@ if (isset($_GET["type"])) {
 }
 
 if (isset($_GET["job"])) {
+    $job = $jobs->get_job_by_id($_GET["job"]);
 
+    if (!$job) {
+        $data = [
+            "status" => "error",
+            "message" => "Invalid request"
+        ];
+
+        response($data, 401);
+        exit;
+    }
+
+    $client = $clients->get_client_by_id($job["client_id"]);
+    $user = $users->get_user_by_id($client["user_id"]);
+    unset($job["client_id"]);
+
+    $job_count = count($jobs->get_jobs_by_clientid($client["id"]));
+
+    $job["client"] = $user["first_name"] . " " . $user["last_name"];
+    $job["count"] = $job_count;
+
+    $data = [
+        "status" => "success",
+        "message" => $job
+    ];
+
+    response($data, 200);
+    exit;
 }
 
 $job_list = $jobs->get_jobs();
