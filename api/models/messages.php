@@ -18,6 +18,15 @@ class Messages
         return $stmt->execute();
     }
 
+    public function make_proposal($id)
+    {
+        $sql = "UPDATE " . $this->table . " SET type = 'proposal' WHERE id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
+
+        return $stmt->execute();
+    }
+
     public function get_message_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
@@ -50,11 +59,33 @@ class Messages
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function get_message_by_userid($id)
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE sender_id = ? OR reciever_id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $id, $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function get_message_by_sender_and_reciever_id($sender_id, $reciever_id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE sender_id = ? AND reciever_id = ?";
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param("ss", $sender_id, $reciever_id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_message_btwn_two($user_one, $user_two)
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE (sender_id = ? AND reciever_id = ?) OR (sender_id = ? AND reciever_id = ?)";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ssss", $user_one, $user_two, $user_two, $user_one);
 
         $stmt->execute();
         $result = $stmt->get_result();

@@ -235,14 +235,12 @@ const sortFilter = (jobs, sortType, order) => {
     let valA = sortType == "date" ? new Date(a[type]).getTime() : a[type];
     let valB = sortType == "date" ? new Date(b[type]).getTime() : b[type];
 
-    // Handle string comparison (like title)
     if (typeof valA === "string" && typeof valB === "string") {
       return order === "acc"
         ? valA.localeCompare(valB)
         : valB.localeCompare(valA);
     }
 
-    // Handle numbers or dates
     if (order === "acc") {
       return valA > valB ? 1 : valA < valB ? -1 : 0;
     } else {

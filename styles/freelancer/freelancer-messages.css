@@ -131,17 +131,25 @@
   left: 0;
   width: 100%;
   display: grid;
-  grid-template-columns: 1rem 1fr;
+  grid-template-columns: 1rem auto;
   align-items: center;
   padding-inline: 0.5rem;
   background: var(--back);
 }
 
+@media ((min-width: 40rem) and (max-width: 50rem)) or (min-width: 60rem) {
+  .message__header {
+    display: block;
+  }
+}
+
 .message__figure {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2.5rem auto;
   gap: 0.5rem;
   align-items: end;
   min-height: 2.5rem;
+  width: 100%;
   padding: 0.5rem 0.8rem;
 }
 
@@ -152,7 +160,7 @@
 }
 
 .message__caption {
-  flex: 1;
+  width: 100%;
 }
 
 .message__name {
@@ -204,6 +212,20 @@
   align-self: start;
   background: linear-gradient(45deg, var(--back), var(--back-2));
   outline: 1px solid var(--back);
+}
+
+.message__proposal {
+  background: var(--accent);
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--back);
+  border-radius: 0.8rem;
+  color: var(--back);
+}
+
+.reciever .message__proposal {
+  background: var(--back);
+  color: var(--primary);
+  border-color: var(--accent);
 }
 
 .message__down {

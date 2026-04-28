@@ -78,6 +78,18 @@ if ($method == "POST") {
     $res = $applications->create($id, $job["id"], $freelancer["id"], $message);
     if ($res) {
         $jobs->update_apply_count($job["id"], $job["apply_count"] + 1);
+        $client = $clients->get_client_by_id($job["client_id"]);
+
+        $client_user = $users->get_user_by_id($client["user_id"]);
+
+        do {
+            $id = idGenerator("msg");
+            $msg = $messages->get_message_by_id($id);
+        } while ($msg);
+
+        $messages->create($id, $user["id"], $client_user["id"], json_encode([$message]));
+        $messages->make_proposal($id);
+
         $data = [
             "status" => "success",
             "message" => $job["apply_count"] + 1
