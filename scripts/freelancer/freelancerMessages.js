@@ -15,13 +15,9 @@ window.addEventListener("load", async () => {
 const init = (messageUsersList) => {
   document.querySelector("#app").style.display = "flex";
 
-  const filterItems = document.querySelectorAll(".type__items");
   const textArea = document.querySelector("#message");
   const sendBtn = document.querySelector(".message__send");
   const messageDown = document.querySelector(".message__down");
-
-  // Auto Focus
-  textArea.focus();
 
   textArea.addEventListener("input", (e) => {
     if (textArea.value.length > 0) {
@@ -30,6 +26,8 @@ const init = (messageUsersList) => {
       sendBtn.classList.remove("active");
     }
   });
+
+  filterLogic(messageUsersList);
 
   // Auto Scroll
   autoScroll();
@@ -41,15 +39,6 @@ const init = (messageUsersList) => {
   // scroll to down
   messageDown.addEventListener("click", (e) => {
     autoScroll();
-  });
-
-  filterItems.forEach((item) => {
-    item.addEventListener("click", (e) => {
-      filterItems.forEach((item) => item.classList.remove("active"));
-
-      item.classList.add("active");
-      // TODO add fetch to fetch data
-    });
   });
 };
 
@@ -221,7 +210,7 @@ const msgUserElemBldr = (item, ul) => {
         ${message}
       </p>
     </div>
-    <div class="message__amount">${item.unread}</div>
+    ${item.unread == 0 ? "" : `<div class="message__amount">${item.unread}</div>`}
   </li>
   `;
 
@@ -281,4 +270,38 @@ const sendMsgForm = async (data) => {
   }
 
   return null;
+};
+
+const filterLogic = (messageUsersList) => {
+  const filterItems = document.querySelectorAll(".type__items");
+  const ul = document.querySelector(".messages__list");
+
+  filterItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      filterItems.forEach((item) => item.classList.remove("active"));
+      const stat = item.dataset.stat;
+      item.classList.add("active");
+      ul.innerHTML = "";
+
+      if (stat == "all") {
+        messageUsersList.forEach((item) => {
+          msgUserElemBldr(item, ul);
+        });
+      } else if (stat == "read") {
+        messageUsersList
+          .filter((item) => item.unread == 0)
+          .forEach((item) => {
+            msgUserElemBldr(item, ul);
+          });
+      } else {
+        messageUsersList
+          .filter((item) => item.unread > 0)
+          .forEach((item) => {
+            msgUserElemBldr(item, ul);
+          });
+      }
+
+      clickMessageItemHandler();
+    });
+  });
 };

@@ -184,13 +184,11 @@
           <section class="main__messages message__section active">
             <h1 class="main__title">Messages</h1>
             <ul class="message__types">
-              <li class="type__items active">All</li>
-              <li class="type__items">Unread</li>
-              <li class="type__items">Read</li>
+              <li data-stat="all" class="type__items active">All</li>
+              <li data-stat="unread" class="type__items">Unread</li>
+              <li data-stat="read" class="type__items">Read</li>
             </ul>
-            <ul class="messages__list">
-              
-            </ul>
+            <ul class="messages__list"></ul>
           </section>
           <section class="single__message message__section">
             <section class="message__header">
@@ -211,7 +209,6 @@
               </figure>
             </section>
             <ul class="message__list">
-              
               <li class="message__down active">
                 <i class="fas fa-angle-down"></i>
               </li>
