@@ -54,7 +54,7 @@ function messageConstructor($current, $other)
     $oth_user = $users->get_user_by_id($other);
 
     usort($all_messages, function ($a, $b) {
-        return strtotime($b["date"]) - strtotime($a["date"]);
+        return strtotime($a["date"]) - strtotime($b["date"]);
     });
 
     $data = [
@@ -63,6 +63,7 @@ function messageConstructor($current, $other)
             "lname" => $oth_user["last_name"],
             "roll" => $oth_user["roll"],
             "profile" => $oth_user["profile"],
+            "id" => $oth_user["id"],
         ],
         "messages" => []
     ];

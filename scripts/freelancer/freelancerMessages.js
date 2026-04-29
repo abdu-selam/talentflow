@@ -53,35 +53,35 @@ const init = (messageUsersList) => {
   });
 };
 
-const messageTemplate = (msg, time) => {
-  return `
-  <li class="message__part sender">
-    <div class="message__box">
-      ${msg}
-    </div>
-    <time datetime="" class="message__date">${time}</time>
-  </li>
-  `;
-};
-
 const messageHandler = () => {
   const textArea = document.querySelector("#message");
   const sendBtn = document.querySelector(".message__send");
   const messageList = document.querySelector(".message__list");
 
-  const senderFunc = (e) => {
+  const senderFunc = async (e) => {
     if (!sendBtn.classList.contains("active")) return;
+    const header = document.querySelector(".message__header");
 
     const txt = textArea.value.trimEnd().replaceAll("  ", " &nbsp;");
 
-    const tmplt = messageTemplate(txt, "22:45");
-    // TODO -> send to backend
-    messageList.insertAdjacentHTML("beforeend", tmplt);
-    textArea.value = "";
-    messageList.scrollTo({
-      top: messageList.scrollHeight,
-      behavior: "smooth",
+    const result = await sendMsgForm({
+      message: [txt],
+      reciever: header.dataset.id,
     });
+
+    if (!result) {
+      return;
+    }
+
+    const currentUserElem = document.querySelector(
+      `.message__item[data-id="${header.dataset.id}"] .message__amount`,
+    );
+    currentUserElem.textContent = result.count;
+
+    messageList.insertAdjacentHTML("beforeend", msgItemBldr(result));
+
+    textArea.value = "";
+    autoScroll();
   };
 
   sendBtn.addEventListener("click", senderFunc);
@@ -103,6 +103,7 @@ const clickMessageItemHandler = () => {
   const messagesList = document.querySelector(".main__messages");
   const txtList = document.querySelector(".message__list");
   const backIcon = document.querySelector(".back__icon");
+  const textArea = document.querySelector("#message");
 
   backIcon.addEventListener("click", (e) => {
     messagesList.classList.add("active");
@@ -112,8 +113,13 @@ const clickMessageItemHandler = () => {
   items.forEach((item) => {
     item.addEventListener("click", async (e) => {
       const msgData = await fetchSingle(item.dataset.id);
+      if (!msgData) {
+        return;
+      }
       const keys = sorter(msgData.messages);
       msgHeadBldr(msgData.other);
+      textArea.removeAttribute("disabled");
+      textArea.focus();
 
       txtList.innerHTML = "";
 
@@ -126,6 +132,18 @@ const clickMessageItemHandler = () => {
         msgData.messages[key].forEach((item) => {
           txtList.insertAdjacentHTML("beforeend", msgItemBldr(item));
         });
+      });
+
+      txtList.insertAdjacentHTML(
+        "beforeend",
+        `<li class="message__down active">
+            <i class="fas fa-angle-down"></i>
+        </li>`,
+      );
+
+      const messageDown = document.querySelector(".message__down");
+      messageDown.addEventListener("click", (e) => {
+        autoScroll();
       });
 
       messagesList.classList.remove("active");
@@ -159,6 +177,9 @@ const msgHeadBldr = (item) => {
 
   name.textContent = `${item.fname} ${item.lname}`;
   roll.textContent = item.roll;
+
+  const header = document.querySelector(".message__header");
+  header.setAttribute("data-id", item.id);
 };
 
 const fetcher = async (messageUsersList) => {
@@ -173,8 +194,6 @@ const fetcher = async (messageUsersList) => {
     item.user_id = ids[i];
     return item;
   });
-
-  console.log(values);
 
   values.forEach((item) => {
     msgUserElemBldr(item, ul);
@@ -215,8 +234,11 @@ const fetchSingle = async (userId) => {
 
   const data = res_data.message;
 
-  console.log(data);
-  return data;
+  if (res.status == 200) {
+    return data;
+  }
+
+  return null;
 };
 
 const sorter = (messages) => {
@@ -226,7 +248,7 @@ const sorter = (messages) => {
     let valA = new Date(a).getTime();
     let valB = new Date(b).getTime();
 
-    return valB > valA ? 1 : valB < valA ? -1 : 0;
+    return valA > valB ? 1 : valA < valB ? -1 : 0;
   });
 };
 
@@ -242,4 +264,21 @@ const msgItemBldr = (item) => {
       ${date.getHours()}:${date.getMinutes()}
     </time>
   </li>`;
+};
+
+const sendMsgForm = async (data) => {
+  const res = await fetch(`${baseUrl}/freelancer/message.php`, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (res.status == 200) {
+    const data = await res.json();
+    return data.message;
+  }
+
+  return null;
 };
