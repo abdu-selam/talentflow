@@ -63,7 +63,10 @@ const profileSettings = () => {
 
   inputs.forEach((input, i) => {
     input.addEventListener("keydown", (e) => {
-      if (e.key != "Enter" || i === 3) return;
+      i == 3 && e.key == "Enter" ? btn.click() : "";
+      if (e.key != "Enter" || i === 3) {
+        return;
+      }
       inputs[i + 1].focus();
     });
   });
@@ -110,22 +113,75 @@ const profileSettings = () => {
 
 const privacySettings = () => {
   const form = document.querySelector(".privacy__form");
+  const btn = document.querySelector(".setting__submit.privacy");
+  const inputs = document.querySelectorAll(".privacy__form .form__input");
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}/;
+
+  inputs.forEach((input, i) => {
+    input.addEventListener("keydown", (e) => {
+      i == 2 && e.key == "Enter" ? btn.click() : "";
+      if (e.key != "Enter" || i === 2) {
+        return;
+      }
+      inputs[i + 1].focus();
+    });
+  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const data = {
+  });
+
+  btn.addEventListener("click", async (e) => {
+    const req = {
       old: form.old.value,
       new: form.new.value,
       confirm: form.confirm.value,
     };
 
-    if (!data.old || !data.new || !data.confirm) return;
+    if (!req.old || !req.new || !req.confirm) {
+      alert("Please feel all required fields");
+      return;
+    }
 
-    if (data.new !== data.confirm) return;
+    if (req.new !== req.confirm) {
+      alert(
+        "The new password and It's confirmation is not the same check it again",
+      );
+      return;
+    }
 
-    console.log(data);
+    if (!re.test(req.new)) {
+      alert(
+        "The password should have atleast one, uppercase one, lowercase one number, one special character and atleast 8 in length!",
+      );
 
-    // TODO -> update fetche
+      form.old.value = "";
+      form.new.value = "";
+      form.confirm.value = "";
+      return;
+    }
+
+    const res = await fetch(`${baseUrl}/auth/password_reset.php`, {
+      method: "POST",
+      body: JSON.stringify(req),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.status == 200) {
+      alert("Password reseted successfully!", "success");
+    } else if (res.status == 401) {
+      alert("Password reseted request fails please try again!");
+    } else {
+      alert(
+        "The password should have atleast one, uppercase one, lowercase one number, one special character and atleast 8 in length!",
+      );
+    }
+
+    form.old.value = "";
+    form.new.value = "";
+    form.confirm.value = "";
   });
 };
 

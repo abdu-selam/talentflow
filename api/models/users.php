@@ -48,6 +48,16 @@ class Users
         return $stmt->execute();
     }
 
+    public function update_password($uid, $password)
+    {
+        $sql = "UPDATE " . $this->table . " SET password = ? WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $password, $uid);
+
+        return $stmt->execute();
+    }
+
     public function get_user_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
