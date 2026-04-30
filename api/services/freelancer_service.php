@@ -165,6 +165,7 @@ function rating_constructor($uid)
 
         $data = [
             "id" => $giver["id"],
+            "user_name" => $giver["user_name"],
             "name" => $giver["first_name"] . " " . $giver["last_name"],
             "pp" => $giver["profile"],
             "message" => $rating["message"],

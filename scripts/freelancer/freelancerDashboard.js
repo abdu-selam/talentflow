@@ -113,7 +113,7 @@ const activeJobsBldr = (data) => {
         </h2>
         <p class="job__client">${item.fname} ${item.lname}</p>
         <p class="job__description">
-          ${item.message.slice(0,80)}....
+          ${item.message.slice(0, 80)}....
         </p>
         <button class="job__btn">
           <a href="./active-jobs/" class="job__link"> See Detail </a>
@@ -149,7 +149,7 @@ const clientReviewBldr = (data) => {
       <li class="review__item">
         <figure class="review__fig">
           <img
-            src="${item.pp ?? "../images/logo.webp"}"
+            src="${item.pp ? `../uploads/profiles/${item.pp}` : "../images/logo.webp"}"
             alt="${item.name} profile picture"
             class="review__pp"
             width="50"
