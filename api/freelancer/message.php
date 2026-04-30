@@ -51,8 +51,8 @@ if ($method == "GET") {
         exit;
     }
 
+    $messages_list = $messages->get_message_by_userid($user["id"]);
     if (!isset($_GET["uname"])) {
-        $messages_list = $messages->get_message_by_userid($user["id"]);
         $data = [
             "status" => "success",
             "message" => messageUsers($messages_list, $user["id"])
@@ -61,6 +61,27 @@ if ($method == "GET") {
         response($data, 200);
         exit;
     }
+
+    $other = $users->get_user_by_username($_GET["uname"]);
+    if (!$user) {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $message = messageConstructor($user["id"], $other["id"]);
+    $data = [
+        "status" => "success",
+        "message" => messageUsers($messages_list, $user["id"]),
+        "single" => $message,
+    ];
+
+    response($data, 200);
+    exit;
 
 } elseif ($method == "POST") {
     if (!isset($_SESSION["user"])) {

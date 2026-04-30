@@ -87,12 +87,10 @@ const autoScroll = () => {
 };
 
 const clickMessageItemHandler = () => {
-  const items = document.querySelectorAll(".main__messages .message__item");
   const singleMessage = document.querySelector(".single__message");
   const messagesList = document.querySelector(".main__messages");
-  const txtList = document.querySelector(".message__list");
+  const items = document.querySelectorAll(".main__messages .message__item");
   const backIcon = document.querySelector(".back__icon");
-  const textArea = document.querySelector("#message");
 
   backIcon.addEventListener("click", (e) => {
     messagesList.classList.add("active");
@@ -105,41 +103,51 @@ const clickMessageItemHandler = () => {
       if (!msgData) {
         return;
       }
-      const keys = sorter(msgData.messages);
-      msgHeadBldr(msgData.other);
-      textArea.removeAttribute("disabled");
-      textArea.focus();
 
-      txtList.innerHTML = "";
-
-      keys.forEach((key) => {
-        const date = dateFormatter(`${key} 00:00:00`);
-        txtList.insertAdjacentHTML(
-          "beforeend",
-          `<li class="message__day">${date}</li>`,
-        );
-        msgData.messages[key].forEach((item) => {
-          txtList.insertAdjacentHTML("beforeend", msgItemBldr(item));
-        });
-      });
-
-      txtList.insertAdjacentHTML(
-        "beforeend",
-        `<li class="message__down active">
-            <i class="fas fa-angle-down"></i>
-        </li>`,
-      );
-
-      const messageDown = document.querySelector(".message__down");
-      messageDown.addEventListener("click", (e) => {
-        autoScroll();
-      });
-
-      messagesList.classList.remove("active");
-      singleMessage.classList.add("active");
-      autoScroll();
+      singleUserMsgHandler(msgData);
     });
   });
+};
+
+const singleUserMsgHandler = (msgData) => {
+  const singleMessage = document.querySelector(".single__message");
+  const messagesList = document.querySelector(".main__messages");
+  const txtList = document.querySelector(".message__list");
+  const textArea = document.querySelector("#message");
+
+  const keys = sorter(msgData.messages);
+  msgHeadBldr(msgData.other);
+  textArea.removeAttribute("disabled");
+  textArea.focus();
+
+  txtList.innerHTML = "";
+
+  keys.forEach((key) => {
+    const date = dateFormatter(`${key} 00:00:00`);
+    txtList.insertAdjacentHTML(
+      "beforeend",
+      `<li class="message__day">${date}</li>`,
+    );
+    msgData.messages[key].forEach((item) => {
+      txtList.insertAdjacentHTML("beforeend", msgItemBldr(item));
+    });
+  });
+
+  txtList.insertAdjacentHTML(
+    "beforeend",
+    `<li class="message__down active">
+            <i class="fas fa-angle-down"></i>
+        </li>`,
+  );
+
+  const messageDown = document.querySelector(".message__down");
+  messageDown.addEventListener("click", (e) => {
+    autoScroll();
+  });
+
+  messagesList.classList.remove("active");
+  singleMessage.classList.add("active");
+  autoScroll();
 };
 
 const dateFormatter = (dateStr) => {
@@ -173,11 +181,21 @@ const msgHeadBldr = (item) => {
 
 const fetcher = async (messageUsersList) => {
   const ul = document.querySelector(".messages__list");
+  const params = new URLSearchParams(location.search);
+  const uname = params.get("id");
+  const url = !uname ? "" : `?uname=${uname}`;
 
-  const res = await fetch(`${baseUrl}/freelancer/message.php`);
+  const res = await fetch(`${baseUrl}/freelancer/message.php${url}`);
   const res_data = await res.json();
-
+  if (res.status != 200) {
+    history.back;
+  }
   const data = res_data.message;
+
+  if (uname) {
+    singleUserMsgHandler(res_data.single);
+  }
+
   const ids = [...Object.keys(data)];
   const values = [...Object.values(data)].map((item, i) => {
     item.user_id = ids[i];
