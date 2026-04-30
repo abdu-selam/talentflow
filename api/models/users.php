@@ -38,6 +38,16 @@ class Users
         return $stmt->execute();
     }
 
+    public function update_uname($uid, $uname)
+    {
+        $sql = "UPDATE " . $this->table . " SET user_name = ? WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $uname, $uid);
+
+        return $stmt->execute();
+    }
+
     public function get_user_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";

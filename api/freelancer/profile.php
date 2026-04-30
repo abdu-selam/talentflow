@@ -227,7 +227,7 @@ if ($method == "GET") {
                     "fname" => $user["first_name"],
                     "lname" => $user["last_name"],
                     "address" => $freelancer["address"],
-                    "headline" => $freelancer["headline"]
+                    "headline" => $freelancer["headline"],
                 ]
             ];
 

@@ -1,69 +1,127 @@
 .main__title {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .main__profile,
-.main__privacy {
-    padding: 0.8rem;
+.main__privacy,
+.main__uname {
+  padding: 0.8rem;
 }
 
 .profile__form,
-.privacy__form {
-    width: min(100%, 25rem);
+.privacy__form,
+.uname__wrapper {
+  width: min(100%, 25rem);
 }
 
 .profile__settings,
-.privacy__settings {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background: color-mix(in srgb, var(--accent) 10%, transparent 90%);
-    padding: 0.8rem;
-    border-radius: 0.8rem;
+.privacy__settings,
+.uname__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: color-mix(in srgb, var(--primary) 10%, transparent 90%);
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+}
+
+.uname__wrapper {
+  flex-direction: row;
+  align-items: end;
+}
+
+.uname__warning {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.profile__setting {
+  width: 100%;
+}
+
+.check__uname {
+  padding: 0.5rem 0.8rem;
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
+.check__uname.checked {
+  background: var(--success);
+  color: var(--accent);
+}
+
+.check__uname .txt {
+  display: none;
+  color: var(--back);
+  font-weight: 600;
+}
+
+.check__uname.checked .txt {
+  color: var(--primary);
+}
+
+.check__uname .txt.active {
+  display: inline;
+}
+
+.check__uname .sun {
+  display: none;
+}
+
+.check__uname .sun.active {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+  rotate: 0deg;
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
 }
 
 .profile__setting,
 .privacy__setting {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .setting__title {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .setting__type {
-    font-size: 0.9rem;
-    font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .setting__input {
-    padding: 0.3rem 0.5rem;
-    background: none;
-    border: none;
-    border-bottom: 2px solid;
-    font-size: 0.9rem;
+  padding: 0.3rem 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid;
+  font-size: 0.9rem;
 }
 
 .setting__input:focus {
-    outline: none;
-    border-color: var(--accent);
+  outline: none;
+  border-color: var(--accent);
 }
 
 .setting__submit {
-    padding: 0.3rem;
-    border-radius: 0.8rem;
-    font-weight: 600;
-    transition: 0.5s;
-    font-size: 0.9rem;
+  padding: 0.3rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  transition: 0.5s;
+  font-size: 0.9rem;
 }
 
 .setting__submit:hover {
-    scale: 1.01;
+  scale: 1.01;
 }
 
 .setting__submit:disabled {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .password__wrapper {
@@ -90,8 +148,8 @@
 }
 
 .logout__btn {
-    padding: 0.3rem 1.5rem;
-    border-radius: 1.5rem;
-    transition: 0.5s;
-    background: var(--error);
+  padding: 0.3rem 1.5rem;
+  border-radius: 1.5rem;
+  transition: 0.5s;
+  background: var(--error);
 }

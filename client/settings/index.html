@@ -18,9 +18,12 @@
       href="../../styles/freelancer/freelancer-settings.css"
     />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../../favicon.png" type="image/png">
-    <script src="../../scripts/freelancer/freelancerSettings.js" type="module"></script>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <script
+      src="../../scripts/freelancer/freelancerSettings.js"
+      type="module"
+    ></script>
     <script src="../../scripts/nav.js" type="module"></script>
     <script type="module" src="../../scripts/client/client.js"></script>
     <style>
@@ -195,15 +198,6 @@
                   />
                 </li>
                 <li class="profile__setting">
-                  <p class="setting__type">User Name</p>
-                  <input
-                    value="Lorem, ipsum dolor."
-                    type="text"
-                    name="uname"
-                    class="setting__input"
-                  />
-                </li>
-                <li class="profile__setting">
                   <p class="setting__type">Location</p>
                   <input
                     value="Lorem, ipsum dolor."
@@ -226,6 +220,21 @@
                 </li>
               </ul>
             </form>
+          </section>
+          <section class="main__uname">
+            <div class="uname__wrapper">
+              <div class="profile__setting">
+                <p class="setting__type">User Name</p>
+                <input type="text" name="uname" class="setting__input" />
+              </div>
+              <button data-stat="nutral" class="check__uname">
+                <i class="fas fa-sun sun"></i>
+                <span class="txt active"> Ckeck </span>
+              </button>
+            </div>
+            <p class="uname__warning">
+              Only Letters, numbers and underscore( _ ) are allowed
+            </p>
           </section>
           <section class="main__privacy">
             <form class="privacy__form">
