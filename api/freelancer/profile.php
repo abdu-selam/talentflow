@@ -2,6 +2,7 @@
 require_once "../index.php";
 require_once "../utils/responce.php";
 require_once "../services/freelancer_profile_services.php";
+require_once "../services/client_profile_service.php";
 require_once "../utils/validation.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -24,22 +25,13 @@ if ($method == "GET") {
         } else if ($needed_user["roll"] == "client") {
             $needed_user = $users->get_user_by_username($_SESSION["user"]);
         }
-    } else {
-        $needed_user = $users->get_user_by_username($_SESSION["user"]);
-        if ($needed_user["roll"] == "client") {
-            $data = [
-                "status" => "error",
-                "message" => "Un Authorized"
-            ];
-
-            response($data, 401);
-            exit;
-        }
     }
+
+    $needed_user = $users->get_user_by_username($_SESSION["user"]);
 
     $data = [
         "status" => "success",
-        "message" => profileDataConstructor($needed_user)
+        "message" => $needed_user["roll"] == "freelancer" ? profileDataConstructor($needed_user) : profileDataConstructorClient($needed_user)
     ];
 
     response($data, 200);
@@ -259,3 +251,18 @@ if ($method == "GET") {
 }
 
 ?>
+
+<br /><b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
+line<b>32</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
+line<b>33</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
+line<b>34</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
+line<b>37</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
+line<b>38</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
+line<b>39</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on line<b>40</b><br />{
