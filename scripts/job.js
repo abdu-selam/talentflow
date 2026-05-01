@@ -87,12 +87,19 @@ const itemBldr = (data) => {
 
   category.textContent = data.category;
   status.textContent = data.status;
-  type.textContent = data.job_type;
   salary.textContent = `${data.salary} birr`;
   apply.textContent = data.apply_count;
   desc.textContent = data.description;
   address.textContent =
-    data.address == "" ? "No Location Provided" : data.address;
+  data.address == "" ? "No Location Provided" : data.address;
+
+  const jobTypes = {
+    full: "Full Time",
+    part: "Part Time",
+    intern: "Internship",
+  };
+
+  type.textContent = jobTypes[data.job_type];
 
   const postTime = document.querySelector(".job__times .post__time time");
   const deadline = document.querySelector(".job__times .dead__time time");
@@ -171,6 +178,8 @@ const authChecker = async () => {
       btn.href = "../";
       btn.textContent = "Dashboard";
       return data.message;
+    } else {
+      console.clear()
     }
   } catch (error) {
     console.log(error);
