@@ -169,9 +169,9 @@
           <section class="main__messages message__section active">
             <h1 class="main__title">Messages</h1>
             <ul class="message__types">
-              <li class="type__items active">All</li>
-              <li class="type__items">Unread</li>
-              <li class="type__items">Read</li>
+              <li data-stat="all" class="type__items active">All</li>
+              <li data-stat="unread" class="type__items">Unread</li>
+              <li data-stat="read" class="type__items">Read</li>
             </ul>
             <ul class="messages__list">
               
@@ -190,108 +190,13 @@
                   width="50"
                 />
                 <figcaption class="message__caption">
-                  <p class="message__name">
-                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-                  </p>
-                  <p class="message__type">Client</p>
+                  <p class="message__name">TalentFlow</p>
+                  <p class="message__type">Talents Garden</p>
                 </figcaption>
               </figure>
             </section>
             <ul class="message__list">
-              <li class="message__part sender">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part sender">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part reciever">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__day">Aug, 15 2027</li>
-              <li class="message__part sender">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part reciever">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part sender">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part reciever">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part sender">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part sender">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__part reciever">
-                <div class="message__box">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo excepturi dolores quas voluptatum tenetur, error
-                  expedita officiis dolor sit sed, suscipit dolorum possimus
-                  debitis! Beatae!
-                </div>
-                <time datetime="" class="message__date">22:33</time>
-              </li>
-              <li class="message__down active">
-                <i class="fas fa-angle-down"></i>
-              </li>
+              
             </ul>
             <section class="message__input">
               <input
@@ -299,6 +204,7 @@
                 class="input__txt"
                 id="message"
                 class="input"
+                disabled
               />
               <button class="message__send">
                 <i class="fas fa-paper-plane"></i>

@@ -59,5 +59,7 @@ const checkAuth = async () => {
     } else {
       location.replace("../../client");
     }
+  } else {
+    console.clear()
   }
 };

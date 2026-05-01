@@ -37,7 +37,7 @@ const init = (messageUsersList) => {
   clickMessageItemHandler();
 
   // scroll to down
-  messageDown.addEventListener("click", (e) => {
+  messageDown?.addEventListener("click", (e) => {
     autoScroll();
   });
 };

@@ -71,7 +71,7 @@
 }
 
 @media (min-width: 56rem) {
-  .main__wrapper {
+  .main__wrapper:not(.client) {
     grid-template-columns: 18rem auto;
   }
 

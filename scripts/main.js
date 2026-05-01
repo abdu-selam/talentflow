@@ -91,5 +91,7 @@ const checkUser = async () => {
     } else {
       location.replace("./client");
     }
+  } else {
+    console.clear()
   }
 };

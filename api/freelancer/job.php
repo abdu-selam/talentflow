@@ -94,6 +94,43 @@ if (isset($_GET["job"])) {
     exit;
 }
 
+if (isset($_GET["client"])) {
+    if (!isset($_SESSION["user"])) {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $uname = $_SESSION["user"];
+    $user = $users->get_user_by_username($uname);
+
+    if (!$user || $user["roll"] != "client") {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 401);
+        exit;
+    }
+
+    $client = $clients->get_client_by_userid($user["id"]);
+    $job_list = $jobs->get_jobs_by_clientid($client["id"]);
+    $constructed_jobs = job_list_constructor($job_list);
+
+    $data = [
+        "status" => "success",
+        "message" => $constructed_jobs
+    ];
+
+    response($data, 200);
+    exit;
+}
+
 $job_list = $jobs->get_jobs();
 $constructed_jobs = job_list_constructor($job_list);
 

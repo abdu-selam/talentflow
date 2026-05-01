@@ -11,6 +11,7 @@ function job_list_constructor($jobs)
             "post_date" => date("Y-m-d", strtotime($job["post_date"])),
             "deadline" => date("Y-m-d", strtotime($job["deadline"])),
             "salary" => $job["salary"],
+            "status" => $job["status"],
             "job_type" => $job["job_type"],
             "address" => $job["address"],
             "description" => $job["description"],
