@@ -91,11 +91,13 @@ function active_jobs($cid)
     foreach ($jobs_list as $each) {
         if ($each["status"] == "active") {
             $data = [
+                "id" => $each["id"],
                 "title" => $each["title"],
                 "description" => $each["description"],
                 "category" => $each["category"],
+                "count" => $each["apply_count"],
             ];
-            array_push($active_jobs, $each);
+            array_push($active_jobs, $data);
         }
     }
 

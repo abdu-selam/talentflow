@@ -1,5 +1,6 @@
 <?php
 require_once "../services/freelancer_service.php";
+require_once "../services/client_services.php";
 require_once "../index.php";
 require_once "../utils/responce.php";
 require_once "../services/job_service.php";
@@ -113,7 +114,7 @@ if ($method == 'POST') {
         $job_check = $jobs->get_job_by_id($id);
     } while ($job_check);
 
-    $res = $jobs->create($id, $client["id"], $data["title"], $data["description"], $data["requirements"], $data["responsibilities"], $data["deadline"],$data["salary"], $data["job_type"], $data["category"], $data["address"]);
+    $res = $jobs->create($id, $client["id"], $data["title"], $data["description"], $data["requirements"], $data["responsibilities"], $data["deadline"], $data["salary"], $data["job_type"], $data["category"], $data["address"]);
 
     if ($res) {
         $data = [
@@ -147,7 +148,7 @@ if (isset($_GET["type"])) {
     $uname = $_SESSION["user"];
     $user = $users->get_user_by_username($uname);
 
-    if (!$user || $user["roll"] != "freelancer") {
+    if (!$user) {
         $data = [
             "status" => "error",
             "message" => "Un Authenticated"
@@ -166,9 +167,15 @@ if (isset($_GET["type"])) {
         response($data, 401);
         exit;
     }
-    $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+    $needed_user = $user["roll"] == "freelancer" ?
+        $freelancers->get_freelancer_by_userid($user["id"]) :
+        $clients->get_client_by_userid($user["id"])
+    ;
 
-    $active_jobs = activeJobs($freelancer["id"]);
+    $active_jobs = $user["roll"] == "freelancer" ?
+        activeJobs($needed_user["id"]) :
+        active_jobs($needed_user["id"])
+    ;
 
     $data = [
         "status" => "success",
