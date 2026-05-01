@@ -1,6 +1,10 @@
-window.addEventListener("load", () => {
+import { baseUrl } from "../api_base.js";
+import { alert } from "../alert.js";
+
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
+  await fetcher();
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -17,13 +21,11 @@ const init = () => {
     e.preventDefault();
   });
 
-  fetcher();
   jobType();
   dateInputsHandler();
   salaryInput();
   deleteResReq();
   addReqRes();
-  updateJob();
 };
 
 const fetcher = async () => {
@@ -34,7 +36,65 @@ const fetcher = async () => {
     location.replace("./");
   }
 
-  // fetch requiest for single
+  const res = await fetch(`${baseUrl}/freelancer/job.php?job=${jobId}`);
+
+  if (res.status === 200) {
+    const res_data = await res.json();
+
+    const data = res_data.message;
+    itemBldr(data);
+    updateJob();
+    return;
+  }
+
+  location.replace("./");
+};
+
+const itemBldr = (data) => {
+  const form = document.querySelector("form.main__wrapper");
+
+  form.title.value = data.title;
+  form.category.value = data.category;
+  form.address.value = data.address;
+
+  const jobTypes = document.querySelectorAll(".input__wrapper.job-type .item");
+  jobTypes.forEach((item) => item.classList.remove("active"));
+  jobTypes.forEach((item) => {
+    const stat = item.dataset.value;
+    if (stat == data.job_type) {
+      item.classList.add("active");
+    }
+  });
+
+  form.salary.value = data.salary;
+
+  const date = new Date(data.deadline.replace(" ", "T"));
+  form.deadday.value = date.getDate();
+  form.deadmonth.value = date.getMonth();
+  form.deadyear.value = date.getFullYear();
+
+  form.description.value = data.description;
+  const requirements = JSON.parse(data.requirements);
+  const responsibilities = JSON.parse(data.responsibilities);
+
+  const requirementsListElem = document.querySelector(".job__req .list");
+  const responsibilitiesListElem = document.querySelector(".job__resp .list");
+
+  requirements.forEach((word) => {
+    requirementsListElem.insertAdjacentHTML(
+      "beforeend",
+      resReqItemCreator(word),
+    );
+    deleteResReq();
+  });
+
+  responsibilities.forEach((word) => {
+    responsibilitiesListElem.insertAdjacentHTML(
+      "beforeend",
+      resReqItemCreator(word),
+    );
+    deleteResReq();
+  });
 };
 
 const jobType = () => {
@@ -148,7 +208,8 @@ const updateJob = () => {
     const jobTypeElem = document.querySelector(
       ".input__wrapper.job-type .item.active",
     );
-    const deadline = `${form.deadday.value}-${form.deadmonth.value}-${form.deadyear.value}`;
+    const deadline = `${form.deadyear.value}-${String(Number(form.deadmonth.value) + 1).padStart(2, "0")}-${String(form.deadday.value).padStart(2, "0")}`;
+
     const responsibilities = [
       ...document.querySelectorAll(".job__resp .txt"),
     ].map((item) => item.textContent);
@@ -160,18 +221,34 @@ const updateJob = () => {
       title: form.title.value,
       category: form.category.value,
       address: form.address.value,
-      jobtype: jobTypeElem.textContent.toLowerCase(),
-      salary: form.salary.value,
+      jobtype: jobTypeElem.dataset.value,
+      salary: Number(form.salary.value),
       deadline,
       description: form.description.value,
       responsibilities,
       requirements,
     };
 
-    uploader(data)
+    uploader(data);
   });
 };
 
-const uploader = (formData) => {
-  // fetch requiest
+const uploader = async (formData) => {
+  const params = new URLSearchParams(location.search);
+  const jobId = params.get("job");
+
+  const res = await fetch(`${baseUrl}/freelancer/job.php?id=${jobId}`, {
+    method: "PUT",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (res.status == 200) {
+    alert("Job updated successfully", "success");
+    location.replace(`./job.html?job=${jobId}`);
+  } else {
+    alert("Job is not updated! please try again!");
+  }
 };

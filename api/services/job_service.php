@@ -62,5 +62,31 @@ function category_filter($jobs, $category)
     return $fitered;
 }
 
+function job_update_data_constructor($data)
+{
+    $res = [
+        "title" => $data["title"],
+        "salary" => $data["salary"],
+        "address" => $data["address"],
+        "category" => $data["category"],
+        "description" => $data["description"],
+        "job_type" => $data["jobtype"],
+        "requirements" => json_encode($data["requirements"]),
+        "responsibilities" => json_encode($data["responsibilities"]),
+    ];
+    $date_pattern = "/^\d{4}-\d{2}-\d{2}$/";
+
+    $deadline = isset($data["deadline"]) ? $data["deadline"] : "";
+    if (preg_match($date_pattern, $deadline)) {
+        $date = new DateTime($data["deadline"]);
+        $deadline = $date->format("Y-m-d H:i:s");
+    } else {
+        $deadline = null;
+    }
+
+    $res["deadline"] = $deadline;
+
+    return $res;
+}
 
 ?>

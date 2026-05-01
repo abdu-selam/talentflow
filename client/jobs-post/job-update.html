@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      href="../../styles/all.min.css"
     />
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
@@ -17,8 +14,8 @@
     <link rel="stylesheet" href="../../styles/footer.css" />
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../../favicon.png" type="image/png">
-    <script src="../../scripts/client/clientJobUpdate.js" defer></script>
-    <script src="../../scripts/nav.js" defer></script>
+    <script src="../../scripts/client/clientJobUpdate.js" type="module"></script>
+    <script src="../../scripts/nav.js" type="module"></script>
     <script type="module" src="../../scripts/client/client.js"></script>
     <style>
       .loading {
@@ -218,8 +215,8 @@
                   <label>Job Type</label>
                   <ul class="list">
                     <li data-value="full" class="item">Full time</li>
-                    <li data-value="full" class="item">Part time</li>
-                    <li data-value="full" class="item active">Part time</li>
+                    <li data-value="part" class="item">Part time</li>
+                    <li data-value="intern" class="item active">Internship</li>
                   </ul>
                 </div>
                 <div class="input__wrapper">
@@ -270,41 +267,12 @@
                 </div>
                 <div class="job__desc input__wrapper">
                   <label for="description" class="txt">Description: </label>
-                  <textarea name="description" id="description" class="result">Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae distinctio unde, voluptatem ipsum eum ut odiodignissimos blanditiis excepturi odit quo expedita providentdeserunt voluptatibus earum hic at dolor nihil? Providentdoloribus consectetur fugit officiis iure ipsa facere doloreasperiores? Sint placeat harum, corporis blanditiis nostrumnisi fugiat accusamus voluptatibus nesciunt autem ullam,possimus deserunt natus ratione quasi adipisci. Eos nemonihil sint, fuga voluptas dolore incidunt amet perspiciatisvoluptatem voluptatum, aut mollitia recusandae liberoaperiam sequi, esse facilis culpa magni enim labore quasidelectus cumque cum? Nam ad possimus magnam, eveniet errorex. Dolores repudiandae velit rem molestias maxime.</textarea>
+                  <textarea name="description" id="description" class="result"></textarea>
                 </div>
                 <div class="job__resp">
                   <p class="title">Responsibilities</p>
                   <ul class="list">
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
+                    
                   </ul>
                   <div class="resp__input">
                     <input type="text" class="resp__input--in" />
@@ -316,36 +284,7 @@
                 <div class="job__req">
                   <p class="title">Requirements</p>
                   <ul class="list">
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
-                    <li class="item">
-                      <p class="txt">Lorem, ipsum dolor.</p>
-                      <span class="icon">
-                        <i class="fas fa-minus"></i>
-                      </span>
-                    </li>
+                    
                   </ul>
                   <div class="resp__input">
                     <input type="text" class="resp__input--in" />

@@ -51,13 +51,45 @@ class Jobs
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
-    
+
     public function update_apply_count($id, $count)
     {
         $sql = "UPDATE " . $this->table . " SET apply_count = ? WHERE id = ?";
 
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param("ss", $count, $id);
+
+        return $stmt->execute();
+    }
+
+    public function update($id, $data)
+    {
+        $sql = "UPDATE " . $this->table . " 
+        SET title = ?, 
+        description = ?, 
+        address = ?, 
+        requirements = ?, 
+        responsibilities = ?, 
+        deadline = ?, 
+        salary = ?, 
+        job_type = ?, 
+        category = ?
+        WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param(
+            "ssssssdsss",
+            $data["title"],
+            $data["description"],
+            $data["address"],
+            $data["requirements"],
+            $data["responsibilities"],
+            $data["deadline"],
+            $data["salary"],
+            $data["job_type"],
+            $data["category"],
+            $id
+        );
 
         return $stmt->execute();
     }

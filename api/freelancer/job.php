@@ -4,6 +4,80 @@ require_once "../index.php";
 require_once "../utils/responce.php";
 require_once "../services/job_service.php";
 
+$method = $_SERVER["REQUEST_METHOD"];
+if ($method == 'PUT') {
+    if (!isset($_SESSION["user"])) {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $uname = $_SESSION["user"];
+    $user = $users->get_user_by_username($uname);
+
+    if (!$user || $user["roll"] != "client") {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 401);
+        exit;
+    }
+
+    if (!isset($_GET["id"])) {
+        $data = [
+            "status" => "error",
+            "message" => "Job id required"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $job = $jobs->get_job_by_id($_GET["id"]);
+    $client = $clients->get_client_by_userid($user["id"]);
+
+
+    if (!$job || $job["client_id"] != $client["id"]) {
+        $data = [
+            "status" => "error",
+            "message" => "Invalid Credentials"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $json = file_get_contents("php://input");
+    $req = json_decode($json, true);
+
+    $data = job_update_data_constructor($req);
+
+    $res = $jobs->update($job["id"], $data);
+
+    if ($res) {
+        $data = [
+            "status" => "Success",
+            "message" => "Job updated successfully"
+        ];
+
+        response($data, 200);
+        exit;
+    }
+    $data = [
+        "status" => "error",
+        "message" => "Internal Server Error"
+    ];
+
+    response($data, 500);
+    exit;
+}
+
 if (isset($_GET["type"])) {
     if (!isset($_SESSION["user"])) {
         $data = [
