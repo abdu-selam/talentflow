@@ -100,6 +100,19 @@ class Messages
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function get_messages_newest_first()
+    {
+
+        $sql = "SELECT s.user_name AS sname, r.user_name AS rname
+            FROM messages m 
+            JOIN users s ON m.sender_id = s.id
+            JOIN users r ON m.reciever_id = r.id 
+            ORDER BY m.date DESC";
+        $result = $this->con->query($sql);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>

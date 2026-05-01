@@ -12,6 +12,8 @@ const checkUser = async () => {
     location.replace("/talentflow");
   }
 
+  sessionStorage.setItem("uname", data.message.user_name)
+
   const profileImg = document.querySelector(".aside__pp");
   const username = document.querySelector(".aside__uname");
   const email = document.querySelector(".aside__email");

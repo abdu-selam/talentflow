@@ -21,7 +21,7 @@ function messageUsers($messagesIn, $current)
         }
 
         if (!array_key_exists($other["id"], $data)) {
-            $msg_btwn = $messages->get_message_by_sender_and_reciever_id($current, $other["id"]);
+            $msg_btwn = $messages->get_message_by_recieverid($current);
             $count = count(
                 array_filter($msg_btwn, function ($a) {
                     return $a["status"] == "unread";

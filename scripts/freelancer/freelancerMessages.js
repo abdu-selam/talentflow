@@ -1,10 +1,14 @@
 import { baseUrl } from "../api_base.js";
+import eventSource from "../sseHandler.js";
 
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
   const messageUsersList = [];
 
   await fetcher(messageUsersList);
+  eventSource((uname) => {
+    fetcher(messageUsersList, uname);
+  });
   loading.classList.add("close");
   init(messageUsersList);
   setTimeout(() => {
@@ -33,8 +37,6 @@ const init = (messageUsersList) => {
   autoScroll();
 
   messageHandler();
-
-  clickMessageItemHandler();
 
   // scroll to down
   messageDown?.addEventListener("click", (e) => {
@@ -179,11 +181,11 @@ const msgHeadBldr = (item) => {
   header.setAttribute("data-id", item.id);
 };
 
-const fetcher = async (messageUsersList) => {
+const fetcher = async (messageUsersList, unamefunc) => {
   const ul = document.querySelector(".messages__list");
   const params = new URLSearchParams(location.search);
   const uname = params.get("id");
-  const url = !uname ? "" : `?uname=${uname}`;
+  const url = !unamefunc ? (!uname ? "" : `?uname=${uname}`) : `?uname=${unamefunc}`;
 
   const res = await fetch(`${baseUrl}/freelancer/message.php${url}`);
   const res_data = await res.json();
@@ -192,7 +194,7 @@ const fetcher = async (messageUsersList) => {
   }
   const data = res_data.message;
 
-  if (uname) {
+  if (uname || unamefunc) {
     singleUserMsgHandler(res_data.single);
   }
 
@@ -202,6 +204,7 @@ const fetcher = async (messageUsersList) => {
     return item;
   });
 
+  ul.innerHTML = "";
   if (values.length == 0) {
     ul.insertAdjacentHTML(
       "beforeend",
@@ -210,10 +213,16 @@ const fetcher = async (messageUsersList) => {
     return;
   }
 
+  messageUsersList.forEach((_) => {
+    messageUsersList.pop();
+  });
+
   values.forEach((item) => {
     msgUserElemBldr(item, ul);
     messageUsersList.push(item);
   });
+
+  clickMessageItemHandler();
 };
 
 const msgUserElemBldr = (item, ul) => {

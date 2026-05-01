@@ -118,7 +118,7 @@ if ($method == "GET") {
     $res = $messages->create($id, $user["id"], $data["reciever"], json_encode($data["message"]));
     if ($res) {
         $msg = $messages->get_message_by_id($id);
-        $msg_btwn = $messages->get_message_by_sender_and_reciever_id($user["id"], $data["reciever"]);
+        $msg_btwn = $messages->get_message_by_recieverid($user["id"]);
         $count = count(
             array_filter($msg_btwn, function ($a) {
                 return $a["status"] == "unread";

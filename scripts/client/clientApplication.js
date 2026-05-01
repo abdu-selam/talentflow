@@ -88,7 +88,7 @@ const itemBldr = (data, message = "Active") => {
                 <figcaption class="caption">
                     <h3 class="name">${item.ffname} ${item.flname}</h3>
                     <p class="headline">
-                        ${item.headline}
+                        ${item.headline ?? "No Headline Provided"}
                     </p>
                 </figcaption>
             </figure>

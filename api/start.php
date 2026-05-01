@@ -240,8 +240,9 @@ foreach ($jobsData as $job) {
         $job_check = $jobs->get_job_by_id($id);
     } while ($job_check);
 
-    $client = $clients->get_client_by_id($job["client_id"]);
+    $client = $clients->get_clients();
+    $index = random_int(0, count($client) - 1);
 
-    $jobs->create($id, $client["id"], $job["title"], $job["description"], json_encode($job["requirements"]), json_encode($job["responsibilities"]), $job["deadline"], $job["salary"], $job["job_type"], $job["category"], $job["address"]);
+    $jobs->create($id, $client[$index]["id"], $job["title"], $job["description"], json_encode($job["requirements"]), json_encode($job["responsibilities"]), $job["deadline"], $job["salary"], $job["job_type"], $job["category"], $job["address"]);
 }
 ?>

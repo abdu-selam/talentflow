@@ -23,7 +23,13 @@ const fetcher = async () => {
   const res_data = await res.json();
   const data = res_data.message;
 
-  console.log(data)
+  const link = document.querySelector(".portfolios__link a");
+  if (link) {
+    link.href = `../profile/index.html?uname=${data.uname}`;
+    if (data.sample_portfolio.length == 0) {
+      link.remove();
+    }
+  }
 
   profileBldr(data);
   aboutBldr(data);
