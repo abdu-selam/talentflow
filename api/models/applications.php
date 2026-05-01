@@ -84,7 +84,12 @@ class Applications
 
     public function get_active_proposals($freelancer_id)
     {
-        $sql = "SELECT u.id AS user_id, u.first_name AS fname, u.last_name AS lname, j.title AS title, a.message AS message, a.status AS status FROM applications a JOIN jobs j ON a.job_id = j.id JOIN clients c ON j.client_id = c.id JOIN users u ON c.user_id = u.id WHERE a.freelancer_id = ? AND a.status = 'pending'";
+        $sql = "SELECT u.id AS user_id, u.first_name AS fname, u.last_name AS lname, j.title AS title, a.message AS message, a.status AS status 
+        FROM applications a 
+        JOIN jobs j ON a.job_id = j.id 
+        JOIN clients c ON j.client_id = c.id 
+        JOIN users u ON c.user_id = u.id 
+        WHERE a.freelancer_id = ? AND a.status = 'pending'";
 
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param("s", $freelancer_id);
@@ -106,7 +111,7 @@ class Applications
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function get_all_proposals_client($freelancer_id)
+    public function get_all_proposals_client($client_id)
     {
         $sql = "SELECT 
         u.id AS user_id,u.user_name as uname, u.first_name AS fname, u.last_name AS lname, 
@@ -121,7 +126,28 @@ class Applications
         WHERE c.id = ?";
 
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s", $freelancer_id);
+        $stmt->bind_param("s", $client_id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_applys_by_client_id($client_id)
+    {
+        $sql = "SELECT 
+        uf.id AS fuser_id,uf.user_name as funame, uf.first_name AS ffname, uf.last_name AS flname, f.headline as headline, uf.profile as fprofile,
+        j.title AS title, j.id as job_id, a.message AS message, a.status AS status 
+        FROM applications a 
+        JOIN jobs j ON a.job_id = j.id 
+        JOIN clients c ON j.client_id = c.id 
+        JOIN users u ON c.user_id = u.id 
+        JOIN freelancers f ON a.freelancer_id = f.id  
+        JOIN users uf ON f.user_id = uf.id 
+        WHERE c.id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $client_id);
 
         $stmt->execute();
         $result = $stmt->get_result();

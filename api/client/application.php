@@ -1,7 +1,6 @@
 <?php
 require_once "../index.php";
 require_once "../utils/responce.php";
-require_once "../services/client_services.php";
 
 if (!isset($_SESSION["user"])) {
     $data = [
@@ -27,18 +26,15 @@ if (!$user || $user["roll"] != "client") {
 }
 
 $client = $clients->get_client_by_userid($user["id"]);
+$active_proposals = $applications->get_applys_by_client_id($client["id"]);
 
 $data = [
     "status" => "success",
-    "message" => [
-        "proposal_stat" => proposal_stat($client["id"]),
-        "active_proposals" => array_slice(active_proposals($client["id"]), 0, 4),
-        "jobs_stat" => jobs_stat($client["id"]),
-        "active_jobs" => array_slice(active_jobs($client["id"]), 0, 4)
-    ]
+    "message" => $active_proposals
 ];
 
 response($data, 200);
 exit;
 
 ?>
+
