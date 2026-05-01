@@ -82,11 +82,23 @@
   font-size: 0.9rem;
 }
 
+.item__btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.item__btns .btn {
+  border-radius: 1.5rem;
+  transition: 0.5s;
+}
+
 .item__btn {
   padding: 0.5rem 0.8rem;
   border-radius: 1.5rem;
   font-weight: 600;
   transition: 0.5s;
+  display: inline-block;
+  color: var(--back);
 }
 
 .item__btn:first-child {

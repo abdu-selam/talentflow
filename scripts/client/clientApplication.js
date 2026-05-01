@@ -37,7 +37,7 @@ const filterItems = (applicationList) => {
       items.forEach((item) => item.classList.remove("active"));
       item.classList.add("active");
       const stat = item.dataset.stat;
-      ul.innerHTML = ""
+      ul.innerHTML = "";
 
       if (stat == "all") {
         itemBldr(applicationList);
@@ -81,22 +81,24 @@ const itemBldr = (data, message = "Active") => {
           <p class="item__status">
               ${status[item.status]}
           </p>
-          <figure class="item__profile">
-              <img class="img" src="${src}
-              " alt="profile picture of ${item.ffname} ${item.flname}" width="100">
-              <figcaption class="caption">
-                  <h3 class="name">${item.ffname} ${item.flname}</h3>
-                  <p class="headline">
-                      ${item.headline}
-                  </p>
-              </figcaption>
-          </figure>
+          <a href="../profile/freelancer.html?freelancer=${item.funame}">
+            <figure class="item__profile">
+                <img class="img" src="${src}
+                " alt="profile picture of ${item.ffname} ${item.flname}" width="100">
+                <figcaption class="caption">
+                    <h3 class="name">${item.ffname} ${item.flname}</h3>
+                    <p class="headline">
+                        ${item.headline}
+                    </p>
+                </figcaption>
+            </figure>
+          <a>
           <p class="item__applicant">
               ${item.message}
           </p>
           <div class="item__btns">
-              <button class="item__btn">
-                  <a href="../messages/index.html?id=${item.funame}">Message</a>
+              <button class="btn">
+                  <a class="item__btn" href="../messages/index.html?id=${item.funame}">Message</a>
               </button>
               ${applyBtnConstructor(item.status)}
           </div>
@@ -111,7 +113,7 @@ const applyBtnConstructor = (stat) => {
     `<button data-stat="${stat}" class="item__btn">${word}</button>`;
 
   if (stat == "pending") {
-    return btn("approve", "Approve") + btn("reject", "Reject");
+    return `${btn("approve", "Approve")} ${btn("reject", "Reject")}`;
   } else if (stat == "approve") {
     return btn("finish", "Finish");
   }

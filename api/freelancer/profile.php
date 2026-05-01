@@ -25,9 +25,10 @@ if ($method == "GET") {
         } else if ($needed_user["roll"] == "client") {
             $needed_user = $users->get_user_by_username($_SESSION["user"]);
         }
+    } else {
+        $needed_user = $users->get_user_by_username($_SESSION["user"]);
     }
 
-    $needed_user = $users->get_user_by_username($_SESSION["user"]);
 
     $data = [
         "status" => "success",
@@ -252,10 +253,3 @@ if ($method == "GET") {
 }
 
 ?>
-
-<br />
-<b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\freelancer\profile.php</b> on line <b>212</b><br />
-<br />
-<b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\freelancer\profile.php</b> on line <b>213</b><br />

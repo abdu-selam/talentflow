@@ -23,6 +23,8 @@ const fetcher = async () => {
   const res_data = await res.json();
   const data = res_data.message;
 
+  console.log(data)
+
   profileBldr(data);
   aboutBldr(data);
   skillBldr(data);
@@ -34,7 +36,7 @@ const fetcher = async () => {
     a.href = `../../uploads/resumes/${data.resume}`;
     a.download = "resume-" + Date.now() + ".pdf";
   } else {
-    linkBtn.remove();
+    linkBtn?.remove();
   }
 };
 
@@ -92,7 +94,7 @@ const skillBldr = (data) => {
   </li>
   `;
 
-  if (data.hard_skills.length == 0) {
+  if (data?.hard_skills?.length == 0) {
     const p = `
     <p class="no__item">
       There Is No Hard Skill Added!
