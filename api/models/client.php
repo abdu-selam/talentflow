@@ -27,6 +27,26 @@ class Clients
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
+    
+    public function update_about($uid, $about)
+    {
+        $sql = "UPDATE " . $this->table . " SET about = ? WHERE user_id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $about, $uid);
+
+        return $stmt->execute();
+    }
+    
+    public function update_address_headline($uid, $address, $headline)
+    {
+        $sql = "UPDATE " . $this->table . " SET address = ?, headline = ? WHERE user_id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("sss", $address, $headline, $uid);
+
+        return $stmt->execute();
+    }
 
     public function get_client_by_userid($user_id)
     {

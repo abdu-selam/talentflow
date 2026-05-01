@@ -38,15 +38,6 @@ if ($method == "GET") {
     exit;
 } else if ($method == "POST") {
     $user = $users->get_user_by_username($_SESSION["user"]);
-    if ($user["roll"] == "client") {
-        $data = [
-            "status" => "error",
-            "message" => "Un Authorized"
-        ];
-
-        response($data, 401);
-        exit;
-    }
 
     $type = isset($_GET["type"]) ? $_GET["type"] : "";
     if ($type == "pp") {
@@ -111,12 +102,16 @@ if ($method == "GET") {
             }
 
             $text_to_db = json_encode($texts, JSON_UNESCAPED_UNICODE);
-            $res = $freelancers->update_about($user["id"], $text_to_db);
+            $res = $user["roll"] == "freelancer" ?
+                $freelancers->update_about($user["id"], $text_to_db) :
+                $clients->update_about($user["id"], $text_to_db);
             if ($res) {
-                $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+                $updated_roll = $user["roll"] == "freelancer" ?
+                    $freelancers->get_freelancer_by_userid($user["id"]) :
+                    $clients->get_client_by_userid($user["id"]);
                 $data = [
                     "status" => "success",
-                    "message" => json_decode($freelancer["about"], true)
+                    "message" => json_decode($updated_roll["about"], true)
                 ];
 
                 response($data, 200);
@@ -208,18 +203,24 @@ if ($method == "GET") {
             $lname = nameValidator($data["lastName"]) ? $data["lastName"] : $user["last_name"];
 
             $users->update_names($user["id"], $fname, $lname);
-            $freelancers->update_address_headline($user["id"], $data["address"], $data["headline"]);
+            if ($user["roll"] == "freelancer") {
+                $freelancers->update_address_headline($user["id"], $data["address"], $data["headline"]);
+            } else if ($user["roll"] == "client") {
+                $clients->update_address_headline($user["id"], $data["address"], $data["headline"]);
+            }
 
             $user = $users->get_user_by_username($_SESSION["user"]);
-            $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+            $updated_roll = $user["roll"] == "freelancer" ?
+                $freelancers->get_freelancer_by_userid($user["id"]) :
+                $clients->get_client_by_userid($user["id"]);
 
             $data = [
                 "status" => "success",
                 "message" => [
                     "fname" => $user["first_name"],
                     "lname" => $user["last_name"],
-                    "address" => $freelancer["address"],
-                    "headline" => $freelancer["headline"],
+                    "address" => $updated_roll["address"],
+                    "headline" => $updated_roll["headline"],
                 ]
             ];
 
@@ -252,17 +253,9 @@ if ($method == "GET") {
 
 ?>
 
-<br /><b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
-line<b>32</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
-line<b>33</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
-line<b>34</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
-line<b>37</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
-line<b>38</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on
-line<b>39</b><br /><br /><b>Warning</b>: Trying to access array offset on value of type null in
-<b>C:\xampp\htdocs\talentflow\api\services\freelancer_profile_services.php</b>on line<b>40</b><br />{
+<br />
+<b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\freelancer\profile.php</b> on line <b>212</b><br />
+<br />
+<b>Warning</b>: Trying to access array offset on value of type null in
+<b>C:\xampp\htdocs\talentflow\api\freelancer\profile.php</b> on line <b>213</b><br />
