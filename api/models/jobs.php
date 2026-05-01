@@ -14,29 +14,29 @@ class Jobs
         $client_id,
         $title,
         $description,
-        $status,
         $requirements,
         $responsibilities,
         $deadline,
         $salary,
         $job_type,
-        $category
+        $category,
+        $address
     ) {
-        $sql = "INSERT INTO " . $this->table . " (id, client_id, title, description, status, requirements, responsibilities, deadline, salary, job_type, category) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, client_id, title, description, requirements, responsibilities, deadline, salary, job_type, category, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param(
-            "ssssssssdss",
+            "sssssssdsss",
             $id,
             $client_id,
             $title,
             $description,
-            $status,
             $requirements,
             $responsibilities,
             $deadline,
             $salary,
             $job_type,
-            $category
+            $category,
+            $address
         );
 
         return $stmt->execute();

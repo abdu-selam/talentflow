@@ -27,7 +27,7 @@ $usersData = [
 
 $jobsData = [
     [
-        "client_id" => "user-5iioot",
+        "client_id" => "clie-b68294",
         "title" => "Frontend Developer",
         "description" => "Build modern UI using React and ensure responsive design. You will work closely with designers to transform wireframes into interactive interfaces. The role involves optimizing components for performance and accessibility. You will also debug issues and ensure cross-browser compatibility. Collaboration with backend developers is essential for seamless integration. Staying updated with frontend trends and tools is expected.",
         "address" => "Addis Ababa, Ethiopia",
@@ -40,7 +40,7 @@ $jobsData = [
         "category" => "Software Development"
     ],
     [
-        "client_id" => "user-9ga50q",
+        "client_id" => "clie-055942",
         "title" => "Backend Developer",
         "description" => "Design APIs and manage server-side logic. You will build scalable backend services that support web and mobile applications. The role includes handling database operations and ensuring data security. You will optimize performance and troubleshoot server issues. Collaboration with frontend developers is required to integrate APIs. Writing clean and maintainable code is essential.",
         "address" => "Hawassa, Ethiopia",
@@ -53,7 +53,7 @@ $jobsData = [
         "category" => "Software Development"
     ],
     [
-        "client_id" => "user-9ri9sv",
+        "client_id" => "clie-055942",
         "title" => "UI/UX Designer",
         "description" => "Design intuitive user interfaces and experiences. You will conduct user research to understand needs and behaviors. The role includes creating wireframes, prototypes, and visual designs. You will collaborate with developers to ensure accurate implementation. Testing and iterating on designs based on feedback is required. Maintaining consistency in design systems is also important.",
         "address" => "Adama, Ethiopia",
@@ -66,7 +66,7 @@ $jobsData = [
         "category" => "Design"
     ],
     [
-        "client_id" => "user-h069rq",
+        "client_id" => "clie-cidheo",
         "title" => "Digital Marketer",
         "description" => "Manage social media campaigns and SEO strategies. You will plan and execute digital marketing campaigns across platforms. The role includes analyzing performance metrics and optimizing strategies. You will create engaging content and improve brand visibility. Collaboration with content creators and designers is required. Staying updated with digital trends is essential.",
         "address" => "Addis Ababa, Ethiopia",
@@ -79,7 +79,7 @@ $jobsData = [
         "category" => "Marketing"
     ],
     [
-        "client_id" => "user-rhshly",
+        "client_id" => "clie-dneem6",
         "title" => "Mobile App Developer",
         "description" => "Develop Android applications using modern frameworks. You will build user-friendly mobile applications with high performance. The role includes debugging and improving existing apps. You will collaborate with designers and backend developers. Publishing and maintaining apps on app stores is required. Keeping up with mobile development trends is expected.",
         "address" => "Bahir Dar, Ethiopia",
@@ -92,7 +92,7 @@ $jobsData = [
         "category" => "Software Development"
     ],
     [
-        "client_id" => "user-5iioot",
+        "client_id" => "clie-b68294",
         "title" => "Data Analyst",
         "description" => "Analyze business data and generate insights. You will collect, clean, and interpret large datasets. The role includes creating reports and dashboards. You will work with teams to understand data needs. Identifying trends and patterns is a key responsibility. Ensuring data accuracy and integrity is essential.",
         "address" => "Hawassa, Ethiopia",
@@ -104,11 +104,8 @@ $jobsData = [
         "job_type" => "full",
         "category" => "Data"
     ],
-
-    // I'll shorten explanation here but continue same transformation pattern for remaining jobs
-
     [
-        "client_id" => "user-9ga50q",
+        "client_id" => "clie-pzvlj5",
         "title" => "Intern Web Developer",
         "description" => "Assist in building web applications. You will learn and contribute to real-world projects. The role includes writing basic code and fixing minor bugs. You will work under senior developers for guidance. Improving coding skills and understanding workflows is expected. Exposure to modern tools and frameworks will be provided.",
         "address" => "Addis Ababa, Ethiopia",
@@ -122,7 +119,7 @@ $jobsData = [
     ],
 
     [
-        "client_id" => "user-9ri9sv",
+        "client_id" => "clie-pzvlj5",
         "title" => "Graphic Designer",
         "description" => "Create visual content for branding. You will design graphics for digital and print media. The role includes collaborating with marketing teams. You will ensure brand consistency across designs. Editing and improving visual assets is required. Creativity and attention to detail are key.",
         "address" => "Mekelle, Ethiopia",
@@ -136,7 +133,7 @@ $jobsData = [
     ],
 
     [
-        "client_id" => "user-h069rq",
+        "client_id" => "clie-cidheo",
         "title" => "Project Manager",
         "description" => "Manage software development lifecycle. You will plan, execute, and oversee projects. The role includes coordinating teams and resources. Tracking progress and ensuring deadlines is essential. You will communicate with stakeholders regularly. Risk management and problem solving are key.",
         "address" => "Addis Ababa, Ethiopia",
@@ -150,7 +147,7 @@ $jobsData = [
     ],
 
     [
-        "client_id" => "user-rhshly",
+        "client_id" => "clie-dneem6",
         "title" => "Content Writer",
         "description" => "Write blog posts and marketing content. You will create engaging and SEO-friendly articles. The role includes researching topics and editing drafts. You will collaborate with marketing teams. Maintaining tone and quality is essential. Meeting deadlines consistently is required.",
         "address" => "Hawassa, Ethiopia",
@@ -164,7 +161,7 @@ $jobsData = [
     ],
 
     [
-        "client_id" => "user-h069rq",
+        "client_id" => "clie-cidheo",
         "title" => "AI Engineer",
         "description" => "Develop machine learning models. You will work on data-driven solutions and AI systems. The role includes training and evaluating models. You will optimize algorithms for performance. Collaboration with data teams is required. Staying updated with AI advancements is essential.",
         "address" => "Addis Ababa, Ethiopia",
@@ -178,7 +175,7 @@ $jobsData = [
     ],
 
     [
-        "client_id" => "user-rhshly",
+        "client_id" => "clie-dneem6",
         "title" => "System Administrator",
         "description" => "Maintain IT infrastructure and servers. You will monitor system performance and security. The role includes troubleshooting technical issues. You will ensure uptime and reliability. Managing backups and updates is required. Supporting internal teams is part of the role.",
         "address" => "Hawassa, Ethiopia",
@@ -243,8 +240,8 @@ foreach ($jobsData as $job) {
         $job_check = $jobs->get_job_by_id($id);
     } while ($job_check);
 
-    $client = $clients->get_client_by_userid($job["client_id"]);
+    $client = $clients->get_client_by_id($job["client_id"]);
 
-    $jobs->create($id, $client["id"], $job["title"], $job["description"], $job["status"], json_encode($job["requirements"]), json_encode($job["responsibilities"]), $job["deadline"], $job["salary"], $job["job_type"], $job["category"]);
+    $jobs->create($id, $client["id"], $job["title"], $job["description"], json_encode($job["requirements"]), json_encode($job["responsibilities"]), $job["deadline"], $job["salary"], $job["job_type"], $job["category"], $job["address"]);
 }
 ?>

@@ -1,3 +1,6 @@
+import { baseUrl } from "../api_base.js";
+import { alert } from "../alert.js";
+
 window.addEventListener("load", () => {
   const loading = document.querySelector(".loading");
 
@@ -136,7 +139,7 @@ const createJob = () => {
     const jobTypeElem = document.querySelector(
       ".input__wrapper.job-type .item.active",
     );
-    const deadline = `${form.deadday.value}-${form.deadmonth.value}-${form.deadyear.value}`;
+    const deadline = `${form.deadyear.value}-${String(Number(form.deadmonth.value) + 1).padStart(2, "0")}-${String(form.deadday.value).padStart(2, "0")}`;
     const responsibilities = [
       ...document.querySelectorAll(".job__resp .txt"),
     ].map((item) => item.textContent);
@@ -148,8 +151,8 @@ const createJob = () => {
       title: form.title.value,
       category: form.category.value,
       address: form.address.value,
-      jobtype: jobTypeElem.textContent.toLowerCase(),
-      salary: form.salary.value,
+      jobtype: jobTypeElem.dataset.value,
+      salary: Number(form.salary.value),
       deadline,
       description: form.description.value,
       responsibilities,
@@ -160,6 +163,21 @@ const createJob = () => {
   });
 };
 
-const uploader = (formData) => {
-  // fetch requiest
+const uploader = async (formData) => {
+  const res = await fetch(`${baseUrl}/freelancer/job.php`, {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await res.json()
+
+  if (res.status == 200) {
+    alert("Job updated successfully", "success");
+    location.replace(`./job.html?job=${data.message}`);
+  } else {
+    alert("Job is not updated! please try again!");
+  }
 };

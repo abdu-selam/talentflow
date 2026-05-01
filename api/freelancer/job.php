@@ -3,6 +3,7 @@ require_once "../services/freelancer_service.php";
 require_once "../index.php";
 require_once "../utils/responce.php";
 require_once "../services/job_service.php";
+require_once "../utils/validation.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method == 'PUT') {
@@ -64,6 +65,60 @@ if ($method == 'PUT') {
         $data = [
             "status" => "Success",
             "message" => "Job updated successfully"
+        ];
+
+        response($data, 200);
+        exit;
+    }
+    $data = [
+        "status" => "error",
+        "message" => "Internal Server Error"
+    ];
+
+    response($data, 500);
+    exit;
+}
+
+if ($method == 'POST') {
+    if (!isset($_SESSION["user"])) {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $uname = $_SESSION["user"];
+    $user = $users->get_user_by_username($uname);
+
+    if (!$user || $user["roll"] != "client") {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 401);
+        exit;
+    }
+    $client = $clients->get_client_by_userid($user["id"]);
+
+    $json = file_get_contents("php://input");
+    $req = json_decode($json, true);
+
+    $data = job_update_data_constructor($req);
+    do {
+        $id = idGenerator("job");
+        $job_check = $jobs->get_job_by_id($id);
+    } while ($job_check);
+
+    $res = $jobs->create($id, $client["id"], $data["title"], $data["description"], $data["requirements"], $data["responsibilities"], $data["deadline"],$data["salary"], $data["job_type"], $data["category"], $data["address"]);
+
+    if ($res) {
+        $data = [
+            "status" => "Success",
+            "message" => $id
         ];
 
         response($data, 200);

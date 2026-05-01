@@ -38,7 +38,7 @@ CREATE TABLE jobs (
     title TEXT NOT NULL,
     description TEXT NOT NULL,
     address TEXT NOT NULL,
-    status ENUM("active", "closed", "finished"),
+    status ENUM("active", "closed", "finished") DEFAULT "active",
     requirements JSON,
     responsibilities JSON,
     apply_count INT DEFAULT 0,
