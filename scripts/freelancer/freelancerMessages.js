@@ -202,6 +202,14 @@ const fetcher = async (messageUsersList) => {
     return item;
   });
 
+  if (values.length == 0) {
+    ul.insertAdjacentHTML(
+      "beforeend",
+      `<p class="no__item">There Is No Message!</p>`,
+    );
+    return;
+  }
+
   values.forEach((item) => {
     msgUserElemBldr(item, ul);
     messageUsersList.push(item);
@@ -302,21 +310,40 @@ const filterLogic = (messageUsersList) => {
       ul.innerHTML = "";
 
       if (stat == "all") {
-        messageUsersList.forEach((item) => {
-          msgUserElemBldr(item, ul);
-        });
+        if (messageUsersList.length == 0) {
+          ul.insertAdjacentHTML(
+            "beforeend",
+            `<p class="no__item">There Is No Message!</p>`,
+          );
+        } else {
+          messageUsersList.forEach((item) => {
+            msgUserElemBldr(item, ul);
+          });
+        }
       } else if (stat == "read") {
-        messageUsersList
-          .filter((item) => item.unread == 0)
-          .forEach((item) => {
+        const filtered = messageUsersList.filter((item) => item.unread == 0);
+        if (filtered.length == 0) {
+          ul.insertAdjacentHTML(
+            "beforeend",
+            `<p class="no__item">There Is No Readed Message!</p>`,
+          );
+        } else {
+          filtered.forEach((item) => {
             msgUserElemBldr(item, ul);
           });
+        }
       } else {
-        messageUsersList
-          .filter((item) => item.unread > 0)
-          .forEach((item) => {
+        const filtered = messageUsersList.filter((item) => item.unread > 0);
+        if (filtered.length == 0) {
+          ul.insertAdjacentHTML(
+            "beforeend",
+            `<p class="no__item">There Is No Unread Message!</p>`,
+          );
+        } else {
+          filtered.forEach((item) => {
             msgUserElemBldr(item, ul);
           });
+        }
       }
 
       clickMessageItemHandler();
