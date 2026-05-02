@@ -28,7 +28,7 @@ if ($method == "GET") {
         exit;
     }
 
-    if ($user_data["roll"] != "freelancer") {
+    if ($user_data["roll"] != "freelancer" && !isset($_GET["fid"])) {
         $data = [
             "status" => "error",
             "message" => "Unknown user"

@@ -81,6 +81,18 @@ const messageHandler = () => {
 
 const autoScroll = () => {
   const messageList = document.querySelector(".message__list");
+  const messageDown = document.querySelector(".message__down");
+
+  messageList.addEventListener("scroll", (e) => {
+    const bottom = messageList.scrollHeight - messageList.offsetHeight;
+    if (messageDown) {
+      if (messageList.scrollTop + 40 > bottom) {
+        messageDown.style.display = "none";
+      } else {
+        messageDown.style.display = "grid";
+      }
+    }
+  });
 
   messageList.scrollTo({
     top: messageList.scrollHeight,
@@ -185,7 +197,11 @@ const fetcher = async (messageUsersList, unamefunc) => {
   const ul = document.querySelector(".messages__list");
   const params = new URLSearchParams(location.search);
   const uname = params.get("id");
-  const url = !unamefunc ? (!uname ? "" : `?uname=${uname}`) : `?uname=${unamefunc}`;
+  const url = !unamefunc
+    ? !uname
+      ? ""
+      : `?uname=${uname}`
+    : `?uname=${unamefunc}`;
 
   const res = await fetch(`${baseUrl}/freelancer/message.php${url}`);
   const res_data = await res.json();
@@ -285,7 +301,7 @@ const msgItemBldr = (item) => {
       ${item.message.join("<br/>")}
     </div>
     <time datetime="${item.date.replace(" ", "T")}" class="message__date">
-      ${date.getHours()}:${date.getMinutes()}
+      ${date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
     </time>
   </li>`;
 };

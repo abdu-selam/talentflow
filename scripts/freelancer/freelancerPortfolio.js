@@ -19,7 +19,12 @@ const init = () => {
 };
 
 const fetcher = async () => {
-  const res = await fetch(`${baseUrl}/freelancer/portfolio.php`);
+  const params = new URLSearchParams(location.search);
+  const uname = params.get("uname");
+
+  const url = uname ? `?user=${uname}` : "";
+
+  const res = await fetch(`${baseUrl}/freelancer/portfolio.php${url}`);
   const ul = document.querySelector(".portfolio__list");
 
   const res_data = await res.json();
@@ -31,6 +36,11 @@ const fetcher = async () => {
         ul.insertAdjacentHTML("beforeend", portfolioItemBldr(item));
       });
       deleteProfile();
+
+      const items = document.querySelectorAll(".item__btns");
+      if (uname) {
+        items.forEach((item) => item.remove());
+      }
     } else {
       const p = `
       <p class="no__item">

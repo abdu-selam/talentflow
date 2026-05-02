@@ -23,18 +23,23 @@ const fetcher = async () => {
   const res_data = await res.json();
   const data = res_data.message;
 
-  const link = document.querySelector(".portfolios__link a");
+  const link = document.querySelector(".portfolios__link.portfolio a");
+  const talk = document.querySelector(".portfolios__link.message a");
   if (link) {
-    link.href = `../profile/index.html?uname=${data.uname}`;
+    link.href = `../portfolio/index.html?uname=${data.uname}`;
     if (data.sample_portfolio.length == 0) {
       link.remove();
     }
   }
 
+  if (talk) {
+    talk.href = `../messages/index.html?id=${data.uname}`;
+  }
+
   profileBldr(data);
   aboutBldr(data);
   skillBldr(data);
-  portfolioBrdr(data.sample_portfolio);
+  portfolioBrdr(data.sample_portfolio, uname);
 
   const linkBtn = document.querySelector(".itempp__btn.resume");
   if (data.resume) {
@@ -129,7 +134,7 @@ const skillBldr = (data) => {
   }
 };
 
-const portfolioBrdr = (data) => {
+const portfolioBrdr = (data, uname) => {
   const ul = document.querySelector(".portfolio__list");
 
   if (data.length == 0) {
@@ -144,6 +149,7 @@ const portfolioBrdr = (data) => {
   }
 
   for (const item of data) {
+    const url = uname ? `/index.html?uname=${uname}` : "";
     const li = `
       <li class="portfolio__item">
         <figure class="portfolio__fig">
@@ -161,7 +167,7 @@ const portfolioBrdr = (data) => {
           ${item.descriptions.slice(0, 80)}
         </p>
         <button class="portfolio__btn">
-          <a href="../portfolio" class="portfolio__link"> See Detail </a>
+          <a href="../portfolio${url}" class="portfolio__link"> See Detail </a>
         </button>
       </li>
     `;

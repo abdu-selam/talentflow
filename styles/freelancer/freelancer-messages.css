@@ -195,7 +195,7 @@
 .message__part {
   background: linear-gradient(45deg, var(--accent), var(--error));
   width: max-content;
-  max-width: calc(90%);
+  max-width: 90%;
   padding: 0.8rem;
   border-radius: 1.5rem;
   display: flex;
