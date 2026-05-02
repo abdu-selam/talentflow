@@ -56,8 +56,10 @@ input:focus {
   --primary: hsl(200, 5%, 24%);
   --back: hsl(240, 100%, 100%);
   --back-2: hsl(36, 17%, 76%);
-  --accent: hsl(343, 72%, 53%);
-  --cta-back: linear-gradient(to left, hsl(343, 72%, 53%), hsl(348, 100%, 30%));
+  /* --accent: hsl(343, 72%, 53%); */
+  --accent: hsl(180, 91%, 31%);
+  /* --cta-back: linear-gradient(to left, hsl(343, 72%, 53%), hsl(348, 100%, 30%)); */
+  --cta-back: linear-gradient(to left, hsl(180, 91%, 31%), hsl(185, 93%, 18%));
   --back-linear: linear-gradient(
     to right,
     hsl(240, 100%, 100%),

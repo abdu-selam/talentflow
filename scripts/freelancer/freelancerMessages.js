@@ -83,6 +83,9 @@ const messageHandler = () => {
     if (!sendBtn.classList.contains("active")) return;
     const header = document.querySelector(".message__header");
 
+    if (textArea.value.trim() == "") {
+      return
+    }
     const txt = textArea.value.trimEnd().replaceAll("  ", " &nbsp;");
 
     const result = await sendMsgForm({

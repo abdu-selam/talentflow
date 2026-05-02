@@ -193,7 +193,7 @@
 }
 
 .message__part {
-  background: linear-gradient(45deg, var(--accent), var(--error));
+  background: linear-gradient(45deg, var(--accent), var(--accent), var(--success));
   width: max-content;
   max-width: 90%;
   padding: 0.8rem 0.8rem 0.4rem;

@@ -26,7 +26,6 @@ const eventSource = (fetcher, messageList) => {
     let i = 0;
     for (const item of messageList) {
       if (item.user_id == data[1]) {
-        console.log(item.user_id)
         const count = messageList[i].unread;
         messageList[i].unread = count == 0 ? 0 : count - 1;
         break
