@@ -206,7 +206,7 @@ const filterFetch = async (req) => {
 
   if (res.status == 200) {
     const ul = document.querySelector(".jobs__list");
-    [...ul.children].forEach((item) => item?.remove());
+    ul.innerHTML = "";
     if (data.length == 0) {
       const p = '<p class="no__item">There Is No Job has been posted!</p>';
 
@@ -231,20 +231,21 @@ const sortFilter = (jobs, sortType, order) => {
 
   const type = types[sortType];
 
+  if (type == "title") {
+    return [...jobs].sort((a, b) => {
+      let valA = a[type];
+      let valB = b[type];
+
+      return order === "acc"
+        ? valA.localeCompare(valB)
+        : valB.localeCompare(valA);
+    });
+  }
+
   return [...jobs].sort((a, b) => {
     let valA = sortType == "date" ? new Date(a[type]).getTime() : a[type];
     let valB = sortType == "date" ? new Date(b[type]).getTime() : b[type];
 
-    if (typeof valA === "string" && typeof valB === "string") {
-      return order === "acc"
-        ? valA.localeCompare(valB)
-        : valB.localeCompare(valA);
-    }
-
-    if (order === "acc") {
-      return valA > valB ? 1 : valA < valB ? -1 : 0;
-    } else {
-      return valB > valA ? 1 : valB < valA ? -1 : 0;
-    }
+    return order === "acc" ? valA - valB : valB - valA;
   });
 };
