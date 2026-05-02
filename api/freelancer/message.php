@@ -5,6 +5,7 @@ require_once "../services/message_services.php";
 require_once "../utils/validation.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
+
 if ($method == "GET") {
     if (!isset($_SESSION["user"])) {
         $data = [
@@ -26,6 +27,38 @@ if ($method == "GET") {
         ];
 
         response($data, 409);
+        exit;
+    }
+
+    if (isset($_GET["mark"])) {
+        $msg = $messages->get_message_by_id($_GET["mark"]);
+        if (!$user) {
+            $data = [
+                "status" => "error",
+                "message" => "Message id required"
+            ];
+
+            response($data, 409);
+            exit;
+        }
+
+        $res = $messages->mark_read($msg["id"]);
+        if ($res) {
+            $data = [
+                "status" => "success",
+                "message" => $msg["sender_id"]
+            ];
+
+            response($data, 200);
+            exit;
+        }
+
+        $data = [
+            "status" => "success",
+            "message" => "Internal server error"
+        ];
+
+        response($data, 500);
         exit;
     }
 

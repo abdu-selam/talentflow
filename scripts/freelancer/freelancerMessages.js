@@ -1,6 +1,38 @@
 import { baseUrl } from "../api_base.js";
 import eventSource from "../sseHandler.js";
 
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(async (entry) => {
+      if (entry.isIntersecting) {
+        const elem = entry.target;
+        const id = elem.dataset.id;
+        console.log(elem)
+
+        const res = await markUsRead(id);
+        if (res) {
+          observer.unobserve(elem);
+          const userMsgElem = document.querySelector(
+            `.message__item[data-id="${res}"] .message__amount`,
+          );
+          if (userMsgElem) {
+            const pre = Number(userMsgElem.textContent);
+            console.log(pre)
+            if (pre == 1) {
+              userMsgElem.remove();
+              return;
+            }
+            userMsgElem.textContent = pre - 1;
+          }
+        }
+      }
+    });
+  },
+  {
+    threshold: 0.75,
+  },
+);
+
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
   const messageUsersList = [];
@@ -63,11 +95,6 @@ const messageHandler = () => {
     if (!result) {
       return;
     }
-
-    const currentUserElem = document.querySelector(
-      `.message__item[data-id="${header.dataset.id}"] .message__amount`,
-    );
-    currentUserElem.textContent = result.count;
 
     messageList.insertAdjacentHTML("beforeend", msgItemBldr(result));
 
@@ -144,6 +171,13 @@ const singleUserMsgHandler = (msgData) => {
     );
     msgData.messages[key].forEach((item) => {
       txtList.insertAdjacentHTML("beforeend", msgItemBldr(item));
+      const allElems = [
+        ...document.querySelectorAll(".message__part.reciever"),
+      ];
+      const curr = allElems[allElems.length - 1];
+      if (curr && item.status == "unread") {
+        observer.observe(curr);
+      }
     });
   });
 
@@ -305,9 +339,12 @@ const msgItemBldr = (item) => {
       ${item.type == "proposal" ? '<p class="message__proposal">proposal</p>' : ""}
       ${item.message.join("<br/>")}
     </div>
-    <time datetime="${item.date.replace(" ", "T")}" class="message__date">
-      ${date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
-    </time>
+    <div class="time__read">
+      ${item.sender ? `<span class="read__stat">${item.status == "read" ? "Delivered" : "sent"}</span>` : ""}
+      <time datetime="${item.date.replace(" ", "T")}" class="message__date">
+        ${date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
+      </time>
+    </div>
   </li>`;
 };
 
@@ -379,4 +416,13 @@ const filterLogic = (messageUsersList) => {
       clickMessageItemHandler();
     });
   });
+};
+
+const markUsRead = async (id) => {
+  const res = await fetch(`${baseUrl}/freelancer/message.php?mark=${id}`);
+  if (res.status == 200) {
+    const data = await res.json();
+    return data.message;
+  }
+  return false;
 };

@@ -196,10 +196,8 @@
   background: linear-gradient(45deg, var(--accent), var(--error));
   width: max-content;
   max-width: 90%;
-  padding: 0.8rem;
+  padding: 0.8rem 0.8rem 0.4rem;
   border-radius: 1.5rem;
-  display: flex;
-  flex-direction: column;
 }
 
 .message__part.sender {
@@ -250,20 +248,29 @@
 .message__box {
   font-size: 0.9rem;
   font-weight: 500;
+  overflow-wrap: break-word;
 }
 
 .sender .message__box {
   color: var(--back);
 }
 
-.message__date {
+.time__read {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.message__date,
+.read__stat {
   font-size: 0.8rem;
-  align-self: end;
   font-weight: 700;
   opacity: 0.6;
 }
 
-.sender .message__date {
+.sender .message__date,
+.read__stat {
   color: var(--back);
 }
 

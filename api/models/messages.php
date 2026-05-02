@@ -27,6 +27,15 @@ class Messages
         return $stmt->execute();
     }
 
+    public function mark_read($id)
+    {
+        $sql = "UPDATE " . $this->table . " SET status = 'read' WHERE id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
+
+        return $stmt->execute();
+    }
+
     public function get_message_by_id($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
