@@ -267,6 +267,10 @@ if ($method == "GET") {
     foreach ($imgs as $item) {
         if ($item != $name) {
             array_push($filtered, $item);
+        } else {
+            if (file_exists("../../uploads/portfolio/$item")) {
+                unlink("../../uploads/portfolio/$item");
+            }
         }
     }
 

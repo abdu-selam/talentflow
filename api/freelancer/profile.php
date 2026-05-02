@@ -22,7 +22,7 @@ if ($method == "GET") {
         $needed_user = $users->get_user_by_username($_GET["uname"]);
         if (!$needed_user) {
             $needed_user = $users->get_user_by_username($_SESSION["user"]);
-        } 
+        }
     } else {
         $needed_user = $users->get_user_by_username($_SESSION["user"]);
     }
@@ -67,6 +67,12 @@ if ($method == "GET") {
         }
 
         if (move_uploaded_file($file["tmp_name"], $destination)) {
+            $previous = $user["profile"];
+            if ($previous) {
+                if (file_exists("../../uploads/profiles/$previous")) {
+                    unlink("../../uploads/profiles/$previous");
+                }
+            }
 
             $users->update_profile($user["id"], $newName);
             $data = [
@@ -179,6 +185,13 @@ if ($method == "GET") {
             }
 
             if (move_uploaded_file($file["tmp_name"], $destination)) {
+                $freelancer = $freelancers->get_freelancer_by_userid($user["id"]);
+                $previous = $freelancer["resume"];
+                if ($previous) {
+                    if (file_exists("../../uploads/resumes/$previous")) {
+                        unlink("../../uploads/resumes/$previous");
+                    }
+                }
 
                 $freelancers->update_resume($user["id"], $newName);
                 $data = [

@@ -50,6 +50,7 @@ const filterItems = (applicationList) => {
         };
         const filltered = applicationList.filter((item) => item.status == stat);
         itemBldr(filltered, status[stat]);
+        applyRejectHandler();
       }
     });
   });
