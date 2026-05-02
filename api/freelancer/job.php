@@ -206,6 +206,7 @@ if (isset($_GET["job"])) {
     $job_count = count($jobs->get_jobs_by_clientid($client["id"]));
 
     $job["client"] = $user["first_name"] . " " . $user["last_name"];
+    $job["client_uname"] = $user["user_name"];
     $job["count"] = $job_count;
 
     $uname = isset($_SESSION["user"]) ? $_SESSION["user"] : "";

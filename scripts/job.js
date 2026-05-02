@@ -71,7 +71,13 @@ const itemBldr = (data) => {
   const clientName = document.querySelector(".job__poster .txt__wrapper");
   const jobCount = document.querySelector(".job__poster .post__amount");
 
-  clientName.textContent = data.client;
+  const a = document.createElement("a");
+  a.href = `../freelancer/profile/client.html?client=${data.client_uname}`;
+  a.textContent = data.client;
+
+  clientName.textContent = "";
+  clientName.append(a);
+
   jobCount.textContent = `${data.count} Jobs Posted`;
 
   const jobTitle = document.querySelector(".job__title");
@@ -91,7 +97,7 @@ const itemBldr = (data) => {
   apply.textContent = data.apply_count;
   desc.textContent = data.description;
   address.textContent =
-  data.address == "" ? "No Location Provided" : data.address;
+    data.address == "" ? "No Location Provided" : data.address;
 
   const jobTypes = {
     full: "Full Time",
@@ -179,7 +185,7 @@ const authChecker = async () => {
       btn.textContent = "Dashboard";
       return data.message;
     } else {
-      console.clear()
+      console.clear();
     }
   } catch (error) {
     console.log(error);

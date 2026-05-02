@@ -22,9 +22,7 @@ if ($method == "GET") {
         $needed_user = $users->get_user_by_username($_GET["uname"]);
         if (!$needed_user) {
             $needed_user = $users->get_user_by_username($_SESSION["user"]);
-        } else if ($needed_user["roll"] == "client") {
-            $needed_user = $users->get_user_by_username($_SESSION["user"]);
-        }
+        } 
     } else {
         $needed_user = $users->get_user_by_username($_SESSION["user"]);
     }

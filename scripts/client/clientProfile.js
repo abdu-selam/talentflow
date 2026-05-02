@@ -16,13 +16,30 @@ const init = () => {
 };
 
 const fetcher = async () => {
-  const res = await fetch(`${baseUrl}/freelancer/profile.php`);
+  const params = new URLSearchParams(location.search);
+
+  const path = location.pathname.split("/");
+  const uname = params.get("client");
+
+  const logic = "client.html" == path[path.length - 1];
+  if (logic && !uname) {
+    console.log("first")
+    location.replace("./");
+    return;
+  }
+
+  const res = await fetch(`${baseUrl}/freelancer/profile.php?uname=${uname}`);
   const res_data = await res.json();
   const data = res_data.message;
 
+  if (logic && data.roll == "freelancer") {
+    location.replace("./");
+    return;
+  }
+
   profileBldr(data);
   aboutBldr(data);
-  jobPostBldr(data);
+  jobPostBldr(data, logic);
 };
 
 const profileBldr = (data) => {
@@ -62,7 +79,7 @@ const aboutBldr = (data) => {
   }
 };
 
-const jobPostBldr = (data) => {
+const jobPostBldr = (data, isFreelancer) => {
   const ul = document.querySelector(".portfolio__list");
 
   if (!data.posted_jobs?.length) {
@@ -76,7 +93,10 @@ const jobPostBldr = (data) => {
     return;
   }
 
+  
   data.posted_jobs?.forEach((item) => {
+    const url = isFreelancer ? `../../jobs/job.html?job=${item.id}` : "../jobs-post/"
+
     const li = `
       <li class="portfolio__item">
         <h3 class="portfolio__title">
@@ -90,7 +110,7 @@ const jobPostBldr = (data) => {
           ${item.description.slice(0, 80)}....
         </p>
         <button class="portfolio__btn">
-          <a href="../jobs-post/" class="portfolio__link">
+          <a href="${url}" class="portfolio__link">
             See Detail
           </a>
         </button>

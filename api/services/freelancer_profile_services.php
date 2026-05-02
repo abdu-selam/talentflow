@@ -30,6 +30,7 @@ function profileDataConstructor($user)
         "fname" => $user["first_name"],
         "lname" => $user["last_name"],
         "uname" => $user["user_name"],
+        "roll" => $user["roll"],
         "address" => $freelancer["address"],
         "headline" => $freelancer["headline"],
         "resume" => $freelancer["resume"],

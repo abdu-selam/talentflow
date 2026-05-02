@@ -61,6 +61,7 @@ function messageConstructor($current, $other)
         "other" => [
             "fname" => $oth_user["first_name"],
             "lname" => $oth_user["last_name"],
+            "uname" => $oth_user["user_name"],
             "roll" => $oth_user["roll"],
             "profile" => $oth_user["profile"],
             "id" => $oth_user["id"],

@@ -17,11 +17,25 @@ const init = () => {
 
 const fetcher = async () => {
   const params = new URLSearchParams(location.search);
+
+  const path = location.pathname.split("/");
   const uname = params.get("freelancer");
+
+  const logic = "freelancer.html" == path[path.length - 1];
+  if (logic && !uname) {
+    console.log("first")
+    location.replace("./");
+    return;
+  }
 
   const res = await fetch(`${baseUrl}/freelancer/profile.php?uname=${uname}`);
   const res_data = await res.json();
   const data = res_data.message;
+
+  if (logic && data.roll == "client") {
+    location.replace("./");
+    return;
+  }
 
   const link = document.querySelector(".portfolios__link.portfolio a");
   const talk = document.querySelector(".portfolios__link.message a");

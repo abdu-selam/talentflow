@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/nav.css" />
-    <link rel="stylesheet" href="../../styles/freelancer/freelancer-profile.css" />
+    <link
+      rel="stylesheet"
+      href="../../styles/client/client-profile.css"
+    />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../../favicon.png" type="image/png">
-    <script src="../../scripts/freelancer/fleelancerProfile.js" type="module"></script>
-    <script src="../../scripts/nav.js" type="module"></script>
-    <script type="module" src="../../scripts/client/client.js"></script>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <script src="../../scripts/nav.js" defer></script>
+    <script type="module" src="../../scripts/client/clientProfile.js"></script>
     <style>
       .loading {
         width: 100vw;
@@ -91,7 +93,7 @@
           <figure class="aside__profile">
             <img
               src="../../images/logo.webp"
-              alt="logo of joab bord"
+              alt="profile picture of the user"
               class="aside__pp"
               width="200"
             />
@@ -114,9 +116,15 @@
               </a>
             </li>
             <li class="aside__item">
-              <a href="../jobs-post/" class="aside__link">
+              <a href="../portfolio" class="aside__link">
+                <i class="fas fa-bolt"></i>
+                Portifolio
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../../jobs/" class="aside__link">
                 <i class="fas fa-briefcase"></i>
-                Post Jobs
+                Find Jobs
               </a>
             </li>
             <li class="aside__item">
@@ -141,6 +149,12 @@
               <a href="../settings" class="aside__link">
                 <i class="fas fa-gears"></i>
                 settings
+              </a>
+            </li>
+            <li class="aside__item setting">
+              <a href="../ratings/" class="aside__link">
+                <i class="fas fa-star"></i>
+                Ratings
               </a>
             </li>
           </ul>
@@ -183,6 +197,7 @@
               </figcaption>
             </figure>
             <p class="mainpp__headline">
+              
             </p>
             <p class="mainpp__email">
               <i class="fas fa-envelope"></i>
@@ -195,46 +210,15 @@
               About Me
             </h2>
           </section>
-          <section class="main__skills">
-            <h2 class="skills__title">
-              <i class="fas fa-screwdriver-wrench"></i>
-              My Skills
-            </h2>
-            <section class="hard__skills">
-              <h3 class="skill__title">Hard Skills</h3>
-              <ul class="skills__list">
-                
-              </ul>
-            </section>
-            <section class="soft__skills">
-              <h3 class="skill__title">Soft Skills</h3>
-              <ul class="skills__list">
-                
-              </ul>
-            </section>
-          </section>
+          
           <section class="main__portfolio">
             <h2 class="portfolios__titile">
               <i class="fas fa-briefcase"></i>
-              My portfolios
+              Previous Posts
             </h2>
             <ul class="portfolio__list">
               
             </ul>
-            <div class="item__portifolio">
-              <p class="portfolios__link portfolio">
-                <a href="../portfolio">See All Portfolios</a>
-              </p>
-              <p class="portfolios__link message">
-                <a href="../messages/">Talk to freelancer</a>
-              </p>
-              <button class="itempp__btn resume">
-                <a href="#" download="true">
-                  <i class="fas fa-file-lines"></i>
-                  Download Rusume
-                </a>
-              </button>
-            </div>
           </section>
         </main>
       </div>
@@ -243,9 +227,9 @@
       <div class="footer__wrapper">
         <section class="footer__workers">
           <ul class="worker__list">
-            <li class="worker__item"><a href="../jobs">Post Job</a></li>
+            <li class="worker__item"><a href="../../jobs/">Brows Jobs</a></li>
             <li class="worker__item">
-              <a href="../profile">Your Profile</a>
+              <a href="../profile/">Your Profile</a>
             </li>
             <li class="worker__item">
               <a href="../active-jobs">Active Jobs</a>
@@ -255,13 +239,13 @@
         <section class="footer__workers">
           <ul class="worker__list">
             <li class="worker__item">
-              <a href="../active-jobs/">Posted jobs</a>
+              <a href="../portfolio/">portfolios</a>
             </li>
             <li class="worker__item">
               <a href="../messages">Check Messages</a>
             </li>
             <li class="worker__item">
-              <a href="../applications">Applicants</a>
+              <a href="../applications">Applications</a>
             </li>
           </ul>
         </section>
@@ -281,15 +265,15 @@
               <a href="tel:0901010101">Tel: 0901010101</a>
             </li>
             <li class="worker__item">
-              <a href="../../feedback">Feedback</a>
+              <a href="../../feedbacks">Feedback</a>
             </li>
           </ul>
         </section>
       </div>
       <ul class="socials__list">
         <li class="socials__item">
-          <a href="https://youtube.com/@abdu_dev_yt" target="_blank">
-            <i class="fab footer__icon fa-youtube"></i
+          <a href="https://youtube.com/@abdu_dev_yt" target="_blank"
+            ><i class="fab footer__icon fa-youtube"></i
           ></a>
         </li>
         <li class="socials__item">

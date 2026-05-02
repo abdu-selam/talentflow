@@ -186,7 +186,12 @@ const msgHeadBldr = (item) => {
   const name = document.querySelector(".message__caption .message__name");
   const roll = document.querySelector(".message__caption .message__type");
 
-  name.textContent = `${item.fname} ${item.lname}`;
+  const a = document.createElement("a");
+  a.href = `../profile/${item.roll}.html?${item.roll}=${item.uname}`;
+  a.textContent = `${item.fname} ${item.lname}`;
+
+  name.innerHTML = "";
+  name.append(a);
   roll.textContent = item.roll;
 
   const header = document.querySelector(".message__header");

@@ -26,6 +26,7 @@ function profileDataConstructorClient($user)
     $data = [
         "fname" => $user["first_name"],
         "lname" => $user["last_name"],
+        "roll" => $user["roll"],
         "address" => $client["address"],
         "headline" => $client["headline"],
         "email" => $user["email"],
