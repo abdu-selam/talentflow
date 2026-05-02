@@ -1,9 +1,9 @@
 import { baseUrl } from "../api_base.js";
 import { alert } from "../alert.js";
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async() => {
   const loading = document.querySelector(".loading");
-
+  await fetchCategory()
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -68,6 +68,22 @@ const dateInputsHandler = () => {
         yearInputs.value = year;
       }
     }
+  });
+};
+
+const fetchCategory = async () => {
+  const res = await fetch(`${baseUrl}/client/categories.php`);
+  const res_data = await res.json();
+
+  const data = res_data.message;
+
+  const selectElem = document.querySelector("#category");
+  data.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.name;
+    option.textContent = item.name;
+
+    selectElem.append(option);
   });
 };
 

@@ -25,6 +25,13 @@ $usersData = [
     ["Admin", "Root", "admin@mail.com", "Admin@123", "admin"]
 ];
 
+
+$categories_list = ["Software Development", "Design", "Marketing", "Data Entry", "Management", "Arteficial Intelegence", "IT", "Healthcare", "Customer Support", "Engineering"];
+
+foreach ($categories_list as $category) {
+    $catagories->create($category);
+}
+
 $jobsData = [
     [
         "client_id" => "clie-b68294",
@@ -102,7 +109,7 @@ $jobsData = [
         "deadline" => "2026-06-12 23:59:59",
         "salary" => 1100,
         "job_type" => "full",
-        "category" => "Data"
+        "category" => "Data Entry"
     ],
     [
         "client_id" => "clie-pzvlj5",
@@ -159,7 +166,6 @@ $jobsData = [
         "job_type" => "part",
         "category" => "Marketing"
     ],
-
     [
         "client_id" => "clie-cidheo",
         "title" => "AI Engineer",
@@ -171,9 +177,8 @@ $jobsData = [
         "deadline" => "2026-06-30 23:59:59",
         "salary" => 2000,
         "job_type" => "full",
-        "category" => "AI"
+        "category" => "Arteficial Intelegence"
     ],
-
     [
         "client_id" => "clie-dneem6",
         "title" => "System Administrator",

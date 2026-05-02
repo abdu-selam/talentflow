@@ -54,7 +54,7 @@ function category_filter($jobs, $category)
 
     $fitered = [];
     foreach ($jobs as $job) {
-        if (strtolower($job["job_type"]) == strtolower($category)) {
+        if (strtolower($job["category"]) == strtolower($category)) {
             array_push($fitered, $job);
         }
     }

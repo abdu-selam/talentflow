@@ -9,6 +9,7 @@ require_once __DIR__ . "/models/portfolios.php";
 require_once __DIR__ . "/models/ratings.php";
 require_once __DIR__ . "/models/skills.php";
 require_once __DIR__ . "/models/users.php";
+require_once __DIR__ . "/models/categories.php";
 
 session_start();
 
@@ -24,5 +25,6 @@ $portfolios = new Portfolios($con);
 $ratings = new Ratings($con);
 $skills = new Skills($con);
 $users = new Users($con);
+$catagories = new Categories($con);
 
 ?>

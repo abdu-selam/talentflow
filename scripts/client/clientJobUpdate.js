@@ -4,6 +4,7 @@ import { alert } from "../alert.js";
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
+  await fetchCategory();
   await fetcher();
   loading.classList.add("close");
   init();
@@ -48,6 +49,22 @@ const fetcher = async () => {
   }
 
   location.replace("./");
+};
+
+const fetchCategory = async () => {
+  const res = await fetch(`${baseUrl}/client/categories.php`);
+  const res_data = await res.json();
+
+  const data = res_data.message;
+
+  const selectElem = document.querySelector("#category");
+  data.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.name;
+    option.textContent = item.name;
+
+    selectElem.append(option);
+  });
 };
 
 const itemBldr = (data) => {

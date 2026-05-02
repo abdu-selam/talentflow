@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS talentflow;
 CREATE DATABASE IF NOT EXISTS talentflow;
 
 USE talentflow;
@@ -32,6 +33,10 @@ CREATE TABLE clients (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE category (
+    name VARCHAR(80) PRIMARY KEY
+);
+
 CREATE TABLE jobs (
     id VARCHAR(30) PRIMARY KEY,
     client_id VARCHAR(30),
@@ -46,8 +51,9 @@ CREATE TABLE jobs (
     deadline TIMESTAMP NOT NULL,
     salary DOUBLE NOT NULL,
     job_type ENUM("full","part","intern"),
-    category TEXT NOT NULL,
-    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
+    category VARCHAR(80),
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE,
+    FOREIGN KEY (category) REFERENCES category(name) 
 );
 
 CREATE TABLE messages (

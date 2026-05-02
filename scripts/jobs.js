@@ -5,6 +5,7 @@ window.addEventListener("load", async () => {
 
   await authChecker();
   await fetcher();
+  await fetchCategory();
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -35,9 +36,11 @@ const authChecker = async () => {
       } else if (data.message.roll == "client") {
         jobPostBtn.href = "../client/jobs-post/add-job.html";
       }
+    } else {
+      console.clear();
     }
   } catch (error) {
-    // console.log(error);
+    console.clear();
   }
 };
 
@@ -97,6 +100,22 @@ const fetcher = async () => {
       job_constructor(item);
     });
   }
+};
+
+const fetchCategory = async () => {
+  const res = await fetch(`${baseUrl}/client/categories.php`);
+  const res_data = await res.json();
+
+  const data = res_data.message;
+
+  const selectElem = document.querySelector("#category");
+  data.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.name;
+    option.textContent = item.name;
+
+    selectElem.append(option);
+  });
 };
 
 const job_constructor = (data) => {
