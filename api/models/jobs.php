@@ -185,6 +185,22 @@ class Jobs
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function get_fuzzy($title, $description){
+    $sql = "SELECT * FROM " . $this->table . " 
+            WHERE title LIKE ? OR description LIKE ?";
+
+    $stmt = $this->con->prepare($sql);
+
+    $title = "%" . $title . "%";
+    $description = "%" . $description . "%";
+
+    $stmt->bind_param("ss", $title, $description);
+
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
 }
 
 ?>

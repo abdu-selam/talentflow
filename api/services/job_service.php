@@ -22,6 +22,22 @@ function job_list_constructor($jobs)
     return $data;
 }
 
+function fuzzy_constructor($jobs)
+{
+    $data = [];
+    foreach ($jobs as $job) {
+        $item = [
+            "id" => $job["id"],
+            "title" => $job["title"],
+            "category" => $job["category"],
+        ];
+
+        array_push($data, $item);
+    }
+
+    return $data;
+}
+
 function filtered_jobs($jobs, $filters)
 {
     $type_filtered = type_filter($jobs, $filters["types"]);

@@ -17,6 +17,7 @@ const init = () => {
   document.querySelector("#app").style.display = "block";
   navOpener();
   formHandler();
+  search();
 };
 
 const authChecker = async () => {
@@ -267,4 +268,91 @@ const sortFilter = (jobs, sortType, order) => {
 
     return order === "acc" ? valA - valB : valB - valA;
   });
+};
+
+const search = () => {
+  const icon = document.querySelector(".search__ico");
+  const result = document.querySelector(".search__result");
+  const resultList = document.querySelector(".search__list");
+  const close = document.querySelector(".search__close");
+  const input = document.querySelector("#search");
+
+  input.addEventListener("click", (e) => {});
+
+  close.addEventListener("click", (e) => {
+    result.classList.remove("active");
+    resultList.innerHTML = "";
+    input.value = "";
+  });
+
+  input.addEventListener("input", async (e) => {
+    result.classList.add("active");
+    const value = input.value;
+    resultList.innerHTML = "";
+    if (value == "") {
+      return;
+    }
+    const res = await fetch(`${baseUrl}/freelancer/fuzzy_jobs.php?t=${value}`);
+    const data = await res.json();
+    data.message.forEach((item) => {
+      const li = `
+        <li class="search__item">
+          <a href="./job.html?job=${item.id}">
+            <h2 class="search__title">${item.title}</h2>
+            <p class="search__category">${item.category}</p>
+          </a>
+        </li>`;
+
+      resultList.insertAdjacentHTML("beforeend", li);
+    });
+  });
+
+  input.addEventListener("keypress", async (e) => {
+    if (e.key != "Enter") {
+      return;
+    }
+    const value = input.value;
+    resultList.innerHTML = "";
+    if (value == "") {
+      return;
+    }
+    searchAll(value);
+    result.classList.remove("active");
+    input.value = "";
+  });
+
+  icon.addEventListener("click", async (e) => {
+    const value = input.value;
+    resultList.innerHTML = "";
+    if (value == "") {
+      return;
+    }
+    searchAll(value);
+    result.classList.remove("active");
+    input.value = "";
+  });
+};
+
+const searchAll = async (value) => {
+  const res = await fetch(`${baseUrl}/freelancer/fuzzy_jobs.php?q=${value}`);
+  const res_data = await res.json();
+
+  const data = res_data.message;
+
+  if (res.status == 200) {
+    const ul = document.querySelector(".jobs__list");
+
+    ul.innerHTML = "";
+
+    if (data.length == 0) {
+      const p = '<p class="no__item">There Is No Job has been posted!</p>';
+
+      ul.insertAdjacentHTML("beforeend", p);
+      return;
+    }
+
+    data.forEach((item) => {
+      job_constructor(item);
+    });
+  }
 };

@@ -3,16 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../styles/all.min.css"
-    />
+    <link rel="stylesheet" href="../styles/all.min.css" />
     <link rel="stylesheet" href="../styles/resets.css" />
     <link rel="stylesheet" href="../styles/header.css" />
     <link rel="stylesheet" href="../styles/jobs.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon.png" type="image/png">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../favicon.png" type="image/png" />
     <title>TalentFlow | Jobs</title>
     <style>
       .loading {
@@ -108,7 +105,9 @@
                 <a href="../jobs" class="header__link active">Find Jobs</a>
               </li>
               <li class="header__item">
-                <a href="../auth/register/" class="header__link post">Post Job</a>
+                <a href="../auth/register/" class="header__link post"
+                  >Post Job</a
+                >
               </li>
               <li class="header__item">
                 <a href="../about" class="header__link">About</a>
@@ -184,7 +183,9 @@
                         id="job-sort-date"
                         checked
                       />
-                      <label for="job-sort-date" class="filter__name">Date</label>
+                      <label for="job-sort-date" class="filter__name"
+                        >Date</label
+                      >
                     </li>
                     <li class="filter__item">
                       <input
@@ -240,9 +241,7 @@
                 </li>
               </ul>
             </form>
-            <button class="filter__btn">
-              Fetch Filtered 
-            </button>
+            <button class="filter__btn">Fetch Filtered</button>
           </section>
           <section class="jobs">
             <div class="jobs__search">
@@ -253,13 +252,24 @@
                   name="search"
                   id="search"
                 />
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search search__ico"></i>
               </div>
               <i class="fas fa-filter filter-toggle"></i>
             </div>
-            <ul class="jobs__list">
-              
-            </ul>
+            <div class="search__result">
+              <div class="search__close">
+                <i class="fas fa-x"></i>
+              </div>
+              <ul class="search__list">
+                <li class="search__item">
+                  <a href="">
+                    <h2 class="search__title">Lorem ipsum dolor sit amet.</h2>
+                    <p class="search__category">Lorem, ipsum dolor.</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <ul class="jobs__list"></ul>
           </section>
         </div>
       </main>

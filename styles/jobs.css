@@ -179,6 +179,10 @@
 }
 
 /* JOB LIST SECTION STYLES */
+.jobs {
+  position: relative;
+}
+
 .jobs__search {
   display: flex;
   align-items: center;
@@ -211,6 +215,81 @@
   padding: 0.3rem 0.5rem;
   font-weight: 500;
   font-size: 1rem;
+}
+
+.search__result {
+  width: 100%;
+  background: var(--back);
+  border: 1px solid var(--back-2);
+  padding: 0.8rem;
+  height: 70vh;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  z-index: 999;
+  border-radius: 0.8rem;
+  display: none;
+  box-shadow: 0 0 0.3rem var(--back-2);
+}
+
+.search__result.active {
+  display: block;
+}
+
+.search__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.search__list::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+.search__list::-webkit-scrollbar-thumb {
+  border: none;
+}
+
+.search__item {
+  background: color-mix(in srgb, var(--primary) 5%, transparent 95%);
+  border-radius: 0.5rem;
+  border: 1px solid var(--back-2);
+}
+
+.search__item a {
+  padding: 0.5rem;
+  display: block;
+}
+
+.search__title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.search__category {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.search__close {
+  width: 1.5rem;
+  background: var(--back);
+  border: 1px solid var(--primary);
+  aspect-ratio: 1/1;
+  padding: 0.3rem;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+}
+
+.search__close i {
+  font-size: 0.9rem;
 }
 
 .jobs__list {
