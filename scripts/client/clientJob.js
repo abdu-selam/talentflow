@@ -90,7 +90,7 @@ const itemBldr = (data) => {
   });
 
   const seeApplysBtn = document.querySelector(".job__btns .job__btn a");
-  seeApplysBtn.href = `../applications?id=${data.id}`;
+  seeApplysBtn.href = `../applications/job.html?id=${data.id}`;
 };
 
 const dateFormatter = (dateStr) => {

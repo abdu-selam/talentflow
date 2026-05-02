@@ -35,10 +35,11 @@ while (true) {
     $event_msg_read = $messages->get_readed_newest_first();
     if (count($event_msg_read) > count($message_list_read)) {
         $msg = $event_msg_read[0]["id"];
+        $sender = $event_msg_read[0]["sender_id"];
         $message_list_read = $messages->get_readed_newest_first();
         
         echo "event: read\n";
-        echo "data: $msg\n\n";
+        echo "data: [\"$msg\",\"$sender\"]\n\n";
         
         ob_flush();
         flush();

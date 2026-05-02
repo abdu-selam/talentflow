@@ -1,6 +1,6 @@
 import { baseUrl } from "./api_base.js";
 
-const eventSource = (fetcher) => {
+const eventSource = (fetcher, messageList) => {
   const evs = new EventSource(`${baseUrl}/services/event.php`);
 
   evs.addEventListener("message", (e) => {
@@ -15,14 +15,24 @@ const eventSource = (fetcher) => {
   });
 
   evs.addEventListener("read", (e) => {
-    const data = e.data;
-    const elem = document.querySelector(`.message__part.sender[data-id=${data}] .read__stat`)
+    const data = JSON.parse(e.data);
+    const elem = document.querySelector(
+      `.message__part.sender[data-id=${data[0]}] .read__stat`,
+    );
 
-    if (!elem) {
-      return;
+    if (elem)  {
+      elem.textContent = "Delivered";
     }
-
-    elem.textContent = "Delivered";
+    let i = 0;
+    for (const item of messageList) {
+      if (item.user_id == data[1]) {
+        console.log(item.user_id)
+        const count = messageList[i].unread;
+        messageList[i].unread = count == 0 ? 0 : count - 1;
+        break
+      }
+      i++;
+    }
   });
 };
 

@@ -23,7 +23,7 @@ const fetcher = async () => {
 
   const logic = "freelancer.html" == path[path.length - 1];
   if (logic && !uname) {
-    console.log("first")
+    console.log("first");
     location.replace("./");
     return;
   }
@@ -31,6 +31,11 @@ const fetcher = async () => {
   const res = await fetch(`${baseUrl}/freelancer/profile.php?uname=${uname}`);
   const res_data = await res.json();
   const data = res_data.message;
+
+  if (res.status != 200) {
+    location.replace("../../");
+    return
+  }
 
   if (logic && data.roll == "client") {
     location.replace("./");

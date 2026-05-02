@@ -53,9 +53,8 @@ const activeJobsBldr = (data) => {
           ${item.message.slice(0, 80)}....
         </p>
         <button class="job__btn">
-          <a href="../../jobs/job.html?job=${item.id}" class="job__link">
-            {" "}
-            See Detail{" "}
+          <a href="../../jobs/job.html?job=${item.job_id}" class="job__link"> 
+            See Detail
           </a>
         </button>
       </li>

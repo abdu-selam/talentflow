@@ -1,9 +1,9 @@
 import { baseUrl } from "../api_base.js";
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async() => {
   const loading = document.querySelector(".loading");
 
-  fetcher();
+  await fetcher();
   loading.classList.add("close");
   init();
   setTimeout(() => {
@@ -31,6 +31,11 @@ const fetcher = async () => {
   const res = await fetch(`${baseUrl}/freelancer/profile.php?uname=${uname}`);
   const res_data = await res.json();
   const data = res_data.message;
+
+  if (res.status != 200) {
+    location.replace("../../");
+    return
+  }
 
   if (logic && data.roll == "freelancer") {
     location.replace("./");

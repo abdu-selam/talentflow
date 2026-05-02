@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="../../styles/all.min.css"
+    />
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/nav.css" />
     <link rel="stylesheet" href="../../styles/footer.css" />
-    <link
-      rel="stylesheet"
-      href="../../styles/freelancer/freelancer-applications.css"
-    />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <link rel="stylesheet" href="../../styles/client/client-application.css" />
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.png" type="image/png">
     <script
-      src="../../scripts/freelancer/freelancerApplication.js"
+      src="../../scripts/client/clientApplicationJob.js"
       type="module"
     ></script>
     <script src="../../scripts/nav.js" type="module"></script>
-    <script type="module" src="../../scripts/freelancer/freelancer.js"></script>
+    <script type="module" src="../../scripts/client/client.js"></script>
     <style>
       .loading {
         width: 100vw;
@@ -117,15 +117,9 @@
               </a>
             </li>
             <li class="aside__item">
-              <a href="../portfolio/" class="aside__link">
-                <i class="fas fa-bolt"></i>
-                Portifolio
-              </a>
-            </li>
-            <li class="aside__item">
-              <a href="../../jobs/" class="aside__link">
+              <a href="../jobs-post/" class="aside__link">
                 <i class="fas fa-briefcase"></i>
-                Find Jobs
+                Post Jobs
               </a>
             </li>
             <li class="aside__item">
@@ -152,12 +146,6 @@
                 settings
               </a>
             </li>
-            <li class="aside__item setting">
-              <a href="../ratings/" class="aside__link">
-                <i class="fas fa-star"></i>
-                Ratings
-              </a>
-            </li>
           </ul>
         </nav>
       </aside>
@@ -181,37 +169,18 @@
           </div>
         </header>
         <main class="main">
-          <section class="main__stat">
-            <p class="stat__title">Proposals Statistic</p>
-            <ul class="stat__list">
-              <li class="stat__item">
-                <p class="stat__txt">Total</p>
-                <p class="stat__result">1000</p>
-              </li>
-              <li class="stat__item">
-                <p class="stat__txt">Accepted</p>
-                <p class="stat__result">456</p>
-              </li>
-              <li class="stat__item">
-                <p class="stat__txt">Pending</p>
-                <p class="stat__result">978</p>
-              </li>
-              <li class="stat__item">
-                <p class="stat__txt">Rejected</p>
-                <p class="stat__result">786</p>
-              </li>
-            </ul>
-          </section>
-          <section class="main__pending">
-            <p class="pendings__title">Proposals</p>
-            <ul class="pendings__filter">
-              <li data-value="all" class="filter__item active">All</li>
-              <li data-value="pending" class="filter__item">Pending</li>
-              <li data-value="approve" class="filter__item">Accepted</li>
-              <li data-value="reject" class="filter__item">Rejected</li>
-            </ul>
-            <ul class="pendings__list">
-              
+            <h1 class="main__title">
+                Applications
+            </h1>
+          <ul class="main__filters">
+            <li data-stat="all" class="filter__item active">All</li>
+            <li data-stat="pending" class="filter__item">New</li>
+            <li data-stat="approve" class="filter__item">Approved</li>
+            <li data-stat="reject" class="filter__item">Rejected</li>
+          </ul>
+          <section class="main__applications">
+            <ul class="applications__list">
+                
             </ul>
           </section>
         </main>
@@ -221,9 +190,9 @@
       <div class="footer__wrapper">
         <section class="footer__workers">
           <ul class="worker__list">
-            <li class="worker__item"><a href="../../jobs/">Brows Jobs</a></li>
+            <li class="worker__item"><a href="../jobs">Post Job</a></li>
             <li class="worker__item">
-              <a href="../profile/">Your Profile</a>
+              <a href="../profile">Your Profile</a>
             </li>
             <li class="worker__item">
               <a href="../active-jobs">Active Jobs</a>
@@ -233,13 +202,13 @@
         <section class="footer__workers">
           <ul class="worker__list">
             <li class="worker__item">
-              <a href="../portfolio/">portfolios</a>
+              <a href="../active-jobs/">Posted jobs</a>
             </li>
             <li class="worker__item">
               <a href="../messages">Check Messages</a>
             </li>
             <li class="worker__item">
-              <a href="../applications">Applications</a>
+              <a href="../applications">Applicants</a>
             </li>
           </ul>
         </section>
@@ -259,15 +228,15 @@
               <a href="tel:0901010101">Tel: 0901010101</a>
             </li>
             <li class="worker__item">
-              <a href="../../feedbacks">Feedback</a>
+              <a href="../../feedback">Feedback</a>
             </li>
           </ul>
         </section>
       </div>
       <ul class="socials__list">
         <li class="socials__item">
-          <a href="https://youtube.com/@abdu_dev_yt" target="_blank"
-            ><i class="fab footer__icon fa-youtube"></i
+          <a href="https://youtube.com/@abdu_dev_yt" target="_blank">
+            <i class="fab footer__icon fa-youtube"></i
           ></a>
         </li>
         <li class="socials__item">

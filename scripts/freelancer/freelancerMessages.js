@@ -38,7 +38,7 @@ window.addEventListener("load", async () => {
   await fetcher(messageUsersList);
   eventSource((uname) => {
     fetcher(messageUsersList, uname);
-  });
+  }, messageUsersList);
   loading.classList.add("close");
   init(messageUsersList);
   setTimeout(() => {

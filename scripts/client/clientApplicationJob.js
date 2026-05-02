@@ -17,7 +17,14 @@ const init = () => {
 };
 
 const fetcher = async (applicationList) => {
-  const res = await fetch(`${baseUrl}/client/application.php`);
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
+
+  const res = await fetch(`${baseUrl}/client/application.php?job=${id}`);
+  if (res.status != 200) {
+    location.replace("./");
+  }
+
   const res_data = await res.json();
 
   const data = res_data.message;
@@ -25,7 +32,6 @@ const fetcher = async (applicationList) => {
     applicationList.push({ ...item });
   });
   itemBldr(data);
-  applyRejectHandler();
   filterItems(applicationList);
 };
 
@@ -80,7 +86,7 @@ const itemBldr = (data, message = "Active") => {
               ${item.title}
           </h2>
           <p class="item__status">
-              ${status[item.status] ?? "Finished"}
+              ${status[item.status]}
           </p>
           <a href="../profile/freelancer.html?freelancer=${item.funame}">
             <figure class="item__profile">
@@ -123,10 +129,10 @@ const applyBtnConstructor = (stat, id) => {
 
 const applyRejectHandler = () => {
   const btns = document.querySelectorAll("button.item__btn");
+  const wrapper = document.querySelector(".item__btns");
 
   btns.forEach((btn) => {
     btn.addEventListener("click", async (e) => {
-      const wrapper = btn.parentElement;
       const stat = btn.dataset.stat;
       const id = btn.dataset.id;
 
@@ -134,7 +140,6 @@ const applyRejectHandler = () => {
         `${baseUrl}/client/application.php?ustat=${stat}&id=${id}`,
       );
       const res_data = await res.json();
-      const btns = wrapper.querySelectorAll("button.item__btn");
 
       const data = res_data.message;
       if (res.status == 200) {

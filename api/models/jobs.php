@@ -148,7 +148,24 @@ class Jobs
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
+    public function fininsh_job($id)
+    {
+        $sql = "UPDATE " . $this->table . " SET status = 'finished' WHERE id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
 
+        return $stmt->execute();
+    }
+
+    public function update_status($id, $status)
+    {
+        $sql = "UPDATE " . $this->table . " SET status = ? WHERE id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $status, $id);
+
+        return $stmt->execute();
+    }
     public function get_jobs_by_status($status)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE status = ?";

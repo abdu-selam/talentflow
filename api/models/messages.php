@@ -126,7 +126,7 @@ class Messages
     public function get_readed_newest_first()
     {
 
-        $sql = "SELECT m.id
+        $sql = "SELECT m.id, m.sender_id
             FROM messages m 
             WHERE m.status = 'read'
             ORDER BY m.date DESC";
