@@ -18,6 +18,7 @@ header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 
 $message_list = $messages->get_messages_newest_first();
+$message_list_read = $messages->get_readed_newest_first();
 while (true) {
     $event_msg = $messages->get_messages_newest_first();
     if (count($event_msg) > count($message_list)) {
@@ -25,6 +26,18 @@ while (true) {
         $message_list = $messages->get_messages_newest_first();
         
         echo "event: message\n";
+        echo "data: $msg\n\n";
+        
+        ob_flush();
+        flush();
+    }
+
+    $event_msg_read = $messages->get_readed_newest_first();
+    if (count($event_msg_read) > count($message_list_read)) {
+        $msg = $event_msg_read[0]["id"];
+        $message_list_read = $messages->get_readed_newest_first();
+        
+        echo "event: read\n";
         echo "data: $msg\n\n";
         
         ob_flush();

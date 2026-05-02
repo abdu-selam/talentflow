@@ -7,7 +7,6 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) {
         const elem = entry.target;
         const id = elem.dataset.id;
-        console.log(elem)
 
         const res = await markUsRead(id);
         if (res) {
@@ -17,7 +16,6 @@ const observer = new IntersectionObserver(
           );
           if (userMsgElem) {
             const pre = Number(userMsgElem.textContent);
-            console.log(pre)
             if (pre == 1) {
               userMsgElem.remove();
               return;
@@ -150,7 +148,7 @@ const clickMessageItemHandler = () => {
   });
 };
 
-const singleUserMsgHandler = (msgData) => {
+const singleUserMsgHandler = (msgData, isLoad = true) => {
   const singleMessage = document.querySelector(".single__message");
   const messagesList = document.querySelector(".main__messages");
   const txtList = document.querySelector(".message__list");
@@ -193,9 +191,11 @@ const singleUserMsgHandler = (msgData) => {
     autoScroll();
   });
 
-  messagesList.classList.remove("active");
-  singleMessage.classList.add("active");
-  autoScroll();
+  if (isLoad) {
+    messagesList.classList.remove("active");
+    singleMessage.classList.add("active");
+    autoScroll();
+  }
 };
 
 const dateFormatter = (dateStr) => {
@@ -249,8 +249,11 @@ const fetcher = async (messageUsersList, unamefunc) => {
   }
   const data = res_data.message;
 
-  if (uname || unamefunc) {
+  if (uname) {
     singleUserMsgHandler(res_data.single);
+  } 
+  if (unamefunc) {
+    singleUserMsgHandler(res_data.single, false);
   }
 
   const ids = [...Object.keys(data)];

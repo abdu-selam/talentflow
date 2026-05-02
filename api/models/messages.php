@@ -122,6 +122,18 @@ class Messages
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function get_readed_newest_first()
+    {
+
+        $sql = "SELECT m.id
+            FROM messages m 
+            WHERE m.status = 'read'
+            ORDER BY m.date DESC";
+        $result = $this->con->query($sql);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>
