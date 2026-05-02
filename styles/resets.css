@@ -58,10 +58,26 @@ input:focus {
   --back-2: hsl(36, 17%, 76%);
   --accent: hsl(343, 72%, 53%);
   --cta-back: linear-gradient(to left, hsl(343, 72%, 53%), hsl(348, 100%, 30%));
-  --back-linear: linear-gradient(to right, hsl(240, 100%, 100%), hsl(36, 17%, 76%));
-  --back-linear-2: linear-gradient(to top, hsl(240, 100%, 100%), hsl(36, 17%, 76%));
-  --back-linear-3: linear-gradient(to bottom, hsl(240, 100%, 100%), hsl(36, 17%, 76%));
-  --back-linear-4: linear-gradient(to left, hsl(240, 100%, 100%), hsl(36, 17%, 76%));
+  --back-linear: linear-gradient(
+    to right,
+    hsl(240, 100%, 100%),
+    hsl(36, 17%, 76%)
+  );
+  --back-linear-2: linear-gradient(
+    to top,
+    hsl(240, 100%, 100%),
+    hsl(36, 17%, 76%)
+  );
+  --back-linear-3: linear-gradient(
+    to bottom,
+    hsl(240, 100%, 100%),
+    hsl(36, 17%, 76%)
+  );
+  --back-linear-4: linear-gradient(
+    to left,
+    hsl(240, 100%, 100%),
+    hsl(36, 17%, 76%)
+  );
   --success: hsl(130, 100%, 56%);
   --error: hsl(350, 100%, 56%);
 }
@@ -87,7 +103,8 @@ input:focus {
   color: var(--back);
 }
 
-.alert {
+.alert,
+.confirm {
   position: fixed;
   width: min(90%, 25rem);
   z-index: 9999;
@@ -97,9 +114,9 @@ input:focus {
   padding: 0.8rem;
   font-size: 0.9rem;
   border-left: 0.4rem solid var(--error);
-  translate: -50% -120%;
   left: 50%;
   top: 0.8rem;
+  translate: -50% -120%;
   opacity: 0;
   transition:
     opacity 0.5s linear,
@@ -125,7 +142,6 @@ input:focus {
   translate: -50% 0;
 }
 
-
 .no__item {
   width: 100%;
   height: 8rem;
@@ -138,4 +154,43 @@ input:focus {
   font-size: 0.9rem;
   font-weight: 600;
   backdrop-filter: blur(10px);
+}
+
+.confirm {
+  opacity: 1;
+  border: 1px solid var(--success);
+  transition: none;
+  position: static;
+  translate: 0;
+}
+
+.confirm__btn {
+  padding: 0.3rem 0.8rem;
+  transition: 0.5s;
+  background: var(--success);
+  color: var(--primary);
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.confirm__wrapper {
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: color-mix(in srgb, var(--primary) 20%, transparent 90%);
+  display: grid;
+  place-items: center;
+  z-index: 99999;
+  backdrop-filter: blur(1px);
+}
+
+.confirm__btn:hover {
+  box-shadow: none;
+}
+
+.confirm__btn.cancel {
+  background: var(--error);
+  color: var(--back);
 }

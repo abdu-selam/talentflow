@@ -1,5 +1,5 @@
 import { baseUrl } from "../api_base.js";
-import { alert } from "../alert.js";
+import { alert, confirm } from "../alert.js";
 
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
@@ -188,6 +188,11 @@ const privacySettings = () => {
 const logout = () => {
   const btn = document.querySelector(".logout__btn");
   btn.addEventListener("click", async (e) => {
+    try {
+      await confirm("Are you sure? You want to logout from talent flow?");
+    } catch (error) {
+      return;
+    }
     const res = await fetch(`${baseUrl}/auth/logout.php`);
     if (res.status === 200) {
       location.replace("../../");

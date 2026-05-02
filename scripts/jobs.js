@@ -2,7 +2,6 @@ import { baseUrl } from "./api_base.js";
 
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
-
   await authChecker();
   await fetcher();
   await fetchCategory();

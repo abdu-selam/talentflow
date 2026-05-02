@@ -1,5 +1,5 @@
 import { baseUrl } from "../api_base.js";
-import { alert } from "../alert.js";
+import { alert, confirm } from "../alert.js";
 
 window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
@@ -60,6 +60,12 @@ const deleteProfile = () => {
       const item = document.querySelector(
         `li.portfolio__item[data-id="${btn.dataset.id}"]`,
       );
+
+      try {
+        await confirm("Are you sure! Do you want to delete this portfolio?")
+      } catch (error) {
+        return
+      }
 
       const res = await fetch(
         `${baseUrl}/freelancer/portfolio.php?id=${btn.dataset.id}`,
