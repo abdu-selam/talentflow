@@ -95,6 +95,11 @@ const messageHandler = () => {
     }
 
     messageList.insertAdjacentHTML("beforeend", msgItemBldr(result));
+    const userMsgElem = document.querySelector(`.message__item[data-id="${header.dataset.id}"] .message__last`)
+    if (userMsgElem) {
+      userMsgElem.innerHTML = ""
+      userMsgElem.insertAdjacentHTML("beforeend", `<strong>You:</strong> ${txt}`)
+    }
 
     textArea.value = "";
     autoScroll();
@@ -194,8 +199,8 @@ const singleUserMsgHandler = (msgData, isLoad = true) => {
   if (isLoad) {
     messagesList.classList.remove("active");
     singleMessage.classList.add("active");
-    autoScroll();
   }
+  autoScroll();
 };
 
 const dateFormatter = (dateStr) => {
@@ -300,7 +305,7 @@ const msgUserElemBldr = (item, ul) => {
     <div class="message__txts">
       <h2 class="message__title">${item.fname} ${item.lname}</h2>
       <p class="message__last">
-        ${message}
+        <strong>${item.sender ? "You" : "recieved"}:</strong> ${message}
       </p>
     </div>
     ${item.unread == 0 ? "" : `<div class="message__amount">${item.unread}</div>`}

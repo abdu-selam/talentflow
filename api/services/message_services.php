@@ -33,6 +33,7 @@ function messageUsers($messagesIn, $current)
                 "lname" => $other["last_name"],
                 "profile" => $other["profile"],
                 "messages" => $message["message"],
+                "sender" => $message["sender_id"] == $current,
                 "order" => $order,
                 "unread" => $count
             ];
