@@ -22,11 +22,14 @@ function messageUsers($messagesIn, $current)
 
         if (!array_key_exists($other["id"], $data)) {
             $msg_btwn = $messages->get_message_by_recieverid($current);
-            $count = count(
-                array_filter($msg_btwn, function ($a) {
-                    return $a["status"] == "unread";
-                })
-            );
+
+            $count = 0;
+            for ($i=0; $i < count($msg_btwn); $i++) { 
+                $curr = $msg_btwn[$i];
+                if ($curr["sender_id"] == $other["id"] && $curr["status"] == "unread") {
+                    $count++;
+                }
+            }
 
             $data[$other["id"]] = [
                 "fname" => $other["first_name"],
@@ -92,3 +95,4 @@ function messageConstructor($current, $other)
 }
 
 ?>
+

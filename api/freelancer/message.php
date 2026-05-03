@@ -3,6 +3,7 @@ require_once "../index.php";
 require_once "../utils/responce.php";
 require_once "../services/message_services.php";
 require_once "../utils/validation.php";
+require_once "../services/event_controller.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -44,6 +45,7 @@ if ($method == "GET") {
 
         $res = $messages->mark_read($msg["id"]);
         if ($res) {
+            write_event_read();
             $data = [
                 "status" => "success",
                 "message" => $msg["sender_id"]
@@ -157,6 +159,7 @@ if ($method == "GET") {
                 return $a["status"] == "unread";
             })
         );
+        write_event_count();
 
         $data = [
             "status" => "success",
