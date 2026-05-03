@@ -32,6 +32,16 @@ if ($method === "GET") {
         exit;
     }
 
+    if ($user["isVerified"] == 0) {
+        $data = [
+            "status" => "error",
+            "message" => "User not found"
+        ];
+
+        response($data, 401);
+        exit;
+    }
+
     $_SESSION["user"] = $user_name;
     if (isset($_COOKIE["user"])) {
         cookie_setter($user_name);

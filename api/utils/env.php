@@ -11,6 +11,8 @@ $env = [
     "DB_NAME" => $_ENV["DB_NAME"],
     "DB_USER_NAME" => $_ENV["DB_USER_NAME"],
     "DB_PASSWORD" => $_ENV["DB_PASSWORD"],
-    "DEV_ENV" => $_ENV["DEV_ENV"]
+    "DEV_ENV" => $_ENV["DEV_ENV"],
+    "EMAIL_USER_NAME" => $_ENV["EMAIL_USER_NAME"],
+    "EMAIL_PASSWORD" => $_ENV["EMAIL_PASSWORD"],
 ];
 ?>

@@ -46,4 +46,12 @@ function unameGenerator()
     return $uname;
 }
 
+function create_token() {
+    $token = "";
+    for ($i= 0; $i < 6; $i++) {
+        $token .= random_int(1,9);
+    }
+    return $token;
+}
+
 ?>

@@ -15,7 +15,7 @@ const init = () => {
   document.querySelector("#app").classList.add("loaded");
 
   backAnimation();
-  document.querySelector(".input__eye").addEventListener("click", (e) => {
+  document.querySelector(".input__eye")?.addEventListener("click", (e) => {
     const password = document.querySelector(".form__input.password");
     const icons = e.currentTarget.querySelectorAll("span");
     icons.forEach((ico) => {

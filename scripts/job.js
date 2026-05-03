@@ -168,7 +168,6 @@ const isLoged = async (data) => {
       form.classList.remove("unsigned");
     } else {
       textarea.value = data.apllication;
-      console.log(data.apllication);
     }
   }
 };
@@ -188,7 +187,7 @@ const authChecker = async () => {
       console.clear();
     }
   } catch (error) {
-    console.log(error);
+    console.clear();
   }
 };
 

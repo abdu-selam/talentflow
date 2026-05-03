@@ -1,5 +1,5 @@
 import { baseUrl } from "./api_base.js";
-import { alert } from "./alert.js";
+import { alert, confirm } from "./alert.js";
 
 const inputElements = document.querySelectorAll(".form__input");
 const btn = document.querySelector(".form__btn");
@@ -49,7 +49,7 @@ const submitHandle = () => {
     const reqObj = {
       email: form.email.value,
       password: form.password.value,
-      remember: form.remember.checked
+      remember: form.remember.checked,
     };
 
     const [res, status] = await fetchRequest(reqObj);
@@ -60,6 +60,11 @@ const submitHandle = () => {
 
     if (status === 401) {
       alert("Please Fill Valid email address or valid password!");
+    } else if (status === 409) {
+      try {
+        await confirm("Verification code has been sent! check your email.");
+      } catch (error) {}
+      codeRequiester();
     } else {
       const roll = res?.message?.roll;
       if (roll === "freelancer") {
@@ -84,7 +89,32 @@ const fetchRequest = async (req) => {
     const data = await res.json();
     return [data, res.status];
   } catch (error) {
-    console.log(error);
+    console.clear();
+  }
+};
+
+const codeRequiester = async () => {
+  const req = await fetch(`${baseUrl}/auth/verify_requist.php`);
+  if (req.status == 401) {
+    try {
+      await confirm("You're not verified please try to login!");
+      location.replace("../login/");
+    } catch (error) {}
+  }
+
+  if (req.status == 409) {
+    try {
+      await confirm("Your account does not existed please try to register!");
+      location.replace("../register/");
+    } catch (error) {}
+  }
+  if (req.status == 200) {
+    const data = await res.json();
+    if (data.message.roll) {
+      location.replace(`../../${data.message.roll}`);
+    } else {
+      location.replace("../verify-email");
+    }
   }
 };
 

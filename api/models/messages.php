@@ -11,9 +11,10 @@ class Messages
 
     public function create($id, $sender_id, $reciever_id, $message)
     {
-        $sql = "INSERT INTO " . $this->table . " (id, sender_id, reciever_id, message) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, sender_id, reciever_id, message, date) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssss", $id, $sender_id, $reciever_id, $message);
+        $now = date("Y-m-d H:i:s", time());
+        $stmt->bind_param("sssss", $id, $sender_id, $reciever_id, $message, $now);
 
         return $stmt->execute();
     }

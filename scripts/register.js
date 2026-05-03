@@ -203,12 +203,7 @@ const submitHandle = () => {
     } else if (status === 500) {
       alert("The server is in trouble try after a while");
     } else {
-      const roll = res?.message?.roll;
-      if (roll === "freelancer") {
-        location.replace("../../freelancer");
-      } else if (roll === "client") {
-        location.replace("../../client");
-      }
+        location.replace("../verify-email");
     }
   });
 };
@@ -223,10 +218,9 @@ const fetchRequest = async (req) => {
       },
     });
 
-    const data = await res.json();
-    return [data, res.status];
+    return ["", res.status];
   } catch (error) {
-    console.log(error);
+    console.clear();
   }
 };
 

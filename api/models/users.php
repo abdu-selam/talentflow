@@ -11,9 +11,51 @@ class Users
 
     public function create($id, $fname, $lname, $uname, $email, $password, $roll)
     {
-        $sql = "INSERT INTO " . $this->table . " (id, first_name, last_name, user_name, email, password, roll) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, first_name, last_name, user_name, email, password, roll, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("sssssss", $id, $fname, $lname, $uname, $email, $password, $roll);
+        $now = date("Y-m-d H:i:s", time());
+        $stmt->bind_param("ssssssss", $id, $fname, $lname, $uname, $email, $password, $roll, $now);
+
+        return $stmt->execute();
+    }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
+
+        return $stmt->execute();
+    }
+
+    public function verify($id)
+    {
+        $sql = "UPDATE " . $this->table . " SET isVerified = 1 WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
+
+        return $stmt->execute();
+    }
+
+    public function crete_token($id, $token)
+    {
+        $sql = "UPDATE " . $this->table . " SET token = ?, token_created = ? WHERE id = ?";
+        $now = date("Y-m-d H:i:s", time());
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("sss", $token, $now, $id);
+
+        return $stmt->execute();
+    }
+
+    public function crete_passcode($id, $token)
+    {
+        $sql = "UPDATE " . $this->table . " SET password_token = ?, password_token_created = ? WHERE id = ?";
+        $now = date("Y-m-d H:i:s", time());
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("sss", $token, $now, $id);
 
         return $stmt->execute();
     }

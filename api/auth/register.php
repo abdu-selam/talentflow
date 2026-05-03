@@ -3,6 +3,7 @@ require_once "../utils/validation.php";
 require_once "../utils/responce.php";
 require_once "../index.php";
 require_once "../utils/cookie.php";
+require_once "../utils/email.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "POST") {
@@ -29,13 +30,24 @@ if ($method === "POST") {
 
     $isExist = $users->get_user_by_email($email);
     if ($isExist) {
-        $data = [
-            "status" => "error",
-            "message" => "User Exists"
-        ];
+        $logic = true;
+        if ($isExist["isVerified"] == 0) {
+            $diff = (time() - strtotime($isExist["created_at"])) / 60;
+            if ($diff > 30) {
+                $users->delete($isExist["id"]);
+                $logic = false;
+            }
+        }
 
-        response($data, 409);
-        exit;
+        if ($logic) {
+            $data = [
+                "status" => "error",
+                "message" => "User Exists"
+            ];
+
+            response($data, 409);
+            exit;
+        }
     }
 
     $fname = htmlspecialchars(trim($fname));
@@ -52,16 +64,6 @@ if ($method === "POST") {
     $prefix = $roll === "freelancer" ? "free" : "clie";
 
     do {
-        $fid = idGenerator($prefix);
-        $user_data = "";
-        if ($roll === "freelancer") {
-            $user_data = $freelancers->get_freelancer_by_id($fid);
-        } else {
-            $user_data = $clients->get_client_by_id($fid);
-        }
-    } while ($user_data);
-
-    do {
         $uname = unameGenerator();
         $user = $users->get_user_by_username($uname);
     } while ($user);
@@ -69,22 +71,19 @@ if ($method === "POST") {
     $isCreated = $users->create($id, $fname, $lname, $uname, $email, $pass_hash, $roll);
 
     if ($isCreated) {
-        if ($roll === "freelancer") {
-            $freelancers->create($fid, $id);
-        } else {
-            $clients->create($fid, $id);
-        }
-
         $_SESSION["user"] = $uname;
         if ($data["remember"]) {
             cookie_setter($uname);
         }
 
+        $token = create_token();
+        $users->crete_token($id, $token);
+
+        send_email_verification($token, $email, $fname, $lname);
+
         $data = [
             "status" => "success",
-            "message" => [
-                "roll" => $roll
-            ]
+            "message" => "email verification token has been sent"
         ];
 
         response($data, 200);

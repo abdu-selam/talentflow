@@ -237,6 +237,7 @@ foreach ($usersData as $u) {
     } else if ($roll === "client") {
         $clients->create($fid, $id);
     }
+    $users->verify($id);
 }
 
 foreach ($jobsData as $job) {

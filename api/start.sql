@@ -11,7 +11,13 @@ CREATE TABLE users (
     email VARCHAR(40) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     roll ENUM("freelancer","client","admin") DEFAULT "freelancer",
-    profile VARCHAR(80)
+    profile VARCHAR(80),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    token VARCHAR(6),
+    password_token VARCHAR(6),
+    token_created TIMESTAMP,
+    password_token_created TIMESTAMP,
+    isVerified INT DEFAULT 0
 );
 
 CREATE TABLE freelancers (

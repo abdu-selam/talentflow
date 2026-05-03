@@ -22,10 +22,11 @@ class Jobs
         $category,
         $address
     ) {
-        $sql = "INSERT INTO " . $this->table . " (id, client_id, title, description, requirements, responsibilities, deadline, salary, job_type, category, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO " . $this->table . " (id, client_id, title, description, requirements, responsibilities, deadline, salary, job_type, category, address, post_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->con->prepare($sql);
+        $now = date("Y-m-d H:i:s", time());
         $stmt->bind_param(
-            "sssssssdsss",
+            "sssssssdssss",
             $id,
             $client_id,
             $title,
@@ -36,7 +37,8 @@ class Jobs
             $salary,
             $job_type,
             $category,
-            $address
+            $address,
+            $now
         );
 
         return $stmt->execute();

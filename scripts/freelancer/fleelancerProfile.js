@@ -23,7 +23,6 @@ const fetcher = async () => {
 
   const logic = "freelancer.html" == path[path.length - 1];
   if (logic && !uname) {
-    console.log("first");
     location.replace("./");
     return;
   }

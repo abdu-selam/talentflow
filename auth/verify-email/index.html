@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/resets.css?v=2" />
     <link rel="stylesheet" href="../../styles/login.css?v=2" />
-    <link
-      rel="stylesheet"
-      href="../../styles/all.min.css?v=2"
-    />
+    <link rel="stylesheet" href="../../styles/all.min.css?v=2" />
     <link rel="icon" href="../../favicon.ico" />
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <title>TalentFlow | Register</title>
 
     <script src="../../scripts/auth.js" type="module"></script>
-    <script src="../../scripts/login.js" type="module"></script>
+    <script src="../../scripts/verify.js" type="module"></script>
 
     <style>
       .loading {
@@ -108,63 +105,26 @@
 
         <form action="" class="form">
           <div class="input__wrapper">
-            <label for="email" class="form__label"> Email </label>
+            <label for="token" class="form__label"> Verification </label>
             <input
-              type="email"
-              name="email"
-              id="email"
-              class="form__input email"
-              placeholder="Your email here..."
+              type="text"
+              name="token"
+              id="token"
+              class="form__input token"
+              placeholder="XXX XXX"
+              autocomplete="off"
             />
-          </div>
-          <div class="input__wrapper">
-            <label for="password" class="form__label"> Password </label>
-            <div class="password__wrapper">
-              <input
-                autocomplete="off"
-                type="password"
-                name="password"
-                id="password"
-                class="form__input password"
-                placeholder="Your password here..."
-              />
-              <div class="input__eye">
-                <span class="active">
-                  <img
-                    src="../../images/eye-open.webp"
-                    alt="eye open icon"
-                    width="25"
-                  />
-                </span>
-                <span>
-                  <img
-                    src="../../images/eye-close.webp"
-                    alt="eye open icon"
-                    width="25"
-                  />
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="remember"
-              class="form__input"
-              id="remember"
-            />
-            <label class="form__label" for="remember">Remember Me</label>
           </div>
           <button class="form__btn">
-            <span class="txt active"> Log In </span>
+            <span class="txt active"> Verify </span>
             <span class="icon">
               <i class="fas fa-sun"></i>
             </span>
           </button>
           <p class="form__choice">
-            Don't have an account ?
+            You can requiest new email
             <span class="form__span">
-              <a href="../register/" class="form__link">register</a>
+              in register
             </span>
           </p>
         </form>
