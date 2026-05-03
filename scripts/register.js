@@ -172,6 +172,9 @@ const submitHandle = () => {
       isValid.fname && isValid.lname && isValid.email && isValid.password;
     if (!allvalid) {
       alert("Please fill all fields correctly");
+      reqStatus = "none";
+      btn.querySelector(".txt").classList.add("active");
+      btn.querySelector(".icon").classList.remove("active");
       return;
     }
 
@@ -203,7 +206,7 @@ const submitHandle = () => {
     } else if (status === 500) {
       alert("The server is in trouble try after a while");
     } else {
-        location.replace("../verify-email");
+      location.replace("../verify-email");
     }
   });
 };

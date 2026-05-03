@@ -2,6 +2,14 @@
 
 function prepare_token_text($token, $first_name, $last_name)
 {
+    return "$first_name $last_name We received a request to reset your password for your account. To set new password use the code below:
+     $token 
+    This code is available for 30 minutes only!
+    If you didn’t request this, you can safely ignore this message. No action needed.";
+}
+
+function prepare_forgot_text($token, $first_name, $last_name)
+{
     return "$first_name $last_name Your journey starts here. 
     To unlock your account, please confirm
     your email using the verification code below:
@@ -214,8 +222,7 @@ function prepare_forgot_tempate($token, $first_name, $last_name)
           </p>
 
           <p>
-            Your journey starts here. To unlock your account, please confirm
-            your email using the verification code below:
+            We received a request to reset your password for your account. To set new password use the code below:
           </p>
 
           <div

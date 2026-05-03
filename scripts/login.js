@@ -4,6 +4,7 @@ import { alert, confirm } from "./alert.js";
 const inputElements = document.querySelectorAll(".form__input");
 const btn = document.querySelector(".form__btn");
 const form = document.querySelector(".form");
+const forgotElem = document.querySelector(".forgot__click");
 let reqStatus = "none";
 
 const inputValidator = () => {
@@ -17,6 +18,50 @@ const inputValidator = () => {
     });
   });
 };
+
+const emailReg = (email) => {
+  // validating email in world standared
+  const inEmail = email.trim();
+  const re = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+  return re.test(inEmail);
+};
+
+forgotElem.addEventListener("click", async (e) => {
+  const email = form.email.value;
+  if (!emailReg(email)) {
+    try {
+      await confirm("Please fill valid email first");
+    } catch (error) {}
+    return;
+  }
+  const req = await fetch(`${baseUrl}/auth/forgot_requist.php?email=${email}`);
+  if (req.status == 403) {
+    try {
+      await confirm("You're not verified please try to login!");
+      location.replace("../login/");
+    } catch (error) {}
+  }
+
+  if (req.status == 401) {
+    try {
+      await confirm("Your account does not existed please try to register!");
+      location.replace("../register/");
+    } catch (error) {}
+  }
+
+  if (req.status == 409) {
+    const data = await req.json()
+    console.clear();
+    try {
+      const hour = Math.floor(data.message / 60);
+      const minute = Math.round((data.message / 60 - hour) * 60);
+      await confirm(`You can requist new code after ${hour}  hours and ${minute} minute.`);
+    } catch (error) {}
+  }
+  if (req.status == 200) {
+    location.replace("../forgot-password");
+  }
+});
 
 // to make focus on the next input when the user click enters
 inputElements.forEach((input, i) => {

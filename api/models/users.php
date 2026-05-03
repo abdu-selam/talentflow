@@ -38,6 +38,16 @@ class Users
         return $stmt->execute();
     }
 
+    public function passcode_verify($id)
+    {
+        $sql = "UPDATE " . $this->table . " SET password_token = '', password_token_created = null WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $id);
+
+        return $stmt->execute();
+    }
+
     public function crete_token($id, $token)
     {
         $sql = "UPDATE " . $this->table . " SET token = ?, token_created = ? WHERE id = ?";

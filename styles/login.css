@@ -225,6 +225,12 @@
   scale: 1;
 }
 
+.forgot__click {
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .form__choice {
   text-align: center;
   font-size: 0.8rem;

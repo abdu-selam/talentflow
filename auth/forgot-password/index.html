@@ -14,7 +14,7 @@
     <title>TalentFlow | Register</title>
 
     <script src="../../scripts/auth.js" type="module"></script>
-    <script src="../../scripts/login.js" type="module"></script>
+    <script src="../../scripts/reset.js" type="module"></script>
 
     <style>
       .loading {
@@ -118,6 +118,16 @@
             />
           </div>
           <div class="input__wrapper">
+            <label for="otp" class="form__label"> OTP </label>
+            <input
+              type="text"
+              name="otp"
+              id="otp"
+              class="form__input otp"
+              placeholder="XXX XXX"
+            />
+          </div>
+          <div class="input__wrapper">
             <label for="password" class="form__label"> Password </label>
             <div class="password__wrapper">
               <input
@@ -126,7 +136,7 @@
                 name="password"
                 id="password"
                 class="form__input password"
-                placeholder="Your password here..."
+                placeholder="Type your new password..."
               />
               <div class="input__eye">
                 <span class="active">
@@ -161,7 +171,6 @@
               <i class="fas fa-sun"></i>
             </span>
           </button>
-          <p class="forgot__click">forgot password?</p>
           <p class="form__choice">
             Don't have an account ?
             <span class="form__span">

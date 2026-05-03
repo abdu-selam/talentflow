@@ -14,4 +14,15 @@ function send_email_verification($token, $email, $fname, $lname)
     $res = $mail->send($email, "Email verification mail.", $template, $text);
     return $res;
 }
+
+function send_password_requist($token, $email, $fname, $lname)
+{
+    global $mail;
+
+    $template = prepare_forgot_tempate($token, $fname, $lname);
+    $text = prepare_forgot_text($token, $fname, $lname);
+
+    $res = $mail->send($email, "Email verification mail.", $template, $text);
+    return $res;
+}
 ?>

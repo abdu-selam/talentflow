@@ -138,6 +138,7 @@ const clickMessageItemHandler = () => {
   const messagesList = document.querySelector(".main__messages");
   const items = document.querySelectorAll(".main__messages .message__item");
   const backIcon = document.querySelector(".back__icon");
+  const textArea = document.querySelector("#message");
 
   backIcon.addEventListener("click", (e) => {
     messagesList.classList.add("active");
@@ -152,6 +153,7 @@ const clickMessageItemHandler = () => {
       }
 
       singleUserMsgHandler(msgData);
+      textArea.focus()
     });
   });
 };
