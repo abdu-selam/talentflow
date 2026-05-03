@@ -142,7 +142,7 @@ const clientReviewBldr = (data) => {
   for (const item of data) {
     let icons = "";
     for (let i = 0; i < Math.round(item.amount); i++) {
-      item += `<i class="icon__star fas fa-star"></i>`;
+      icons += `<i class="icon__star fas fa-star"></i>`;
     }
 
     const li = `

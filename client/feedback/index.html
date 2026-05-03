@@ -3,26 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../../styles/all.min.css"
-    />
+    <link rel="stylesheet" href="../../styles/all.min.css" />
     <link rel="stylesheet" href="../../styles/resets.css" />
     <link rel="stylesheet" href="../../styles/header.css" />
     <link rel="stylesheet" href="../../styles/nav.css" />
-    <link
-      rel="stylesheet"
-      href="../../styles/freelancer/freelancer-update-portfolio.css"
-    />
     <link rel="stylesheet" href="../../styles/footer.css" />
+    <link rel="stylesheet" href="../../styles//client/client-feedback.css" />
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../../favicon.png" type="image/png" />
-    <script
-      src="../../scripts/freelancer/freelancerUpdatePortfolio.js"
-      type="module"
-    ></script>
     <script src="../../scripts/nav.js" type="module"></script>
-    <script type="module" src="../../scripts/freelancer/freelancer.js"></script>
+    <script type="module" src="../../scripts/client/clientFeedback.js"></script>
+    <script type="module" src="../../scripts/client/client.js"></script>
     <style>
       .loading {
         width: 100vw;
@@ -43,7 +34,7 @@
         height: 3.5rem;
         border-radius: 50%;
         display: inline-block;
-        border-top: 4px solid #079797;
+        border-top: 4px solid hsl(180, 91%, 31%);
         border-right: 4px solid transparent;
         box-sizing: border-box;
         position: relative;
@@ -64,7 +55,7 @@
       .loading__img {
         width: 2.5rem;
         border-radius: 50%;
-        border: 2px solid #079797;
+        border: 2px solid hsl(180, 91%, 31%);
         position: absolute;
         top: 50%;
         left: 50%;
@@ -120,15 +111,9 @@
               </a>
             </li>
             <li class="aside__item">
-              <a href="./" class="aside__link active">
-                <i class="fas fa-bolt"></i>
-                Portifolio
-              </a>
-            </li>
-            <li class="aside__item">
-              <a href="../../jobs/" class="aside__link">
+              <a href="../jobs-post/" class="aside__link">
                 <i class="fas fa-briefcase"></i>
-                Find Jobs
+                Post Jobs
               </a>
             </li>
             <li class="aside__item">
@@ -156,9 +141,9 @@
               </a>
             </li>
             <li class="aside__item setting">
-              <a href="../ratings/" class="aside__link">
-                <i class="fas fa-star"></i>
-                Ratings
+              <a href="#" class="aside__link active">
+                <i class="fas fa-pen"></i>
+                Feedbacks
               </a>
             </li>
           </ul>
@@ -184,102 +169,50 @@
           </div>
         </header>
         <main class="main">
-          <h1 class="main__title">Portifolio update</h1>
-          <form class="main__portfolios">
-            <div class="input__wrapper">
-              <label for="title">Title</label>
-              <input type="text" name="title" class="item__input" id="title" />
-            </div>
-            <div class="input__wrapper">
-              <label>Starting Date</label>
-              <div class="date__inputs">
-                <input
-                  type="text"
-                  name="startday"
-                  class="item__input day"
-                  id="start_day"
-                />
-                <select class="item__input" name="startmonth" id="start_month">
-                  <option value="">Month</option>
-                  <option value="0">January</option>
-                  <option value="1">February</option>
-                  <option value="2">March</option>
-                  <option value="3">April</option>
-                  <option value="4">May</option>
-                  <option value="5">June</option>
-                  <option value="6">July</option>
-                  <option value="7">Augest</option>
-                  <option value="8">September</option>
-                  <option value="9">October</option>
-                  <option value="10">November</option>
-                  <option value="11">Desember</option>
-                </select>
-                <input
-                  type="text"
-                  name="startyear"
-                  class="item__input year"
-                  id="start_year"
-                />
-              </div>
-            </div>
-            <div class="input__wrapper">
-              <label>Ending Date</label>
-              <div class="date__inputs">
-                <input
-                  type="text"
-                  name="endday"
-                  class="item__input day"
-                  id="end_day"
-                />
-                <select class="item__input" name="endmonth" id="end_month">
-                  <option value="">Month</option>
-                  <option value="0">January</option>
-                  <option value="1">February</option>
-                  <option value="2">March</option>
-                  <option value="3">April</option>
-                  <option value="4">May</option>
-                  <option value="5">June</option>
-                  <option value="6">July</option>
-                  <option value="7">Augest</option>
-                  <option value="8">September</option>
-                  <option value="9">October</option>
-                  <option value="10">November</option>
-                  <option value="11">Desember</option>
-                </select>
-                <input
-                  type="text"
-                  name="endyear"
-                  class="item__input year"
-                  id="end_year"
-                />
-              </div>
-            </div>
-            <div class="img__wrapper">
-              <ul class="portfolio__imgs">
-               
-              </ul>
-              <input
-                type="file"
-                accept="image/*"
-                multiple
-                hidden
-                name="imgs"
-                id="img-to-add"
-              />
-              <button class="add__img">Add Images</button>
-            </div>
-            <div class="portfolio__desc">
-              <h2 class="desc__title">Description</h2>
-              <p class="caution">Make new line to start new paragraph</p>
-              <textarea name="description" class="input__desc"></textarea
-              >
-            </div>
-            <div class="item__btns">
-              <button class="item__btn update__portfolio">
-                Update Portfolio
-              </button>
-            </div>
-          </form>
+          <h1 class="main__header">Give Feedbacks.</h1>
+          <ul class="filters">
+            <li class="filter__item active">Given Ratings</li>
+            <li class="filter__item">Give Rating</li>
+          </ul>
+          <section class="wrapper active">
+            <ul class="review__list">
+              
+            </ul>
+          </section>
+          <section class="wrapper">
+            <ul class="feedback__list">
+              <li class="feedback__item">
+                <a href="">
+                  <figure class="feedback__profile">
+                    <img width="25" src="../../images/logo.webp" alt="" />
+                    <figcaption class="caption">
+                      <h2 class="name">TalentFlow</h2>
+                      <p class="uname">Talents Garden</p>
+                    </figcaption>
+                  </figure>
+                </a>
+                <div class="main__form">
+                  <div class="input__wrapper">
+                    <textarea type="text" class="message"></textarea>
+                  </div>
+                  <div class="input__wrapper">
+                    <input
+                      type="range"
+                      class="range"
+                      value="1"
+                      min="0"
+                      max="5"
+                      step="0.5"
+                    />
+                    <span class="value"> 1 </span>
+                  </div>
+                  <div class="input__wrapper">
+                    <button data-uname="system" class="btn">Send</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
         </main>
       </div>
     </div>
@@ -287,9 +220,9 @@
       <div class="footer__wrapper">
         <section class="footer__workers">
           <ul class="worker__list">
-            <li class="worker__item"><a href="../../jobs/">Brows Jobs</a></li>
+            <li class="worker__item"><a href="../jobs">Post Job</a></li>
             <li class="worker__item">
-              <a href="../profile/">Your Profile</a>
+              <a href="../profile">Your Profile</a>
             </li>
             <li class="worker__item">
               <a href="../active-jobs">Active Jobs</a>
@@ -299,13 +232,13 @@
         <section class="footer__workers">
           <ul class="worker__list">
             <li class="worker__item">
-              <a href="../portfolio/">portfolios</a>
+              <a href="../active-jobs/">Posted jobs</a>
             </li>
             <li class="worker__item">
               <a href="../messages">Check Messages</a>
             </li>
             <li class="worker__item">
-              <a href="../applications">Applications</a>
+              <a href="../applications">Applicants</a>
             </li>
           </ul>
         </section>
@@ -325,15 +258,15 @@
               <a href="tel:0901010101">Tel: 0901010101</a>
             </li>
             <li class="worker__item">
-              <a href="../../feedbacks">Feedback</a>
+              <a href="../../feedback">Feedback</a>
             </li>
           </ul>
         </section>
       </div>
       <ul class="socials__list">
         <li class="socials__item">
-          <a href="https://youtube.com/@abdu_dev_yt" target="_blank"
-            ><i class="fab footer__icon fa-youtube"></i
+          <a href="https://youtube.com/@abdu_dev_yt" target="_blank">
+            <i class="fab footer__icon fa-youtube"></i
           ></a>
         </li>
         <li class="socials__item">

@@ -41,14 +41,14 @@ const clientReviewBldr = (data) => {
   for (const item of data) {
     let icons = "";
     for (let i = 0; i < Math.round(item.amount); i++) {
-      item += `<i class="icon__star fas fa-star"></i>`;
+      icons += `<i class="icon__star fas fa-star"></i>`;
     }
 
     const li = `
       <li class="review__item">
         <figure class="review__fig">
           <img
-            src="${item.pp ? `../uploads/profiles/${item.pp}` : "../images/logo.webp"}"
+            src="${item.pp ? `../../uploads/profiles/${item.pp}` : "../../images/logo.webp"}"
             alt="${item.name} profile picture"
             class="review__pp"
             width="50"
