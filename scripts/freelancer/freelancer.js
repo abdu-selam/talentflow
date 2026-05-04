@@ -1,4 +1,4 @@
-import { baseUrl } from "../api_base.js";
+import { baseUrl, root } from "../api_base.js";
 
 const checkUser = async () => {
   const res = await fetch(`${baseUrl}/auth/me.php`);
@@ -6,10 +6,10 @@ const checkUser = async () => {
 
   if (res.status === 200) {
     if (data.message.roll == "client") {
-      location.replace("/talentflow/client");
+      location.replace(`${root}/client`);
     }
   } else {
-    location.replace("/talentflow");
+    location.replace(`${root}/`);
   }
 
   sessionStorage.setItem("uname", data.message.user_name);
@@ -21,7 +21,7 @@ const checkUser = async () => {
   username.textContent = data.message.user_name;
   email.textContent = data.message.email;
 
-  const base = location.pathname == "/talentflow/freelancer/" ? ".." : "../..";
+  const base = location.pathname == `${root}/freelancer/` ? ".." : "../..";
   if (data.message.profile) {
     profileImg.src = `${base}/uploads/profiles/${data.message.profile}`;
   } else {
