@@ -2,6 +2,7 @@
 require_once "../utils/responce.php";
 require_once "../utils/cookie.php";
 require_once "../index.php";
+require_once "../utils/validation.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "GET") {
@@ -19,9 +20,14 @@ if ($method === "GET") {
             exit;
         }
     }
+    
+    $user = null;
+    if (isset($_SESSION["user"])) {
+        $user = $users->get_user_by_username($_SESSION["user"]);
+    } else {
+        $user = get_user_by_cookie($_COOKIE["user"]);
+    }
 
-    $user_name = isset($_SESSION["user"]) ? $_SESSION["user"] : $_COOKIE["user"];
-    $user = $users->get_user_by_username($user_name);
     if (!$user) {
         $data = [
             "status" => "error",
@@ -42,9 +48,9 @@ if ($method === "GET") {
         exit;
     }
 
-    $_SESSION["user"] = $user_name;
+    $_SESSION["user"] = $user["user_name"];
     if (isset($_COOKIE["user"])) {
-        cookie_setter($user_name);
+        cookie_setter(cookieTokenGenerator($user["id"]));
     }
 
     $data = [

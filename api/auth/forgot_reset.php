@@ -62,7 +62,7 @@ if ($code != $user["password_token"]) {
 
 $_SESSION["user"] = $user["user_name"];
 if ($data["remember"]) {
-    cookie_setter($user["user_name"]);
+    cookie_setter(cookieTokenGenerator($user["id"]));
 }
 
 $hashed = password_hash($data["password"], PASSWORD_DEFAULT);

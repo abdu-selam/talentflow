@@ -33,6 +33,22 @@ function idGenerator($type)
     return $id;
 }
 
+function cookieTokenGenerator($uid)
+{
+    $chars = "abcdefghijklmnopqrstuvwxyz1234567890";
+    $len = strlen($chars);
+
+    $id = explode('-', $uid)[1] . "-";
+    for ($i=0; $i < 20; $i++) { 
+        $id .= $chars[random_int(0, $len-1)];
+        if ((($i + 1) % 4 == 0) && $i != 19) {
+            $id .= "-";
+        }
+    }
+
+    return $id;
+}
+
 function unameGenerator()
 {
     $chars = "abcdefghijklmnopqrstuvwxyz1234567890";

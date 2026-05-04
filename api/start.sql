@@ -17,7 +17,8 @@ CREATE TABLE users (
     password_token VARCHAR(6),
     token_created TIMESTAMP,
     password_token_created TIMESTAMP,
-    isVerified INT DEFAULT 0
+    isVerified INT DEFAULT 0,
+    cookie_token VARCHAR(40)
 );
 
 CREATE TABLE freelancers (

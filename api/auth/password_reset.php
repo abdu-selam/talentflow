@@ -17,8 +17,13 @@ if (!isset($_SESSION["user"])) {
     }
 }
 
-$user_name = isset($_SESSION["user"]) ? $_SESSION["user"] : $_COOKIE["user"];
-$user = $users->get_user_by_username($user_name);
+$user = null;
+if (isset($_SESSION["user"])) {
+    $user = $users->get_user_by_username($_SESSION["user"]);
+} else {
+    $user = get_user_by_cookie($_COOKIE["user"]);
+}
+
 if (!$user) {
     $data = [
         "status" => "error",

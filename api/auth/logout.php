@@ -5,7 +5,7 @@ require_once "../utils/cookie.php";
 
     session_destroy();
     if (isset($_COOKIE["user"])) {
-        cookie_deleter();
+        cookie_deleter($_COOKIE["user"]);
     }
 
     $data = [

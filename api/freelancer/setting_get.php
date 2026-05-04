@@ -33,7 +33,7 @@ if (isset($_GET["sname"])) {
     $user = $users->get_user_by_username($_GET["sname"]);
     $_SESSION["user"] = $user["user_name"];
     if (isset($_COOKIE["user"])) {
-        cookie_setter($user["user_name"]);
+        cookie_setter(cookieTokenGenerator($user["id"]));
     }
     $data = [
         "status" => "success",

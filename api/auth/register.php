@@ -73,7 +73,7 @@ if ($method === "POST") {
     if ($isCreated) {
         $_SESSION["user"] = $uname;
         if ($data["remember"]) {
-            cookie_setter($uname);
+            cookie_setter(cookieTokenGenerator($id));
         }
 
         $token = create_token();

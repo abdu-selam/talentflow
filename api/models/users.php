@@ -100,6 +100,32 @@ class Users
         return $stmt->execute();
     }
 
+    public function get_cookie($uid){
+        $user = $this->get_user_by_id($uid);
+        if ($user) {
+            return $user["cookie_token"];
+        }
+        return null;
+    }
+
+    public function set_cookie($id, $cookie){
+        $sql = "UPDATE " . $this->table . " SET cookie_token = ? WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $cookie, $id);
+
+        return $stmt->execute();
+    }
+
+    public function del_cookie($id){
+        $sql = "UPDATE " . $this->table . " SET cookie_token = ? WHERE id = ?";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", null, $id);
+
+        return $stmt->execute();
+    }
+
     public function update_password($uid, $password)
     {
         $sql = "UPDATE " . $this->table . " SET password = ? WHERE id = ?";
