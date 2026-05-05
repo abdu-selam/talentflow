@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/all.min.css?v=2" />
+    <link rel="stylesheet" href="../../styles/resets.css?v=2" />
+    <link rel="stylesheet" href="../../styles/header.css?v=2" />
+    <link rel="stylesheet" href="../../styles/nav.css?v=2" />
+    <link rel="stylesheet" href="../../styles/admin/users.css" />
+    <link
+      rel="shortcut icon"
+      href="../../favicon.ico?v=2"
+      type="image/x-icon"
+    />
+    <link rel="shortcut icon" href="../../favicon.png?v=2" type="image/png" />
+    <script src="../../scripts/admin/users.js" type="module"></script>
+    <script src="../../scripts/nav.js" type="module"></script>
+    <script type="module" src="../../scripts/admin/admin.js"></script>
+    <style>
+      .loading {
+        width: 100vw;
+        height: 100dvh;
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        z-index: 2000;
+        background: #393d3f;
+        transition: 0.5s;
+      }
+      .loading.close {
+        opacity: 0;
+      }
+      .loader {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: inline-block;
+        border-top: 4px solid hsl(180, 91%, 31%);
+        border-right: 4px solid transparent;
+        box-sizing: border-box;
+        position: relative;
+        animation: rotation 1s linear infinite;
+      }
+      .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: -4px;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border-bottom: 4px solid #fdfdff;
+        border-left: 4px solid transparent;
+      }
+      .loading__img {
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 2px solid hsl(180, 91%, 31%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: 990;
+      }
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <title>TalentFlow | Profile</title>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loader"></div>
+      <img
+        class="loading__img"
+        src="../../images/loading.webp"
+        alt="page logo for loading animation"
+      />
+    </div>
+    <div data-name="freelancer" id="app">
+      <aside class="aside">
+        <nav class="aside__nav">
+          <figure class="aside__profile">
+            <img src="" alt="logo of joab bord" class="aside__pp" width="200" />
+            <figcaption class="aside__acc">
+              <h1 class="aside__uname">User Name</h1>
+              <p class="aside__email">user_unknown1234@email.com</p>
+            </figcaption>
+          </figure>
+          <ul class="aside__list">
+            <li class="aside__item">
+              <a href="../" class="aside__link">
+                <i class="fas fa-home"></i>
+                Home
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="#" class="aside__link active">
+                <i class="fas fa-user-tie"></i>
+                Freelancers
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../clients/" class="aside__link">
+                <i class="fas fa-briefcase"></i>
+                Clients
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../jobs/" class="aside__link">
+                <i class="fas fa-hammer"></i>
+                Jobs
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../messages/" class="aside__link">
+                <i class="fas fa-message"></i>
+                Messages
+              </a>
+            </li>
+            <li class="aside__item setting">
+              <a href="../settings/" class="aside__link">
+                <i class="fas fa-gears"></i>
+                settings
+              </a>
+            </li>
+            <li class="aside__item">
+              <a href="../feedbacks/" class="aside__link">
+                <i class="fas fa-pen"></i>
+                Feedbacks
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="other">
+        <header class="header">
+          <div class="header__wrapper">
+            <figure class="header__figure">
+              <img
+                src="../../images/logo.webp"
+                alt="logo of joab bord"
+                class="header__logo"
+                width="200"
+              />
+              <figcaption class="header__caption">TalentFlow</figcaption>
+            </figure>
+            <div class="menu">
+              <div class="menu-icon"></div>
+              <div class="menu-icon"></div>
+              <div class="menu-icon"></div>
+            </div>
+          </div>
+        </header>
+        <main class="main">
+          <h1 class="main__title">Freelancers</h1>
+          <ul class="main__list">
+          </ul>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
