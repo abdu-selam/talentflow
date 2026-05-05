@@ -112,7 +112,7 @@ function newest_feedbacks()
     global $ratings;
     global $users;
 
-    $ratings_list = $ratings->get_ratings();
+    $ratings_list = $ratings->get_ratings_by_rating_type("system");
     $latest_ratings = [];
     foreach ($ratings_list as $each) {
         if ($each["rating_type"] = "system") {
