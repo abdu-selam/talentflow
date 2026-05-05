@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/all.min.css?v=2" />
+    <link
+      rel="stylesheet"
+      href="../../styles/all.min.css?v=2"
+    />
     <link rel="stylesheet" href="../../styles/resets.css?v=2" />
     <link rel="stylesheet" href="../../styles/header.css?v=2" />
     <link rel="stylesheet" href="../../styles/nav.css?v=2" />
-    <link rel="stylesheet" href="../../styles/admin/users.css" />
-    <link
-      rel="shortcut icon"
-      href="../../favicon.ico?v=2"
-      type="image/x-icon"
-    />
-    <link rel="shortcut icon" href="../../favicon.png?v=2" type="image/png" />
-    <script src="../../scripts/admin/users.js" type="module"></script>
+    <link rel="stylesheet" href="../../styles/freelancer/freelancer-profile.css?v=2" />
+    <link rel="stylesheet" href="../../styles/footer.css?v=2" />
+    <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.png?v=2" type="image/png">
+    <script src="../../scripts/freelancer/fleelancerProfile.js" type="module"></script>
     <script src="../../scripts/nav.js" type="module"></script>
     <script type="module" src="../../scripts/admin/admin.js"></script>
     <style>
@@ -85,11 +85,16 @@
         alt="page logo for loading animation"
       />
     </div>
-    <div data-name="client" id="app">
+    <div id="app">
       <aside class="aside">
         <nav class="aside__nav">
           <figure class="aside__profile">
-            <img src="" alt="logo of joab bord" class="aside__pp" width="200" />
+            <img
+              src=""
+              alt="logo of joab bord"
+              class="aside__pp"
+              width="200"
+            />
             <figcaption class="aside__acc">
               <h1 class="aside__uname">User Name</h1>
               <p class="aside__email">user_unknown1234@email.com</p>
@@ -97,7 +102,7 @@
           </figure>
           <ul class="aside__list">
             <li class="aside__item">
-              <a href="../" class="aside__link">
+              <a href="../" class="aside__link active">
                 <i class="fas fa-home"></i>
                 Home
               </a>
@@ -109,7 +114,7 @@
               </a>
             </li>
             <li class="aside__item">
-              <a href="#" class="aside__link active">
+              <a href="../clients/" class="aside__link">
                 <i class="fas fa-briefcase"></i>
                 Clients
               </a>
@@ -161,9 +166,76 @@
           </div>
         </header>
         <main class="main">
-          <h1 class="main__title">Clients</h1>
-          <ul class="main__list">
-          </ul>
+          <section class="main__pp">
+            <figure class="mainpp__fig">
+              <img
+                class="mainpp__img"
+                src="../../images/logo.webp"
+                alt="logo of he freelancer"
+                width="50"
+              />
+              <figcaption class="mainpp__caption">
+                <h1 class="mainpp__name"></h1>
+                <p class="mainpp__location">
+                  <i class="fas fa-location-dot"></i>
+                  <span class="data"></span>
+                </p>
+              </figcaption>
+            </figure>
+            <p class="mainpp__headline">
+            </p>
+            <p class="mainpp__email">
+              <i class="fas fa-envelope"></i>
+              <span class="data"></span>
+            </p>
+          </section>
+          <section class="main__about">
+            <h2 class="about__title">
+              <i class="fas fa-user"></i>
+              About Me
+            </h2>
+          </section>
+          <section class="main__skills">
+            <h2 class="skills__title">
+              <i class="fas fa-screwdriver-wrench"></i>
+              My Skills
+            </h2>
+            <section class="hard__skills">
+              <h3 class="skill__title">Hard Skills</h3>
+              <ul class="skills__list">
+                
+              </ul>
+            </section>
+            <section class="soft__skills">
+              <h3 class="skill__title">Soft Skills</h3>
+              <ul class="skills__list">
+                
+              </ul>
+            </section>
+          </section>
+          <section class="main__portfolio">
+            <h2 class="portfolios__titile">
+              <i class="fas fa-briefcase"></i>
+              My portfolios
+            </h2>
+            <ul class="portfolio__list">
+              
+            </ul>
+            <div class="item__portifolio">
+              <p class="portfolios__link portfolio">
+                <a href="../portfolio">See All Portfolios</a>
+              </p>
+              <p class="portfolios__link message">
+                <a href="../messages/">Talk to freelancer</a>
+              </p>
+              <button class="itempp__btn resume">
+                <a href="#" download="true">
+                  <i class="fas fa-file-lines"></i>
+                  Download Rusume
+                </a>
+              </button>
+            </div>
+          </section>
         </main>
       </div>
     </div>

@@ -29,7 +29,7 @@ const fetcher = async () => {
   if (data.length == 0) {
     const p = `
     <p class="no__item">
-      There Is No Active Proposal!
+      There Is No ${app.dataset.name} in TalentFlow!
     </p>
     `;
 
