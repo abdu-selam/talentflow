@@ -37,6 +37,19 @@ const fetcher = async () => {
 };
 
 const itemBldr = (data) => {
+  const clientName = document.querySelector(".job__poster .txt__wrapper");
+  const jobCount = document.querySelector(".job__poster .post__amount");
+  if (clientName) {
+  
+    const a = document.createElement("a");
+    a.href = `../freelancer/profile/client.html?client=${data.client_uname}`;
+    a.textContent = data.client;
+  
+    clientName.textContent = "";
+    clientName.append(a);
+  
+    jobCount.textContent = `${data.count} Jobs Posted`;
+  }
   const updateBtn = document.querySelector(".main__btn--head a");
   updateBtn.href = `./job-update.html?job=${data.id}`;
 

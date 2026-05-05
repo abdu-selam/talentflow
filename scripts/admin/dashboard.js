@@ -62,7 +62,7 @@ const latestUsersBldr = (data) => {
   for (const item of data) {
     const li = `
         <li class="user__item">
-        <a href="./profile/${item.roll}.html?uname=${item.uname}">
+        <a href="./profile/${item.roll}.html?${item.roll}=${item.uname}">
             <figure class="item__fig">
                 <img src="${item.pp ? `../uploads/profiles/${item.pp}` : "../images/profile.webp"}" width="60" alt="profile of ${item.uname}" class="item__pp" />
                 <figcaption class="item__caption">

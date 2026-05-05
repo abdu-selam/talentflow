@@ -268,6 +268,42 @@ if (isset($_GET["client"])) {
     exit;
 }
 
+if (isset($_GET["admin"])) {
+    if (!isset($_SESSION["user"])) {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 409);
+        exit;
+    }
+
+    $uname = $_SESSION["user"];
+    $user = $users->get_user_by_username($uname);
+
+    if (!$user || $user["roll"] != "admin") {
+        $data = [
+            "status" => "error",
+            "message" => "Un Authenticated"
+        ];
+
+        response($data, 401);
+        exit;
+    }
+
+    $job_list = $jobs->get_jobs_newest();
+    $constructed_jobs = job_list_constructor($job_list);
+
+    $data = [
+        "status" => "success",
+        "message" => $constructed_jobs
+    ];
+
+    response($data, 200);
+    exit;
+}
+
 $job_list = $jobs->get_jobs();
 $constructed_jobs = job_list_constructor($job_list);
 

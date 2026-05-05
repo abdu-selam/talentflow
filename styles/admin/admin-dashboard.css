@@ -8,8 +8,7 @@
   font-size: 1.2rem;
 }
 
-.stat__list,
-.pendings__list.users {
+.stat__list {
   display: grid;
   gap: 0.5rem;
   padding: 0.8rem;
@@ -23,15 +22,13 @@
 }
 
 @media (min-width: 30rem) {
-  .stat__list,
-  .pendings__list.users {
+  .stat__list {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 50rem) {
-  .stat__list,
-  .pendings__list.users {
+  .stat__list {
     grid-template-columns: repeat(4, 1fr);
   }
 }
