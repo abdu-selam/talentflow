@@ -42,7 +42,7 @@ const itemBldr = (data) => {
   if (clientName) {
   
     const a = document.createElement("a");
-    a.href = `../freelancer/profile/client.html?client=${data.client_uname}`;
+    a.href = `../profile/client.html?client=${data.client_uname}`;
     a.textContent = data.client;
   
     clientName.textContent = "";

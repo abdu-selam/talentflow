@@ -1,6 +1,6 @@
 import { baseUrl } from "../api_base.js";
 
-window.addEventListener("load", async() => {
+window.addEventListener("load", async () => {
   const loading = document.querySelector(".loading");
 
   await fetcher();
@@ -33,7 +33,7 @@ const fetcher = async () => {
 
   if (res.status != 200) {
     location.replace("../../");
-    return
+    return;
   }
 
   if (logic && data.roll == "freelancer") {
@@ -96,10 +96,16 @@ const jobPostBldr = (data, isFreelancer) => {
     ul.insertAdjacentHTML("beforeend", p);
     return;
   }
+  const app = document.querySelector("#app");
+  const type = app?.dataset?.name;
 
-  
   data.posted_jobs?.forEach((item) => {
-    const url = isFreelancer ? `../../jobs/job.html?job=${item.id}` : "../jobs-post/"
+    const url =
+      type == "admin"
+        ? `../jobs/job.html?job=${item.id}`
+        : isFreelancer
+          ? `../../jobs/job.html?job=${item.id}`
+          : "../jobs-post/";
 
     const li = `
       <li class="portfolio__item">
