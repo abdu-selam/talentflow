@@ -222,17 +222,20 @@ if ($method == "GET") {
             }
 
             $user = $users->get_user_by_username($_SESSION["user"]);
-            $updated_roll = $user["roll"] == "freelancer" ?
-                $freelancers->get_freelancer_by_userid($user["id"]) :
-                $clients->get_client_by_userid($user["id"]);
+            $updated_roll = null;
+            if ($user["roll"] == "freelancer") {
+                $updated_roll = $freelancers->get_freelancer_by_userid($user["id"]);
+            } elseif ($user["roll"] == "client") {
+                $updated_roll = $clients->get_client_by_userid($user["id"]);
+            }
 
             $data = [
                 "status" => "success",
                 "message" => [
                     "fname" => $user["first_name"],
                     "lname" => $user["last_name"],
-                    "address" => $updated_roll["address"],
-                    "headline" => $updated_roll["headline"],
+                    "address" => $updated_roll ? $updated_roll["address"] : null,
+                    "headline" => $updated_roll ? $updated_roll["headline"] : null,
                 ]
             ];
 

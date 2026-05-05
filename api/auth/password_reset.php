@@ -40,7 +40,7 @@ $data = json_decode($json, true);
 if (!password_verify($data["old"], $user["password"])) {
     $data = [
         "status" => "error",
-        "message" => "Invalid Cridentials"
+        "message" => "Invalid Cridentials 1"
     ];
 
     response($data, 401);
@@ -50,7 +50,7 @@ if (!password_verify($data["old"], $user["password"])) {
 if ($data["new"] != $data["confirm"]) {
     $data = [
         "status" => "error",
-        "message" => "Invalid Cridentials"
+        "message" => "Invalid Cridentials 2"
     ];
 
     response($data, 401);

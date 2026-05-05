@@ -59,7 +59,7 @@ if (!$user) {
 $roll_data = null;
 if ($user["roll"] == "client") {
     $roll_data = $clients->get_client_by_userid($user["id"]);
-} else {
+} else if ($user["roll"] == "freelancer") {
     $roll_data = $freelancers->get_freelancer_by_userid($user["id"]);
 }
 
@@ -69,8 +69,8 @@ $data = [
         "first_name" => $user["first_name"],
         "last_name" => $user["last_name"],
         "user_name" => $user["user_name"],
-        "address" => $roll_data["address"],
-        "headline" => $roll_data["headline"],
+        "address" => $roll_data ? $roll_data["address"] : null,
+        "headline" => $roll_data ? $roll_data["headline"] : null,
     ]
 ];
 

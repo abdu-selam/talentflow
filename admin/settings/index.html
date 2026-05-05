@@ -14,7 +14,6 @@
       rel="stylesheet"
       href="../../styles/freelancer/freelancer-settings.css?v=2"
     />
-    <link rel="stylesheet" href="../../styles/footer.css?v=2" />
     <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon" />
     <link rel="shortcut icon" href="../../favicon.png?v=2" type="image/png" />
     <script
@@ -22,7 +21,7 @@
       type="module"
     ></script>
     <script src="../../scripts/nav.js" type="module"></script>
-    <script type="module" src="../../scripts/client/client.js"></script>
+    <script type="module" src="../../scripts/admin/admin.js"></script>
     <style>
       .loading {
         width: 100vw;
@@ -96,7 +95,7 @@
         <nav class="aside__nav">
           <figure class="aside__profile">
             <img
-              src="../../images/logo.webp"
+              src=""
               alt="logo of joab bord"
               class="aside__pp"
               width="200"
@@ -108,39 +107,33 @@
           </figure>
           <ul class="aside__list">
             <li class="aside__item">
-              <a href="../" class="aside__link">
+              <a href="../" class="aside__link ">
                 <i class="fas fa-home"></i>
                 Home
               </a>
             </li>
             <li class="aside__item">
-              <a href="../profile/" class="aside__link">
+              <a href="../freelancers/" class="aside__link">
                 <i class="fas fa-user-tie"></i>
-                Profile
+                Freelancers
               </a>
             </li>
             <li class="aside__item">
-              <a href="../jobs-post/" class="aside__link">
+              <a href="../clients/" class="aside__link">
                 <i class="fas fa-briefcase"></i>
-                Post Jobs
+                Clients
               </a>
             </li>
             <li class="aside__item">
-              <a href="../active-jobs/" class="aside__link">
+              <a href="../jobs/" class="aside__link">
                 <i class="fas fa-hammer"></i>
-                Active Jobs
+                Jobs
               </a>
             </li>
             <li class="aside__item">
-              <a href="../applications" class="aside__link">
-                <i class="fas fa-paper-plane"></i>
-                Applications
-              </a>
-            </li>
-            <li class="aside__item">
-              <a href="../messages" class="aside__link">
+              <a href="../messages/" class="aside__link">
                 <i class="fas fa-message"></i>
-                messages
+                Messages
               </a>
             </li>
             <li class="aside__item setting">
@@ -150,7 +143,7 @@
               </a>
             </li>
             <li class="aside__item">
-              <a href="../feedback/" class="aside__link">
+              <a href="../feedbacks/" class="aside__link">
                 <i class="fas fa-pen"></i>
                 Feedbacks
               </a>
@@ -200,7 +193,7 @@
                     class="setting__input"
                   />
                 </li>
-                <li class="profile__setting">
+                <li style="display: none;" class="profile__setting">
                   <p class="setting__type">Location</p>
                   <input
                     value="Lorem, ipsum dolor."
@@ -209,7 +202,7 @@
                     class="setting__input"
                   />
                 </li>
-                <li class="profile__setting">
+                <li style="display: none;" class="profile__setting">
                   <p class="setting__type">Headline</p>
                   <input
                     value="Lorem, ipsum dolor."
@@ -339,86 +332,5 @@
         </main>
       </div>
     </div>
-    <footer class="footer">
-      <div class="footer__wrapper">
-        <section class="footer__workers">
-          <ul class="worker__list">
-            <li class="worker__item"><a href="../jobs">Post Job</a></li>
-            <li class="worker__item">
-              <a href="../profile">Your Profile</a>
-            </li>
-            <li class="worker__item">
-              <a href="../active-jobs">Active Jobs</a>
-            </li>
-          </ul>
-        </section>
-        <section class="footer__workers">
-          <ul class="worker__list">
-            <li class="worker__item">
-              <a href="../active-jobs/">Posted jobs</a>
-            </li>
-            <li class="worker__item">
-              <a href="../messages">Check Messages</a>
-            </li>
-            <li class="worker__item">
-              <a href="../applications">Applicants</a>
-            </li>
-          </ul>
-        </section>
-        <section class="footer__workers">
-          <ul class="worker__list">
-            <li class="worker__item"><a href="../../about/">About Us</a></li>
-            <li class="worker__item"><a href="#">Privacy Policy</a></li>
-            <li class="worker__item"><a href="#">Terms of Use</a></li>
-          </ul>
-        </section>
-        <section class="footer__workers">
-          <ul class="worker__list">
-            <li class="worker__item">
-              <a href="mailto:abdselam676@gmail.com">example@gmail.com</a>
-            </li>
-            <li class="worker__item">
-              <a href="tel:0901010101">Tel: 0901010101</a>
-            </li>
-            <li class="worker__item">
-              <a href="../../feedback">Feedback</a>
-            </li>
-          </ul>
-        </section>
-      </div>
-      <ul class="socials__list">
-        <li class="socials__item">
-          <a href="https://youtube.com/@abdu_dev_yt" target="_blank">
-            <i class="fab footer__icon fa-youtube"></i
-          ></a>
-        </li>
-        <li class="socials__item">
-          <a
-            href="https://linkedin.com/in/abduselam-awel-b74083385"
-            target="_blank"
-          >
-            <i class="fab footer__icon fa-linkedin"></i>
-          </a>
-        </li>
-        <li class="socials__item">
-          <a href="https://t.me/abdu_dev_tg" target="_blank"
-            ><i class="fab footer__icon fa-telegram"></i
-          ></a>
-        </li>
-        <li class="socials__item">
-          <a href="https://tiktok.com/@abdu.dev" target="_blank"
-            ><i class="fab footer__icon fa-tiktok"></i
-          ></a>
-        </li>
-      </ul>
-      <section class="footer__copy">
-        <h2 class="footer__name">TalentFlow</h2>
-        <p class="footer__copy__text">
-          &copy; <span class="footer__year">2026</span> TalentFlow. All rights
-          reserved. TalentFlow connects professionals with companies to create
-          better career opportunities.
-        </p>
-      </section>
-    </footer>
   </body>
 </html>

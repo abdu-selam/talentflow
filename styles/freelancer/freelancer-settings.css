@@ -152,4 +152,5 @@
   border-radius: 1.5rem;
   transition: 0.5s;
   background: var(--error);
+  margin-bottom: 0.8rem;
 }

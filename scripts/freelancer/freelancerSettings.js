@@ -129,6 +129,7 @@ const privacySettings = () => {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    return
   });
 
   btn.addEventListener("click", async (e) => {
