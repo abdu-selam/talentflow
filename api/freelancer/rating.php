@@ -16,7 +16,7 @@ if ($method == "GET") {
     }
 
     $user = $users->get_user_by_username($_SESSION["user"]);
-    $rating_list = rating_constructor($user["id"]);
+    $rating_list = $user["roll"] == "freelancer" ? rating_constructor($user["id"]) : rating_constructor_admin();
 
     $data = [
         "status" => "success",

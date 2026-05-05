@@ -177,6 +177,31 @@ function rating_constructor($uid)
     return $filtered;
 }
 
+function rating_constructor_admin()
+{
+    global $ratings;
+
+    $given_ratings = $ratings->get_ratings_by_rating_type("system");
+
+    $filtered = array_map(function ($rating) {
+        global $users;
+
+        $giver = $users->get_user_by_id($rating["giver_id"]);
+
+        $data = [
+            "id" => $giver["id"],
+            "user_name" => $giver["user_name"],
+            "name" => $giver["first_name"] . " " . $giver["last_name"],
+            "pp" => $giver["profile"],
+            "message" => $rating["message"],
+            "amount" => $rating["amount"],
+        ];
+        return $data;
+    }, $given_ratings);
+
+    return $filtered;
+}
+
 function portfolio_constructor($fid)
 {
     global $portfolios;
