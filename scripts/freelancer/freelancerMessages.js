@@ -231,7 +231,7 @@ const msgHeadBldr = (item) => {
   const roll = document.querySelector(".message__caption .message__type");
 
   const a = document.createElement("a");
-  a.href = `../profile/${item.roll}.html?${item.roll}=${item.uname}`;
+  a.href = item.roll != "admin" ? `../profile/${item.roll}.html?${item.roll}=${item.uname}` : "#";
   a.textContent = `${item.fname} ${item.lname}`;
 
   name.innerHTML = "";
