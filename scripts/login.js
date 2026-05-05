@@ -116,6 +116,8 @@ const submitHandle = () => {
         location.replace("../../freelancer");
       } else if (roll === "client") {
         location.replace("../../client");
+      } else if (roll === "admin") {
+        location.replace("../../admin");
       }
     }
   });

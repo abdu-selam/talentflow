@@ -188,6 +188,15 @@ class Jobs
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function get_jobs_newest()
+    {
+
+        $sql = "SELECT * FROM " . $this->table . " ORDER BY post_date DESC";
+        $result = $this->con->query($sql);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function get_fuzzy($title, $description){
     $sql = "SELECT * FROM " . $this->table . " 
             WHERE title LIKE ? OR description LIKE ?";

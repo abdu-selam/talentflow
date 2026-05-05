@@ -185,6 +185,15 @@ class Users
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function get_users_newest()
+    {
+        $sql = "SELECT * FROM " . $this->table . " ORDER BY created_at DESC";
+
+        $result = $this->con->query($sql);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>

@@ -5,17 +5,17 @@ const checkUser = async () => {
   const data = await res.json();
 
   if (res.status === 200) {
+    if (data.message.roll == "freelancer") {
+      location.replace(`${root}/freelancer`);
+    }
     if (data.message.roll == "client") {
       location.replace(`${root}/client`);
-    }
-    if (data.message.roll == "admin") {
-      location.replace(`${root}/admin`);
     }
   } else {
     location.replace(`${root}/`);
   }
 
-  sessionStorage.setItem("uname", data.message.user_name);
+  sessionStorage.setItem("uname", data.message.user_name)
 
   const profileImg = document.querySelector(".aside__pp");
   const username = document.querySelector(".aside__uname");
@@ -23,8 +23,8 @@ const checkUser = async () => {
 
   username.textContent = data.message.user_name;
   email.textContent = data.message.email;
-
-  const base = location.pathname == `${root}/freelancer/` ? ".." : "../..";
+  
+  const base = location.pathname == `${root}/admin/` ? ".." : "../..";
   if (data.message.profile) {
     profileImg.src = `${base}/uploads/profiles/${data.message.profile}`;
   } else {

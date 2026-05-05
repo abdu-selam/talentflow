@@ -88,8 +88,10 @@ const checkUser = async () => {
   if (res.status === 200) {
     if (data.message.roll == "freelancer") {
       location.replace("./freelancer");
-    } else {
+    } else if (data.message.roll == "client") {
       location.replace("./client");
+    } else if (data.message.roll == "admin") {
+      location.replace(`./admin`);
     }
   } else {
     console.clear()

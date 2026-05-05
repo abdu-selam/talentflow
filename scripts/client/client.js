@@ -8,6 +8,9 @@ const checkUser = async () => {
     if (data.message.roll == "freelancer") {
       location.replace(`${root}/freelancer`);
     }
+    if (data.message.roll == "admin") {
+      location.replace(`${root}/admin`);
+    }
   } else {
     location.replace(`${root}/`);
   }

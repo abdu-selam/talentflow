@@ -48,10 +48,9 @@ if ($method === "POST") {
     if ($user["isVerified"] == 0) {
         $diff = (time() - strtotime($user["created_at"])) / 60;
         if ($diff > 30) {
-            // $users->delete($user["id"]);
             $data = [
                 "status" => "error",
-                "message" => "Invalid Cridentials 3 " . $diff
+                "message" => "Invalid Cridentials" . $diff
             ];
 
             response($data, 401);
@@ -60,7 +59,7 @@ if ($method === "POST") {
     }
 
     $_SESSION["user"] = $user["user_name"];
-    if ($data["remember"]) {
+    if ($data["remember"] && $user["roll"] != "admin") {
         cookie_setter(cookieTokenGenerator($user["id"]));
     }
 
