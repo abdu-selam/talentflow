@@ -3,8 +3,20 @@ require_once "../utils/validation.php";
 require_once "../utils/responce.php";
 require_once "../index.php";
 require_once "../utils/cookie.php";
+require_once "../services/rate_limitter.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
+$ip = $_SERVER["REMOTE_ADDR"];
+if (!limitter($ip)) {
+    $data = [
+        "status" => "error",
+        "message" => "Rate limit exceded"
+    ];
+
+    response($data, 429);
+    exit;
+}
+
 if ($method === "POST") {
     $json = file_get_contents("php://input");
     $data = json_decode($json, true);

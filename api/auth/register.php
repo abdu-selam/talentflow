@@ -6,6 +6,17 @@ require_once "../utils/cookie.php";
 require_once "../utils/email.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
+$ip = $_SERVER["REMOTE_ADDR"];
+if (!limitter($ip)) {
+    $data = [
+        "status" => "error",
+        "message" => "Rate limit exceded"
+    ];
+
+    response($data, 429);
+    exit;
+}
+
 if ($method === "POST") {
     $json = file_get_contents("php://input");
     $data = json_decode($json, true);
