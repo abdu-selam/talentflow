@@ -4,6 +4,7 @@ require_once "../utils/responce.php";
 require_once "../index.php";
 require_once "../utils/cookie.php";
 require_once "../utils/email.php";
+require_once "../services/rate_limitter.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 $ip = $_SERVER["REMOTE_ADDR"];

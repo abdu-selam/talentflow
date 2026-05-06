@@ -36,7 +36,7 @@ function limitter($ip) {
 
     $diff = time() - $data[$ip][0];
     $limit = 60 * 5;
-    if (count($data[$ip]) == 5) {
+    if (count($data[$ip]) == 15) {
         if ($diff < $limit) {
             return false;
         }
