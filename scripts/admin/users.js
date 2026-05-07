@@ -52,7 +52,7 @@ const userElemBldr = (item) => {
         <a href="../profile/${item.roll}.html?${item.roll}=${item.uname}">
             <figure class="item__fig">
                 <img
-                src="${item.pp ? `../../uploads/profile/${item.pp}` : "../../images/profile.webp"}"
+                src="${item.pp ? `../../uploads/profiles/${item.pp}` : "../../images/profile.webp"}"
                 alt="profile of ${item.uname}"
                 class="item__logo"
                 width="50"
@@ -69,7 +69,7 @@ const userElemBldr = (item) => {
         </div>
         <div class="item__type">
             <p class="text">Created At</p>
-            <p class="result">March 20, 2025</p>
+            <p class="result">${dateFormatter(item.date)}</p>
         </div>
         <div class="item__btns">
             <a href="../messages/index.html?id=${item.uname}" class="item__btn">Message</a>
@@ -79,6 +79,19 @@ const userElemBldr = (item) => {
 `;
 
   ul.insertAdjacentHTML("beforeend", li);
+};
+
+
+const dateFormatter = (dateStr) => {
+  const date = new Date(dateStr.replace(" ", "T"));
+
+  const formatted = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  return formatted;
 };
 
 const deleteUser = () => {

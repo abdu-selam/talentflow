@@ -50,12 +50,14 @@ forgotElem.addEventListener("click", async (e) => {
   }
 
   if (req.status == 409) {
-    const data = await req.json()
+    const data = await req.json();
     console.clear();
     try {
       const hour = Math.floor(data.message / 60);
       const minute = Math.round((data.message / 60 - hour) * 60);
-      await confirm(`You can requist new code after ${hour}  hours and ${minute} minute.`);
+      await confirm(
+        `You can requist new code after ${hour}  hours and ${minute} minute.`,
+      );
     } catch (error) {}
   }
   if (req.status == 200) {
@@ -110,6 +112,8 @@ const submitHandle = () => {
         await confirm("Verification code has been sent! check your email.");
       } catch (error) {}
       codeRequiester();
+    } else if (status === 429) {
+      alert("You have rished 5 minutes trial! try after five minutes.");
     } else {
       const roll = res?.message?.roll;
       if (roll === "freelancer") {

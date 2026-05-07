@@ -205,6 +205,8 @@ const submitHandle = () => {
       );
     } else if (status === 500) {
       alert("The server is in trouble try after a while");
+    } else if (status === 429) {
+      alert("You have rished 5 minutes trial! try after five minutes.");
     } else {
       location.replace("../verify-email");
     }
